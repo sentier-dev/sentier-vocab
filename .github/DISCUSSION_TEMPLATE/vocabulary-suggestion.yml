@@ -1,0 +1,44 @@
+title: "(Add your new vocabulary suggestion here!)"
+labels: ["Suggest a New Vocabulary Catalogue"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Vocabulary name
+      description: "What is the full name of this vocabulary"
+      value: |
+        ...
+    validations:
+      required: true
+  - type: input
+    id: homepage
+    attributes:
+      label: Vocabulary Homepage URL
+      description: "Provide the URL to the vocabulary homepage"
+      value: |
+        ...
+    validations:
+      required: true
+  - type: input
+    id: data_source_url
+    attributes:
+      label: Vocabulary Data Source URL
+      description: "Provide the URL to get data source"
+      value: |
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justify this Vocabulary Choice
+      description: "Justify the choice of this specific vocabulary. Ideally, provide a link to a discussion on missing terms. Include alternatives where applicable. Include factors like community acceptance, update frequency, coverage, and easy of use."
+    validations:
+      required: true
+  - type: textarea
+    id: importing
+    attributes:
+      label: Importing the Vocabulary Data
+      description: "Describe what would be needed to import and link this data. What format is it available in, does it link to existing vocabularies, is the data available via API or file download?"
+    validations:
+      required: true

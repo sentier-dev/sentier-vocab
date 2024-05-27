@@ -1,0 +1,10 @@
+title: "(Add a title for this discussion)"
+labels: ["Start a new topic on supporting, normalizing, consuming from, or being in better agreement with the semantic web"]
+body:
+  - type: textarea
+    id: comment
+    attributes:
+      label: Describe the need, possibility, idea, or proposal
+      description: "Describe what you want to discuss in an appropriate amount of detail."
+    validations:
+      required: true

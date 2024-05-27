@@ -1,0 +1,26 @@
+title: "(Are we missing a major category of terms? Tell us about it!)"
+labels: ["Suggest a category of products or processes where we need better terms or more detail"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Missing taxonomy area
+      description: "What area needs a better taxonomy (terms and vocabularies). One are per discussion."
+      value: |
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justify the need to invest resources and add complexity
+      description: "Adding any taxonomy with one or more vocabularies costs resources and adds complexity to the glossary. In most cases this is justified, as the general categories in NACE or CN are not specific enough to support accurate comparisons. Please justify why such additions make sense in this case."
+    validations:
+      required: true
+  - type: textarea
+    id: comment
+    attributes:
+      label: Any other context
+      description: "Is there anything else we should know about this area or the available alternatives?"
+    validations:
+      required: true

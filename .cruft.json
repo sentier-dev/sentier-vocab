@@ -1,0 +1,24 @@
+{
+  "template": "https://github.com/sentier-dev/python-template.git",
+  "commit": "b17ac4cdb5bb79275419e2563a68a09219717369",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Chris Mutel",
+      "email": "chris@d-d-s.ch",
+      "github_username": "sentier-dev",
+      "project_name": "sentier_vocab",
+      "package_name": "sentier_vocab",
+      "project_short_description": "The data processing scripts and configuration to build the Sentier.dev vocabulary",
+      "version": "0.0.1",
+      "use_pytest": "y",
+      "open_source_license": "MIT",
+      "copyright_year": "2024",
+      "_copy_without_render": [
+        ".github/*"
+      ],
+      "_template": "https://github.com/sentier-dev/python-template.git"
+    }
+  },
+  "directory": null
+}

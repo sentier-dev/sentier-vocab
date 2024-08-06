@@ -1,0 +1,288 @@
+import json
+from collections import defaultdict
+from functools import lru_cache
+from pathlib import Path
+from zipfile import ZipFile
+
+import requests
+import skosify
+from loguru import logger
+from rdflib import Graph, Literal, Namespace, URIRef
+from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS
+
+from sentier_vocab.errors import GraphFilterError, MissingDimensionVector
+from sentier_vocab.utils import get_one_in_graph, streaming_download
+
+VAEM = Namespace("http://www.linkedmodel.org/schema/vaem")
+# TODO: Get version through file inspection
+QUDTS = Namespace("http://qudt.org/schema/qudt/")
+QUDTV = Namespace("http://qudt.org/vocab/")
+QK = QUDTV.quantitykind
+
+
+selected_fp = Path(__file__).parent / "data" / "selected-quantity-kinds.json"
+
+
+class QUDT:
+    def __init__(self, filepath: Path | None = None, default_lang: str = "en"):
+        self.default_lang = default_lang
+        self.selected_qk = {URIRef(k): v for k, v in json.load(open(selected_fp)).items()}
+        self.zipped = ZipFile(open(filepath or self.download_qudt(), "rb"))
+        self.graph = Graph()
+        self.zipfile_prefix = self.get_zipfile_prefix()
+        concept_scheme = self.add_concept_scheme()
+        mapping = self.add_quantity_kinds(concept_scheme)
+        self.add_units(concept_scheme, mapping)
+        self.skosify_checks()
+
+    def download_qudt(self) -> Path:
+        return streaming_download(
+            requests.get(
+                "https://api.github.com/repos/qudt/qudt-public-repo/releases/latest"
+            ).json()["zipball_url"],
+        )
+
+    def get_zipfile_prefix(self) -> str:
+        prefix = set()
+
+        for zipinfo in self.zipped.infolist():
+            prefix.add(zipinfo.filename.split("/")[0])
+
+        assert len(prefix) == 1
+        return prefix.pop()
+
+    def get_graph_for_file(self, path: str) -> Graph:
+        for zipinfo in self.zipped.infolist():
+            if zipinfo.filename.startswith(self.zipfile_prefix + path):
+                return Graph().parse(self.zipped.open(zipinfo.filename))
+        raise KeyError
+
+    def write_graph(self, filename: str, dirpath: Path | None = None) -> Path:
+        if not filename.endswith(".ttl"):
+            filename += ".ttl"
+        if not dirpath:
+            dirpath = Path.cwd()
+        self.graph.serialize(destination=Path(dirpath) / filename)
+
+    def skosify_checks(self):
+        skosify.infer.skos_related(self.graph)
+        skosify.infer.skos_topConcept(self.graph)
+        skosify.infer.skos_hierarchical(self.graph, narrower=True)
+        skosify.infer.skos_transitive(self.graph, narrower=True)
+        # skosify.infer.rdfs_classes(self.graph)
+        # skosify.infer.rdfs_properties(self.graph)
+
+    def add_concept_scheme(self) -> URIRef:
+        schema_graph = self.get_graph_for_file("/schema/SCHEMA_QUDT-v")
+        ontology = get_one_in_graph(schema_graph, ((None, RDF.type, OWL.Ontology)))[0]
+        graph_metdata_node = get_one_in_graph(
+            schema_graph, (ontology, VAEM["#hasGraphMetadata"], None)
+        )[2]
+
+        CS = URIRef("https://vocab.sentier.dev/qudt/")
+        self.graph.add((CS, RDF.type, SKOS.ConceptScheme))
+        self.graph.add(
+            (
+                CS,
+                SKOS.prefLabel,
+                self.as_language_aware_literal(
+                    get_one_in_graph(schema_graph, (ontology, RDFS.label, None))[2]
+                ),
+            )
+        )
+
+        for s, p, o in schema_graph.triples((graph_metdata_node, None, None)):
+            if p.startswith(DCTERMS) and p not in [DCTERMS.title]:
+                self.graph.add((CS, p, o))
+
+        return CS
+
+    def as_language_aware_literal(self, obj: Literal) -> Literal:
+        if not obj.language:
+            return Literal(obj, lang=self.default_lang)
+        else:
+            return obj
+
+    def get_identifier(self, uri: URIRef) -> str:
+        return uri.split("/")[-1]
+
+    def deprecated(self, graph: Graph, key: URIRef) -> bool:
+        return any(graph.triples((key, DCTERMS.isReplacedBy, None)))
+
+    def check_that_deprecated_have_replaced_by(self, graph: Graph, kind: str) -> bool:
+        # Note that it doesn't work the other way...
+        replaced = {
+            s for s, p, o in graph.triples((None, DCTERMS.isReplacedBy, None)) if s.startswith(kind)
+        }
+        deprecated = {
+            s for s, p, o in graph.triples((None, QUDTS.deprecated, None)) if s.startswith(kind)
+        }
+        return deprecated.difference(replaced)
+
+    def add_quantity_kinds(self, cs: URIRef) -> dict[URIRef, URIRef]:
+        qk_graph = self.get_graph_for_file("/vocab/quantitykinds/VOCAB_QUDT-QUANTITY-KINDS-ALL-v")
+        assert not self.check_that_deprecated_have_replaced_by(qk_graph, QK)
+
+        qk_mapping = {
+            s: URIRef("https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s))
+            for s, p, o in qk_graph
+            if s in self.selected_qk
+            and s.startswith(QK)
+            and not any(qk_graph.triples((s, DCTERMS.isReplacedBy, None)))
+        }
+
+        qk_mapping = {
+            s: URIRef("https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s))
+            for s, p, o in qk_graph
+            if URIRef(s) in self.selected_qk
+            and s.startswith(QK)
+            and not any(qk_graph.triples((s, DCTERMS.isReplacedBy, None)))
+        }
+
+        for key_uri, value_uri in qk_mapping.items():
+            self.graph.add((value_uri, RDF.type, SKOS.Concept))
+            self.graph.add((value_uri, SKOS.inScheme, cs))
+            self.graph.add((value_uri, SKOS.exactMatch, key_uri))
+            self.graph.add(
+                (
+                    value_uri,
+                    QUDTS.hasDimensionVector,
+                    get_one_in_graph(qk_graph, (key_uri, QUDTS.hasDimensionVector, None))[2],
+                )
+            )
+            for s, v, o in qk_graph.triples((key_uri, SKOS.broader, None)):
+                if o in self.selected_qk:
+                    self.graph.add((qk_mapping[s], SKOS.broader, qk_mapping[o]))
+                    self.graph.add((qk_mapping[o], SKOS.narrower, qk_mapping[s]))
+            for s, v, o in qk_graph.triples((key_uri, RDFS.label, None)):
+                self.graph.add((value_uri, SKOS.prefLabel, self.as_language_aware_literal(o)))
+
+            verb_mapping = {
+                DCTERMS.description: SKOS.definition,
+                QUDTS.symbol: SKOS.altLabel,
+                QUDTS.dbpediaMatch: SKOS.related,
+                QUDTS.iec61360Code: SKOS.altLabel,
+                QUDTS.informativeReference: QUDTS.informativeReference,
+                QUDTS.isoNormativeReference: QUDTS.isoNormativeReference,
+                QUDTS.latexDefinition: QUDTS.latexDefinition,
+                QUDTS.latexSymbol: QUDTS.latexSymbol,
+                QUDTS.siExactMatch: SKOS.exactMatch,
+                RDFS.comment: SKOS.note,
+                QUDTS.plainTextDescription: SKOS.note,
+                RDFS.seeAlso: SKOS.related,
+            }
+
+            for s, v, o in qk_graph.triples((key_uri, None, None)):
+                try:
+                    self.graph.add((value_uri, verb_mapping[v], o))
+                except KeyError:
+                    pass
+
+        return qk_mapping
+
+    def check_all_units_have_vector(self, graph: Graph) -> None:
+        all_units = {s for s, p, o in graph.triples((None, None, None)) if s.startswith(QUDTV.unit)}
+        with_dimension_vector = {
+            s
+            for s, p, o in graph.triples((None, QUDTS.hasDimensionVector, None))
+            if s.startswith(QUDTV.unit)
+        }
+        if all_units.difference(with_dimension_vector):
+            raise MissingDimensionVector
+
+    @lru_cache(maxsize=1024)
+    def is_unitary(self, graph: Graph, uri: URIRef) -> bool:
+        try:
+            return (
+                float(get_one_in_graph(graph, ((uri, QUDTS.conversionMultiplier, None)))[2]) == 1.0
+            )
+        except GraphFilterError:
+            logger.trace("No conversion multiplier for {u}", u=uri)
+            return False
+
+    def add_units(self, cs: URIRef, qk_mapping: dict[URIRef, URIRef]) -> None:
+        unit_graph = self.get_graph_for_file("/vocab/unit/VOCAB_QUDT-UNITS-ALL-v")
+        self.check_all_units_have_vector(unit_graph)
+
+        unit_mapping = {
+            s: URIRef("https://vocab.sentier.dev/qudt/unit" + str(s).replace(QUDTV.unit, ""))
+            for s, p, o in unit_graph.triples((None, QUDTS.hasQuantityKind, None))
+            if o in self.selected_qk and not any(unit_graph.triples((s, QUDTS.deprecated, None)))
+        }
+
+        # This is just terrible O(nonsense) code...
+        top_level = {
+            key: uri_v
+            for key, value in self.selected_qk.items()
+            for uri_k, uri_v in unit_mapping.items()
+            if self.get_identifier(uri_k) == value
+        }
+
+        for key_uri, value_uri in unit_mapping.items():
+            self.add_unit(uri=value_uri, unit_graph=unit_graph, cs=cs, qudt_uri=key_uri)
+
+            for quantity_kind in unit_graph.triples((key_uri, QUDTV.hasQuantityKind, None)):
+                if top_level[quantity_kind] == value_uri:
+                    self.graph.add((value_uri, SKOS.broader, qk_mapping[quantity_kind]))
+                    self.graph.add((qk_mapping[quantity_kind], SKOS.narrower, value_uri))
+                else:
+                    self.graph.add((value_uri, SKOS.broader, top_level[quantity_kind]))
+                    self.graph.add((top_level[quantity_kind], SKOS.narrower, value_uri))
+
+    def add_unit(self, uri: URIRef, unit_graph: Graph, cs: URIRef, qudt_uri: URIRef) -> None:
+        self.graph.add((uri, RDF.type, SKOS.Concept))
+        self.graph.add((uri, SKOS.inScheme, cs))
+        self.graph.add((uri, SKOS.exactMatch, qudt_uri))
+        self.graph.add(
+            (
+                uri,
+                QUDTS.hasDimensionVector,
+                get_one_in_graph(unit_graph, (qudt_uri, QUDTS.hasDimensionVector, None))[2],
+            )
+        )
+
+        for s, v, o in unit_graph.triples((uri, RDFS.label, None)):
+            self.graph.add((uri, SKOS.prefLabel, self.as_language_aware_literal(o)))
+
+        verb_mapping = {
+            DCTERMS.description: SKOS.definition,
+            QUDTS.plainTextDescription: SKOS.note,
+            QUDTS.conversionMultiplier: QUDTS.conversionMultiplier,
+            QUDTS.conversionMultiplierSN: QUDTS.conversionMultiplierSN,
+            QUDTS.symbol: SKOS.notation,
+            QUDTS.dbpediaMatch: SKOS.related,
+            QUDTS.iec61360Code: SKOS.notation,
+            QUDTS.uneceCommonCode: SKOS.notation,
+            QUDTS.ucumCode: SKOS.notation,
+            QUDTS.uneceCommonCode: SKOS.notation,
+            QUDTS.informativeReference: QUDTS.informativeReference,
+            QUDTS.isoNormativeReference: QUDTS.isoNormativeReference,
+            QUDTS.latexDefinition: QUDTS.latexDefinition,
+            QUDTS.latexSymbol: QUDTS.latexSymbol,
+            QUDTS.siExactMatch: SKOS.exactMatch,
+            RDFS.comment: SKOS.note,
+            QUDTS.plainTextDescription: SKOS.note,
+            RDFS.seeAlso: SKOS.related,
+            QUDTS.applicableSystem: QUDTS.applicableSystem,
+        }
+        own_type = {
+            QUDTS.symbol,
+            QUDTS.iec61360Code,
+            QUDTS.uneceCommonCode,
+            QUDTS.ucumCode,
+            QUDTS.uneceCommonCode,
+        }
+
+        for s, v, o in unit_graph.triples((qudt_uri, None, None)):
+            try:
+                verb = verb_mapping[v]
+                if v in own_type:
+                    self.graph.add((uri, verb, Literal(o, datatype=v)))
+                else:
+                    self.graph.add((uri, verb, o))
+            except KeyError:
+                pass
+
+
+if __name__ == "__main__":
+    QUDT()

@@ -35,6 +35,10 @@ class QUDT:
         self.add_units(concept_scheme, mapping)
         self.skosify_checks()
 
+    def add(self, triple: tuple) -> None:
+        # Convenient place to put logging or debug checks
+        self.graph.add(triple)
+
     def download_qudt(self) -> Path:
         return streaming_download(
             requests.get(
@@ -65,7 +69,7 @@ class QUDT:
         self.graph.serialize(destination=Path(dirpath) / filename)
 
     def skosify_checks(self):
-        skosify.infer.skos_related(self.graph)
+        # skosify.infer.skos_related(self.graph)
         skosify.infer.skos_topConcept(self.graph)
         skosify.infer.skos_hierarchical(self.graph, narrower=True)
         skosify.infer.skos_transitive(self.graph, narrower=True)
@@ -80,8 +84,8 @@ class QUDT:
         )[2]
 
         CS = URIRef("https://vocab.sentier.dev/qudt/")
-        self.graph.add((CS, RDF.type, SKOS.ConceptScheme))
-        self.graph.add(
+        self.add((CS, RDF.type, SKOS.ConceptScheme))
+        self.add(
             (
                 CS,
                 SKOS.prefLabel,
@@ -93,15 +97,21 @@ class QUDT:
 
         for s, p, o in schema_graph.triples((graph_metdata_node, None, None)):
             if p.startswith(DCTERMS) and p not in [DCTERMS.title]:
-                self.graph.add((CS, p, o))
+                self.add((CS, p, o))
 
         return CS
 
-    def as_language_aware_literal(self, obj: Literal) -> Literal:
+    def as_language_aware_literal(self, obj: Literal, en_title: bool = False) -> Literal:
         if not obj.language:
-            return Literal(obj, lang=self.default_lang)
+            if en_title and self.default_lang.lower().startswith("en"):
+                return Literal(str(obj).title(), lang=self.default_lang)
+            else:
+                return Literal(obj, lang=self.default_lang)
         else:
-            return obj
+            if en_title and obj.language.lower().startswith("en"):
+                return Literal(str(obj).title(), lang=obj.language)
+            else:
+                return obj
 
     def get_identifier(self, uri: URIRef) -> str:
         return uri.split("/")[-1]
@@ -140,10 +150,10 @@ class QUDT:
         }
 
         for key_uri, value_uri in qk_mapping.items():
-            self.graph.add((value_uri, RDF.type, SKOS.Concept))
-            self.graph.add((value_uri, SKOS.inScheme, cs))
-            self.graph.add((value_uri, SKOS.exactMatch, key_uri))
-            self.graph.add(
+            self.add((value_uri, RDF.type, SKOS.Concept))
+            self.add((value_uri, SKOS.inScheme, cs))
+            self.add((value_uri, SKOS.exactMatch, key_uri))
+            self.add(
                 (
                     value_uri,
                     QUDTS.hasDimensionVector,
@@ -152,10 +162,10 @@ class QUDT:
             )
             for s, v, o in qk_graph.triples((key_uri, SKOS.broader, None)):
                 if o in self.selected_qk:
-                    self.graph.add((qk_mapping[s], SKOS.broader, qk_mapping[o]))
-                    self.graph.add((qk_mapping[o], SKOS.narrower, qk_mapping[s]))
+                    self.add((qk_mapping[s], SKOS.broader, qk_mapping[o]))
+                    self.add((qk_mapping[o], SKOS.narrower, qk_mapping[s]))
             for s, v, o in qk_graph.triples((key_uri, RDFS.label, None)):
-                self.graph.add((value_uri, SKOS.prefLabel, self.as_language_aware_literal(o)))
+                self.add((value_uri, SKOS.prefLabel, self.as_language_aware_literal(o, en_title=True)))
 
             verb_mapping = {
                 DCTERMS.description: SKOS.definition,
@@ -174,7 +184,7 @@ class QUDT:
 
             for s, v, o in qk_graph.triples((key_uri, None, None)):
                 try:
-                    self.graph.add((value_uri, verb_mapping[v], o))
+                    self.add((value_uri, verb_mapping[v], o))
                 except KeyError:
                     pass
 
@@ -225,17 +235,17 @@ class QUDT:
                 if quantity_kind not in top_level:
                     continue
                 if top_level[quantity_kind] == value_uri:
-                    self.graph.add((value_uri, SKOS.broader, qk_mapping[quantity_kind]))
-                    self.graph.add((qk_mapping[quantity_kind], SKOS.narrower, value_uri))
+                    self.add((value_uri, SKOS.broader, qk_mapping[quantity_kind]))
+                    self.add((qk_mapping[quantity_kind], SKOS.narrower, value_uri))
                 else:
-                    self.graph.add((value_uri, SKOS.broader, top_level[quantity_kind]))
-                    self.graph.add((top_level[quantity_kind], SKOS.narrower, value_uri))
+                    self.add((value_uri, SKOS.broader, top_level[quantity_kind]))
+                    self.add((top_level[quantity_kind], SKOS.narrower, value_uri))
 
     def add_unit(self, uri: URIRef, unit_graph: Graph, cs: URIRef, qudt_uri: URIRef) -> None:
-        self.graph.add((uri, RDF.type, SKOS.Concept))
-        self.graph.add((uri, SKOS.inScheme, cs))
-        self.graph.add((uri, SKOS.exactMatch, qudt_uri))
-        self.graph.add(
+        self.add((uri, RDF.type, SKOS.Concept))
+        self.add((uri, SKOS.inScheme, cs))
+        self.add((uri, SKOS.exactMatch, qudt_uri))
+        self.add(
             (
                 uri,
                 QUDTS.hasDimensionVector,
@@ -243,8 +253,8 @@ class QUDT:
             )
         )
 
-        for s, v, o in unit_graph.triples((uri, RDFS.label, None)):
-            self.graph.add((uri, SKOS.prefLabel, self.as_language_aware_literal(o)))
+        for s, v, o in unit_graph.triples((qudt_uri, RDFS.label, None)):
+            self.add((uri, SKOS.prefLabel, self.as_language_aware_literal(o)))
 
         verb_mapping = {
             DCTERMS.description: SKOS.definition,
@@ -279,9 +289,9 @@ class QUDT:
             try:
                 verb = verb_mapping[v]
                 if v in own_type:
-                    self.graph.add((uri, verb, Literal(o, datatype=v)))
+                    self.add((uri, verb, Literal(o, datatype=v)))
                 else:
-                    self.graph.add((uri, verb, o))
+                    self.add((uri, verb, o))
             except KeyError:
                 pass
 

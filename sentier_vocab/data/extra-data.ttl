@@ -1,6 +1,8 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -19,3 +21,43 @@
         "[Btu_Th].[kg]-1"^^ns1:ucumCode,
         "[Btu_Th]/[kg]"^^ns1:ucumCode;
     skos:prefLabel "British Thermal Unit (thermochemical definition) per Kilogram"@en .
+
+<https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea> a skos:Concept ;
+  dcterms:description "\"Time per Area\" is a measure of the time spent per unit area; commonly user for farming."^^qudt:LatexString ;
+  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> ;
+  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/HR-PER-HA> ;
+  qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Time per Area"@en ;
+.
+
+<https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS> ;
+    ns1:conversionMultiplier 1.0 ;
+    ns1:conversionMultiplierSN 1e+00 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea> ;
+    skos:definition "Second per square metre"^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "s/m²"^^ns1:symbol,
+        "s.m-2"^^ns1:ucumCode ;
+    skos:prefLabel "Second per square metre"@en .
+
+<https://vocab.sentier.dev/qudt/unit/HR-PER-HA> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS> ;
+    ns1:conversionMultiplier 0.36 ;
+    ns1:conversionMultiplierSN 0.36e-1 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> ;
+    skos:definition "Hours per hectare"^^xsd:string ;
+    skos:exactMatch <https://glossary.ecoinvent.org/ids/65876125-e153-4f27-9e2d-8d6edfde9ab6> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "h/ha"^^ns1:symbol,
+        "h.har-1"^^ns1:ucumCode ;
+    skos:prefLabel "Hours per hectare"@en .
+
+<https://vocab.sentier.dev/qudt/unit/DAY> skos:exactMatch <https://glossary.ecoinvent.org/ids/05af3809-c874-4611-a6e9-6c296385ec5d> .
+<https://vocab.sentier.dev/qudt/unit/NUM> skos:exactMatch <https://glossary.ecoinvent.org/ids/577e242a-461f-44a7-922c-d8e1c3d2bf45> .
+<https://vocab.sentier.dev/qudt/unit/GM-PER-MOL> skos:exactMatch <https://glossary.ecoinvent.org/ids/f271f103-ec6d-428b-bbc7-f0f2adf91d4f> .
+<https://vocab.sentier.dev/qudt/unit/HA> skos:exactMatch <https://glossary.ecoinvent.org/ids/86bbe475-8a8f-44d8-914c-e398787e7121> .
+<https://vocab.sentier.dev/qudt/unit/HR> skos:exactMatch <https://glossary.ecoinvent.org/ids/e32b56ef-fa80-4487-9796-f3c1476c27b3> .

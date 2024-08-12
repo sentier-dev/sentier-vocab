@@ -1,6 +1,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -404,6 +405,17 @@ In such cases, alternative measurement strategies might be required to obtain
         <https://vocab.sentier.dev/qudt/unit/K-PER-M> ;
     skos:note "The temperature gradient measures the difference of a temperature per length, as for instance used in an external wall or its layers. It is usually measured in K/m." ;
     skos:prefLabel "Temperature Gradient"@en .
+
+<https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea> a skos:Concept ;
+    rdfs:label "Time per Area"@en ;
+    dcterms:description "\"Time per Area\" is a measure of the time spent per unit area; commonly user for farming."^^ns1:LatexString ;
+    ns1:applicableUnit <https://vocab.sentier.dev/qudt/unit/HR-PER-HA>,
+        <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
+    rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+    skos:narrower <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/HR-PER-HA>,
+        <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/VolumePerArea> a skos:Concept ;
     ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M0H0T0D0> ;
@@ -2065,6 +2077,25 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^ns1:LatexString ;
     skos:note "0.01-fold of the CGS unit of the dynamic viscosity poise divided by the unit of the pressure bar" ;
     skos:prefLabel "Centipoise per Bar"@en .
 
+<https://vocab.sentier.dev/qudt/unit/Ci> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS> ;
+    ns1:conversionMultiplier 37000000000.0 ;
+    ns1:conversionMultiplierSN 3.7e+10 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    ns1:informativeReference "http://en.wikipedia.org/wiki/Curie?oldid=495080313"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "The curie (symbol Ci) is a non-SI unit of radioactivity, named after Marie and Pierre Curie. It is defined as $1Ci = 3.7 \\times 10^{10} decays\\ per\\ second$. Its continued use is discouraged. One Curie is roughly the activity of 1 gram of the radium isotope Ra, a substance studied by the Curies. The SI derived unit of radioactivity is the becquerel (Bq), which equates to one decay per second. Therefore: $1Ci = 3.7 \\times 10^{10} Bq= 37 GBq$ and $1Bq \\equiv 2.703 \\times 10^{-11}Ci $."^^ns1:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/Ci> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAA138"^^ns1:iec61360Code,
+        "Ci"^^ns1:symbol,
+        "Ci"^^ns1:ucumCode,
+        "CUR"^^ns1:uneceCommonCode ;
+    skos:prefLabel "Curie"@en ;
+    skos:related "http://dbpedia.org/resource/Curie"^^xsd:anyURI .
+
 <https://vocab.sentier.dev/qudt/unit/DAY> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
         <http://qudt.org/vocab/sou/CGS-EMU>,
@@ -2081,6 +2112,7 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^ns1:LatexString ;
         <https://vocab.sentier.dev/qudt/unit/SEC> ;
     skos:definition "Mean solar day"^^rdf:HTML ;
     skos:exactMatch <http://qudt.org/vocab/unit/DAY>,
+        <https://glossary.ecoinvent.org/ids/05af3809-c874-4611-a6e9-6c296385ec5d>,
         <https://si-digital-framework.org/SI/units/day> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "0112/2///62720#UAA407"^^ns1:iec61360Code,
@@ -4686,6 +4718,26 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "G14"^^ns1:uneceCommonCode ;
     skos:prefLabel "gram per cubic metre bar"@en .
 
+<https://vocab.sentier.dev/qudt/unit/GM-PER-MOL> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/SI> ;
+    ns1:conversionMultiplier 0.001 ;
+    ns1:conversionMultiplierSN 1e-03 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A-1E0L0I0M1H0T0D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-MOL> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/MolarMass>,
+        <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-MOL> ;
+    skos:definition "0.01-fold of the SI base unit kilogram divided by the SI base unit mol"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/GM-PER-MOL>,
+        <https://glossary.ecoinvent.org/ids/f271f103-ec6d-428b-bbc7-f0f2adf91d4f> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAA496"^^ns1:iec61360Code,
+        "g/mol"^^ns1:symbol,
+        "g.mol-1"^^ns1:ucumCode,
+        "g/mol"^^ns1:ucumCode,
+        "A94"^^ns1:uneceCommonCode ;
+    skos:note "0.01-fold of the SI base unit kilogram divided by the SI base unit mol" ;
+    skos:prefLabel "Gram per Mole"@en .
+
 <https://vocab.sentier.dev/qudt/unit/GM-PER-MilliL> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
         <http://qudt.org/vocab/sou/CGS-EMU>,
@@ -4940,6 +4992,29 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:notation "0112/2///62720#UAB639"^^ns1:iec61360Code,
         "GA"^^ns1:symbol ;
     skos:prefLabel "gigaampere"@en .
+
+<https://vocab.sentier.dev/qudt/unit/GigaBQ> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
+        <http://qudt.org/vocab/sou/CGS-EMU>,
+        <http://qudt.org/vocab/sou/CGS-GAUSS>,
+        <http://qudt.org/vocab/sou/IMPERIAL>,
+        <http://qudt.org/vocab/sou/SI>,
+        <http://qudt.org/vocab/sou/USCS> ;
+    ns1:conversionMultiplier 1000000000.0 ;
+    ns1:conversionMultiplierSN 1e+09 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "1,000,000,000-fold of the derived SI unit becquerel"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/GigaBQ> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAB047"^^ns1:iec61360Code,
+        "GBq"^^ns1:symbol,
+        "GBq"^^ns1:ucumCode,
+        "GBQ"^^ns1:uneceCommonCode ;
+    skos:note "1 000 000 000-fold of the derived SI unit becquerel" ;
+    skos:prefLabel "Gigabecquerel"@en .
 
 <https://vocab.sentier.dev/qudt/unit/GigaC> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
@@ -5213,6 +5288,7 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         <https://vocab.sentier.dev/qudt/unit/M2> ;
     skos:definition "The customary metric unit of land area, equal to 100 ares. One hectare is a square hectometer, that is, the area of a square 100 meters on each side: exactly 10 000 square meters or approximately 107 639.1 square feet, 11 959.9 square yards, or 2.471 054 acres."^^rdf:HTML ;
     skos:exactMatch <http://qudt.org/vocab/unit/HA>,
+        <https://glossary.ecoinvent.org/ids/86bbe475-8a8f-44d8-914c-e398787e7121>,
         <https://si-digital-framework.org/SI/units/hectare> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "0112/2///62720#UAA532"^^ns1:iec61360Code,
@@ -5320,6 +5396,7 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         <https://vocab.sentier.dev/qudt/unit/SEC> ;
     skos:definition "The hour (common symbol: h or hr) is a unit of measurement of time. In modern usage, an hour comprises 60 minutes, or 3,600 seconds. It is approximately 1/24 of a mean solar day. An hour in the Universal Coordinated Time (UTC) time standard can include a negative or positive leap second, and may therefore have a duration of 3,599 or 3,601 seconds for adjustment purposes. Although it is not a standard defined by the International System of Units, the hour is a unit accepted for use with SI, represented by the symbol h."^^rdf:HTML ;
     skos:exactMatch <http://qudt.org/vocab/unit/HR>,
+        <https://glossary.ecoinvent.org/ids/e32b56ef-fa80-4487-9796-f3c1476c27b3>,
         <https://si-digital-framework.org/SI/units/hour> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "0112/2///62720#UAA525"^^ns1:iec61360Code,
@@ -6012,6 +6089,29 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:note "product of the 1 000-fold of the SI base unit ampere and the unit hour" ;
     skos:prefLabel "Kiloampere Hour"@en .
 
+<https://vocab.sentier.dev/qudt/unit/KiloBQ> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
+        <http://qudt.org/vocab/sou/CGS-EMU>,
+        <http://qudt.org/vocab/sou/CGS-GAUSS>,
+        <http://qudt.org/vocab/sou/IMPERIAL>,
+        <http://qudt.org/vocab/sou/SI>,
+        <http://qudt.org/vocab/sou/USCS> ;
+    ns1:conversionMultiplier 1000.0 ;
+    ns1:conversionMultiplierSN 1e+03 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "1 000-fold of the SI derived unit becquerel"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/KiloBQ> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAA561"^^ns1:iec61360Code,
+        "kBq"^^ns1:symbol,
+        "kBq"^^ns1:ucumCode,
+        "2Q"^^ns1:uneceCommonCode ;
+    skos:note "1 000-fold of the SI derived unit becquerel" ;
+    skos:prefLabel "Kilobecquerel"@en .
+
 <https://vocab.sentier.dev/qudt/unit/KiloBTU_IT> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/IMPERIAL>,
         <http://qudt.org/vocab/sou/USCS> ;
@@ -6154,6 +6254,24 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "kcal/s"^^ns1:ucumCode,
         "K55"^^ns1:uneceCommonCode ;
     skos:prefLabel "Kilocalorie per Second"@en .
+
+<https://vocab.sentier.dev/qudt/unit/KiloCi> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS> ;
+    ns1:conversionMultiplier 37000000000000.0 ;
+    ns1:conversionMultiplierSN 3.7e+13 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "1,000-fold of the unit curie"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/KiloCi> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAB046"^^ns1:iec61360Code,
+        "kCi"^^ns1:symbol,
+        "kCi"^^ns1:ucumCode,
+        "2R"^^ns1:uneceCommonCode ;
+    skos:note "1 000-fold of the unit curie" ;
+    skos:prefLabel "Kilocurie"@en .
 
 <https://vocab.sentier.dev/qudt/unit/KiloCubicFT> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/IMPERIAL>,
@@ -6396,6 +6514,25 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "kg/h"^^ns1:ucumCode,
         "E93"^^ns1:uneceCommonCode ;
     skos:prefLabel "Kilogram per Hour"@en .
+
+<https://vocab.sentier.dev/qudt/unit/KiloGM-PER-KiloMOL> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/SI> ;
+    ns1:conversionMultiplier 0.001 ;
+    ns1:conversionMultiplierSN 1e-03 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A-1E0L0I0M1H0T0D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-MOL> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/MolarMass>,
+        <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-MOL> ;
+    skos:definition "SI base unit kilogram divided by the 1 000-fold of the SI base unit mol"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/KiloGM-PER-KiloMOL> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAA611"^^ns1:iec61360Code,
+        "kg/kmol"^^ns1:symbol,
+        "kg.kmol-1"^^ns1:ucumCode,
+        "kg/kmol"^^ns1:ucumCode,
+        "F24"^^ns1:uneceCommonCode ;
+    skos:note "SI base unit kilogram divided by the 1 000-fold of the SI base unit mol" ;
+    skos:prefLabel "Kilogram per Kilomol"@en .
 
 <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-L> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
@@ -8534,6 +8671,29 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:note "1,000,000-fold of the SI base unit ampere" ;
     skos:prefLabel "Megaampere"@en .
 
+<https://vocab.sentier.dev/qudt/unit/MegaBQ> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
+        <http://qudt.org/vocab/sou/CGS-EMU>,
+        <http://qudt.org/vocab/sou/CGS-GAUSS>,
+        <http://qudt.org/vocab/sou/IMPERIAL>,
+        <http://qudt.org/vocab/sou/SI>,
+        <http://qudt.org/vocab/sou/USCS> ;
+    ns1:conversionMultiplier 1000000.0 ;
+    ns1:conversionMultiplierSN 1e+06 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "1,000,000-fold of the derived unit becquerel"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MegaBQ> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAA205"^^ns1:iec61360Code,
+        "MBq"^^ns1:symbol,
+        "MBq"^^ns1:ucumCode,
+        "4N"^^ns1:uneceCommonCode ;
+    skos:note "1,000,000-fold of the derived unit becquerel" ;
+    skos:prefLabel "Megabecquerel"@en .
+
 <https://vocab.sentier.dev/qudt/unit/MegaBTU_IT-PER-HR> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/IMPERIAL>,
         <http://qudt.org/vocab/sou/USCS> ;
@@ -9118,6 +9278,29 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "B84"^^ns1:uneceCommonCode ;
     skos:prefLabel "microampere"@en .
 
+<https://vocab.sentier.dev/qudt/unit/MicroBQ> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
+        <http://qudt.org/vocab/sou/CGS-EMU>,
+        <http://qudt.org/vocab/sou/CGS-GAUSS>,
+        <http://qudt.org/vocab/sou/IMPERIAL>,
+        <http://qudt.org/vocab/sou/SI>,
+        <http://qudt.org/vocab/sou/USCS> ;
+    ns1:conversionMultiplier 0.000001 ;
+    ns1:conversionMultiplierSN 1e-06 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "0.000001-fold of the SI derived unit becquerel"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MicroBQ> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAA058"^^ns1:iec61360Code,
+        "μBq"^^ns1:symbol,
+        "uBq"^^ns1:ucumCode,
+        "H08"^^ns1:uneceCommonCode ;
+    skos:note "0.000001-fold of the SI derived unit becquerel" ;
+    skos:prefLabel "Microbecquerel"@en .
+
 <https://vocab.sentier.dev/qudt/unit/MicroC> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
         <http://qudt.org/vocab/sou/CGS-EMU>,
@@ -9138,6 +9321,25 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "uC"^^ns1:ucumCode,
         "B86"^^ns1:uneceCommonCode ;
     skos:prefLabel "MicroCoulomb"@en .
+
+<https://vocab.sentier.dev/qudt/unit/MicroCi> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS> ;
+    ns1:conversionMultiplier 37000.0 ;
+    ns1:conversionMultiplierSN 3.7e+04 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    ns1:informativeReference "http://en.wikipedia.org/wiki/Curie?oldid=495080313"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "Another commonly used measure of radioactivity, the microcurie: $1 \\micro Ci = 3.7 \\times 10 disintegrations per second = 2.22 \\times 10 disintegrations per minute$. A radiotherapy machine may have roughly 1000 Ci of a radioisotope such as caesium-137 or cobalt-60. This quantity of radioactivity can produce serious health effects with only a few minutes of close-range, un-shielded exposure. The typical human body contains roughly $0.1\\micro Ci$ of naturally occurring potassium-40. "^^ns1:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MicroCi> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAA062"^^ns1:iec61360Code,
+        "μCi"^^ns1:symbol,
+        "uCi"^^ns1:ucumCode,
+        "M5"^^ns1:uneceCommonCode ;
+    skos:prefLabel "MicroCurie"@en ;
+    skos:related "http://dbpedia.org/resource/Curie"^^xsd:anyURI .
 
 <https://vocab.sentier.dev/qudt/unit/MicroG> a skos:Concept ;
     ns1:conversionMultiplier 0.00000980665 ;
@@ -9858,6 +10060,26 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:prefLabel "Millibar Cubic Metre per Second"@en,
         "Millibar Cubic Meter per Second"@en-us .
 
+<https://vocab.sentier.dev/qudt/unit/MilliBQ> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
+        <http://qudt.org/vocab/sou/CGS-EMU>,
+        <http://qudt.org/vocab/sou/CGS-GAUSS>,
+        <http://qudt.org/vocab/sou/IMPERIAL>,
+        <http://qudt.org/vocab/sou/SI>,
+        <http://qudt.org/vocab/sou/USCS> ;
+    ns1:conversionMultiplier 0.001 ;
+    ns1:conversionMultiplierSN 1e-03 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "0.001-fold of the unit becquerel" ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MilliBQ> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAC503"^^ns1:iec61360Code,
+        "mBq"^^ns1:symbol ;
+    skos:prefLabel "MilliBecquerel"@en .
+
 <https://vocab.sentier.dev/qudt/unit/MilliC> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
         <http://qudt.org/vocab/sou/CGS-EMU>,
@@ -9878,6 +10100,24 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "mC"^^ns1:ucumCode,
         "D86"^^ns1:uneceCommonCode ;
     skos:prefLabel "MilliCoulomb"@en .
+
+<https://vocab.sentier.dev/qudt/unit/MilliCi> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS> ;
+    ns1:conversionMultiplier 37000000.0 ;
+    ns1:conversionMultiplierSN 3.7e+07 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "0.001-fold of the SI derived unit curie"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MilliCi> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAA786"^^ns1:iec61360Code,
+        "mCi"^^ns1:symbol,
+        "mCi"^^ns1:ucumCode,
+        "MCU"^^ns1:uneceCommonCode ;
+    skos:note "0.001-fold of the SI derived unit curie" ;
+    skos:prefLabel "Millicurie"@en .
 
 <https://vocab.sentier.dev/qudt/unit/MilliDEG_C> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
@@ -11120,6 +11360,24 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "nA"^^ns1:ucumCode,
         "C39"^^ns1:uneceCommonCode ;
     skos:prefLabel "nanoampere"@en .
+
+<https://vocab.sentier.dev/qudt/unit/NanoBQ> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
+        <http://qudt.org/vocab/sou/CGS-EMU>,
+        <http://qudt.org/vocab/sou/CGS-GAUSS>,
+        <http://qudt.org/vocab/sou/IMPERIAL>,
+        <http://qudt.org/vocab/sou/SI>,
+        <http://qudt.org/vocab/sou/USCS> ;
+    ns1:conversionMultiplier 0.000000001 ;
+    ns1:conversionMultiplierSN 1e-09 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/NanoBQ> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "nBq"^^ns1:symbol ;
+    skos:prefLabel "NanoBecquerel"@en .
 
 <https://vocab.sentier.dev/qudt/unit/NanoC> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
@@ -13112,6 +13370,20 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "PA"^^ns1:symbol ;
     skos:prefLabel "petaampere"@en .
 
+<https://vocab.sentier.dev/qudt/unit/PetaBQ> a skos:Concept ;
+    ns1:conversionMultiplier 1000000000000000.0 ;
+    ns1:conversionMultiplierSN 1e+15 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "1,000,000,000,000,000-fold of the unit becquerel" ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PetaBQ> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAB590"^^ns1:iec61360Code,
+        "PBq"^^ns1:symbol ;
+    skos:prefLabel "petabecquerel"@en .
+
 <https://vocab.sentier.dev/qudt/unit/PetaC> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
         <http://qudt.org/vocab/sou/CGS-EMU>,
@@ -14957,6 +15229,20 @@ not the volume of the gas. The reference conditions for standard cubic metre are
         "TA"^^ns1:symbol ;
     skos:prefLabel "teraampere"@en .
 
+<https://vocab.sentier.dev/qudt/unit/TeraBQ> a skos:Concept ;
+    ns1:conversionMultiplier 1000000000000.0 ;
+    ns1:conversionMultiplierSN 1e+12 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity>,
+        <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:definition "1,000,000,000,000-fold of the unit becquerel" ;
+    skos:exactMatch <http://qudt.org/vocab/unit/TeraBQ> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAB589"^^ns1:iec61360Code,
+        "TBq"^^ns1:symbol ;
+    skos:prefLabel "terabecquerel"@en .
+
 <https://vocab.sentier.dev/qudt/unit/TeraC> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
         <http://qudt.org/vocab/sou/CGS-EMU>,
@@ -15739,6 +16025,54 @@ not the volume of the gas. The reference conditions for standard cubic metre are
     skos:note "unit of failure rate" ;
     skos:prefLabel "Failures In Time"@en .
 
+<https://vocab.sentier.dev/qudt/quantity-kind/MolarMass> a skos:Concept ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A-1E0L0I0M1H0T0D0> ;
+    ns1:informativeReference "http://en.wikipedia.org/wiki/Molar_mass"^^xsd:anyURI ;
+    ns1:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
+    skos:altLabel "0112/2///62720#UAD125",
+        "M" ;
+    skos:definition "In chemistry, the molar mass M is defined as the mass of a given substance (chemical element or chemical compound) divided by its amount of substance. It is a physical property of a given substance. The base SI unit for molar mass is $kg/mol$."^^ns1:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/MolarMass> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:narrower <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-MOL> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/GM-PER-MOL>,
+        <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-KiloMOL>,
+        <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-MOL> ;
+    skos:prefLabel "كتلة مولية"@ar,
+        "Molární hmotnost"@cs,
+        "Molmasse"@de,
+        "Molar Mass"@en,
+        "masa molar"@es,
+        "جرم مولی"@fa,
+        "masse molaire"@fr,
+        "मोलर द्रव्यमान"@hi,
+        "massa molare"@it,
+        "モル質量"@ja,
+        "Jisim molar"@ms,
+        "Masa molowa"@pl,
+        "massa molar"@pt,
+        "Masă molară"@ro,
+        "Молярная масса"@ru,
+        "molska masa"@sl,
+        "molar kütle"@tr,
+        "摩尔质量"@zh ;
+    skos:related "http://dbpedia.org/resource/Molar_mass"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/qudt/unit/HR-PER-HA> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS> ;
+    ns1:conversionMultiplier 0.36 ;
+    ns1:conversionMultiplierSN 3.6e-02 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea>,
+        <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> ;
+    skos:definition "Hours per hectare"^^xsd:string ;
+    skos:exactMatch <https://glossary.ecoinvent.org/ids/65876125-e153-4f27-9e2d-8d6edfde9ab6> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "h/ha"^^ns1:symbol,
+        "h.har-1"^^ns1:ucumCode ;
+    skos:prefLabel "Hours per hectare"@en .
+
 <https://vocab.sentier.dev/qudt/unit/K-PER-M> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/SI> ;
     ns1:conversionMultiplier 1.0 ;
@@ -15843,6 +16177,21 @@ not the volume of the gas. The reference conditions for standard cubic metre are
         <https://vocab.sentier.dev/qudt/unit/K-PER-K>,
         <https://vocab.sentier.dev/qudt/unit/MilliK-PER-K> ;
     skos:prefLabel "Temperature Ratio"@en .
+
+<https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS> ;
+    ns1:conversionMultiplier 1.0 ;
+    ns1:conversionMultiplierSN 1e+00 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea> ;
+    skos:definition "Second per square metre"^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:narrower <https://vocab.sentier.dev/qudt/unit/HR-PER-HA> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/HR-PER-HA> ;
+    skos:notation "s/m²"^^ns1:symbol,
+        "s.m-2"^^ns1:ucumCode ;
+    skos:prefLabel "Second per square metre"@en .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/Flux> a skos:Concept ;
     ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T-1D0> ;
@@ -15949,6 +16298,33 @@ not the volume of the gas. The reference conditions for standard cubic metre are
         "85"^^ns1:uneceCommonCode ;
     skos:prefLabel "Foot Pound Force"@en ;
     skos:related "http://dbpedia.org/resource/Foot-pound_force"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/qudt/unit/KiloGM-PER-MOL> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/SI> ;
+    ns1:conversionMultiplier 1.0 ;
+    ns1:conversionMultiplierSN 1e+00 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A-1E0L0I0M1H0T0D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/MolarMass> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/MolarMass> ;
+    skos:definition """
+  The unit $\\textit{}$, symbol $kg/mol$, is the base SI unit for molar mass.
+  In chemistry, the molar mass $M$ is defined as the mass of a given substance (chemical element or chemical compound) divided by its amount of substance. 
+  It is a physical property of a given substance.  
+  However, for historical reasons, molar masses are almost always expressed in $g/mol$. 
+  As an example, the molar mass of water is approximately: $18.01528(33) \\; g/mol$.
+  """^^ns1:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/KiloGM-PER-MOL> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:narrower <https://vocab.sentier.dev/qudt/unit/GM-PER-MOL>,
+        <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-KiloMOL> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/GM-PER-MOL>,
+        <https://vocab.sentier.dev/qudt/unit/KiloGM-PER-KiloMOL> ;
+    skos:notation "0112/2///62720#UAA628"^^ns1:iec61360Code,
+        "kg/mol"^^ns1:symbol,
+        "kg.mol-1"^^ns1:ucumCode,
+        "kg/mol"^^ns1:ucumCode,
+        "D74"^^ns1:uneceCommonCode ;
+    skos:prefLabel "Kilogram per Mol"@en .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/EnergyDensity> a skos:Concept ;
     ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-1I0M1H0T-2D0> ;
@@ -16104,7 +16480,8 @@ not the volume of the gas. The reference conditions for standard cubic metre are
         <https://vocab.sentier.dev/qudt/quantity-kind/Population>,
         <https://vocab.sentier.dev/qudt/quantity-kind/StoichiometricNumber> ;
     skos:definition "\"Number\" is a unit for  'Dimensionless' expressed as (\\#$."^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/NUM> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/NUM>,
+        <https://glossary.ecoinvent.org/ids/577e242a-461f-44a7-922c-d8e1c3d2bf45> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:narrower <https://vocab.sentier.dev/qudt/unit/UNITLESS> ;
     skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/UNITLESS> ;
@@ -16613,6 +16990,37 @@ not the volume of the gas. The reference conditions for standard cubic metre are
         <https://vocab.sentier.dev/qudt/unit/PicoGM-PER-KiloGM> ;
     skos:note "In aerospace engineering, mass ratio is a measure of the efficiency of a rocket. It describes how much more massive the vehicle is with propellant than without; that is, it is the ratio of the rocket's wet mass (vehicle plus contents plus propellant) to its dry mass (vehicle plus contents)" ;
     skos:prefLabel "Mass Ratio"@en .
+
+<https://vocab.sentier.dev/qudt/quantity-kind/Activity> a skos:Concept ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    ns1:informativeReference "http://en.wikipedia.org/wiki/Mass_number"^^xsd:anyURI,
+        "http://en.wikipedia.org/wiki/Radioactive_decay"^^xsd:anyURI,
+        "http://en.wikipedia.org/wiki/Radioactive_decay#Radioactive_decay_rates"^^xsd:anyURI ;
+    ns1:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
+    ns1:latexDefinition """$A = Z + N$, where $Z$ is the atomic number and $N$ is the neutron number.
+
+Variation $dN$ of spontaneous number of nuclei $N$ in a particular energy state, in a sample of radionuclide, due to spontaneous nuclear transitions from this state during an infinitesimal time interval, divided by its duration $dt$, thus $A = -\\frac{dN}{dt}$."""^^ns1:LatexString ;
+    skos:altLabel "A" ;
+    skos:definition "\"Activity\" is the number of decays per unit time of a radioactive sample, the term used to characterise the number of nuclei which disintegrate in a radioactive substance per unit time. Activity is usually measured in Becquerels (\\(Bq\\)), where 1 \\(Bq\\) is 1 disintegration per second, in honor of the scientist Henri Becquerel."^^ns1:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/Activity>,
+        <https://si-digital-framework.org/SI/quantities/ARRN> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:narrower <https://vocab.sentier.dev/qudt/unit/BQ> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/BQ>,
+        <https://vocab.sentier.dev/qudt/unit/Ci>,
+        <https://vocab.sentier.dev/qudt/unit/GigaBQ>,
+        <https://vocab.sentier.dev/qudt/unit/KiloBQ>,
+        <https://vocab.sentier.dev/qudt/unit/KiloCi>,
+        <https://vocab.sentier.dev/qudt/unit/MegaBQ>,
+        <https://vocab.sentier.dev/qudt/unit/MicroBQ>,
+        <https://vocab.sentier.dev/qudt/unit/MicroCi>,
+        <https://vocab.sentier.dev/qudt/unit/MilliBQ>,
+        <https://vocab.sentier.dev/qudt/unit/MilliCi>,
+        <https://vocab.sentier.dev/qudt/unit/NanoBQ>,
+        <https://vocab.sentier.dev/qudt/unit/PetaBQ>,
+        <https://vocab.sentier.dev/qudt/unit/TeraBQ> ;
+    skos:prefLabel "Activity"@en ;
+    skos:related "http://dbpedia.org/resource/Radioactive_decay"^^xsd:anyURI .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/Voltage> a skos:Concept ;
     ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E-1L2I0M1H0T-3D0> ;
@@ -17555,6 +17963,88 @@ t stands for time."""^^ns1:LatexString ;
         "radyan"@tr,
         "弧度"@zh ;
     skos:related "http://dbpedia.org/resource/Radian"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/qudt/unit/BQ> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/CGS>,
+        <http://qudt.org/vocab/sou/CGS-EMU>,
+        <http://qudt.org/vocab/sou/CGS-GAUSS>,
+        <http://qudt.org/vocab/sou/IMPERIAL>,
+        <http://qudt.org/vocab/sou/SI>,
+        <http://qudt.org/vocab/sou/USCS> ;
+    ns1:conversionMultiplier 1.0 ;
+    ns1:conversionMultiplierSN 1e+00 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T-1D0> ;
+    ns1:informativeReference "http://en.wikipedia.org/wiki/Becquerel?oldid=493710036"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/Activity> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity> ;
+    skos:definition """
+  The $\\textit{Becquerel}$ is the SI derived unit of activity, usually meaning radioactivity.
+  Radioactivity is caused when atoms disintegrate, ejecting energetic particles. 
+  One becquerel is the radiation caused by one disintegration per second; 
+  this is equivalent to about $27.0270 \\text{picocuries (pCi)}$. 
+  The unit is named for a French physicist, Antoine-Henri Becquerel (1852-1908), 
+  the discoverer of radioactivity. 
+  Note: both the becquerel and the hertz are basically defined as one event per second, 
+  yet they measure different things. 
+  The hertz is used to measure the rates of events that happen periodically in a fixed and definite cycle. 
+  The becquerel is used to measure the rates of events that happen sporadically and unpredictably, 
+  not in a definite cycle.
+  """^^ns1:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/BQ>,
+        <https://si-digital-framework.org/SI/units/becquerel> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:narrower <https://vocab.sentier.dev/qudt/unit/Ci>,
+        <https://vocab.sentier.dev/qudt/unit/GigaBQ>,
+        <https://vocab.sentier.dev/qudt/unit/KiloBQ>,
+        <https://vocab.sentier.dev/qudt/unit/KiloCi>,
+        <https://vocab.sentier.dev/qudt/unit/MegaBQ>,
+        <https://vocab.sentier.dev/qudt/unit/MicroBQ>,
+        <https://vocab.sentier.dev/qudt/unit/MicroCi>,
+        <https://vocab.sentier.dev/qudt/unit/MilliBQ>,
+        <https://vocab.sentier.dev/qudt/unit/MilliCi>,
+        <https://vocab.sentier.dev/qudt/unit/NanoBQ>,
+        <https://vocab.sentier.dev/qudt/unit/PetaBQ>,
+        <https://vocab.sentier.dev/qudt/unit/TeraBQ> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/Ci>,
+        <https://vocab.sentier.dev/qudt/unit/GigaBQ>,
+        <https://vocab.sentier.dev/qudt/unit/KiloBQ>,
+        <https://vocab.sentier.dev/qudt/unit/KiloCi>,
+        <https://vocab.sentier.dev/qudt/unit/MegaBQ>,
+        <https://vocab.sentier.dev/qudt/unit/MicroBQ>,
+        <https://vocab.sentier.dev/qudt/unit/MicroCi>,
+        <https://vocab.sentier.dev/qudt/unit/MilliBQ>,
+        <https://vocab.sentier.dev/qudt/unit/MilliCi>,
+        <https://vocab.sentier.dev/qudt/unit/NanoBQ>,
+        <https://vocab.sentier.dev/qudt/unit/PetaBQ>,
+        <https://vocab.sentier.dev/qudt/unit/TeraBQ> ;
+    skos:notation "0112/2///62720#UAA111"^^ns1:iec61360Code,
+        "Bq"^^ns1:symbol,
+        "Bq"^^ns1:ucumCode,
+        "BQL"^^ns1:uneceCommonCode ;
+    skos:prefLabel "بيكريل"@ar,
+        "бекерел"@bg,
+        "becquerel"@cs,
+        "Becquerel"@de,
+        "μπεκερέλ"@el,
+        "becquerel"@en,
+        "becquerel"@es,
+        "بکرل"@fa,
+        "becquerel"@fr,
+        "בקרל"@he,
+        "बैक्वेरल"@hi,
+        "becquerel"@hu,
+        "becquerel"@it,
+        "ベクレル"@ja,
+        "becquerelium"@la,
+        "becquerel"@ms,
+        "bekerel"@pl,
+        "becquerel"@pt,
+        "becquerel"@ro,
+        "беккерель"@ru,
+        "becquerel"@sl,
+        "bekerel"@tr,
+        "贝克勒尔"@zh ;
+    skos:related "http://dbpedia.org/resource/Becquerel"^^xsd:anyURI .
 
 <https://vocab.sentier.dev/qudt/unit/V> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/CGS-EMU>,

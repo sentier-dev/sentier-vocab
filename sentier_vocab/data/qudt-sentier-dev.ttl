@@ -1253,6 +1253,22 @@ In such cases, alternative measurement strategies might be required to obtain
         "N59"^^ns1:uneceCommonCode ;
     skos:prefLabel "British Thermal Unit (TH) per Cubic Foot"@en .
 
+<https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-KiloGM> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/IMPERIAL> ;
+    ns1:conversionMultiplier 0.00094845 ;
+    ns1:conversionMultiplierSN 9.4845e-04 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/J-PER-KiloGM> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/SpecificEnergy>,
+        <https://vocab.sentier.dev/qudt/unit/J-PER-KiloGM> ;
+    skos:definition "British Thermal Unit (thermochemical definition) per Kilogram"^^xsd:string ;
+    skos:exactMatch <https://glossary.ecoinvent.org/ids/c4d1b1ec-1ddb-4800-87db-ffbfbb29d94f> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "Btu{Th}/kg"^^ns1:symbol,
+        "[Btu_Th].[kg]-1"^^ns1:ucumCode,
+        "[Btu_Th]/[kg]"^^ns1:ucumCode ;
+    skos:prefLabel "British Thermal Unit (thermochemical definition) per Kilogram"@en .
+
 <https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-LB> a skos:Concept ;
     ns1:applicableSystem <http://qudt.org/vocab/sou/IMPERIAL>,
         <http://qudt.org/vocab/sou/USCS> ;
@@ -16743,43 +16759,6 @@ For an irrotational electric field, the voltage is independent of the path betwe
     skos:prefLabel "Reciprocal Cubic Metre"@en,
         "Reciprocal Cubic Meter"@en-us .
 
-<https://vocab.sentier.dev/qudt/quantity-kind/SpecificEnergy> a skos:Concept ;
-    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
-    ns1:informativeReference "http://en.citizendium.org/wiki/Enthalpy"^^xsd:anyURI,
-        "http://en.wikipedia.org/wiki/Specific_energy"^^xsd:anyURI ;
-    ns1:latexDefinition "$e = E/m$, where $E$ is energy and $m$ is mass."^^ns1:LatexString ;
-    skos:altLabel "e" ;
-    skos:definition "\\(\\textbf{Specific Energy}\\) is defined as the energy per unit mass. Common metric units are \\(J/kg\\). It is an intensive property. Contrast this with energy, which is an extensive property. There are two main types of specific energy: potential energy and specific kinetic energy. Others are the \\(\\textbf{gray}\\) and \\(\\textbf{sievert}\\), which are measures for the absorption of radiation. The concept of specific energy applies to a particular or theoretical way of extracting useful energy from the material considered that is usually implied by context. These intensive properties are each symbolized by using the lower case letter of the symbol for the corresponding extensive property, which is symbolized by a capital letter. For example, the extensive thermodynamic property enthalpy is symbolized by \\(H\\); specific enthalpy is symbolized by \\(h\\)."^^ns1:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/quantitykind/SpecificEnergy>,
-        <https://si-digital-framework.org/SI/quantities/SENG> ;
-    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
-    skos:narrower <https://vocab.sentier.dev/qudt/unit/J-PER-KiloGM> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/BTU_IT-PER-LB>,
-        <https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-LB>,
-        <https://vocab.sentier.dev/qudt/unit/CAL_IT-PER-GM>,
-        <https://vocab.sentier.dev/qudt/unit/CAL_TH-PER-GM>,
-        <https://vocab.sentier.dev/qudt/unit/ERG-PER-GM>,
-        <https://vocab.sentier.dev/qudt/unit/J-PER-GM>,
-        <https://vocab.sentier.dev/qudt/unit/J-PER-KiloGM>,
-        <https://vocab.sentier.dev/qudt/unit/KiloCAL-PER-GM>,
-        <https://vocab.sentier.dev/qudt/unit/KiloJ-PER-KiloGM>,
-        <https://vocab.sentier.dev/qudt/unit/KiloLB_F-FT-PER-LB>,
-        <https://vocab.sentier.dev/qudt/unit/MegaJ-PER-KiloGM>,
-        <https://vocab.sentier.dev/qudt/unit/MilliJ-PER-GM>,
-        <https://vocab.sentier.dev/qudt/unit/N-M-PER-KiloGM>,
-        <https://vocab.sentier.dev/qudt/unit/W-HR-PER-KiloGM> ;
-    skos:prefLabel "Specific Energy"@en ;
-    skos:related <http://qudt.org/vocab/quantitykind/Enthalpy>,
-        <http://qudt.org/vocab/quantitykind/MassieuFunction>,
-        <http://qudt.org/vocab/quantitykind/PlanckFunction>,
-        <http://qudt.org/vocab/quantitykind/SpecificEnthalpy>,
-        <http://qudt.org/vocab/quantitykind/SpecificGibbsEnergy>,
-        <http://qudt.org/vocab/quantitykind/SpecificHelmholtzEnergy>,
-        <http://qudt.org/vocab/quantitykind/SpecificInternalEnergy>,
-        <http://qudt.org/vocab/unit/GRAY>,
-        <http://qudt.org/vocab/unit/SV>,
-        "http://dbpedia.org/resource/Specific_energy"^^xsd:anyURI .
-
 <https://vocab.sentier.dev/qudt/quantity-kind/Acceleration> a skos:Concept ;
     ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M0H0T-2D0> ;
     ns1:informativeReference "http://en.wikipedia.org/wiki/Acceleration"^^xsd:anyURI ;
@@ -16825,6 +16804,44 @@ For an irrotational electric field, the voltage is independent of the path betwe
         "ivme"@tr,
         "加速度"@zh ;
     skos:related "http://dbpedia.org/resource/Acceleration"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/qudt/quantity-kind/SpecificEnergy> a skos:Concept ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
+    ns1:informativeReference "http://en.citizendium.org/wiki/Enthalpy"^^xsd:anyURI,
+        "http://en.wikipedia.org/wiki/Specific_energy"^^xsd:anyURI ;
+    ns1:latexDefinition "$e = E/m$, where $E$ is energy and $m$ is mass."^^ns1:LatexString ;
+    skos:altLabel "e" ;
+    skos:definition "\\(\\textbf{Specific Energy}\\) is defined as the energy per unit mass. Common metric units are \\(J/kg\\). It is an intensive property. Contrast this with energy, which is an extensive property. There are two main types of specific energy: potential energy and specific kinetic energy. Others are the \\(\\textbf{gray}\\) and \\(\\textbf{sievert}\\), which are measures for the absorption of radiation. The concept of specific energy applies to a particular or theoretical way of extracting useful energy from the material considered that is usually implied by context. These intensive properties are each symbolized by using the lower case letter of the symbol for the corresponding extensive property, which is symbolized by a capital letter. For example, the extensive thermodynamic property enthalpy is symbolized by \\(H\\); specific enthalpy is symbolized by \\(h\\)."^^ns1:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/SpecificEnergy>,
+        <https://si-digital-framework.org/SI/quantities/SENG> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:narrower <https://vocab.sentier.dev/qudt/unit/J-PER-KiloGM> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/BTU_IT-PER-LB>,
+        <https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-KiloGM>,
+        <https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-LB>,
+        <https://vocab.sentier.dev/qudt/unit/CAL_IT-PER-GM>,
+        <https://vocab.sentier.dev/qudt/unit/CAL_TH-PER-GM>,
+        <https://vocab.sentier.dev/qudt/unit/ERG-PER-GM>,
+        <https://vocab.sentier.dev/qudt/unit/J-PER-GM>,
+        <https://vocab.sentier.dev/qudt/unit/J-PER-KiloGM>,
+        <https://vocab.sentier.dev/qudt/unit/KiloCAL-PER-GM>,
+        <https://vocab.sentier.dev/qudt/unit/KiloJ-PER-KiloGM>,
+        <https://vocab.sentier.dev/qudt/unit/KiloLB_F-FT-PER-LB>,
+        <https://vocab.sentier.dev/qudt/unit/MegaJ-PER-KiloGM>,
+        <https://vocab.sentier.dev/qudt/unit/MilliJ-PER-GM>,
+        <https://vocab.sentier.dev/qudt/unit/N-M-PER-KiloGM>,
+        <https://vocab.sentier.dev/qudt/unit/W-HR-PER-KiloGM> ;
+    skos:prefLabel "Specific Energy"@en ;
+    skos:related <http://qudt.org/vocab/quantitykind/Enthalpy>,
+        <http://qudt.org/vocab/quantitykind/MassieuFunction>,
+        <http://qudt.org/vocab/quantitykind/PlanckFunction>,
+        <http://qudt.org/vocab/quantitykind/SpecificEnthalpy>,
+        <http://qudt.org/vocab/quantitykind/SpecificGibbsEnergy>,
+        <http://qudt.org/vocab/quantitykind/SpecificHelmholtzEnergy>,
+        <http://qudt.org/vocab/quantitykind/SpecificInternalEnergy>,
+        <http://qudt.org/vocab/unit/GRAY>,
+        <http://qudt.org/vocab/unit/SV>,
+        "http://dbpedia.org/resource/Specific_energy"^^xsd:anyURI .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/ElectricCurrent> a skos:Concept ;
     ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E1L0I0M0H0T0D0> ;
@@ -17695,6 +17712,7 @@ $\\nu = 1/T$"""^^ns1:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/J-PER-KiloGM> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:narrower <https://vocab.sentier.dev/qudt/unit/BTU_IT-PER-LB>,
+        <https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-KiloGM>,
         <https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-LB>,
         <https://vocab.sentier.dev/qudt/unit/CAL_IT-PER-GM>,
         <https://vocab.sentier.dev/qudt/unit/CAL_TH-PER-GM>,
@@ -17708,6 +17726,7 @@ $\\nu = 1/T$"""^^ns1:LatexString ;
         <https://vocab.sentier.dev/qudt/unit/N-M-PER-KiloGM>,
         <https://vocab.sentier.dev/qudt/unit/W-HR-PER-KiloGM> ;
     skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/BTU_IT-PER-LB>,
+        <https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-KiloGM>,
         <https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-LB>,
         <https://vocab.sentier.dev/qudt/unit/CAL_IT-PER-GM>,
         <https://vocab.sentier.dev/qudt/unit/CAL_TH-PER-GM>,

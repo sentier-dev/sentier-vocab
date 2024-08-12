@@ -1,0 +1,21 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vocab.sentier.dev/qudt/unit/BTU_TH-PER-KiloGM> a skos:Concept ;
+    ns1:applicableSystem <http://qudt.org/vocab/sou/IMPERIAL> ;
+    ns1:conversionMultiplier 0.00094845 ;
+    ns1:conversionMultiplierSN 9.4845e-4 ;
+    ns1:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/J-PER-KiloGM> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/SpecificEnergy>,
+        <https://vocab.sentier.dev/qudt/unit/J-PER-KiloGM> ;
+    skos:definition "British Thermal Unit (thermochemical definition) per Kilogram"^^xsd:string ;
+    skos:exactMatch <https://glossary.ecoinvent.org/ids/c4d1b1ec-1ddb-4800-87db-ffbfbb29d94f> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation  "Btu{Th}/kg"^^ns1:symbol,
+        "[Btu_Th].[kg]-1"^^ns1:ucumCode,
+        "[Btu_Th]/[kg]"^^ns1:ucumCode;
+    skos:prefLabel "British Thermal Unit (thermochemical definition) per Kilogram"@en .

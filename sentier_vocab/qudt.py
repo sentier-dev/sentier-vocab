@@ -1,5 +1,4 @@
 import json
-from collections import defaultdict
 from functools import lru_cache
 from pathlib import Path
 from zipfile import ZipFile
@@ -11,7 +10,7 @@ from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS
 
 from sentier_vocab.errors import GraphFilterError, MissingDimensionVector
-from sentier_vocab.utils import get_one_in_graph, streaming_download
+from sentier_vocab.utils import get_one_in_graph, streaming_download, DEFAULT_DATA_DIR
 
 VAEM = Namespace("http://www.linkedmodel.org/schema/vaem")
 # TODO: Get version through file inspection
@@ -20,31 +19,47 @@ QUDTV = Namespace("http://qudt.org/vocab/")
 QK = QUDTV.quantitykind
 
 
-selected_fp = Path(__file__).parent / "data" / "selected-quantity-kinds.json"
+vocab_data_dir = Path(__file__).parent / "data"
+selected_fp = vocab_data_dir / "selected-quantity-kinds.json"
+extra_concepts_data = vocab_data_dir / "extra-data.ttl"
 
 
 class QUDT:
-    def __init__(self, filepath: Path | None = None, default_lang: str = "en"):
+    def __init__(self, filepath: Path | None = None, data_dir: Path = DEFAULT_DATA_DIR, default_lang: str = "en"):
         self.default_lang = default_lang
+        if filepath is None:
+            filepath = self.get_latest_version(data_dir)
         self.selected_qk = {URIRef(k): v for k, v in json.load(open(selected_fp)).items()}
-        self.zipped = ZipFile(open(filepath or self.download_qudt(), "rb"))
+        self.zipped = ZipFile(open(filepath, "rb"))
         self.graph = Graph()
         self.zipfile_prefix = self.get_zipfile_prefix()
         concept_scheme = self.add_concept_scheme()
         mapping = self.add_quantity_kinds(concept_scheme)
         self.add_units(concept_scheme, mapping)
+        self.graph.parse(extra_concepts_data)
         self.skosify_checks()
 
     def add(self, triple: tuple) -> None:
         # Convenient place to put logging or debug checks
         self.graph.add(triple)
 
-    def download_qudt(self) -> Path:
-        return streaming_download(
-            requests.get(
-                "https://api.github.com/repos/qudt/qudt-public-repo/releases/latest"
-            ).json()["zipball_url"],
-        )
+    def get_latest_version(self, data_dir: Path) -> Path:
+        try:
+            catalogue = json.load(open(data_dir / "qudt.json"))
+        except (OSError,):
+            catalogue = {}
+        release = requests.get(
+            "https://api.github.com/repos/qudt/qudt-public-repo/releases/latest"
+        ).json()["zipball_url"]
+        if catalogue.get('release') != release:
+            fp = str(streaming_download(release))
+            with open("qudt.json", "w") as f:
+                json.dump({
+                    'release': release,
+                    'filepath': fp
+                }, f, indent=2)
+            return fp
+        return catalogue['filepath']
 
     def get_zipfile_prefix(self) -> str:
         prefix = set()
@@ -69,6 +84,7 @@ class QUDT:
         self.graph.serialize(destination=Path(dirpath) / filename)
 
     def skosify_checks(self):
+        # Can't use - create backwards related links to nodes not defined in our graph
         # skosify.infer.skos_related(self.graph)
         skosify.infer.skos_topConcept(self.graph)
         skosify.infer.skos_hierarchical(self.graph, narrower=True)
@@ -297,4 +313,4 @@ class QUDT:
 
 
 if __name__ == "__main__":
-    QUDT()
+    QUDT().write_graph("qudt-sentier-dev.ttl")

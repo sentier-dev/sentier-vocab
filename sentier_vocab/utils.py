@@ -8,6 +8,8 @@ from rdflib import Graph
 
 from sentier_vocab.errors import GraphFilterError
 
+DEFAULT_DATA_DIR = Path(user_data_dir("sentier.dev", "dds"))
+
 
 def get_filename(response: requests.Response, url: str) -> str:
     """
@@ -54,7 +56,7 @@ def streaming_download(
 
     total_length = response.headers.get("content-length")
     filename = filename or get_filename(response, url)
-    dirpath = Path(dirpath) if dirpath else Path(user_data_dir("sentier.dev", "dds"))
+    dirpath = Path(dirpath) if dirpath else Path(DEFAULT_DATA_DIR)
     dirpath.mkdir(parents=True, exist_ok=True)
     filepath = dirpath / filename
 

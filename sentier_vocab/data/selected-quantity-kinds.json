@@ -27,6 +27,7 @@
   "http://qudt.org/vocab/quantitykind/InverseMass": "PER-KiloGM",
   "http://qudt.org/vocab/quantitykind/Irradiance": "W-PER-M2",
   "http://qudt.org/vocab/quantitykind/Length": "M",
+  "http://qudt.org/vocab/quantitykind/LengthMass": "M-KiloGM",
   "http://qudt.org/vocab/quantitykind/LinearForce": "N-PER-M",
   "http://qudt.org/vocab/quantitykind/LogOctanolWaterPartitionCoefficient": "UNITLESS",
   "http://qudt.org/vocab/quantitykind/MagneticField": "T",

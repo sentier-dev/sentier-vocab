@@ -232,7 +232,7 @@
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-3I0M1H0T0D0> ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/Density> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Density> ;
-    skos:definition """"Equivalent Density" is the mass of a substance that reacts with (or is equivalent to) an arbitrary mass of 
+    skos:definition """"Equivalent Density" is the mass of a substance that reacts with (or is equivalent to) an arbitrary mass of
 another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
     skos:exactMatch <http://qudt.org/vocab/quantitykind/EquivalentDensity> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
@@ -320,17 +320,17 @@ another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
   Where $a_{H^+}$ is the equilibrium molar concentration of $H^+$ in the solution, the activity of
    the hydrogen ion in the solution.
 
-  This definition is appropriate for concentrations equal to, or less than $1\\ mol/l$, 
+  This definition is appropriate for concentrations equal to, or less than $1\\ mol/l$,
    where $aH+ \\equiv [H+]$, that is, $1\\ mol/L\\ HCl$ has a $pH$ of zero.
-  
+
   To relate this to standard molality ($b^\\circ$), consideration is given to the activity ($a_{H^+}$)
    of the hydrogen ions is the product of their molality ($m_{H^+}$), and the activity coefficient ($\\gamma_{H^+}$),
    where $m_{H^+}$ is expressed in $mol/kg$, and $b^\\circ$ is typically taken as $1 \\ mol/kg$.
-  
-  
+
+
   The activity can then be expressed as:
 
-  $$a_{H^+} = \\gamma_{H^+} \\times m_{H^+}$$ 
+  $$a_{H^+} = \\gamma_{H^+} \\times m_{H^+}$$
 
   Where, $\\gamma_{H^+}$ is the activity coefficient, which adjusts the molality to account for
    non-ideal behavior due to interactions between ions in the solution.
@@ -339,11 +339,11 @@ another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
 
   $$\\text{pH} = -log_{10}\\left(m_{H+}\\times\\gamma_{H^+}\\right)$$
 
-  Where, $m_{H+}$ is the molality of hydrogen ions in the solution relative to the standard 
+  Where, $m_{H+}$ is the molality of hydrogen ions in the solution relative to the standard
     molality, which can also be expressed as $b^{\\circ}$.
 
 This definition is relevant in more concentrated solutions or when precise thermodynamic
- calculations are required. 
+ calculations are required.
 It reflects how the properties of the solution deviate from ideal behavior and provides a more accurate
  understanding of the $pH$ under various conditions.
 
@@ -428,13 +428,13 @@ In such cases, alternative measurement strategies might be required to obtain
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/ElectricCharge>,
         <https://vocab.sentier.dev/qudt/unit/C> ;
     skos:definition """$\\textit{Ampere Hour}$ is a practical unit of electric charge equal to the charge flowing
-   in one hour through a conductor passing one ampere. 
+   in one hour through a conductor passing one ampere.
    An ampere-hour or amp-hour (symbol $Ah,\\,AHr,\\, A \\cdot h, A h$) is a unit of electric
     charge, with sub-units milliampere-hour ($mAh$) and milliampere second ($mAs$).
     One ampere-hour is equal to 3600 coulombs (ampere-seconds), the electric charge transferred
-     by a steady current of one ampere for one hour. 
+     by a steady current of one ampere for one hour.
     The ampere-hour is frequently used in measurements of electrochemical systems such as
-     electroplating and electrical batteries. 
+     electroplating and electrical batteries.
     The commonly seen milliampere-hour ($mAh$ or $mA \\cdot h$) is one-thousandth of an
      ampere-hour ($3.6 \\,coulombs$).
   """^^qudt:LatexString ;
@@ -672,8 +672,8 @@ In such cases, alternative measurement strategies might be required to obtain
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/ElectricCurrent>,
         <https://vocab.sentier.dev/qudt/unit/A> ;
     skos:definition """
-  The $\\textit{Abampere (aA)}$, also called the $biot$ after Jean-Baptiste Biot, is the basic electromagnetic unit of electric current in the emu-cgs system of units (electromagnetic cgs). 
-  One $abampere$ is equal to ten amperes in the SI system of units. 
+  The $\\textit{Abampere (aA)}$, also called the $biot$ after Jean-Baptiste Biot, is the basic electromagnetic unit of electric current in the emu-cgs system of units (electromagnetic cgs).
+  One $abampere$ is equal to ten amperes in the SI system of units.
   An $abampere$ is the constant current that produces, when maintained in two parallel conductors of negligible circular section and of infinite length placed 1 centimetre apart,
    a force of 2 dynes per centimetre between the two conductors.
   """^^qudt:LatexString ;
@@ -696,10 +696,10 @@ In such cases, alternative measurement strategies might be required to obtain
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/ElectricCurrent>,
         <https://vocab.sentier.dev/qudt/unit/A> ;
     skos:definition """
-  The unit $\\textit{Statampere}$, symbol $statA$ is a unit in the category of Electric current. 
-  It is also known as statamperes. 
-  This unit is commonly used in the cgs unit system. 
-  $\\textit{Statampere (statA)}$ has a dimension of $I$ where $I$ is electric current. 
+  The unit $\\textit{Statampere}$, symbol $statA$ is a unit in the category of Electric current.
+  It is also known as statamperes.
+  This unit is commonly used in the cgs unit system.
+  $\\textit{Statampere (statA)}$ has a dimension of $I$ where $I$ is electric current.
   It can be converted to the corresponding standard SI unit $A$ by multiplying its value by a factor of 3.355641E-010.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/A_Stat> ;
@@ -1083,10 +1083,10 @@ In such cases, alternative measurement strategies might be required to obtain
     skos:broader <https://vocab.sentier.dev/qudt/unit/J> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Energy>,
         <https://vocab.sentier.dev/qudt/unit/J> ;
-    skos:definition """$\\textit{British Thermal Unit}$ (BTU or Btu) is a traditional unit of energy equal to about $1.0550558526 \\textit{ kilojoule}$. 
-  It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from $39^{\\circ}{F}$ to $40^{\\circ}{F}$ . 
-  The unit is most often used in the power, steam generation, heating and air conditioning industries. 
-  In scientific contexts the BTU has largely been replaced by the SI unit of energy, the $joule$, though it may be used as a measure of agricultural energy production (BTU/kg). 
+    skos:definition """$\\textit{British Thermal Unit}$ (BTU or Btu) is a traditional unit of energy equal to about $1.0550558526 \\textit{ kilojoule}$.
+  It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from $39^{\\circ}{F}$ to $40^{\\circ}{F}$ .
+  The unit is most often used in the power, steam generation, heating and air conditioning industries.
+  In scientific contexts the BTU has largely been replaced by the SI unit of energy, the $joule$, though it may be used as a measure of agricultural energy production (BTU/kg).
   It is still used unofficially in metric English-speaking countries (such as Canada), and remains the standard unit of classification for air conditioning units manufactured and sold in many non-English-speaking metric countries.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/BTU_IT> ;
@@ -1109,10 +1109,10 @@ In such cases, alternative measurement strategies might be required to obtain
     skos:broader <https://vocab.sentier.dev/qudt/unit/J-PER-M3> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/EnergyDensity>,
         <https://vocab.sentier.dev/qudt/unit/J-PER-M3> ;
-    skos:definition """$\\textit{British Thermal Unit (IT) Per Cubic Foot}$ ($Btu (IT)/ft^3$) is a unit in the category of Energy density. 
-  It is also known as Btu per cubic foot, Btu/cubic foot. 
-  This unit is commonly used in the UK, US unit systems. 
-  It has a dimension of $ML^{-1}T^{-2}$ where $M$ is mass, $L$ is length, and $T$ is time. 
+    skos:definition """$\\textit{British Thermal Unit (IT) Per Cubic Foot}$ ($Btu (IT)/ft^3$) is a unit in the category of Energy density.
+  It is also known as Btu per cubic foot, Btu/cubic foot.
+  This unit is commonly used in the UK, US unit systems.
+  It has a dimension of $ML^{-1}T^{-2}$ where $M$ is mass, $L$ is length, and $T$ is time.
   It can be converted to the corresponding standard SI unit $J/m^3$ by multiplying its value by a factor of 37258.94579.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/BTU_IT-PER-FT3> ;
@@ -1135,7 +1135,7 @@ In such cases, alternative measurement strategies might be required to obtain
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Power>,
         <https://vocab.sentier.dev/qudt/unit/W> ;
     skos:definition """
-  The $\\text{BTU per Hour}$ is the amount of energy that is being produced or consumed per hour. 
+  The $\\text{BTU per Hour}$ is the amount of energy that is being produced or consumed per hour.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/BTU_IT-PER-HR> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
@@ -1219,9 +1219,9 @@ In such cases, alternative measurement strategies might be required to obtain
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Energy>,
         <https://vocab.sentier.dev/qudt/unit/J> ;
     skos:definition """
-  The $\\textit{British Thermal Unit (thermochemical definition)}$ ($BTU_{th}$), is a traditional unit of energy equal to about $1.0543502645 kilojoule$. 
-  It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from $39^{\\circ}\\text{F}$ ($3.9^{\\circ}\\text{C}$) to $40^{\\circ}\\text{F}$ ($4.4^{\\circ}\\text{C}$). 
-  The unit is most often used in the power, steam generation, heating and air conditioning industries. 
+  The $\\textit{British Thermal Unit (thermochemical definition)}$ ($BTU_{th}$), is a traditional unit of energy equal to about $1.0543502645 kilojoule$.
+  It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from $39^{\\circ}\\text{F}$ ($3.9^{\\circ}\\text{C}$) to $40^{\\circ}\\text{F}$ ($4.4^{\\circ}\\text{C}$).
+  The unit is most often used in the power, steam generation, heating and air conditioning industries.
   In scientific contexts the BTU has largely been replaced by the SI unit of energy, the $joule$.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/BTU_TH> ;
@@ -1836,7 +1836,8 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Area>,
         <https://vocab.sentier.dev/qudt/unit/M2> ;
     skos:definition "A unit of area equal to that of a square, of sides 1cm"^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/CentiM2> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/CentiM2>,
+        <https://vocab.sentier.dev/simapro/unit/cm2> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "0112/2///62720#UAA384"^^qudt:iec61360Code,
         "cm²"^^qudt:symbol,
@@ -2101,7 +2102,8 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
     skos:definition "Mean solar day"^^rdf:HTML ;
     skos:exactMatch <http://qudt.org/vocab/unit/DAY>,
         <https://glossary.ecoinvent.org/ids/05af3809-c874-4611-a6e9-6c296385ec5d>,
-        <https://si-digital-framework.org/SI/units/day> ;
+        <https://si-digital-framework.org/SI/units/day>,
+        <https://vocab.sentier.dev/simapro/unit/day> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "0112/2///62720#UAA407"^^qudt:iec61360Code,
         "d"^^qudt:symbol,
@@ -2218,12 +2220,12 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Temperature>,
         <https://vocab.sentier.dev/qudt/unit/K> ;
     skos:definition """
-  The unit $\\textit{Celsius}$, also known as centigrade, is a scale and unit of measurement for temperature. 
-  It can refer to a specific temperature on the Celsius scale as well as a unit to indicate a temperature interval, 
-  a difference between two temperatures or an uncertainty. 
-  This definition fixes the magnitude of both the degree Celsius and the kelvin as precisely 1 part 
-  in 273.16 (approximately 0.00366) of the difference between absolute zero and the triple point of water. 
-  Thus, it sets the magnitude of one degree Celsius and that of one kelvin as exactly the same. 
+  The unit $\\textit{Celsius}$, also known as centigrade, is a scale and unit of measurement for temperature.
+  It can refer to a specific temperature on the Celsius scale as well as a unit to indicate a temperature interval,
+  a difference between two temperatures or an uncertainty.
+  This definition fixes the magnitude of both the degree Celsius and the kelvin as precisely 1 part
+  in 273.16 (approximately 0.00366) of the difference between absolute zero and the triple point of water.
+  Thus, it sets the magnitude of one degree Celsius and that of one kelvin as exactly the same.
   Additionally, it establishes the difference between the two scales' null points as being precisely $273.15^{\\circ}\\text{C}$.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/DEG_C>,
@@ -2305,7 +2307,7 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Temperature>,
         <https://vocab.sentier.dev/qudt/unit/K> ;
     skos:definition """
-  The unit $\\textit{Degree Fahrenheit}$ is an Imperial unit for 'Thermodynamic Temperature' expressed as 
+  The unit $\\textit{Degree Fahrenheit}$ is an Imperial unit for 'Thermodynamic Temperature' expressed as
   $\\circ\\text{F}$
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/DEG_F> ;
@@ -2352,10 +2354,10 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Temperature>,
         <https://vocab.sentier.dev/qudt/unit/K> ;
     skos:definition """
-  The unit $\\textit{Degree Rankine}$ is a thermodynamic (absolute) temperature scale. 
-  The symbol for degrees Rankine is $^\\circ R$ or $^\\circ Ra$ if necessary to distinguish it from the Rømer and Réaumur scales). 
+  The unit $\\textit{Degree Rankine}$ is a thermodynamic (absolute) temperature scale.
+  The symbol for degrees Rankine is $^\\circ R$ or $^\\circ Ra$ if necessary to distinguish it from the Rømer and Réaumur scales).
   Zero on both the Kelvin and Rankine scales is absolute zero, but the Rankine degree is defined as equal
-   to one degree Fahrenheit, rather than the one degree Celsius used by the Kelvin scale. 
+   to one degree Fahrenheit, rather than the one degree Celsius used by the Kelvin scale.
   A temperature of $-459.67 ^\\circ F$ is exactly equal to $0 ^\\circ R$.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/DEG_R> ;
@@ -2958,10 +2960,10 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
     skos:broader <https://vocab.sentier.dev/qudt/unit/C> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/ElectricCharge>,
         <https://vocab.sentier.dev/qudt/unit/C> ;
-    skos:definition """$\\textit{Elementary Charge}$, usually denoted as $e$, is the electric charge carried by a single proton, 
-  or equivalently, the negation (opposite) of the electric charge carried by a single electron. 
-  This elementary charge is a fundamental physical constant. 
-  To avoid confusion over its sign, e is sometimes called the elementary positive charge. 
+    skos:definition """$\\textit{Elementary Charge}$, usually denoted as $e$, is the electric charge carried by a single proton,
+  or equivalently, the negation (opposite) of the electric charge carried by a single electron.
+  This elementary charge is a fundamental physical constant.
+  To avoid confusion over its sign, e is sometimes called the elementary positive charge.
   This charge has a measured value of approximately $1.602176634 \\times 10^{-19} coulombs$.
   In the cgs system, $e$ is $4.80320471257026372 \\times 10^{-10} statcoulombs$.
   """^^qudt:LatexString ;
@@ -3542,8 +3544,8 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Volume>,
         <https://vocab.sentier.dev/qudt/unit/M3> ;
     skos:definition """
-  The cubic foot is an Imperial and US customary unit of volume, used in the United States and the United Kingdom. 
-  It is defined as the volume of a cube with sides of one foot (0.3048 m) in length. 
+  The cubic foot is an Imperial and US customary unit of volume, used in the United States and the United Kingdom.
+  It is defined as the volume of a cube with sides of one foot (0.3048 m) in length.
   To calculate cubic feet multiply length X width X height.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/FT3> ;
@@ -4295,6 +4297,28 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:prefLabel "Gram"@en ;
     skos:related "http://dbpedia.org/resource/Gram"^^xsd:anyURI .
 
+<https://vocab.sentier.dev/qudt/unit/GM-MilliM> a skos:Concept ;
+    qudt:applicableSystem sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 0.000001 ;
+    qudt:conversionMultiplierSN 1e-06 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M1H0T0D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/M-KiloGM> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/LengthMass>,
+        <https://vocab.sentier.dev/qudt/unit/M-KiloGM> ;
+    skos:definition "unit of the imbalance as product of the 0.001-fold of the SI base unit kilogram and the 0.001-fold of the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/GM-MilliM> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAB381"^^qudt:iec61360Code,
+        "g·mm"^^qudt:symbol,
+        "g.mm"^^qudt:ucumCode,
+        "H84"^^qudt:uneceCommonCode ;
+    skos:note "unit of the imbalance as product of the 0.001-fold of the SI base unit kilogram and the 0.001-fold of the SI base unit metre" ;
+    skos:prefLabel "Gram Millimetre"@en,
+        "Gram Millimeter"@en-us .
+
 <https://vocab.sentier.dev/qudt/unit/GM-PER-CentiM3-BAR> a skos:Concept ;
     qudt:conversionMultiplier 0.01 ;
     qudt:conversionMultiplierSN 1e-02 ;
@@ -4773,7 +4797,8 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Energy>,
         <https://vocab.sentier.dev/qudt/unit/J> ;
     skos:definition "1,000,000,000-fold of the SI derived unit joule"^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/GigaJ> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/GigaJ>,
+        <https://vocab.sentier.dev/simapro/unit/GJ> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "0112/2///62720#UAA152"^^qudt:iec61360Code,
         "GJ"^^qudt:symbol,
@@ -5117,8 +5142,8 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Frequency>,
         <https://vocab.sentier.dev/qudt/unit/PER-SEC> ;
     skos:definition """
-  $\\textit{Hertz}$ (symbol $Hz$) is the SI unit of frequency defined as the number of cycles per second of a periodic phenomenon. 
-  One of its most common uses is the description of the sine wave, particularly those used in radio and audio applications, such as the frequency of musical tones. 
+  $\\textit{Hertz}$ (symbol $Hz$) is the SI unit of frequency defined as the number of cycles per second of a periodic phenomenon.
+  One of its most common uses is the description of the sine wave, particularly those used in radio and audio applications, such as the frequency of musical tones.
   The word $\\bf{hertz}$ is named for Heinrich Rudolf Hertz, who was the first to conclusively prove the existence of electromagnetic waves.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/HZ>,
@@ -7008,7 +7033,7 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Power>,
         <https://vocab.sentier.dev/qudt/unit/W> ;
     skos:definition """
-  The unit $\\textit{Kilowatt}$ is a derived unit of power in the International System of Units (SI). 
+  The unit $\\textit{Kilowatt}$ is a derived unit of power in the International System of Units (SI).
   The unit, defined as 1,000 joule per second, measures the rate of energy conversion or transfer.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/KiloW>,
@@ -7216,6 +7241,25 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "K65"^^qudt:uneceCommonCode ;
     skos:note "product of the unit pound according to the avoirdupois system of units and the power of the unit foot according to the Anglo-American and the Imperial system of units with the exponent 2" ;
     skos:prefLabel "Pound Mass (avoirdupois) Square Foot"@en .
+
+<https://vocab.sentier.dev/qudt/unit/LB-IN> a skos:Concept ;
+    qudt:applicableSystem sou:IMPERIAL,
+        sou:USCS ;
+    qudt:conversionMultiplier 0.011521246198 ;
+    qudt:conversionMultiplierSN 1.152125e-02 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M1H0T0D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/M-KiloGM> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/LengthMass>,
+        <https://vocab.sentier.dev/qudt/unit/M-KiloGM> ;
+    skos:definition "unit of the unbalance (product of avoirdupois pound according to the avoirdupois system of units and inch according to the Anglo-American and Imperial system of units)"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/LB-IN> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAB194"^^qudt:iec61360Code,
+        "lbm·in"^^qudt:symbol,
+        "[lb_av].[in_i]"^^qudt:ucumCode,
+        "IA"^^qudt:uneceCommonCode ;
+    skos:note "unit of the unbalance (product of avoirdupois pound according to the avoirdupois system of units and inch according to the Anglo-American and Imperial system of units)" ;
+    skos:prefLabel "Pound Mass (avoirdupois) Inch"@en .
 
 <https://vocab.sentier.dev/qudt/unit/LB-IN2> a skos:Concept ;
     qudt:applicableSystem sou:IMPERIAL,
@@ -8365,7 +8409,8 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Energy>,
         <https://vocab.sentier.dev/qudt/unit/J> ;
     skos:definition "1,000,000-fold of the derived unit joule"^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/MegaJ> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MegaJ>,
+        <https://vocab.sentier.dev/simapro/unit/MJ> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "0112/2///62720#UAA211"^^qudt:iec61360Code,
         "MJ"^^qudt:symbol,
@@ -8752,7 +8797,8 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Energy>,
         <https://vocab.sentier.dev/qudt/unit/J> ;
     skos:definition "1,000,000-fold of the product of the SI derived unit watt and the unit hour"^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/MegaW-HR> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MegaW-HR>,
+        <https://vocab.sentier.dev/simapro/unit/MWh> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "0112/2///62720#UAA225"^^qudt:iec61360Code,
         "MW·hr"^^qudt:symbol,
@@ -10533,10 +10579,10 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:exactMatch <http://qudt.org/vocab/unit/NT> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "NT"^^qudt:symbol ;
-    skos:note """Net tonnage is used in the United States to determine eligibility for registering boats with 
- the federal government. It is a nonlinear unit derived from the total volume of a ship's cargo space as well as some 
- dimensionless factors. Net tonnage is not a measure of the weight of the ship or its cargo, and should not be confused 
- with terms such as deadweight tonnage or displacement. Net tonnage is also used to determine the amount of money that 
+    skos:note """Net tonnage is used in the United States to determine eligibility for registering boats with
+ the federal government. It is a nonlinear unit derived from the total volume of a ship's cargo space as well as some
+ dimensionless factors. Net tonnage is not a measure of the weight of the ship or its cargo, and should not be confused
+ with terms such as deadweight tonnage or displacement. Net tonnage is also used to determine the amount of money that
  can be charged to a ship for using a port's facilities.""" ;
     skos:prefLabel "Net tonnage"@en ;
     skos:related <http://qudt.org/vocab/unit/RT> .
@@ -11067,6 +11113,44 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "[oz_av]"^^qudt:ucumCode,
         "ONZ"^^qudt:uneceCommonCode ;
     skos:prefLabel "Ounce Mass"@en .
+
+<https://vocab.sentier.dev/qudt/unit/OZ-FT> a skos:Concept ;
+    qudt:applicableSystem sou:IMPERIAL,
+        sou:USCS ;
+    qudt:conversionMultiplier 0.0086409 ;
+    qudt:conversionMultiplierSN 8.6409e-03 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M1H0T0D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/M-KiloGM> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/LengthMass>,
+        <https://vocab.sentier.dev/qudt/unit/M-KiloGM> ;
+    skos:definition "unit of the unbalance as a product of avoirdupois ounce according to  the avoirdupois system of units and foot according to the Anglo-American and Imperial system of units"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/OZ-FT> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAB133"^^qudt:iec61360Code,
+        "oz·ft"^^qudt:symbol,
+        "[oz_av].[ft_i]"^^qudt:ucumCode,
+        "4R"^^qudt:uneceCommonCode ;
+    skos:note "unit of the unbalance as a product of avoirdupois ounce according to  the avoirdupois system of units and foot according to the Anglo-American and Imperial system of units" ;
+    skos:prefLabel "Ounce (avoirdupois) Foot"@en .
+
+<https://vocab.sentier.dev/qudt/unit/OZ-IN> a skos:Concept ;
+    qudt:applicableSystem sou:IMPERIAL,
+        sou:USCS ;
+    qudt:conversionMultiplier 0.000720077887375 ;
+    qudt:conversionMultiplierSN 7.200779e-04 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M1H0T0D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/unit/M-KiloGM> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/LengthMass>,
+        <https://vocab.sentier.dev/qudt/unit/M-KiloGM> ;
+    skos:definition "unit of the unbalance as a product of avoirdupois ounce according to  the avoirdupois system of units and inch according to the Anglo-American and Imperial system of units"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/OZ-IN> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "0112/2///62720#UAB132"^^qudt:iec61360Code,
+        "oz·in"^^qudt:symbol,
+        "[oz_av].[in_i]"^^qudt:ucumCode,
+        "4Q"^^qudt:uneceCommonCode ;
+    skos:note "unit of the unbalance as a product of avoirdupois ounce according to  the avoirdupois system of units and inch according to the Anglo-American and Imperial system of units" ;
+    skos:prefLabel "Ounce (avoirdupois) Inch"@en .
 
 <https://vocab.sentier.dev/qudt/unit/OZ-PER-IN2> a skos:Concept ;
     qudt:conversionMultiplier 43.94184872744745489490978981957964 ;
@@ -13159,15 +13243,15 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Time>,
         <https://vocab.sentier.dev/qudt/unit/SEC> ;
     skos:definition """
-  In physics, the Planck time, denoted by $t_P$, is the unit of time in the system of natural units known as Planck units. 
-  It is the time required for light to travel, in a vacuum, a distance of 1 Planck length. 
+  In physics, the Planck time, denoted by $t_P$, is the unit of time in the system of natural units known as Planck units.
+  It is the time required for light to travel, in a vacuum, a distance of 1 Planck length.
   The unit is named after Max Planck, who was the first to propose it.
-  
+
   The formula for $\\textit{PlankTime} is:
-  
+
   $$ \\\\ t_P \\equiv  \\sqrt{\\frac{\\hbar G}{c^5}} \\approx 5.39106(32) \\times 10^{-44} s$$
-  
-   where, $c$ is the speed of light in a vacuum, $\\hbar$ is the reduced Planck's constant (defined as $\\hbar = \\frac{h}{2 \\pi}$ and $G$ is the gravitational constant. 
+
+   where, $c$ is the speed of light in a vacuum, $\\hbar$ is the reduced Planck's constant (defined as $\\hbar = \\frac{h}{2 \\pi}$ and $G$ is the gravitational constant.
   The two digits between parentheses denote the standard error of the estimated value.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/PlanckTime> ;
@@ -13397,9 +13481,9 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         <https://vocab.sentier.dev/qudt/unit/J> ;
     skos:definition """
   A $\\textit{quad}$ is a unit of energy equal to $10 BTU$, or $1.055 \\times 10\\,\\text{joule}$,
-   which is $1.055 exajoule$ or $EJ$ in SI units. 
-  The unit is used by the U.S. Department of Energy in discussing world and national energy budgets. 
-  
+   which is $1.055 exajoule$ or $EJ$ in SI units.
+  The unit is used by the U.S. Department of Energy in discussing world and national energy budgets.
+
   Some common types of an energy carrier approximately equal 1 quad are:
 
   8,007,000,000 Gallons (US) of gasoline, 293,083,000,000 Kilowatt-hours (kWh), 36,000,000 Tonnes of coal,
@@ -13600,7 +13684,7 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/AmountOfSubstance>,
         <https://vocab.sentier.dev/qudt/unit/MOL> ;
     skos:definition """
-The $\\textit{standard cubic foot}$ (scf) is a unit representing the amount of gas (such as natural gas) 
+The $\\textit{standard cubic foot}$ (scf) is a unit representing the amount of gas (such as natural gas)
 contained in a volume of one cubic foot at reference temperature and pressure conditions. As such, it is a measure of the actual amount of gas,
 not the volume of the gas. The reference conditions for standard cubic foot are 60 degrees Fahrenheit and 14.7 pounds per square inch (psi) of pressure.
   """^^qudt:LatexString ;
@@ -13863,10 +13947,10 @@ not the volume of the gas. The reference conditions for standard cubic metre are
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Energy>,
         <https://vocab.sentier.dev/qudt/unit/J> ;
     skos:definition """
-  $\\textit{Therm}$ (symbol $thm$) is a non-SI unit of heat energy. 
-  It was defined in the United States in 1968 as the energy equivalent of burning 100 cubic feet of 
-  natural gas at standard temperature and pressure. 
-  In the US gas industry its SI equivalent is defined as exactly $100,000 BTU59^{\\circ}{F}$ or $105.4804 megajoules$. 
+  $\\textit{Therm}$ (symbol $thm$) is a non-SI unit of heat energy.
+  It was defined in the United States in 1968 as the energy equivalent of burning 100 cubic feet of
+  natural gas at standard temperature and pressure.
+  In the US gas industry its SI equivalent is defined as exactly $100,000 BTU59^{\\circ}{F}$ or $105.4804 megajoules$.
   Public utilities in the U.S. use the therm unit for measuring customer usage of gas and calculating the monthly bills.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/THM_US> ;
@@ -14570,7 +14654,8 @@ not the volume of the gas. The reference conditions for standard cubic metre are
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Energy>,
         <https://vocab.sentier.dev/qudt/unit/J> ;
     skos:definition "The watt hour is a unit of energy, equal to 3,600 joule."^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/W-HR> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/W-HR>,
+        <https://vocab.sentier.dev/simapro/unit/Wh> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:notation "0112/2///62720#UAA308"^^qudt:iec61360Code,
         "W·hr"^^qudt:symbol,
@@ -16411,6 +16496,18 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:note "Flux describes any effect that appears to pass or travel (whether it actually moves or not) through a surface or substance. [Wikipedia]" ;
     skos:prefLabel "Flux"@en .
 
+<https://vocab.sentier.dev/qudt/quantity-kind/LengthMass> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M1H0T0D0> ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/LengthMass> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:narrower <https://vocab.sentier.dev/qudt/unit/M-KiloGM> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/GM-MilliM>,
+        <https://vocab.sentier.dev/qudt/unit/LB-IN>,
+        <https://vocab.sentier.dev/qudt/unit/M-KiloGM>,
+        <https://vocab.sentier.dev/qudt/unit/OZ-FT>,
+        <https://vocab.sentier.dev/qudt/unit/OZ-IN> ;
+    skos:prefLabel "Length Mass"@en .
+
 <https://vocab.sentier.dev/qudt/quantity-kind/MomentOfInertia> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M1H0T0D0> ;
     qudt:informativeReference "http://en.wikipedia.org/wiki/Moment_of_inertia"^^xsd:anyURI ;
@@ -16526,9 +16623,9 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/MolarMass> ;
     skos:definition """
   The unit $\\textit{}$, symbol $kg/mol$, is the base SI unit for molar mass.
-  In chemistry, the molar mass $M$ is defined as the mass of a given substance (chemical element or chemical compound) divided by its amount of substance. 
-  It is a physical property of a given substance.  
-  However, for historical reasons, molar masses are almost always expressed in $g/mol$. 
+  In chemistry, the molar mass $M$ is defined as the mass of a given substance (chemical element or chemical compound) divided by its amount of substance.
+  It is a physical property of a given substance.
+  However, for historical reasons, molar masses are almost always expressed in $g/mol$.
   As an example, the molar mass of water is approximately: $18.01528(33) \\; g/mol$.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/KiloGM-PER-MOL> ;
@@ -16845,6 +16942,33 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         "kilogram metrekare"@tr,
         "千克平方米"@zh .
 
+<https://vocab.sentier.dev/qudt/unit/M-KiloGM> a skos:Concept ;
+    qudt:applicableSystem sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 1.0 ;
+    qudt:conversionMultiplierSN 1e+00 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M1H0T0D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/LengthMass> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/LengthMass> ;
+    skos:definition "product of SI base units metre and kilogram given as dimensional product dim Q = L**$a} M**$b} T**$g} I**$d} $TH**$e} N**$z} J**$i}" ;
+    skos:exactMatch <http://qudt.org/vocab/unit/M-KiloGM> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:narrower <https://vocab.sentier.dev/qudt/unit/GM-MilliM>,
+        <https://vocab.sentier.dev/qudt/unit/LB-IN>,
+        <https://vocab.sentier.dev/qudt/unit/OZ-FT>,
+        <https://vocab.sentier.dev/qudt/unit/OZ-IN> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/qudt/unit/GM-MilliM>,
+        <https://vocab.sentier.dev/qudt/unit/LB-IN>,
+        <https://vocab.sentier.dev/qudt/unit/OZ-FT>,
+        <https://vocab.sentier.dev/qudt/unit/OZ-IN> ;
+    skos:notation "0112/2///62720#UAD674"^^qudt:iec61360Code,
+        "m·kg"^^qudt:symbol,
+        "m.kg"^^qudt:ucumCode ;
+    skos:prefLabel "Metre Kilogram"@en,
+        "Meter Kilogram"@en-us .
+
 <https://vocab.sentier.dev/qudt/unit/N-SEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
         sou:CGS-EMU,
@@ -17064,12 +17188,12 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/Temperature> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Temperature> ;
     skos:definition """
-  The unit $\\textit{Kelvin}$ is the SI base unit of temperature, previously called the degree Kelvin. 
-  One kelvin represents the same temperature difference as one degree Celsius. 
+  The unit $\\textit{Kelvin}$ is the SI base unit of temperature, previously called the degree Kelvin.
+  One kelvin represents the same temperature difference as one degree Celsius.
   In 1967 the General Conference on Weights and Measures defined the temperature of the triple point of water
-   (the temperature at which water exists simultaneously in the gaseous, liquid, and solid states) to be exactly 273.16 kelvins. 
-  Since this temperature is also equal to 0.01 u00b0C, the temperature in kelvins is always equal to 273.15 plus the temperature in degrees Celsius. 
-  The kelvin equals exactly 1.8 degrees Fahrenheit. 
+   (the temperature at which water exists simultaneously in the gaseous, liquid, and solid states) to be exactly 273.16 kelvins.
+  Since this temperature is also equal to 0.01 u00b0C, the temperature in kelvins is always equal to 273.15 plus the temperature in degrees Celsius.
+  The kelvin equals exactly 1.8 degrees Fahrenheit.
   The unit is named for the British mathematician and physicist William Thomson (1824-1907),
    later known as Lord Kelvin after he was named Baron Kelvin of Largs.
   """^^qudt:LatexString ;
@@ -17358,8 +17482,8 @@ For an irrotational electric field, the voltage is independent of the path betwe
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/AreaPerTime> ;
     skos:definition """
   The unit $\\textit{Square Metres per Second}$ is the SI derived unit of angular momentum, defined by distance
-   or displacement in metres multiplied by distance again in metres and divided by time in seconds. 
-  The unit is written in symbols as $m^2/s$ or $m^22s^{-1}$. 
+   or displacement in metres multiplied by distance again in metres and divided by time in seconds.
+  The unit is written in symbols as $m^2/s$ or $m^22s^{-1}$.
   It may be better understood when phrased as $\\textit{metres per second times metres}$, i.e. the momentum
    of an object with respect to a position.
   """^^qudt:LatexString ;
@@ -17688,12 +17812,12 @@ t stands for time."""^^qudt:LatexString ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/Resistance> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Resistance> ;
     skos:definition """
-  The $\\textit{ohm}$ is the SI derived unit of electrical resistance, named after German physicist Georg Simon Ohm. 
-  
+  The $\\textit{ohm}$ is the SI derived unit of electrical resistance, named after German physicist Georg Simon Ohm.
+
   It is defined as:
-  
+
   $$\\Omega \\equiv\\ \\frac{\\text{V}}{\\text{A}}\\ \\equiv\\ \\frac{\\text{volt}}{\\text{amp}}\\ \\equiv\\ \\frac{\\text{W}}{\\text {A}^{2}}\\ \\equiv\\ \\frac{\\text{watt}}{\\text{amp}^{2}}\\ \\equiv\\ \\frac{\\text{H}}{\\text {s}}\\ \\equiv\\ \\frac{\\text{henry}}{\\text{second}}$$
-  
+
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/OHM>,
         <https://si-digital-framework.org/SI/units/ohm> ;
@@ -18046,12 +18170,12 @@ t stands for time."""^^qudt:LatexString ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/AmountOfSubstance> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/AmountOfSubstance> ;
     skos:definition """
-  The $\\textit{mole}$ is a unit of measurement used in chemistry to express amounts of a chemical substance. 
+  The $\\textit{mole}$ is a unit of measurement used in chemistry to express amounts of a chemical substance.
   The official definition, adopted as part of the SI system in 1971, is that one mole of a substance contains just as many elementary entities (atoms, molecules, ions, or other kinds of particles) as there are atoms in 12 grams of carbon-12 (carbon-12 is the most common atomic form of carbon, consisting of atoms having 6 protons and 6 neutrons).
-  This corresponds to a value of $6.02214179(30) \\times 10^{23}$ elementary entities of the substance. 
-  It is one of the base units in the International System of Units, and has the unit symbol $mol$. 
-  A Mole is the SI base unit of the amount of a substance (as distinct from its mass or weight). 
-  Moles measure the actual number of atoms or molecules in an object. 
+  This corresponds to a value of $6.02214179(30) \\times 10^{23}$ elementary entities of the substance.
+  It is one of the base units in the International System of Units, and has the unit symbol $mol$.
+  A Mole is the SI base unit of the amount of a substance (as distinct from its mass or weight).
+  Moles measure the actual number of atoms or molecules in an object.
   An earlier name is gram molecular weight, because one mole of a chemical compound is the same number of grams as the molecular weight of a molecule of that compound measured in atomic mass units.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/MOL>,
@@ -18277,19 +18401,20 @@ t stands for time."""^^qudt:LatexString ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Activity> ;
     skos:definition """
   The $\\textit{Becquerel}$ is the SI derived unit of activity, usually meaning radioactivity.
-  Radioactivity is caused when atoms disintegrate, ejecting energetic particles. 
-  One becquerel is the radiation caused by one disintegration per second; 
-  this is equivalent to about $27.0270 \\text{picocuries (pCi)}$. 
-  The unit is named for a French physicist, Antoine-Henri Becquerel (1852-1908), 
-  the discoverer of radioactivity. 
-  Note: both the becquerel and the hertz are basically defined as one event per second, 
-  yet they measure different things. 
-  The hertz is used to measure the rates of events that happen periodically in a fixed and definite cycle. 
-  The becquerel is used to measure the rates of events that happen sporadically and unpredictably, 
+  Radioactivity is caused when atoms disintegrate, ejecting energetic particles.
+  One becquerel is the radiation caused by one disintegration per second;
+  this is equivalent to about $27.0270 \\text{picocuries (pCi)}$.
+  The unit is named for a French physicist, Antoine-Henri Becquerel (1852-1908),
+  the discoverer of radioactivity.
+  Note: both the becquerel and the hertz are basically defined as one event per second,
+  yet they measure different things.
+  The hertz is used to measure the rates of events that happen periodically in a fixed and definite cycle.
+  The becquerel is used to measure the rates of events that happen sporadically and unpredictably,
   not in a definite cycle.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/BQ>,
-        <https://si-digital-framework.org/SI/units/becquerel> ;
+        <https://si-digital-framework.org/SI/units/becquerel>,
+        <https://vocab.sentier.dev/simapro/unit/Bq> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
     skos:narrower <https://vocab.sentier.dev/qudt/unit/Ci>,
         <https://vocab.sentier.dev/qudt/unit/GigaBQ>,
@@ -18356,12 +18481,12 @@ t stands for time."""^^qudt:LatexString ;
     qudt:latexDefinition "$\\textit{V}\\ \\equiv\\ \\text{volt}\\ \\equiv\\ \\frac{\\text{J}}{\\text{C}}\\ \\equiv\\ \\frac{\\text{joule}}{\\text{coulomb}}\\ \\equiv\\ \\frac{\\text{W.s}}{\\text{C}}\\ \\equiv\\ \\frac{\\text{watt.second}}{\\text{coulomb}}\\ \\equiv\\ \\frac{\\text{W}}{\\text{A}}\\ \\equiv\\ \\frac{\\text{watt}}{\\text{amp}}$"^^qudt:LatexString ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/Voltage> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Voltage> ;
-    skos:definition """$\\textit{Volt}$ is the SI unit of electric potential. 
-  Separating electric charges creates potential energy, which can be measured in energy units such as joules. 
-  Electric potential is defined as the amount of potential energy present per unit of charge. 
-  Electric potential is measured in volts, with one volt representing a potential of one joule per coulomb of charge. 
+    skos:definition """$\\textit{Volt}$ is the SI unit of electric potential.
+  Separating electric charges creates potential energy, which can be measured in energy units such as joules.
+  Electric potential is defined as the amount of potential energy present per unit of charge.
+  Electric potential is measured in volts, with one volt representing a potential of one joule per coulomb of charge.
   The name of the unit honors the Italian scientist Count Alessandro Volta (1745-1827), the inventor of the first battery.
-  The volt also may be expressed with a variety of other units. 
+  The volt also may be expressed with a variety of other units.
   For example, a volt is also equal to one watt per ampere ($W/A$) and one joule per ampere per second ($J/A/s$).
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/V>,
@@ -18595,11 +18720,11 @@ $\\nu = 1/T$"""^^qudt:LatexString ;
     qudt:informativeReference "http://en.wikipedia.org/wiki/Ampere?oldid=494026699"^^xsd:anyURI ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/ElectricCurrent> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/ElectricCurrent> ;
-    skos:definition """$\\textit{Ampere}$, often shortened to $\\text{amp}$, 
+    skos:definition """$\\textit{Ampere}$, often shortened to $\\text{amp}$,
 is the SI unit of electric current and is one of the seven SI base units defined as:
 
-$$\\text{A} \\equiv \\frac{\\textit{C}}{\\textit{s}} 
-\\equiv \\frac{\\textit{coulomb}}{\\textit{second}} 
+$$\\text{A} \\equiv \\frac{\\textit{C}}{\\textit{s}}
+\\equiv \\frac{\\textit{coulomb}}{\\textit{second}}
 \\equiv \\frac{\\text{joule}}{\\text{weber}}$$
 
 Note that SI supports only the use of symbols and deprecates the use of any abbreviations for units.
@@ -20418,7 +20543,7 @@ Under the International System of Units (via the International Committee for Wei
     qudt:latexDefinition "$$\\text{J}\\ \\equiv\\ \\text{joule}\\ \\equiv\\ \\text{CV}\\ \\equiv\\ \\text{coulomb.volt}\\ \\equiv\\ \\frac{\\text{eV}}{1.602\\ 10^{-19}}\\ \\equiv\\ \\frac{\\text{electron.volt}}{1.602\\ 10^{-19}}$$"^^qudt:LatexString ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/Energy> ;
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Energy> ;
-    skos:definition """$\\textit{Joule}$ is the SI unit of work or energy, defined to be the work done by a force of one newton acting to move an object through a distance of one meter in the direction in which the force is applied. 
+    skos:definition """$\\textit{Joule}$ is the SI unit of work or energy, defined to be the work done by a force of one newton acting to move an object through a distance of one meter in the direction in which the force is applied.
   Equivalently, since kinetic energy is one half the mass times the square of the velocity, one joule is the kinetic energy of a mass of two kilograms moving at a velocity of $1 m/s$.
   """^^qudt:LatexString ;
     skos:exactMatch <http://qudt.org/vocab/unit/J>,

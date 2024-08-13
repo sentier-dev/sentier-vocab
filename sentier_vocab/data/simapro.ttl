@@ -5,6 +5,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sou: <http://qudt.org/vocab/sou/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://vocab.sentier.dev/simapro/> a skos:ConceptScheme ;
     dcterms:contributor "PRé",
@@ -174,3 +175,47 @@
     skos:notation  "km"^^qudt:symbol ;
     skos:prefLabel "Cubic metre"@en_GB ;
         "Cubic meter"@en_US .
+
+<https://vocab.sentier.dev/simapro/unit/kW*h> a skos:Concept ;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloW-HR> ;
+    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
+    skos:notation  "kW*h"^^qudt:symbol ;
+    owl:deprecated true ;
+    dcterms:replacedBy <https://vocab.sentier.dev/simapro/unit/kWh> ;
+    skos:prefLabel "Kilowatt hour (obsolete form)"@en .
+
+<https://vocab.sentier.dev/simapro/unit/kWh> a skos:Concept ;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloW-HR> ;
+    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
+    skos:notation  "kWh"^^qudt:symbol ;
+    skos:prefLabel "Kilowatt hour"@en .
+
+<https://vocab.sentier.dev/simapro/unit/kg*day> a skos:Concept ;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloGM-DAY> ;
+    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
+    skos:notation  "kg*day"^^qudt:symbol ;
+    skos:prefLabel "Kilogram day"@en .
+
+<https://vocab.sentier.dev/simapro/unit/personkm> a skos:Concept ;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/PERSON-KiloM> ;
+    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
+    skos:notation  "personkm"^^qudt:symbol ;
+    skos:prefLabel "Person kilometer"@en .
+
+<https://vocab.sentier.dev/simapro/unit/> a skos:Concept ;
+    skos:exactMatch  ;
+    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
+    skos:notation  ""^^qudt:symbol ;
+    skos:prefLabel ""@en .
+
+<https://vocab.sentier.dev/simapro/unit/> a skos:Concept ;
+    skos:exactMatch  ;
+    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
+    skos:notation  ""^^qudt:symbol ;
+    skos:prefLabel ""@en .
+
+<https://vocab.sentier.dev/simapro/unit/> a skos:Concept ;
+    skos:exactMatch  ;
+    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
+    skos:notation  ""^^qudt:symbol ;
+    skos:prefLabel ""@en .

@@ -23,12 +23,28 @@
     skos:prefLabel "British Thermal Unit (thermochemical definition) per Kilogram"@en .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea> a skos:Concept ;
-  dcterms:description "\"Time per Area\" is a measure of the time spent per unit area; commonly user for farming."^^qudt:LatexString ;
+  dcterms:description "\"Time per Area\" is a measure of the time spent per unit area; commonly used for farming."^^qudt:LatexString ;
   qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> ;
   qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/HR-PER-HA> ;
   qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Time per Area"@en ;
+.
+
+<https://vocab.sentier.dev/qudt/quantity-kind/PassengerTransport> a skos:Concept ;
+  dcterms:description "\"Passenger Transport\" is a measure of passenger transport, commonly expressed in person kilometers."^^qudt:LatexString ;
+  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/PERSON-KiloM> ;
+  qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M0H0T0D1> ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Passenger transport"@en ;
+.
+
+<https://vocab.sentier.dev/qudt/quantity-kind/MassTime> a skos:Concept ;
+  dcterms:description "\"Mass Time\" is a measure of mass over time, used for example for storage."^^qudt:LatexString ;
+  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/KiloGM-DAY> ;
+  qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M1H0T1D0> ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Mass Time"@en ;
 .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/TimePerVolume> a skos:Concept ;
@@ -66,6 +82,18 @@
         "s.m-3"^^qudt:ucumCode ;
     skos:prefLabel "Second per cubic metre"@en .
 
+<https://vocab.sentier.dev/qudt/unit/PERSON-KiloM> a skos:Concept ;
+    qudt:applicableSystem sou:CGS ;
+    qudt:applicableSystem sou:SI ;
+    qudt:conversionMultiplier 1000.0 ;
+    qudt:conversionMultiplierSN 1e+3 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M0H0T0D1> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/PassengerTransport> ;
+    skos:definition "Transport of one person over one kilometer. Does not depend on mass of person or duration of transport."^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "personkm"^^qudt:symbol ;
+    skos:prefLabel "Person kilometer"@en .
+
 <https://vocab.sentier.dev/qudt/unit/HR-PER-HA> a skos:Concept ;
     qudt:applicableSystem sou:CGS ;
     qudt:applicableSystem sou:SI ;
@@ -93,6 +121,19 @@
     skos:notation "h/m3"^^qudt:symbol,
         "h.m-3"^^qudt:ucumCode ;
     skos:prefLabel "Hour per cubic metre"@en .
+
+<https://vocab.sentier.dev/qudt/unit/KiloGM-DAY> a skos:Concept ;
+    qudt:applicableSystem sou:CGS ;
+    qudt:applicableSystem sou:SI ;
+    qudt:conversionMultiplier 86400 ;
+    qudt:conversionMultiplierSN 8.64e+4 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M1H0T1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/MassTime> ;
+    skos:definition "Kilogram over one day"^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "kgd"^^qudt:symbol,
+        "kg.d"^^qudt:ucumCode ;
+    skos:prefLabel "Kilogram day"@en .
 
 <https://vocab.sentier.dev/qudt/unit/KiloCAL_PER_KiloW-HR> a skos:Concept ;
     skos:definition "Kilocalories per kilowatt-hour. Used for efficiencies, such as energy in divided by energy produced."^^xsd:string ;
@@ -172,3 +213,7 @@
 <https://vocab.sentier.dev/qudt/unit/KiloM-KiloGM> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/kgkm> .
 <https://vocab.sentier.dev/qudt/unit/KiloM> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/km> .
 <https://vocab.sentier.dev/qudt/unit/M3> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/m3> .
+<https://vocab.sentier.dev/qudt/unit/KiloW-HR> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/kW*h> .
+<https://vocab.sentier.dev/qudt/unit/KiloW-HR> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/kWh> .
+<https://vocab.sentier.dev/qudt/unit/KiloGM-DAY> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/kg*day> .
+<https://vocab.sentier.dev/qudt/unit/PERSON-KiloM> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/personkm> .

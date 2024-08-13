@@ -202,17 +202,35 @@
     skos:notation  "personkm"^^qudt:symbol ;
     skos:prefLabel "Person kilometer"@en .
 
-<https://vocab.sentier.dev/simapro/unit/> a skos:Concept ;
-    skos:exactMatch  ;
+<https://vocab.sentier.dev/simapro/unit/l*day> a skos:Concept ;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/L-DAY> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
-    skos:notation  ""^^qudt:symbol ;
-    skos:prefLabel ""@en .
+    skos:notation  "l*day"^^qudt:symbol ;
+    skos:prefLabel "Litre day"@en_GB ;
+        "Liter day"@en_US .
 
-<https://vocab.sentier.dev/simapro/unit/> a skos:Concept ;
-    skos:exactMatch  ;
+<https://vocab.sentier.dev/simapro/unit/m2*y> a skos:Concept ;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M2-YR> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
-    skos:notation  ""^^qudt:symbol ;
-    skos:prefLabel ""@en .
+    skos:notation  "m2*y"^^qudt:symbol ;
+    skos:prefLabel "Square metre year"@en_GB ;
+        "Square meter year"@en_US .
+
+<https://vocab.sentier.dev/simapro/unit/m2a> a skos:Concept ;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M2-YR> ;
+    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
+    owl:deprecated true ;
+    dcterms:replacedBy <https://vocab.sentier.dev/simapro/unit/m2*y> ;
+    skos:notation  "m2a"^^qudt:symbol ;
+    skos:prefLabel "Square metre year (obsolete form)"@en_GB ;
+        "Square meter year (obsolete form)"@en_US .
+
+<https://vocab.sentier.dev/simapro/unit/m3y> a skos:Concept ;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M3-YR> ;
+    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
+    skos:notation "m3y"^^qudt:symbol ;
+    skos:prefLabel "Cubic metre year"@en_GB ;
+        "Cubic meter year"@en_US .
 
 <https://vocab.sentier.dev/simapro/unit/> a skos:Concept ;
     skos:exactMatch  ;

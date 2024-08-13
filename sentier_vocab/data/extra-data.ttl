@@ -23,37 +23,54 @@
     skos:prefLabel "British Thermal Unit (thermochemical definition) per Kilogram"@en .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea> a skos:Concept ;
-  dcterms:description "\"Time per Area\" is a measure of the time spent per unit area; commonly used for farming."^^qudt:LatexString ;
-  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> ;
-  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/HR-PER-HA> ;
-  qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Time per Area"@en ;
+    dcterms:description "\"Time per Area\" is a measure of the time spent per unit area; commonly used for farming."^^qudt:LatexString ;
+    qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> ;
+    qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/HR-PER-HA> ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
+    rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+    skos:prefLabel "Time per Area"@en ;
+.
+
+<https://vocab.sentier.dev/qudt/quantity-kind/AreaTime> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T1D0> ;
+    skos:definition "Occupation or use of a given are over a period of time."^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/AreaTime> ;
+    rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:prefLabel "Area Time"@en ;
 .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/PassengerTransport> a skos:Concept ;
-  dcterms:description "\"Passenger Transport\" is a measure of passenger transport, commonly expressed in person kilometers."^^qudt:LatexString ;
-  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/PERSON-KiloM> ;
-  qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M0H0T0D1> ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Passenger transport"@en ;
+    dcterms:description "\"Passenger Transport\" is a measure of passenger transport, commonly expressed in person kilometers."^^qudt:LatexString ;
+    qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/PERSON-KiloM> ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M0H0T0D1> ;
+    rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+    skos:prefLabel "Passenger transport"@en ;
 .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/MassTime> a skos:Concept ;
-  dcterms:description "\"Mass Time\" is a measure of mass over time, used for example for storage."^^qudt:LatexString ;
-  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/KiloGM-DAY> ;
-  qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M1H0T1D0> ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Mass Time"@en ;
+    dcterms:description "\"Mass Time\" is a measure of mass over time, used for example for storage."^^qudt:LatexString ;
+    qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/KiloGM-DAY> ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M1H0T1D0> ;
+    rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+    skos:prefLabel "Mass Time"@en ;
+.
+
+<https://vocab.sentier.dev/qudt/quantity-kind/VolumeTime> a skos:Concept ;
+    dcterms:description "\"Volume Time\" is a measure of volume over time, used for example for storage."^^qudt:LatexString ;
+    qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/L-DAY> ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L3I0M0H0T1D0> ;
+    rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+    skos:prefLabel "Volume Time"@en ;
 .
 
 <https://vocab.sentier.dev/qudt/quantity-kind/TimePerVolume> a skos:Concept ;
-  dcterms:description "\"Time per Volume\" is a measure of the time spent per unit volume."^^qudt:LatexString ;
-  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/SEC-PER-M3> ;
-  qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/HR-PER-M3> ;
-  qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-3I0M0H0T1D0> ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Time per Volume"@en ;
+    dcterms:description "\"Time per Volume\" is a measure of the time spent per unit volume."^^qudt:LatexString ;
+    qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/SEC-PER-M3> ;
+    qudt:applicableUnit <https://vocab.sentier.dev/qudt/unit/HR-PER-M3> ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-3I0M0H0T1D0> ;
+    rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+    skos:prefLabel "Time per Volume"@en ;
 .
 
 <https://vocab.sentier.dev/qudt/unit/SEC-PER-M2> a skos:Concept ;
@@ -160,6 +177,48 @@
     skos:note "Commonly used in freight calculations" ;
     skos:prefLabel "Tonne (metric) kilometer"@en .
 
+<https://vocab.sentier.dev/qudt/unit/L-DAY> a skos:Concept ;
+    qudt:applicableSystem sou:CGS ;
+    qudt:applicableSystem sou:SI ;
+    qudt:conversionMultiplier 86.4 ;
+    qudt:conversionMultiplierSN 8.64e+1 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L3I0M0H0T1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/VolumeTime> ;
+    skos:definition "One liter over one day"^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "ld"^^qudt:symbol,
+        "l.d"^^qudt:ucumCode ;
+    skos:prefLabel "Litre day"@en_GB ;
+        "Liter day"@en_US .
+
+<https://vocab.sentier.dev/qudt/unit/M3-YR> a skos:Concept ;
+    qudt:applicableSystem sou:CGS ;
+    qudt:applicableSystem sou:SI ;
+    qudt:conversionMultiplier 31557600.0 ;
+    qudt:conversionMultiplierSN 3.15576E7 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L3I0M0H0T1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/VolumeTime> ;
+    skos:definition "One cubic meter over one year"^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "m3a"^^qudt:symbol,
+        "m3.a"^^qudt:ucumCode ;
+    skos:prefLabel "Cubic metre year"@en_GB ;
+        "Cubic meter year"@en_US .
+
+<https://vocab.sentier.dev/qudt/unit/M2-YR> a skos:Concept ;
+    qudt:applicableSystem sou:CGS ;
+    qudt:applicableSystem sou:SI ;
+    qudt:conversionMultiplier 31557600.0 ;
+    qudt:conversionMultiplierSN 3.15576E7 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T1D0> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/AreaTime> ;
+    skos:definition "Square meter-year"^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "m2a"^^qudt:symbol,
+        "m2.a"^^qudt:ucumCode ;
+    skos:prefLabel "Square metre year"@en_GB ;
+        "Square meter year"@en_US .
+
 <https://vocab.sentier.dev/qudt/unit/KiloM-KiloGM> a skos:Concept ;
     qudt:applicableSystem sou:CGS ;
     qudt:applicableSystem sou:SI ;
@@ -217,3 +276,8 @@
 <https://vocab.sentier.dev/qudt/unit/KiloW-HR> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/kWh> .
 <https://vocab.sentier.dev/qudt/unit/KiloGM-DAY> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/kg*day> .
 <https://vocab.sentier.dev/qudt/unit/PERSON-KiloM> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/personkm> .
+<https://vocab.sentier.dev/qudt/unit/L-DAY> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/l*day> .
+<https://vocab.sentier.dev/qudt/unit/M2-YR> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/m2*y> .
+<https://vocab.sentier.dev/qudt/unit/M2-YR> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/m2a> .
+<https://vocab.sentier.dev/qudt/unit/M3-YR> skos:exactMatch <https://vocab.sentier.dev/simapro/unit/m3y> .
+skos:exactMatch .

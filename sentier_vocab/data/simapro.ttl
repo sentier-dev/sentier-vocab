@@ -23,12 +23,6 @@
     skos:notation  "Bq"^^qudt:symbol ;
     skos:prefLabel "Becquerel"@en .
 
-<https://vocab.sentier.dev/simapro/unit/Bq> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/BQ>;
-    skos:inScheme <https://vocab.sentier.dev/simapro/> ;
-    skos:notation  "Bq"^^qudt:symbol ;
-    skos:prefLabel "Becquerel"@en .
-
 <https://vocab.sentier.dev/simapro/unit/GJ> a skos:Concept ;
     skos:exactMatch <https://vocab.sentier.dev/qudt/unit/GigaJ>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
@@ -36,7 +30,7 @@
     skos:prefLabel "Gigajoule"@en .
 
 <https://vocab.sentier.dev/simapro/unit/MJ> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/GigaJ>;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/MegaJ>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "MJ"^^qudt:symbol ;
     skos:prefLabel "Megajoule"@en .
@@ -48,7 +42,7 @@
     skos:prefLabel "Megawatt-hour"@en .
 
 <https://vocab.sentier.dev/simapro/unit/Wh> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/MegaW-HR>;
+    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/W-HR>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "Wh"^^qudt:symbol ;
     skos:prefLabel "Watt-hour"@en .

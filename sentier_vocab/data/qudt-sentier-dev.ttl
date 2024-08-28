@@ -21131,6 +21131,7 @@ Under the International System of Units (via the International Committee for Wei
     skos:broaderTransitive <https://vocab.sentier.dev/qudt/quantity-kind/Mass> ;
     skos:definition "The kilogram or kilogramme (SI symbol: kg), also known as the kilo, is the base unit of mass in the International System of Units and is defined as being equal to the mass of the International Prototype Kilogram (IPK), which is almost exactly equal to the mass of one liter of water. The avoirdupois (or international) pound, used in both the Imperial system and U.S. customary units, is defined as exactly 0.45359237 kg, making one kilogram approximately equal to 2.2046 avoirdupois pounds."^^rdf:HTML ;
     skos:exactMatch <http://qudt.org/vocab/unit/KiloGM>,
+        <https://glossary.ecoinvent.org/ids/487df68b-4994-4027-8fdc-a4dc298257b7>,
         <https://si-digital-framework.org/SI/units/kilogram>,
         <https://vocab.sentier.dev/simapro/unit/kg> ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;

@@ -60,6 +60,7 @@ class ENVO(GraphBase):
         self.add((freshwater, RDF.type, SKOS.Concept))
         self.add((freshwater, SKOS.inScheme, self.CS))
         self.add((freshwater, SKOS.exactMatch, freshwater_envo))
+        self.add((freshwater, SKOS.topConceptOf, self.CS))
 
         for s, v, o in self.envo_graph.triples((freshwater_envo, None, None)):
             try:

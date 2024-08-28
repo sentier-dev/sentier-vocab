@@ -25,12 +25,12 @@ extra_concepts_data = vocab_data_dir / "extra-data.ttl"
 
 
 class QUDT:
-    def __init__(self, filepath: Path | None = None, data_dir: Path = DEFAULT_DATA_DIR, default_lang: str = "en"):
+    def __init__(self, data_dir: Path = DEFAULT_DATA_DIR, default_lang: str = "en"):
         self.default_lang = default_lang
-        if filepath is None:
-            filepath = self.get_latest_version(data_dir)
-        self.selected_qk = {URIRef(k): v for k, v in json.load(open(selected_fp)).items()}
-        self.zipped = ZipFile(open(filepath, "rb"))
+        self.selected_qk = {
+            URIRef(k): v for k, v in json.load(open(selected_fp)).items()
+        }
+        self.zipped = ZipFile(open(self.get_latest_version(data_dir), "rb"))
         self.graph = Graph()
         self.zipfile_prefix = self.get_zipfile_prefix()
         concept_scheme = self.add_concept_scheme()
@@ -51,15 +51,12 @@ class QUDT:
         release = requests.get(
             "https://api.github.com/repos/qudt/qudt-public-repo/releases/latest"
         ).json()["zipball_url"]
-        if catalogue.get('release') != release:
+        if catalogue.get("release") != release:
             fp = str(streaming_download(release))
             with open("qudt.json", "w") as f:
-                json.dump({
-                    'release': release,
-                    'filepath': fp
-                }, f, indent=2)
+                json.dump({"release": release, "filepath": fp}, f, indent=2)
             return fp
-        return catalogue['filepath']
+        return catalogue["filepath"]
 
     def get_zipfile_prefix(self) -> str:
         prefix = set()
@@ -76,12 +73,16 @@ class QUDT:
                 return Graph().parse(self.zipped.open(zipinfo.filename))
         raise KeyError
 
-    def write_graph(self, filename: str, dirpath: Path | None = None) -> Path:
+    def write_graph(
+        self, filename: str = "qudt-sentier-dev.ttl", dirpath: Path | None = None
+    ) -> Path:
         if not filename.endswith(".ttl"):
             filename += ".ttl"
         if not dirpath:
             dirpath = Path.cwd()
-        self.graph.serialize(destination=Path(dirpath) / filename)
+        output_fp = Path(dirpath) / filename
+        self.graph.serialize(destination=output_fp)
+        return output_fp
 
     def skosify_checks(self):
         # Can't use - create backwards related links to nodes not defined in our graph
@@ -117,7 +118,9 @@ class QUDT:
 
         return CS
 
-    def as_language_aware_literal(self, obj: Literal, en_title: bool = False) -> Literal:
+    def as_language_aware_literal(
+        self, obj: Literal, en_title: bool = False
+    ) -> Literal:
         if not obj.language:
             if en_title and self.default_lang.lower().startswith("en"):
                 return Literal(str(obj).title(), lang=self.default_lang)
@@ -138,19 +141,27 @@ class QUDT:
     def check_that_deprecated_have_replaced_by(self, graph: Graph, kind: str) -> bool:
         # Note that it doesn't work the other way...
         replaced = {
-            s for s, p, o in graph.triples((None, DCTERMS.isReplacedBy, None)) if s.startswith(kind)
+            s
+            for s, p, o in graph.triples((None, DCTERMS.isReplacedBy, None))
+            if s.startswith(kind)
         }
         deprecated = {
-            s for s, p, o in graph.triples((None, QUDTS.deprecated, None)) if s.startswith(kind)
+            s
+            for s, p, o in graph.triples((None, QUDTS.deprecated, None))
+            if s.startswith(kind)
         }
         return deprecated.difference(replaced)
 
     def add_quantity_kinds(self, cs: URIRef) -> dict[URIRef, URIRef]:
-        qk_graph = self.get_graph_for_file("/vocab/quantitykinds/VOCAB_QUDT-QUANTITY-KINDS-ALL-v")
+        qk_graph = self.get_graph_for_file(
+            "/vocab/quantitykinds/VOCAB_QUDT-QUANTITY-KINDS-ALL-v"
+        )
         assert not self.check_that_deprecated_have_replaced_by(qk_graph, QK)
 
         qk_mapping = {
-            s: URIRef("https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s))
+            s: URIRef(
+                "https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s)
+            )
             for s, p, o in qk_graph
             if s in self.selected_qk
             and s.startswith(QK)
@@ -158,7 +169,9 @@ class QUDT:
         }
 
         qk_mapping = {
-            s: URIRef("https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s))
+            s: URIRef(
+                "https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s)
+            )
             for s, p, o in qk_graph
             if URIRef(s) in self.selected_qk
             and s.startswith(QK)
@@ -173,7 +186,9 @@ class QUDT:
                 (
                     value_uri,
                     QUDTS.hasDimensionVector,
-                    get_one_in_graph(qk_graph, (key_uri, QUDTS.hasDimensionVector, None))[2],
+                    get_one_in_graph(
+                        qk_graph, (key_uri, QUDTS.hasDimensionVector, None)
+                    )[2],
                 )
             )
             for s, v, o in qk_graph.triples((key_uri, SKOS.broader, None)):
@@ -181,7 +196,13 @@ class QUDT:
                     self.add((qk_mapping[s], SKOS.broader, qk_mapping[o]))
                     self.add((qk_mapping[o], SKOS.narrower, qk_mapping[s]))
             for s, v, o in qk_graph.triples((key_uri, RDFS.label, None)):
-                self.add((value_uri, SKOS.prefLabel, self.as_language_aware_literal(o, en_title=True)))
+                self.add(
+                    (
+                        value_uri,
+                        SKOS.prefLabel,
+                        self.as_language_aware_literal(o, en_title=True),
+                    )
+                )
 
             verb_mapping = {
                 DCTERMS.description: SKOS.definition,
@@ -207,7 +228,11 @@ class QUDT:
         return qk_mapping
 
     def check_all_units_have_vector(self, graph: Graph) -> None:
-        all_units = {s for s, p, o in graph.triples((None, None, None)) if s.startswith(QUDTV.unit)}
+        all_units = {
+            s
+            for s, p, o in graph.triples((None, None, None))
+            if s.startswith(QUDTV.unit)
+        }
         with_dimension_vector = {
             s
             for s, p, o in graph.triples((None, QUDTS.hasDimensionVector, None))
@@ -220,7 +245,12 @@ class QUDT:
     def is_unitary(self, graph: Graph, uri: URIRef) -> bool:
         try:
             return (
-                float(get_one_in_graph(graph, ((uri, QUDTS.conversionMultiplier, None)))[2]) == 1.0
+                float(
+                    get_one_in_graph(graph, ((uri, QUDTS.conversionMultiplier, None)))[
+                        2
+                    ]
+                )
+                == 1.0
             )
         except GraphFilterError:
             logger.trace("No conversion multiplier for {u}", u=uri)
@@ -231,9 +261,12 @@ class QUDT:
         self.check_all_units_have_vector(unit_graph)
 
         unit_mapping = {
-            s: URIRef("https://vocab.sentier.dev/qudt/unit" + str(s).replace(QUDTV.unit, ""))
+            s: URIRef(
+                "https://vocab.sentier.dev/qudt/unit" + str(s).replace(QUDTV.unit, "")
+            )
             for s, p, o in unit_graph.triples((None, QUDTS.hasQuantityKind, None))
-            if o in self.selected_qk and not any(unit_graph.triples((s, QUDTS.deprecated, None)))
+            if o in self.selected_qk
+            and not any(unit_graph.triples((s, QUDTS.deprecated, None)))
         }
 
         # This is just terrible O(nonsense) code...
@@ -247,7 +280,9 @@ class QUDT:
         for key_uri, value_uri in unit_mapping.items():
             self.add_unit(uri=value_uri, unit_graph=unit_graph, cs=cs, qudt_uri=key_uri)
 
-            for _, _, quantity_kind in unit_graph.triples((key_uri, QUDTS.hasQuantityKind, None)):
+            for _, _, quantity_kind in unit_graph.triples(
+                (key_uri, QUDTS.hasQuantityKind, None)
+            ):
                 if quantity_kind not in top_level:
                     continue
                 if top_level[quantity_kind] == value_uri:
@@ -257,7 +292,9 @@ class QUDT:
                     self.add((value_uri, SKOS.broader, top_level[quantity_kind]))
                     self.add((top_level[quantity_kind], SKOS.narrower, value_uri))
 
-    def add_unit(self, uri: URIRef, unit_graph: Graph, cs: URIRef, qudt_uri: URIRef) -> None:
+    def add_unit(
+        self, uri: URIRef, unit_graph: Graph, cs: URIRef, qudt_uri: URIRef
+    ) -> None:
         self.add((uri, RDF.type, SKOS.Concept))
         self.add((uri, SKOS.inScheme, cs))
         self.add((uri, SKOS.exactMatch, qudt_uri))
@@ -265,7 +302,9 @@ class QUDT:
             (
                 uri,
                 QUDTS.hasDimensionVector,
-                get_one_in_graph(unit_graph, (qudt_uri, QUDTS.hasDimensionVector, None))[2],
+                get_one_in_graph(
+                    unit_graph, (qudt_uri, QUDTS.hasDimensionVector, None)
+                )[2],
             )
         )
 
@@ -313,4 +352,4 @@ class QUDT:
 
 
 if __name__ == "__main__":
-    QUDT().write_graph("qudt-sentier-dev.ttl")
+    QUDT().write_graph()

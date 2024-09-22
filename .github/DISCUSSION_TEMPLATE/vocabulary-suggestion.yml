@@ -32,7 +32,7 @@ body:
     id: justification
     attributes:
       label: Justify this Vocabulary Choice
-      description: "Justify the choice of this specific vocabulary. Ideally, provide a link to a discussion on missing terms. Include alternatives where applicable. Include factors like community acceptance, update frequency, coverage, and easy of use."
+      description: "Justify the choice of this specific vocabulary. Ideally, provide a link to a discussion on missing terms. Include alternatives where applicable. Include factors like community acceptance, update frequency, coverage, and ease of use."
     validations:
       required: true
   - type: textarea

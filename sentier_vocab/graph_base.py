@@ -1,7 +1,9 @@
-from .utils import GithubZipfileRelease, DEFAULT_DATA_DIR
-from rdflib import Graph, Literal, Namespace, URIRef
 from pathlib import Path
+
 import skosify
+from rdflib import Graph, Literal, Namespace, URIRef
+
+from sentier_vocab.utils import DEFAULT_DATA_DIR, GithubZipfileRelease
 
 
 class GraphBase:
@@ -13,13 +15,9 @@ class GraphBase:
         **kwargs,
     ) -> None:
         self.default_lang = default_lang
-        self.zip_archive = GithubZipfileRelease(
-            repo_url=self.REPO_URL, data_dir=data_dir
-        )
+        self.zip_archive = GithubZipfileRelease(repo_url=self.REPO_URL, data_dir=data_dir)
 
-    def as_language_aware_literal(
-        self, obj: Literal | str, en_title: bool = False
-    ) -> Literal:
+    def as_language_aware_literal(self, obj: Literal | str, en_title: bool = False) -> Literal:
         if isinstance(obj, str):
             obj = Literal(obj)
         if not obj.language:
@@ -35,9 +33,7 @@ class GraphBase:
 
     def get_graph_for_file(self, filepath: str) -> Graph:
         if filepath.lower().endswith("xml") or filepath.lower().endswith("owl"):
-            return Graph().parse(
-                self.zip_archive.get_file_in_archive(filepath), format="xml"
-            )
+            return Graph().parse(self.zip_archive.get_file_in_archive(filepath), format="xml")
         else:
             return Graph().parse(self.zip_archive.get_file_in_archive(filepath))
 

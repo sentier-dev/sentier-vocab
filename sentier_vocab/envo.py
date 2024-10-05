@@ -1,8 +1,10 @@
-from .graph_base import GraphBase
-from rdflib import Graph, Literal, Namespace, URIRef
 from pathlib import Path
+
+from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS
-from .utils import get_one_in_graph
+
+from sentier_vocab.graph_base import GraphBase
+from sentier_vocab.utils import get_one_in_graph
 
 EF_ISO = "Material or energy entering the system being studied that has been drawn from the environment without previous human transformation, or material or energy leaving the system being studied that is released into the environment without subsequent human transformation."
 OBO = Namespace("http://www.geneontology.org/formats/oboInOwl/")
@@ -10,12 +12,8 @@ OBO = Namespace("http://www.geneontology.org/formats/oboInOwl/")
 
 LANGUAGE_AWARE = {SKOS.definition, SKOS.altLabel, SKOS.prefLabel}
 VERB_MAPPING = {
-    URIRef(
-        "http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"
-    ): SKOS.altLabel,
-    URIRef(
-        "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"
-    ): SKOS.altLabel,
+    URIRef("http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"): SKOS.altLabel,
+    URIRef("http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"): SKOS.altLabel,
     URIRef("http://www.geneontology.org/formats/oboInOwl#hasDbXref"): SKOS.related,
     URIRef("http://purl.obolibrary.org/obo/IAO_0000115"): SKOS.definition,
     RDFS.label: SKOS.prefLabel,
@@ -69,9 +67,7 @@ class ENVO(GraphBase):
                     (
                         freshwater,
                         verb,
-                        self.as_language_aware_literal(o)
-                        if verb in LANGUAGE_AWARE
-                        else o,
+                        self.as_language_aware_literal(o) if verb in LANGUAGE_AWARE else o,
                     )
                 )
             except KeyError:
@@ -80,9 +76,7 @@ class ENVO(GraphBase):
         self.recurse_relationship(freshwater_envo, freshwater)
 
     def recurse_relationship(self, envo_uri: URIRef, sd_uri: URIRef) -> None:
-        for child_uri, _, _ in self.envo_graph.triples(
-            (None, RDFS.subClassOf, envo_uri)
-        ):
+        for child_uri, _, _ in self.envo_graph.triples((None, RDFS.subClassOf, envo_uri)):
             this_uri = URIRef(self.BASE_URI + self.get_identifier(child_uri))
             self.add((this_uri, RDF.type, SKOS.Concept))
             self.add((this_uri, SKOS.inScheme, self.CS))
@@ -97,9 +91,7 @@ class ENVO(GraphBase):
                         (
                             this_uri,
                             verb,
-                            self.as_language_aware_literal(o)
-                            if verb in LANGUAGE_AWARE
-                            else o,
+                            self.as_language_aware_literal(o) if verb in LANGUAGE_AWARE else o,
                         )
                     )
                 except KeyError:

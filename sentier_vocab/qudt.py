@@ -10,7 +10,7 @@ from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS
 
 from sentier_vocab.errors import GraphFilterError, MissingDimensionVector
-from sentier_vocab.utils import get_one_in_graph, streaming_download, DEFAULT_DATA_DIR
+from sentier_vocab.utils import DEFAULT_DATA_DIR, get_one_in_graph, streaming_download
 
 VAEM = Namespace("http://www.linkedmodel.org/schema/vaem")
 # TODO: Get version through file inspection
@@ -117,9 +117,7 @@ class QUDT:
 
         return CS
 
-    def as_language_aware_literal(
-        self, obj: Literal, en_title: bool = False
-    ) -> Literal:
+    def as_language_aware_literal(self, obj: Literal, en_title: bool = False) -> Literal:
         if not obj.language:
             if en_title and self.default_lang.lower().startswith("en"):
                 return Literal(str(obj).title(), lang=self.default_lang)
@@ -140,21 +138,15 @@ class QUDT:
     def check_that_deprecated_have_replaced_by(self, graph: Graph, kind: str) -> bool:
         # Note that it doesn't work the other way...
         replaced = {
-            s
-            for s, p, o in graph.triples((None, DCTERMS.isReplacedBy, None))
-            if s.startswith(kind)
+            s for s, p, o in graph.triples((None, DCTERMS.isReplacedBy, None)) if s.startswith(kind)
         }
         deprecated = {
-            s
-            for s, p, o in graph.triples((None, QUDTS.deprecated, None))
-            if s.startswith(kind)
+            s for s, p, o in graph.triples((None, QUDTS.deprecated, None)) if s.startswith(kind)
         }
         return deprecated.difference(replaced)
 
     def add_quantity_kinds(self, cs: URIRef) -> dict[URIRef, URIRef]:
-        qk_graph = self.get_graph_for_file(
-            "/vocab/quantitykinds/VOCAB_QUDT-QUANTITY-KINDS-ALL-v"
-        )
+        qk_graph = self.get_graph_for_file("/vocab/quantitykinds/VOCAB_QUDT-QUANTITY-KINDS-ALL-v")
         assert not self.check_that_deprecated_have_replaced_by(qk_graph, QK)
 
         qk_mapping = {
@@ -173,9 +165,7 @@ class QUDT:
                 (
                     value_uri,
                     QUDTS.hasDimensionVector,
-                    get_one_in_graph(
-                        qk_graph, (key_uri, QUDTS.hasDimensionVector, None)
-                    )[2],
+                    get_one_in_graph(qk_graph, (key_uri, QUDTS.hasDimensionVector, None))[2],
                 )
             )
             for s, v, o in qk_graph.triples((key_uri, SKOS.broader, None)):
@@ -215,11 +205,7 @@ class QUDT:
         return qk_mapping
 
     def check_all_units_have_vector(self, graph: Graph) -> None:
-        all_units = {
-            s
-            for s, p, o in graph.triples((None, None, None))
-            if s.startswith(QUDTV.unit)
-        }
+        all_units = {s for s, p, o in graph.triples((None, None, None)) if s.startswith(QUDTV.unit)}
         with_dimension_vector = {
             s
             for s, p, o in graph.triples((None, QUDTS.hasDimensionVector, None))
@@ -232,12 +218,7 @@ class QUDT:
     def is_unitary(self, graph: Graph, uri: URIRef) -> bool:
         try:
             return (
-                float(
-                    get_one_in_graph(graph, ((uri, QUDTS.conversionMultiplier, None)))[
-                        2
-                    ]
-                )
-                == 1.0
+                float(get_one_in_graph(graph, ((uri, QUDTS.conversionMultiplier, None)))[2]) == 1.0
             )
         except GraphFilterError:
             logger.trace("No conversion multiplier for {u}", u=uri)
@@ -271,12 +252,9 @@ class QUDT:
         self.check_all_units_have_vector(unit_graph)
 
         unit_mapping = {
-            s: URIRef(
-                "https://vocab.sentier.dev/qudt/unit" + str(s).replace(QUDTV.unit, "")
-            )
+            s: URIRef("https://vocab.sentier.dev/qudt/unit" + str(s).replace(QUDTV.unit, ""))
             for s, p, o in unit_graph.triples((None, QUDTS.hasQuantityKind, None))
-            if o in self.selected_qk
-            and not any(unit_graph.triples((s, QUDTS.deprecated, None)))
+            if o in self.selected_qk and not any(unit_graph.triples((s, QUDTS.deprecated, None)))
         }
 
         # This is just terrible O(nonsense) code...
@@ -290,21 +268,19 @@ class QUDT:
         for key_uri, value_uri in unit_mapping.items():
             self.add_unit(uri=value_uri, unit_graph=unit_graph, cs=cs, qudt_uri=key_uri)
 
-            for _, _, quantity_kind in unit_graph.triples(
-                (key_uri, QUDTS.hasQuantityKind, None)
-            ):
+            for _, _, quantity_kind in unit_graph.triples((key_uri, QUDTS.hasQuantityKind, None)):
                 if quantity_kind not in top_level:
                     continue
                 if top_level[quantity_kind] == value_uri:
                     self.add((value_uri, SKOS.broader, qk_mapping[quantity_kind]))
+                    self.add((value_uri, QUDTS.hasQuantityKind, qk_mapping[quantity_kind]))
                     self.add((qk_mapping[quantity_kind], SKOS.narrower, value_uri))
                 else:
                     self.add((value_uri, SKOS.broader, top_level[quantity_kind]))
+                    self.add((value_uri, QUDTS.hasQuantityKind, qk_mapping[quantity_kind]))
                     self.add((top_level[quantity_kind], SKOS.narrower, value_uri))
 
-    def add_unit(
-        self, uri: URIRef, unit_graph: Graph, cs: URIRef, qudt_uri: URIRef
-    ) -> None:
+    def add_unit(self, uri: URIRef, unit_graph: Graph, cs: URIRef, qudt_uri: URIRef) -> None:
         self.add((uri, RDF.type, SKOS.Concept))
         self.add((uri, SKOS.inScheme, cs))
         self.add((uri, SKOS.exactMatch, qudt_uri))
@@ -312,9 +288,7 @@ class QUDT:
             (
                 uri,
                 QUDTS.hasDimensionVector,
-                get_one_in_graph(
-                    unit_graph, (qudt_uri, QUDTS.hasDimensionVector, None)
-                )[2],
+                get_one_in_graph(unit_graph, (qudt_uri, QUDTS.hasDimensionVector, None))[2],
             )
         )
 

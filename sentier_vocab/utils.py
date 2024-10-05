@@ -1,8 +1,8 @@
 import json
-from typing import TextIO
 import re
-from zipfile import ZipFile
 from pathlib import Path
+from typing import TextIO
+from zipfile import ZipFile
 
 import requests
 from loguru import logger
@@ -19,9 +19,7 @@ def get_filename(response: requests.Response, url: str) -> str:
     Get filename from response headers or URL.
     """
     if "Content-Disposition" in response.headers.keys():
-        filename = re.findall("filename=(.+)", response.headers["Content-Disposition"])[
-            0
-        ]
+        filename = re.findall("filename=(.+)", response.headers["Content-Disposition"])[0]
     else:
         filename = url.split("/")[-1]
     if filename[0] in "'\"":
@@ -96,9 +94,7 @@ Criteria: {criteria}"""
 def get_latest_github_file_from_release(
     repo_url: str, filepath: str, data_dir: Path = DEFAULT_DATA_DIR
 ) -> TextIO:
-    return GithubZipfileRelease(
-        repo_url=repo_url, data_dir=data_dir
-    ).get_file_in_archive(filepath)
+    return GithubZipfileRelease(repo_url=repo_url, data_dir=data_dir).get_file_in_archive(filepath)
 
 
 class GithubZipfileRelease:

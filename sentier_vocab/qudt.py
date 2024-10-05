@@ -27,9 +27,7 @@ extra_concepts_data = vocab_data_dir / "extra-data.ttl"
 class QUDT:
     def __init__(self, data_dir: Path = DEFAULT_DATA_DIR, default_lang: str = "en"):
         self.default_lang = default_lang
-        self.selected_qk = {
-            URIRef(k): v for k, v in json.load(open(selected_fp)).items()
-        }
+        self.selected_qk = {URIRef(k): v for k, v in json.load(open(selected_fp)).items()}
         self.zipped = ZipFile(open(self.get_latest_version(data_dir), "rb"))
         self.graph = Graph()
         self.zipfile_prefix = self.get_zipfile_prefix()
@@ -37,6 +35,7 @@ class QUDT:
         mapping = self.add_quantity_kinds(concept_scheme)
         self.add_units(concept_scheme, mapping)
         self.graph.parse(extra_concepts_data)
+        self.fill_missing_attributes()
         self.skosify_checks()
 
     def add(self, triple: tuple) -> None:
@@ -79,7 +78,7 @@ class QUDT:
         if not filename.endswith(".ttl"):
             filename += ".ttl"
         if not dirpath:
-            dirpath = Path.cwd()
+            dirpath = vocab_data_dir
         output_fp = Path(dirpath) / filename
         self.graph.serialize(destination=output_fp)
         return output_fp
@@ -159,19 +158,7 @@ class QUDT:
         assert not self.check_that_deprecated_have_replaced_by(qk_graph, QK)
 
         qk_mapping = {
-            s: URIRef(
-                "https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s)
-            )
-            for s, p, o in qk_graph
-            if s in self.selected_qk
-            and s.startswith(QK)
-            and not any(qk_graph.triples((s, DCTERMS.isReplacedBy, None)))
-        }
-
-        qk_mapping = {
-            s: URIRef(
-                "https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s)
-            )
+            s: URIRef("https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s))
             for s, p, o in qk_graph
             if URIRef(s) in self.selected_qk
             and s.startswith(QK)
@@ -255,6 +242,29 @@ class QUDT:
         except GraphFilterError:
             logger.trace("No conversion multiplier for {u}", u=uri)
             return False
+
+    def fill_missing_attributes(self) -> None:
+        """Our custom concepts can be narrower than an existing QUDT unit. In these cases, we don't
+        copy over all the additional data from the "parent" concept, but add it automatically."""
+        all_units = {
+            s
+            for s, _, _ in self.graph.triples((None, RDF.type, SKOS.Concept))
+            if s.startswith("https://vocab.sentier.dev/qudt/unit")
+        }
+        qk_mapping = {
+            s: o
+            for s, _, o in self.graph.triples((None, QUDTS.hasQuantityKind, None))
+            if s in all_units
+        }
+        for uri in all_units.difference(set(qk_mapping)):
+            possibles = [
+                o
+                for s, v, o in self.graph.triples((uri, SKOS.broader, None))
+                if o.startswith("https://vocab.sentier.dev/qudt/unit")
+            ]
+            if not len(possibles) == 1:
+                raise ValueError(f"Can't find broader match for concept {uri}")
+            self.add((uri, QUDTS.hasQuantityKind, qk_mapping[possibles[0]]))
 
     def add_units(self, cs: URIRef, qk_mapping: dict[URIRef, URIRef]) -> None:
         unit_graph = self.get_graph_for_file("/vocab/unit/VOCAB_QUDT-UNITS-ALL-v")

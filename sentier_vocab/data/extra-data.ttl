@@ -23,6 +23,7 @@
     qudt:conversionMultiplier 1.0 ;
     qudt:conversionMultiplierSN 1e+00 ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-2I0M0H0T1D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea> ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/TimePerArea> ;
     skos:definition "Second per square metre"^^xsd:string ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
@@ -64,6 +65,7 @@
     qudt:conversionMultiplier 1.0 ;
     qudt:conversionMultiplierSN 1e+0 ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T1D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/qudt/quantity-kind/AreaTime> ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/AreaTime> ;
     skos:definition "Square meter-second"^^xsd:string ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
@@ -99,6 +101,21 @@
     skos:prefLabel "Passenger transport"@en ;
 .
 
+<https://vocab.sentier.dev/qudt/unit/PERSON-M> a skos:Concept ;
+    qudt:applicableSystem sou:CGS ;
+    qudt:applicableSystem sou:SI ;
+    qudt:conversionMultiplier 1.0 ;
+    qudt:conversionMultiplierSN 1e+0 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/qudt/quantity-kind/PassengerTransport> ;
+    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/PassengerTransport> ;
+    skos:definition "Transport of one person over one meter. Does not depend on mass of person or duration of transport."^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
+    skos:notation "personm"^^qudt:symbol ;
+    skos:prefLabel "Person meter"@en-US,
+        "Person metre"@en-GB ;
+.
+
 <https://vocab.sentier.dev/qudt/unit/PERSON-KiloM> a skos:Concept ;
     qudt:applicableSystem sou:CGS ;
     qudt:applicableSystem sou:SI ;
@@ -111,20 +128,6 @@
     skos:notation "personkm"^^qudt:symbol ;
     skos:prefLabel "Person kilometer"@en-US,
         "Person kilometre"@en-GB ;
-.
-
-<https://vocab.sentier.dev/qudt/unit/PERSON-M> a skos:Concept ;
-    qudt:applicableSystem sou:CGS ;
-    qudt:applicableSystem sou:SI ;
-    qudt:conversionMultiplier 1.0 ;
-    qudt:conversionMultiplierSN 1e+0 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M0H0T0D1> ;
-    skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/PassengerTransport> ;
-    skos:definition "Transport of one person over one meter. Does not depend on mass of person or duration of transport."^^xsd:string ;
-    skos:inScheme <https://vocab.sentier.dev/qudt/> ;
-    skos:notation "personm"^^qudt:symbol ;
-    skos:prefLabel "Person meter"@en-US,
-        "Person metre"@en-GB ;
 .
 
 # LengthTime (M-SEC reference unit)
@@ -144,6 +147,7 @@
     qudt:conversionMultiplier 1.0 ;
     qudt:conversionMultiplierSN 1e+0 ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L1I0M0H0T1D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/qudt/quantity-kind/LengthTime> ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/LengthTime> ;
     skos:definition "Meter over one second"^^xsd:string ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
@@ -185,6 +189,7 @@
     qudt:conversionMultiplier 1.0 ;
     qudt:conversionMultiplierSN 1e+0 ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M1H0T1D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/qudt/quantity-kind/MassTime> ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/MassTime> ;
     skos:definition "Kilogram over one second"^^xsd:string ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
@@ -223,6 +228,7 @@
     qudt:conversionMultiplier 1.0 ;
     qudt:conversionMultiplierSN 1e+0 ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L3I0M0H0T1D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/qudt/quantity-kind/VolumeTime> ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/VolumeTime> ;
     skos:definition "One cubic meter over one second"^^xsd:string ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;
@@ -279,6 +285,7 @@
     qudt:conversionMultiplier 1.0 ;
     qudt:conversionMultiplierSN 1e+00 ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-3I0M0H0T1D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/qudt/quantity-kind/TimePerVolume> ;
     skos:broader <https://vocab.sentier.dev/qudt/quantity-kind/TimePerVolume> ;
     skos:definition "Second per cubic metre"^^xsd:string ;
     skos:inScheme <https://vocab.sentier.dev/qudt/> ;

@@ -1,10 +1,6 @@
-# svd
+# Sentier Vocab
 
-```{button-link} https://docs.brightway.dev
-:color: info
-:expand:
-{octicon}`light-bulb;1em` svd is a specialized package of the Brightway Software Framework
-```
+`sentier_vocab` is the repository which builds, maintains, deploys, and describes the Sentier.dev semantic web vocabulary available at https://vocab.sentier.dev.
 
 ```{toctree}
 ---
@@ -12,6 +8,7 @@ hidden:
 maxdepth: 1
 ---
 self
+content/units
 content/usage
 content/api/index
 content/codeofconduct

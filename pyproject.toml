@@ -29,8 +29,12 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    # dependencies as strings with quotes, e.g. "foo"
-    # You can add version requirements like "foo>2.0"
+    "loguru",
+    "platformdirs",
+    "rdflib",
+    "requests",
+    "skosify",
+    "tqdm",
 ]
 
 [project.urls]

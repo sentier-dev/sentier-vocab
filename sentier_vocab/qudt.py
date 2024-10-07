@@ -99,7 +99,7 @@ class QUDT:
             schema_graph, (ontology, VAEM["#hasGraphMetadata"], None)
         )[2]
 
-        CS = URIRef("https://vocab.sentier.dev/qudt/")
+        CS = URIRef("https://vocab.sentier.dev/units/")
         self.add((CS, RDF.type, SKOS.ConceptScheme))
         self.add(
             (
@@ -150,7 +150,7 @@ class QUDT:
         assert not self.check_that_deprecated_have_replaced_by(qk_graph, QK)
 
         qk_mapping = {
-            s: URIRef("https://vocab.sentier.dev/qudt/quantity-kind/" + self.get_identifier(s))
+            s: URIRef("https://vocab.sentier.dev/units/quantity-kind/" + self.get_identifier(s))
             for s, p, o in qk_graph
             if URIRef(s) in self.selected_qk
             and s.startswith(QK)
@@ -230,7 +230,7 @@ class QUDT:
         all_units = {
             s
             for s, _, _ in self.graph.triples((None, RDF.type, SKOS.Concept))
-            if s.startswith("https://vocab.sentier.dev/qudt/unit")
+            if s.startswith("https://vocab.sentier.dev/units/unit")
         }
         qk_mapping = {
             s: o
@@ -241,7 +241,7 @@ class QUDT:
             possibles = [
                 o
                 for s, v, o in self.graph.triples((uri, SKOS.broader, None))
-                if o.startswith("https://vocab.sentier.dev/qudt/unit")
+                if o.startswith("https://vocab.sentier.dev/units/unit")
             ]
             if not len(possibles) == 1:
                 raise ValueError(f"Can't find broader match for concept {uri}")
@@ -252,7 +252,7 @@ class QUDT:
         self.check_all_units_have_vector(unit_graph)
 
         unit_mapping = {
-            s: URIRef("https://vocab.sentier.dev/qudt/unit" + str(s).replace(QUDTV.unit, ""))
+            s: URIRef("https://vocab.sentier.dev/units/unit" + str(s).replace(QUDTV.unit, ""))
             for s, p, o in unit_graph.triples((None, QUDTS.hasQuantityKind, None))
             if o in self.selected_qk and not any(unit_graph.triples((s, QUDTS.deprecated, None)))
         }

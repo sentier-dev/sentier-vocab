@@ -18,37 +18,37 @@
     skos:prefLabel "SimaPro Unofficial and Incomplete Unit Schema - Version 2024.08.12"@en .
 
 <https://vocab.sentier.dev/simapro/unit/Bq> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/BQ>;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/BQ>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "Bq"^^qudt:symbol ;
     skos:prefLabel "Becquerel"@en .
 
 <https://vocab.sentier.dev/simapro/unit/GJ> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/GigaJ>;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/GigaJ>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "GJ"^^qudt:symbol ;
     skos:prefLabel "Gigajoule"@en .
 
 <https://vocab.sentier.dev/simapro/unit/MJ> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/MegaJ>;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/MegaJ>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "MJ"^^qudt:symbol ;
     skos:prefLabel "Megajoule"@en .
 
 <https://vocab.sentier.dev/simapro/unit/MWh> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/MegaW-HR>;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/MegaW-HR>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "MWh"^^qudt:symbol ;
     skos:prefLabel "Megawatt-hour"@en .
 
 <https://vocab.sentier.dev/simapro/unit/Wh> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/W-HR>;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/W-HR>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "Wh"^^qudt:symbol ;
     skos:prefLabel "Watt-hour"@en .
 
 <https://vocab.sentier.dev/simapro/unit/cm2> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/CentiM2>;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/CentiM2>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "cm2"^^qudt:symbol ;
     skos:prefLabel "Square centimetre"@en-GB,
@@ -56,13 +56,13 @@
 .
 
 <https://vocab.sentier.dev/simapro/unit/day> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/DAY> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/DAY> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "day"^^qudt:symbol ;
     skos:prefLabel "Day"@en .
 
 <https://vocab.sentier.dev/simapro/unit/dm3> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/DeciM3> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/DeciM3> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "dm3"^^qudt:symbol ;
     skos:prefLabel "Cubic decimetre"@en-GB ,
@@ -70,43 +70,43 @@
 .
 
 <https://vocab.sentier.dev/simapro/unit/g> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/GM> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/GM> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "g"^^qudt:symbol ;
     skos:prefLabel "Gram"@en .
 
 <https://vocab.sentier.dev/simapro/unit/ha> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/HA> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/HA> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "ha"^^qudt:symbol ;
     skos:prefLabel "Hectare"@en .
 
 <https://vocab.sentier.dev/simapro/unit/hr> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/HR> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/HR> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "hr"^^qudt:symbol ;
     skos:prefLabel "Hour"@en .
 
 <https://vocab.sentier.dev/simapro/unit/kJ> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloJ>;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloJ>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "kJ"^^qudt:symbol ;
     skos:prefLabel "Kilojoule"@en .
 
 <https://vocab.sentier.dev/simapro/unit/kg> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloGM> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloGM> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "kg"^^qudt:symbol ;
     skos:prefLabel "Kilogram"@en .
 
 <https://vocab.sentier.dev/simapro/unit/kBq> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloBQ>;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloBQ>;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "kBq"^^qudt:symbol ;
     skos:prefLabel "Kilobecquerel"@en .
 
 <https://vocab.sentier.dev/simapro/unit/km> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloM> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloM> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "km"^^qudt:symbol ;
     skos:prefLabel "Kilometre"@en-GB,
@@ -114,7 +114,7 @@
 .
 
 <https://vocab.sentier.dev/simapro/unit/m> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/M> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "m"^^qudt:symbol ;
     skos:prefLabel "Metre"@en-GB,
@@ -122,7 +122,7 @@
 .
 
 <https://vocab.sentier.dev/simapro/unit/m2> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M2> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/M2> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "m2"^^qudt:symbol ;
     skos:prefLabel "Square metre"@en-GB,
@@ -130,7 +130,7 @@
 .
 
 <https://vocab.sentier.dev/simapro/unit/l> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/L> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/L> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "l"^^qudt:symbol ;
     skos:prefLabel "Litre"@en-GB,
@@ -138,47 +138,47 @@
 .
 
 <https://vocab.sentier.dev/simapro/unit/ton> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/TONNE> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/TONNE> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "ton"^^qudt:symbol ;
     skos:prefLabel "Tonne"@en .
 
 <https://vocab.sentier.dev/simapro/unit/t> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/TON> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/TON> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "t"^^qudt:symbol ;
     skos:prefLabel "Ton"@en .
 
 <https://vocab.sentier.dev/simapro/unit/tkm> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloM-TONNE> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloM-TONNE> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "tkm"^^qudt:symbol ;
     skos:prefLabel "Tonne (metric) kilometre"@en-GB,
         "Tonne (metric) kilometer"@en-US .
 
 <https://vocab.sentier.dev/simapro/unit/kgkm> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloM-KiloGM> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloM-KiloGM> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "kgkm"^^qudt:symbol ;
     skos:prefLabel "Kilogram kilometre"@en-GB,
         "Kilogram kilometer"@en-US .
 
 <https://vocab.sentier.dev/simapro/unit/km> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloM> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloM> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "km"^^qudt:symbol ;
     skos:prefLabel "Kilometre"@en-GB,
         "Kilometer"@en-US .
 
 <https://vocab.sentier.dev/simapro/unit/m3> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M3> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/M3> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "m3"^^qudt:symbol ;
     skos:prefLabel "Cubic metre"@en-GB,
         "Cubic meter"@en-US .
 
 <https://vocab.sentier.dev/simapro/unit/kW*h> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloW-HR> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloW-HR> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "kW*h"^^qudt:symbol ;
     owl:deprecated true ;
@@ -186,39 +186,39 @@
     skos:prefLabel "Kilowatt hour (obsolete form)"@en .
 
 <https://vocab.sentier.dev/simapro/unit/kWh> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloW-HR> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloW-HR> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "kWh"^^qudt:symbol ;
     skos:prefLabel "Kilowatt hour"@en .
 
 <https://vocab.sentier.dev/simapro/unit/kg*day> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/KiloGM-DAY> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/KiloGM-DAY> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "kg*day"^^qudt:symbol ;
     skos:prefLabel "Kilogram day"@en .
 
 <https://vocab.sentier.dev/simapro/unit/personkm> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/PERSON-KiloM> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/PERSON-KiloM> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "personkm"^^qudt:symbol ;
     skos:prefLabel "Person kilometer"@en .
 
 <https://vocab.sentier.dev/simapro/unit/l*day> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/L-DAY> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/L-DAY> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "l*day"^^qudt:symbol ;
     skos:prefLabel "Litre day"@en-GB,
         "Liter day"@en-US .
 
 <https://vocab.sentier.dev/simapro/unit/m2*y> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M2-YR> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/M2-YR> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation  "m2*y"^^qudt:symbol ;
     skos:prefLabel "Square metre year"@en-GB,
         "Square meter year"@en-US .
 
 <https://vocab.sentier.dev/simapro/unit/m2a> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M2-YR> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/M2-YR> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     owl:deprecated true ;
     dcterms:replacedBy <https://vocab.sentier.dev/simapro/unit/m2*y> ;
@@ -227,20 +227,20 @@
         "Square meter year (obsolete form)"@en-US .
 
 <https://vocab.sentier.dev/simapro/unit/m3y> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M3-YR> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/M3-YR> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation "m3y"^^qudt:symbol ;
     skos:prefLabel "Cubic metre year"@en-GB,
         "Cubic meter year"@en-US .
 
 <https://vocab.sentier.dev/simapro/unit/min> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/MIN> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/MIN> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation "min"^^qudt:symbol ;
     skos:prefLabel "Minute"@en .
 
 <https://vocab.sentier.dev/simapro/unit/my> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/M-YR> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/M-YR> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation "my"^^qudt:symbol ;
     skos:prefLabel "Metre year"@en-GB,
@@ -248,13 +248,13 @@
 .
 
 <https://vocab.sentier.dev/simapro/unit/n> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/NUM> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/NUM> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation "n"^^qudt:symbol ;
     skos:prefLabel "Number"@en .
 
 <https://vocab.sentier.dev/simapro/unit/p> a skos:Concept ;
-    skos:exactMatch <https://vocab.sentier.dev/qudt/unit/NUM> ;
+    skos:exactMatch <https://vocab.sentier.dev/units/unit/NUM> ;
     skos:inScheme <https://vocab.sentier.dev/simapro/> ;
     skos:notation "n"^^qudt:symbol ;
     skos:prefLabel "Number"@en .

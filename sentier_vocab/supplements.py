@@ -21,18 +21,18 @@ def add_quantity_kinds_to_graph(
     qudt_qk_mapping = {
         s: o
         for s, v, o in qudt.triples((None, QUDTS.hasQuantityKind, None))
-        if o.startswith("https://vocab.sentier.dev/qudt/quantity-kind/")
-        and s.startswith("https://vocab.sentier.dev/qudt/unit/")
+        if o.startswith("https://vocab.sentier.dev/units/quantity-kind/")
+        and s.startswith("https://vocab.sentier.dev/units/unit/")
     }
     qudt_d_mapping = {
         s: o
         for s, v, o in qudt.triples((None, QUDTS.hasDimensionVector, None))
         if o.startswith("http://qudt.org/vocab/dimensionvector/")
-        and s.startswith("https://vocab.sentier.dev/qudt/unit/")
+        and s.startswith("https://vocab.sentier.dev/units/unit/")
     }
 
     for s, v, o in input_graph.triples((None, SKOS.exactMatch, None)):
-        if o.startswith("https://vocab.sentier.dev/qudt/unit/"):
+        if o.startswith("https://vocab.sentier.dev/units/unit/"):
             input_graph.add((s, QUDTS.hasQuantityKind, qudt_qk_mapping[o]))
             input_graph.add((s, QUDTS.hasDimensionVector, qudt_d_mapping[o]))
 

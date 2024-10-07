@@ -22,6 +22,7 @@ QK = QUDTV.quantitykind
 vocab_data_dir = Path(__file__).parent / "data"
 selected_fp = vocab_data_dir / "selected-quantity-kinds.json"
 extra_concepts_data = vocab_data_dir / "extra-data.ttl"
+qudt_patches_data = vocab_data_dir / "qudt-patches.ttl"
 
 
 class QUDT:
@@ -249,6 +250,8 @@ class QUDT:
 
     def add_units(self, cs: URIRef, qk_mapping: dict[URIRef, URIRef]) -> None:
         unit_graph = self.get_graph_for_file("/vocab/unit/VOCAB_QUDT-UNITS-ALL-v")
+        for triple in Graph().parse(qudt_patches_data):
+            unit_graph.add(triple)
         self.check_all_units_have_vector(unit_graph)
 
         unit_mapping = {

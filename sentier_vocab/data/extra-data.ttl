@@ -346,6 +346,20 @@
 
 # Additional SpecificEnergy units (J-PER-KiloGM reference unit)
 
+<https://vocab.sentier.dev/units/unit/KiloW-HR-PER-KiloGM> a skos:Concept ;
+    qudt:conversionMultiplier 3.6 ;
+    qudt:conversionMultiplierSN 3.6E0 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/J-PER-KiloGM> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy>,
+        <https://vocab.sentier.dev/units/unit/J-PER-KiloGM> ;
+    skos:definition "Kilowatt hour per Kilogram"^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation  "kW·h/kg"^^qudt:symbol,
+        "kW.h.kg-1"^^qudt:ucumCode,
+        "kW.h/kg"^^qudt:ucumCode;
+    skos:prefLabel "Kilowatt-hour per Kilogram"@en .
+
 <https://vocab.sentier.dev/units/unit/BTU_TH-PER-KiloGM> a skos:Concept ;
     qudt:applicableSystem <http://qudt.org/vocab/sou/IMPERIAL> ;
     qudt:conversionMultiplier 1055.6 ;

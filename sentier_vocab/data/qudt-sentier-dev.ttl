@@ -6,28 +6,6 @@
 @prefix sou: <http://qudt.org/vocab/sou/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://vocab.sentier.dev/units/quantity-kind/Efficiency> a skos:Concept ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:informativeReference "http://en.wikipedia.org/wiki/Deformation_(mechanics)"^^xsd:anyURI ;
-    qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
-    qudt:latexDefinition "$\\eta = \\frac{P_{out}}{P_{in}}$, where $P_{out}$ is the output power and $P_{in}$ is the input power."^^qudt:LatexString ;
-    qudt:latexSymbol "$\\eta$"^^qudt:LatexString ;
-    skos:definition "Efficiency is the ratio of output power to input power."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/quantitykind/Efficiency> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:note "Efficiency is the ratio of output power to input power." ;
-    skos:prefLabel "كفاءة"@ar,
-        "Wirkungsgrad"@de,
-        "Efficiency"@en,
-        "rendimiento"@es,
-        "rendement"@fr,
-        "efficienza"@it,
-        "効率"@ja,
-        "sprawność"@pl,
-        "eficiência"@pt,
-        "коэффициент полезного действия"@ru,
-        "效率"@zh .
-
 <https://vocab.sentier.dev/units/quantity-kind/Heat> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M1H0T-2D0> ;
     skos:altLabel "Q" ;
@@ -103,6 +81,30 @@
     skos:note "Sound intensity or acoustic intensity ($I$) is defined as the sound power $P_a$ per unit area $A$. The usual context is the noise measurement of sound intensity in the air at a listener's location as a sound energy quantity." ;
     skos:prefLabel "Sound Intensity"@en .
 
+<https://vocab.sentier.dev/units/quantity-kind/Efficiency> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Deformation_(mechanics)"^^xsd:anyURI ;
+    qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
+    qudt:latexDefinition "$\\eta = \\frac{P_{out}}{P_{in}}$, where $P_{out}$ is the output power and $P_{in}$ is the input power."^^qudt:LatexString ;
+    qudt:latexSymbol "$\\eta$"^^qudt:LatexString ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:definition "Efficiency is the ratio of output power to input power."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/Efficiency> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:note "Efficiency is the ratio of output power to input power." ;
+    skos:prefLabel "كفاءة"@ar,
+        "Wirkungsgrad"@de,
+        "Efficiency"@en,
+        "rendimiento"@es,
+        "rendement"@fr,
+        "efficienza"@it,
+        "効率"@ja,
+        "sprawność"@pl,
+        "eficiência"@pt,
+        "коэффициент полезного действия"@ru,
+        "效率"@zh .
+
 <https://vocab.sentier.dev/units/quantity-kind/Enthalpy> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M1H0T-2D0> ;
     qudt:informativeReference "http://en.citizendium.org/wiki/Enthalpy"^^xsd:anyURI,
@@ -144,6 +146,29 @@ another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
     skos:exactMatch <http://qudt.org/vocab/quantitykind/EquivalentDensity> ;
     skos:inScheme <https://vocab.sentier.dev/units/> ;
     skos:prefLabel "Equivalent Density"@en .
+
+<https://vocab.sentier.dev/units/unit/FRACTION> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 1.0 ;
+    qudt:conversionMultiplierSN 1e+00 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:definition "Fraction is a unit for 'Dimensionless Ratio' expressed as the value of the ratio itself."^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/FRACTION> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "÷"^^qudt:symbol,
+        "{fraction}"^^qudt:ucumCode ;
+    skos:note "Fraction is a unit for 'Dimensionless Ratio' expressed as the value of the ratio itself." ;
+    skos:prefLabel "Fraction"@en .
 
 <https://vocab.sentier.dev/units/unit/J-PER-K> a skos:Concept ;
     qudt:applicableSystem sou:SI ;
@@ -429,6 +454,19 @@ another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
     skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/ONE-PER-ONE> ;
     skos:prefLabel "Ratio"@en .
 
+<https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Stoichiometry"^^xsd:anyURI ;
+    qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
+    qudt:latexSymbol "$\\nu_B$"^^qudt:LatexString ;
+    skos:definition "Chemical reactions, as macroscopic unit operations, consist of simply a very large number of elementary reactions, where a single molecule reacts with another molecule. As the reacting molecules (or moieties) consist of a definite set of atoms in an integer ratio, the ratio between reactants in a complete reaction is also in integer ratio. A reaction may consume more than one molecule, and the \"Stoichiometric Number\" counts this number, defined as positive for products (added) and negative for reactants (removed)."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/StoichiometricNumber> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/unit/NUM> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/NUM> ;
+    skos:note "Chemical reactions, as macroscopic unit operations, consist of simply a very large number of elementary reactions, where a single molecule reacts with another molecule. As the reacting molecules (or moieties) consist of a definite set of atoms in an integer ratio, the ratio between reactants in a complete reaction is also in integer ratio. A reaction may consume more than one molecule, and the \"Stoichiometric Number\" counts this number, defined as positive for products (added) and negative for reactants (removed)." ;
+    skos:prefLabel "Stoichiometric Number"@en .
+
 <https://vocab.sentier.dev/units/unit/A-HR> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
         sou:CGS-EMU,
@@ -594,46 +632,6 @@ another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
         "Ao3"^^qudt:ucumCode ;
     skos:prefLabel "Cubic Angstrom"@en,
         "Cubic Angstrom"@en-us .
-
-<https://vocab.sentier.dev/units/unit/ARCMIN> a skos:Concept ;
-    qudt:applicableSystem sou:USCS ;
-    qudt:conversionMultiplier 0.000290888209 ;
-    qudt:conversionMultiplierSN 2.908882e-04 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    qudt:informativeReference "http://en.wikipedia.org/wiki/Minute_of_arc"^^xsd:anyURI ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:definition "A minute of arc, arcminute, or minute arc (MOA), is a unit of angular measurement equal to one sixtieth (1/60) of one degree (circle/21,600), or $\\pi /10,800 radians$. In turn, a second of arc or arcsecond is one sixtieth (1/60) of one minute of arc. Since one degree is defined as one three hundred and sixtieth (1/360) of a rotation, one minute of arc is 1/21,600 of a rotation. "^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/ARCMIN>,
-        <https://si-digital-framework.org/SI/units/arcminute> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA097"^^qudt:iec61360Code,
-        "'"^^qudt:symbol,
-        "'"^^qudt:ucumCode,
-        "D61"^^qudt:uneceCommonCode ;
-    skos:prefLabel "ArcMinute"@en .
-
-<https://vocab.sentier.dev/units/unit/ARCSEC> a skos:Concept ;
-    qudt:applicableSystem sou:USCS ;
-    qudt:conversionMultiplier 0.00000484813681 ;
-    qudt:conversionMultiplierSN 4.848137e-06 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    qudt:informativeReference "http://en.wikipedia.org/wiki/Minute_of_arc#Symbols.2C_abbreviations_and_subdivisions"^^xsd:anyURI ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:definition "\"Arc Second\" is a unit of angular measure, also called the $\\textit{second of arc}$, equal to $1/60 \\; arcminute$. One arcsecond is a very small angle: there are 1,296,000 in a circle. The SI recommends $\\textit{double prime}$ ($''$) as the symbol for the arcsecond. The symbol has become common in astronomy, where very small angles are stated in milliarcseconds ($mas$)."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/ARCSEC>,
-        <https://si-digital-framework.org/SI/units/arcsecond> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA096"^^qudt:iec61360Code,
-        "\""^^qudt:symbol,
-        "''"^^qudt:ucumCode,
-        "D62"^^qudt:uneceCommonCode ;
-    skos:prefLabel "ArcSecond"@en .
 
 <https://vocab.sentier.dev/units/unit/ARE> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -2233,33 +2231,6 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
     skos:notation "day{sidereal}"^^qudt:symbol ;
     skos:prefLabel "Sidereal Day"@en .
 
-<https://vocab.sentier.dev/units/unit/DEG> a skos:Concept ;
-    qudt:applicableSystem sou:ASU,
-        sou:CGS,
-        sou:CGS-EMU,
-        sou:CGS-ESU,
-        sou:CGS-GAUSS,
-        sou:IMPERIAL,
-        sou:PLANCK,
-        sou:SI ;
-    qudt:conversionMultiplier 0.0174532925 ;
-    qudt:conversionMultiplierSN 1.745329e-02 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    qudt:informativeReference "http://www.oxfordreference.com/view/10.1093/acref/9780198605225.001.0001/acref-9780198605225-e-331"^^xsd:anyURI ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:definition "A degree (in full, a degree of arc, arc degree, or arcdegree), usually denoted by $^\\circ$ (the degree symbol), is a measurement of plane angle, representing 1/360 of a full rotation; one degree is equivalent to  $2\\pi /360 rad$, $0.017453 rad$. It is not an SI unit, as the SI unit for angles is radian, but is an accepted SI unit."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/DEG>,
-        <https://si-digital-framework.org/SI/units/degree> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA024"^^qudt:iec61360Code,
-        "°"^^qudt:symbol,
-        "deg"^^qudt:ucumCode,
-        "DD"^^qudt:uneceCommonCode ;
-    skos:prefLabel "Degree"@en .
-
 <https://vocab.sentier.dev/units/unit/DEG-PER-HR> a skos:Concept ;
     qudt:applicableSystem sou:IMPERIAL ;
     qudt:conversionMultiplier 0.00000484813681 ;
@@ -2365,28 +2336,6 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
         "摄氏度"@zh ;
     skos:related "http://dbpedia.org/resource/Celsius"^^xsd:anyURI .
 
-<https://vocab.sentier.dev/units/unit/DEG_C-PER-K> a skos:Concept ;
-    qudt:applicableSystem sou:SI ;
-    qudt:conversionMultiplier 1.0 ;
-    qudt:conversionMultiplierSN 1e+00 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
-    skos:broader <https://vocab.sentier.dev/units/unit/K-PER-K> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio>,
-        <https://vocab.sentier.dev/units/unit/K-PER-K> ;
-    skos:definition """
-  The unit $\\textit{Degree Celsius Per Kelvin}$ is Degree Celsius divided by the SI base unit kelvin.
-  """^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/DEG_C-PER-K> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA034"^^qudt:iec61360Code,
-        "°C/K"^^qudt:symbol,
-        "Cel.K-1"^^qudt:ucumCode,
-        "Cel/K"^^qudt:ucumCode,
-        "E98"^^qudt:uneceCommonCode ;
-    skos:note "unit with the name Degree Celsius divided by the SI base unit kelvin" ;
-    skos:prefLabel "Degree Celsius per Kelvin"@en .
-
 <https://vocab.sentier.dev/units/unit/DEG_C-PER-M> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
         sou:SI ;
@@ -2425,33 +2374,6 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
         "[degF]"^^qudt:ucumCode,
         "FAH"^^qudt:uneceCommonCode ;
     skos:prefLabel "Degree Fahrenheit"@en .
-
-<https://vocab.sentier.dev/units/unit/DEG_F-PER-K> a skos:Concept ;
-    qudt:applicableSystem sou:ASU,
-        sou:CGS,
-        sou:CGS-EMU,
-        sou:CGS-ESU,
-        sou:CGS-GAUSS,
-        sou:IMPERIAL,
-        sou:PLANCK,
-        sou:SI ;
-    qudt:conversionMultiplier 0.5555556 ;
-    qudt:conversionMultiplierSN 5.555556e-01 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
-    skos:broader <https://vocab.sentier.dev/units/unit/K-PER-K> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio>,
-        <https://vocab.sentier.dev/units/unit/K-PER-K> ;
-    skos:definition "traditional unit degree Fahrenheit for temperature according to the Anglo-American system of units divided by the SI base unit Kelvin"^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/DEG_F-PER-K> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA041"^^qudt:iec61360Code,
-        "°F/K"^^qudt:symbol,
-        "[degF].K-1"^^qudt:ucumCode,
-        "[degF]/K"^^qudt:ucumCode,
-        "J20"^^qudt:uneceCommonCode ;
-    skos:note "traditional unit degree Fahrenheit for temperature according to the Anglo-American system of units divided by the SI base unit Kelvin" ;
-    skos:prefLabel "Degree Fahrenheit per Kelvin"@en .
 
 <https://vocab.sentier.dev/units/unit/DEG_R> a skos:Concept ;
     qudt:applicableSystem sou:CGS ;
@@ -3020,6 +2942,27 @@ $\\approx 2.611 \\times 10^{19} eV$"""^^qudt:LatexString ;
     skos:note "0.1-fold of the product of the derived SI unit joule and the SI base unit metre" ;
     skos:prefLabel "Decinewton Metre"@en,
         "Decinewton Meter"@en-us .
+
+<https://vocab.sentier.dev/units/unit/DeciS-PER-M> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 0.1 ;
+    qudt:conversionMultiplierSN 1e-01 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "Decisiemens per metre."^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/DeciS-PER-M> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "dS/m"^^qudt:symbol,
+        "dS.m-1"^^qudt:ucumCode,
+        "dS/m"^^qudt:ucumCode ;
+    skos:note "Decisiemens per metre." ;
+    skos:prefLabel "decisiemens per metre"@en,
+        "decisiemens per meter"@en-us .
 
 <https://vocab.sentier.dev/units/unit/DeciSEC> a skos:Concept ;
     qudt:applicableSystem sou:SI ;
@@ -4789,59 +4732,6 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "gf"^^qudt:ucumCode ;
     skos:prefLabel "Gram Force"@en ;
     skos:related "http://dbpedia.org/resource/Kilogram-force"^^xsd:anyURI .
-
-<https://vocab.sentier.dev/units/unit/GON> a skos:Concept ;
-    qudt:applicableSystem sou:ASU,
-        sou:CGS,
-        sou:CGS-EMU,
-        sou:CGS-ESU,
-        sou:CGS-GAUSS,
-        sou:IMPERIAL,
-        sou:PLANCK,
-        sou:SI ;
-    qudt:conversionMultiplier 0.015707963267949 ;
-    qudt:conversionMultiplierSN 1.570796e-02 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    qudt:informativeReference "http://en.wikipedia.org/wiki/Gon?oldid=424098171"^^xsd:anyURI ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:definition "\"Gon\" is a C.G.S System unit for  'Plane Angle' expressed as $gon$."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/GON> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA522"^^qudt:iec61360Code,
-        "gon"^^qudt:symbol,
-        "gon"^^qudt:ucumCode,
-        "A91"^^qudt:uneceCommonCode ;
-    skos:prefLabel "Gon"@en ;
-    skos:related "http://dbpedia.org/resource/Gon"^^xsd:anyURI .
-
-<https://vocab.sentier.dev/units/unit/GRAD> a skos:Concept ;
-    qudt:applicableSystem sou:ASU,
-        sou:CGS,
-        sou:CGS-EMU,
-        sou:CGS-ESU,
-        sou:CGS-GAUSS,
-        sou:IMPERIAL,
-        sou:PLANCK,
-        sou:SI ;
-    qudt:conversionMultiplier 0.015707963267949 ;
-    qudt:conversionMultiplierSN 1.570796e-02 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    qudt:informativeReference "http://en.wikipedia.org/wiki/Grad?oldid=490906645"^^xsd:anyURI ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:definition "\"Grad\" is a unit for  'Plane Angle' expressed as $grad$."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/GRAD> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA522"^^qudt:iec61360Code,
-        "grad"^^qudt:symbol,
-        "A91"^^qudt:uneceCommonCode ;
-    skos:prefLabel "Grad"@en ;
-    skos:related "http://dbpedia.org/resource/Grad"^^xsd:anyURI .
 
 <https://vocab.sentier.dev/units/unit/GRAIN> a skos:Concept ;
     qudt:applicableSystem sou:IMPERIAL,
@@ -7255,6 +7145,28 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:note "illegal unit of the weight, defined as mass of 1 kg which receives a weight of 1 kp through gravitation at sea level, which equates to a force of 9,806 65 newton" ;
     skos:prefLabel "Kilopond"@en .
 
+<https://vocab.sentier.dev/units/unit/KiloS-PER-M> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 1000.0 ;
+    qudt:conversionMultiplierSN 1e+03 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "1 000-fold of the SI derived unit siemens divided by the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/KiloS-PER-M> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA579"^^qudt:iec61360Code,
+        "kS/m"^^qudt:symbol,
+        "kS.m-1"^^qudt:ucumCode,
+        "B54"^^qudt:uneceCommonCode ;
+    skos:note "1 000-fold of the SI derived unit siemens divided by the SI base unit metre" ;
+    skos:prefLabel "Kilosiemens per Metre"@en,
+        "Kilosiemens per Meter"@en-us .
+
 <https://vocab.sentier.dev/units/unit/KiloSEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
         sou:CGS-EMU,
@@ -7450,6 +7362,21 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "KWH"^^qudt:uneceCommonCode ;
     skos:prefLabel "Kilowatthour"@en ;
     skos:related "http://dbpedia.org/resource/Kilowatt_hour"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/units/unit/KiloW-HR-PER-KiloGM> a skos:Concept ;
+    qudt:conversionMultiplier 3.6 ;
+    qudt:conversionMultiplierSN 3.6e+00 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/J-PER-KiloGM> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy>,
+        <https://vocab.sentier.dev/units/unit/J-PER-KiloGM> ;
+    skos:definition "Kilowatt hour per Kilogram"^^xsd:string ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "kW·h/kg"^^qudt:symbol,
+        "kW.h.kg-1"^^qudt:ucumCode,
+        "kW.h/kg"^^qudt:ucumCode ;
+    skos:prefLabel "Kilowatt-hour per Kilogram"@en .
 
 <https://vocab.sentier.dev/units/unit/KiloYR> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -8305,29 +8232,6 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "M69"^^qudt:uneceCommonCode ;
     skos:prefLabel "Cubic Mile"@en .
 
-<https://vocab.sentier.dev/units/unit/MIL> a skos:Concept ;
-    qudt:applicableSystem sou:ASU,
-        sou:CGS,
-        sou:CGS-EMU,
-        sou:CGS-ESU,
-        sou:CGS-GAUSS,
-        sou:IMPERIAL,
-        sou:PLANCK,
-        sou:SI ;
-    qudt:conversionMultiplier 0.000490873852 ;
-    qudt:conversionMultiplierSN 4.908739e-04 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:definition "The Mil unit of plane angle, as defined by NATO to be 1/6400 of a circle."^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/MIL> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAB205"^^qudt:iec61360Code,
-        "mil{NATO}"^^qudt:symbol ;
-    skos:prefLabel "Mil Angle (NATO)"@en .
-
 <https://vocab.sentier.dev/units/unit/MIL_Circ> a skos:Concept ;
     qudt:conversionMultiplier 0.0000000005067075 ;
     qudt:conversionMultiplierSN 5.067075e-10 ;
@@ -8369,30 +8273,6 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "min"^^qudt:ucumCode,
         "MIN"^^qudt:uneceCommonCode ;
     skos:prefLabel "Minute"@en .
-
-<https://vocab.sentier.dev/units/unit/MIN_Angle> a skos:Concept ;
-    qudt:applicableSystem sou:ASU,
-        sou:CGS,
-        sou:CGS-EMU,
-        sou:CGS-ESU,
-        sou:CGS-GAUSS,
-        sou:IMPERIAL,
-        sou:PLANCK,
-        sou:SI ;
-    qudt:conversionMultiplier 0.000290888209 ;
-    qudt:conversionMultiplierSN 2.908882e-04 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:exactMatch <http://qudt.org/vocab/unit/MIN_Angle> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA097"^^qudt:iec61360Code,
-        "'"^^qudt:symbol,
-        "'"^^qudt:ucumCode,
-        "D61"^^qudt:uneceCommonCode ;
-    skos:prefLabel "Minute Angle"@en .
 
 <https://vocab.sentier.dev/units/unit/MIN_Sidereal> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -9119,6 +8999,28 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:note "product out of the 1,000,000-fold of the SI derived unit pascal and the power of the SI base unit metre with the exponent 3 divided by the SI base unit second" ;
     skos:prefLabel "Megapascal Cubic Metre per Second"@en,
         "Megapascal Cubic Meter per Second"@en-us .
+
+<https://vocab.sentier.dev/units/unit/MegaS-PER-M> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 1000000.0 ;
+    qudt:conversionMultiplierSN 1e+06 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "1,000,000-fold of the SI derived unit siemens divided by the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MegaS-PER-M> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA220"^^qudt:iec61360Code,
+        "MS/m"^^qudt:symbol,
+        "MS.m-1"^^qudt:ucumCode,
+        "B77"^^qudt:uneceCommonCode ;
+    skos:note "1,000,000-fold of the SI derived unit siemens divided by the SI base unit metre" ;
+    skos:prefLabel "Megasiemens per Metre"@en,
+        "Megasiemens per Meter"@en-us .
 
 <https://vocab.sentier.dev/units/unit/MegaSEC> a skos:Concept ;
     qudt:conversionMultiplier 1000000.0 ;
@@ -9864,25 +9766,49 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:note "0.000001-fold of the SI derived unit ohm" ;
     skos:prefLabel "Microohm"@en .
 
-<https://vocab.sentier.dev/units/unit/MicroRAD> a skos:Concept ;
-    qudt:applicableSystem sou:CGS,
-        sou:CGS-EMU,
+<https://vocab.sentier.dev/units/unit/MicroS-PER-CentiM> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 0.0001 ;
+    qudt:conversionMultiplierSN 1e-04 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "0.000001-fold of the SI derived unit Siemens divided by the 0.01-fold of the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MicroS-PER-CentiM> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA075"^^qudt:iec61360Code,
+        "μS/cm"^^qudt:symbol,
+        "uS.cm-1"^^qudt:ucumCode,
+        "G42"^^qudt:uneceCommonCode ;
+    skos:note "0.000001-fold of the SI derived unit Siemens divided by the 0.01-fold of the SI base unit metre" ;
+    skos:prefLabel "Microsiemens per Centimetre"@en,
+        "Microsiemens per Centimeter"@en-us .
+
+<https://vocab.sentier.dev/units/unit/MicroS-PER-M> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
         sou:CGS-GAUSS,
         sou:SI ;
     qudt:conversionMultiplier 0.000001 ;
     qudt:conversionMultiplierSN 1e-06 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:exactMatch <http://qudt.org/vocab/unit/MicroRAD> ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "0.000001-fold of the SI derived unit Siemens divided by the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MicroS-PER-M> ;
     skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA094"^^qudt:iec61360Code,
-        "µrad"^^qudt:symbol,
-        "urad"^^qudt:ucumCode,
-        "B97"^^qudt:uneceCommonCode ;
-    skos:prefLabel "microradian"@en .
+    skos:notation "0112/2///62720#UAA076"^^qudt:iec61360Code,
+        "μS/m"^^qudt:symbol,
+        "uS.m-1"^^qudt:ucumCode,
+        "G43"^^qudt:uneceCommonCode ;
+    skos:note "0.000001-fold of the SI derived unit Siemens divided by the SI base unit metre" ;
+    skos:prefLabel "Microsiemens per Metre"@en,
+        "Microsiemens per Meter"@en-us .
 
 <https://vocab.sentier.dev/units/unit/MicroSEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -10023,23 +9949,6 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "mA·s"^^qudt:symbol,
         "mA.s"^^qudt:ucumCode ;
     skos:prefLabel "milliampere second"@en .
-
-<https://vocab.sentier.dev/units/unit/MilliARCSEC> a skos:Concept ;
-    qudt:applicableSystem sou:USCS ;
-    qudt:conversionMultiplier 0.00000000484813681 ;
-    qudt:conversionMultiplierSN 4.848137e-09 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    qudt:informativeReference "http://en.wikipedia.org/wiki/Minute_of_arc"^^xsd:anyURI ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:definition "A minute of arc, arcminute, or minute arc (MOA), is a unit of angular measurement equal to one sixtieth (1/60) of one degree (circle/21,600), or $\\pi /10,800 radians$. In turn, a second of arc or arcsecond is one sixtieth (1/60) of one minute of arc. Since one degree is defined as one three hundred and sixtieth (1/360) of a rotation, one minute of arc is 1/21,600 of a rotation.  the milliarcsecond, abbreviated mas, is used in astronomy."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/MilliARCSEC> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "mas"^^qudt:symbol,
-        "m''"^^qudt:ucumCode ;
-    skos:prefLabel "Milli ArcSecond"@en .
 
 <https://vocab.sentier.dev/units/unit/MilliBAR-L-PER-SEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS ;
@@ -10445,19 +10354,6 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "mJ.s-1"^^qudt:ucumCode,
         "mJ/s"^^qudt:ucumCode ;
     skos:prefLabel "millijoule per second"@en .
-
-<https://vocab.sentier.dev/units/unit/MilliK-PER-K> a skos:Concept ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
-    skos:broader <https://vocab.sentier.dev/units/unit/K-PER-K> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio>,
-        <https://vocab.sentier.dev/units/unit/K-PER-K> ;
-    skos:definition "0.001-fold of SI base unit kelvin divided by the SI base unit kelvin" ;
-    skos:exactMatch <http://qudt.org/vocab/unit/MilliK-PER-K> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAB842"^^qudt:iec61360Code,
-        "mK/K"^^qudt:symbol ;
-    skos:prefLabel "millikelvin per kelvin"@en .
 
 <https://vocab.sentier.dev/units/unit/MilliL> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -10949,25 +10845,46 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
     skos:note "0.001-fold of the product of the SI derived unit pascal and the SI base unit second divided by the unit of the pressure bar" ;
     skos:prefLabel "Millipascal Second per Bar"@en .
 
-<https://vocab.sentier.dev/units/unit/MilliRAD> a skos:Concept ;
-    qudt:applicableSystem sou:CGS,
-        sou:CGS-EMU,
+<https://vocab.sentier.dev/units/unit/MilliS-PER-CentiM> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 0.1 ;
+    qudt:conversionMultiplierSN 1e-01 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "0.001-fold of the SI derived unit Siemens divided by the 0.01-fold of the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MilliS-PER-CentiM> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA801"^^qudt:iec61360Code,
+        "mS/cm"^^qudt:symbol,
+        "mS.cm-1"^^qudt:ucumCode,
+        "mS/cm"^^qudt:ucumCode,
+        "H61"^^qudt:uneceCommonCode ;
+    skos:note "0.001-fold of the SI derived unit Siemens divided by the 0.01-fold of the SI base unit metre" ;
+    skos:prefLabel "Millisiemens per Centimetre"@en,
+        "Millisiemens per Centimeter"@en-us .
+
+<https://vocab.sentier.dev/units/unit/MilliS-PER-M> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
         sou:CGS-GAUSS,
         sou:SI ;
     qudt:conversionMultiplier 0.001 ;
     qudt:conversionMultiplierSN 1e-03 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:exactMatch <http://qudt.org/vocab/unit/MilliRAD> ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MilliS-PER-M> ;
     skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAA897"^^qudt:iec61360Code,
-        "mrad"^^qudt:symbol,
-        "mrad"^^qudt:ucumCode,
-        "C25"^^qudt:uneceCommonCode ;
-    skos:prefLabel "milliradian"@en .
+    skos:notation "mS/m"^^qudt:symbol,
+        "mS.m-1"^^qudt:ucumCode,
+        "mS/m"^^qudt:ucumCode ;
+    skos:prefLabel "MilliSiemens per metre"@en .
 
 <https://vocab.sentier.dev/units/unit/MilliSEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -11591,6 +11508,52 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "nmol.L-1"^^qudt:ucumCode,
         "nmol/L"^^qudt:ucumCode ;
     skos:prefLabel "Nanomoles per litre"@en .
+
+<https://vocab.sentier.dev/units/unit/NanoS-PER-CentiM> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 0.0000001 ;
+    qudt:conversionMultiplierSN 1e-07 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "0.000000001-fold of the SI derived unit Siemens by the 0.01 fol of the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/NanoS-PER-CentiM> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA907"^^qudt:iec61360Code,
+        "nS/cm"^^qudt:symbol,
+        "nS.cm-1"^^qudt:ucumCode,
+        "nS/cm"^^qudt:ucumCode,
+        "G44"^^qudt:uneceCommonCode ;
+    skos:note "0.000000001-fold of the SI derived unit Siemens by the 0.01 fol of the SI base unit metre" ;
+    skos:prefLabel "Nanosiemens per Centimetre"@en,
+        "Nanosiemens per Centimeter"@en-us .
+
+<https://vocab.sentier.dev/units/unit/NanoS-PER-M> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 0.000000001 ;
+    qudt:conversionMultiplierSN 1e-09 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "0.000000001-fold of the SI derived unit Siemens divided by the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/NanoS-PER-M> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA908"^^qudt:iec61360Code,
+        "nS/m"^^qudt:symbol,
+        "nS.m-1"^^qudt:ucumCode,
+        "nS/m"^^qudt:ucumCode,
+        "G45"^^qudt:uneceCommonCode ;
+    skos:note "0.000000001-fold of the SI derived unit Siemens divided by the SI base unit metre" ;
+    skos:prefLabel "Nanosiemens per Metre"@en,
+        "Nanosiemens per Meter"@en-us .
 
 <https://vocab.sentier.dev/units/unit/NanoSEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -13631,6 +13594,29 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "pmol.m-3"^^qudt:ucumCode ;
     skos:prefLabel "Picomoles per cubic metre"@en .
 
+<https://vocab.sentier.dev/units/unit/PicoS-PER-M> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 0.000000000001 ;
+    qudt:conversionMultiplierSN 1e-12 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "0.000000000001-fold of the SI derived unit Siemens divided by the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PicoS-PER-M> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA934"^^qudt:iec61360Code,
+        "pS/m"^^qudt:symbol,
+        "pS.m-1"^^qudt:ucumCode,
+        "pS/m"^^qudt:ucumCode,
+        "L42"^^qudt:uneceCommonCode ;
+    skos:note "0.000000000001-fold of the SI derived unit Siemens divided by the SI base unit metre" ;
+    skos:prefLabel "Picosiemens per Metre"@en,
+        "Picosiemens per Meter"@en-us .
+
 <https://vocab.sentier.dev/units/unit/PicoSEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
         sou:CGS-EMU,
@@ -14255,32 +14241,6 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "rad/min"^^qudt:ucumCode ;
     skos:prefLabel "Radian per Minute"@en .
 
-<https://vocab.sentier.dev/units/unit/REV> a skos:Concept ;
-    qudt:applicableSystem sou:ASU,
-        sou:CGS,
-        sou:CGS-EMU,
-        sou:CGS-ESU,
-        sou:CGS-GAUSS,
-        sou:IMPERIAL,
-        sou:PLANCK,
-        sou:SI ;
-    qudt:conversionMultiplier 6.28318531 ;
-    qudt:conversionMultiplierSN 6.283185e+00 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    qudt:informativeReference "http://en.wikipedia.org/wiki/Revolution?oldid=494110330"^^xsd:anyURI ;
-    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
-        <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:definition "\"Revolution\" is a unit for  'Plane Angle' expressed as $rev$."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/REV> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "0112/2///62720#UAB206"^^qudt:iec61360Code,
-        "rev"^^qudt:symbol,
-        "M44"^^qudt:uneceCommonCode ;
-    skos:prefLabel "Revolution"@en ;
-    skos:related "http://dbpedia.org/resource/Revolution"^^xsd:anyURI .
-
 <https://vocab.sentier.dev/units/unit/REV-PER-HR> a skos:Concept ;
     qudt:conversionMultiplier 0.00174532925 ;
     qudt:conversionMultiplierSN 1.745329e-03 ;
@@ -14347,6 +14307,29 @@ where, $e$ is the elementary charge, $\\epsilon_0$ is the electric constant, and
         "F49"^^qudt:uneceCommonCode ;
     skos:prefLabel "Rod"@en ;
     skos:related "http://dbpedia.org/resource/Rod"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/units/unit/S-PER-CentiM> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 100.0 ;
+    qudt:conversionMultiplierSN 1e+02 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:definition "SI derived unit Siemens divided by the 0.01-fold of the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA278"^^qudt:iec61360Code,
+        "S/cm"^^qudt:symbol,
+        "S.cm-1"^^qudt:ucumCode,
+        "S/cm"^^qudt:ucumCode,
+        "H43"^^qudt:uneceCommonCode ;
+    skos:note "SI derived unit Siemens divided by the 0.01-fold of the SI base unit metre" ;
+    skos:prefLabel "Siemens per Centimetre"@en,
+        "Siemens per Centimeter"@en-us .
 
 <https://vocab.sentier.dev/units/unit/SAMPLE-PER-SEC> a skos:Concept ;
     qudt:conversionMultiplier 1.0 ;
@@ -15900,6 +15883,76 @@ not the volume of the gas. The reference conditions for standard cubic metre are
     skos:note "unit of failure rate" ;
     skos:prefLabel "Failures In Time"@en .
 
+<https://vocab.sentier.dev/units/unit/ARCMIN> a skos:Concept ;
+    qudt:applicableSystem sou:USCS ;
+    qudt:conversionMultiplier 0.000290888209 ;
+    qudt:conversionMultiplierSN 2.908882e-04 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Minute_of_arc"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:definition "A minute of arc, arcminute, or minute arc (MOA), is a unit of angular measurement equal to one sixtieth (1/60) of one degree (circle/21,600), or $\\pi /10,800 radians$. In turn, a second of arc or arcsecond is one sixtieth (1/60) of one minute of arc. Since one degree is defined as one three hundred and sixtieth (1/360) of a rotation, one minute of arc is 1/21,600 of a rotation. "^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/ARCMIN>,
+        <https://si-digital-framework.org/SI/units/arcminute> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA097"^^qudt:iec61360Code,
+        "'"^^qudt:symbol,
+        "'"^^qudt:ucumCode,
+        "D61"^^qudt:uneceCommonCode ;
+    skos:prefLabel "ArcMinute"@en .
+
+<https://vocab.sentier.dev/units/unit/ARCSEC> a skos:Concept ;
+    qudt:applicableSystem sou:USCS ;
+    qudt:conversionMultiplier 0.00000484813681 ;
+    qudt:conversionMultiplierSN 4.848137e-06 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Minute_of_arc#Symbols.2C_abbreviations_and_subdivisions"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:definition "\"Arc Second\" is a unit of angular measure, also called the $\\textit{second of arc}$, equal to $1/60 \\; arcminute$. One arcsecond is a very small angle: there are 1,296,000 in a circle. The SI recommends $\\textit{double prime}$ ($''$) as the symbol for the arcsecond. The symbol has become common in astronomy, where very small angles are stated in milliarcseconds ($mas$)."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/ARCSEC>,
+        <https://si-digital-framework.org/SI/units/arcsecond> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA096"^^qudt:iec61360Code,
+        "\""^^qudt:symbol,
+        "''"^^qudt:ucumCode,
+        "D62"^^qudt:uneceCommonCode ;
+    skos:prefLabel "ArcSecond"@en .
+
+<https://vocab.sentier.dev/units/unit/DEG> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.0174532925 ;
+    qudt:conversionMultiplierSN 1.745329e-02 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    qudt:informativeReference "http://www.oxfordreference.com/view/10.1093/acref/9780198605225.001.0001/acref-9780198605225-e-331"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:definition "A degree (in full, a degree of arc, arc degree, or arcdegree), usually denoted by $^\\circ$ (the degree symbol), is a measurement of plane angle, representing 1/360 of a full rotation; one degree is equivalent to  $2\\pi /360 rad$, $0.017453 rad$. It is not an SI unit, as the SI unit for angles is radian, but is an accepted SI unit."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/DEG>,
+        <https://si-digital-framework.org/SI/units/degree> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA024"^^qudt:iec61360Code,
+        "°"^^qudt:symbol,
+        "deg"^^qudt:ucumCode,
+        "DD"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Degree"@en .
+
 <https://vocab.sentier.dev/units/unit/DEGREE_BALLING> a skos:Concept ;
     qudt:conversionMultiplier 0.0 ;
     qudt:conversionMultiplierSN 0e+00 ;
@@ -16049,6 +16102,57 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         "J31"^^qudt:uneceCommonCode ;
     skos:note "unit of the density of fluids, which are heavier than water" ;
     skos:prefLabel "Degree Twaddell"@en .
+
+<https://vocab.sentier.dev/units/unit/DEG_C-PER-K> a skos:Concept ;
+    qudt:applicableSystem sou:SI ;
+    qudt:conversionMultiplier 1.0 ;
+    qudt:conversionMultiplierSN 1e+00 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/K-PER-K> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio>,
+        <https://vocab.sentier.dev/units/unit/K-PER-K> ;
+    skos:definition """
+  The unit $\\textit{Degree Celsius Per Kelvin}$ is Degree Celsius divided by the SI base unit kelvin.
+  """^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/DEG_C-PER-K> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA034"^^qudt:iec61360Code,
+        "°C/K"^^qudt:symbol,
+        "Cel.K-1"^^qudt:ucumCode,
+        "Cel/K"^^qudt:ucumCode,
+        "E98"^^qudt:uneceCommonCode ;
+    skos:note "unit with the name Degree Celsius divided by the SI base unit kelvin" ;
+    skos:prefLabel "Degree Celsius per Kelvin"@en .
+
+<https://vocab.sentier.dev/units/unit/DEG_F-PER-K> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.5555556 ;
+    qudt:conversionMultiplierSN 5.555556e-01 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/K-PER-K> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio>,
+        <https://vocab.sentier.dev/units/unit/K-PER-K> ;
+    skos:definition "traditional unit degree Fahrenheit for temperature according to the Anglo-American system of units divided by the SI base unit Kelvin"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/DEG_F-PER-K> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA041"^^qudt:iec61360Code,
+        "°F/K"^^qudt:symbol,
+        "[degF].K-1"^^qudt:ucumCode,
+        "[degF]/K"^^qudt:ucumCode,
+        "J20"^^qudt:uneceCommonCode ;
+    skos:note "traditional unit degree Fahrenheit for temperature according to the Anglo-American system of units divided by the SI base unit Kelvin" ;
+    skos:prefLabel "Degree Fahrenheit per Kelvin"@en .
 
 <https://vocab.sentier.dev/units/unit/FemtoGM-PER-L> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -16216,6 +16320,61 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:note "0,001-fold of the SI base unit kilogram divided by the 0.001-fold of the unit litre" ;
     skos:prefLabel "Gram per Millilitre"@en,
         "Gram per Millilitre"@en-us .
+
+<https://vocab.sentier.dev/units/unit/GON> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.015707963267949 ;
+    qudt:conversionMultiplierSN 1.570796e-02 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Gon?oldid=424098171"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:definition "\"Gon\" is a C.G.S System unit for  'Plane Angle' expressed as $gon$."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/GON> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA522"^^qudt:iec61360Code,
+        "gon"^^qudt:symbol,
+        "gon"^^qudt:ucumCode,
+        "A91"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Gon"@en ;
+    skos:related "http://dbpedia.org/resource/Gon"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/units/unit/GRAD> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.015707963267949 ;
+    qudt:conversionMultiplierSN 1.570796e-02 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Grad?oldid=490906645"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:definition "\"Grad\" is a unit for  'Plane Angle' expressed as $grad$."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/GRAD> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA522"^^qudt:iec61360Code,
+        "grad"^^qudt:symbol,
+        "A91"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Grad"@en ;
+    skos:related "http://dbpedia.org/resource/Grad"^^xsd:anyURI .
 
 <https://vocab.sentier.dev/units/unit/GRAIN-PER-GAL> a skos:Concept ;
     qudt:applicableSystem sou:IMPERIAL,
@@ -16653,6 +16812,55 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:prefLabel "Cubic metre year"@en-GB,
         "Cubic meter year"@en-US .
 
+<https://vocab.sentier.dev/units/unit/MIL> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.000490873852 ;
+    qudt:conversionMultiplierSN 4.908739e-04 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:definition "The Mil unit of plane angle, as defined by NATO to be 1/6400 of a circle."^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MIL> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAB205"^^qudt:iec61360Code,
+        "mil{NATO}"^^qudt:symbol ;
+    skos:prefLabel "Mil Angle (NATO)"@en .
+
+<https://vocab.sentier.dev/units/unit/MIN_Angle> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.000290888209 ;
+    qudt:conversionMultiplierSN 2.908882e-04 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MIN_Angle> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA097"^^qudt:iec61360Code,
+        "'"^^qudt:symbol,
+        "'"^^qudt:ucumCode,
+        "D61"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Minute Angle"@en .
+
 <https://vocab.sentier.dev/units/unit/MegaGM-PER-M3> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
         sou:CGS-EMU,
@@ -16773,6 +16981,45 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:prefLabel "Microgram per MilliLitre"@en,
         "Microgram per Milliliter"@en-us .
 
+<https://vocab.sentier.dev/units/unit/MicroRAD> a skos:Concept ;
+    qudt:applicableSystem sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 0.000001 ;
+    qudt:conversionMultiplierSN 1e-06 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MicroRAD> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA094"^^qudt:iec61360Code,
+        "µrad"^^qudt:symbol,
+        "urad"^^qudt:ucumCode,
+        "B97"^^qudt:uneceCommonCode ;
+    skos:prefLabel "microradian"@en .
+
+<https://vocab.sentier.dev/units/unit/MilliARCSEC> a skos:Concept ;
+    qudt:applicableSystem sou:USCS ;
+    qudt:conversionMultiplier 0.00000000484813681 ;
+    qudt:conversionMultiplierSN 4.848137e-09 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Minute_of_arc"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:definition "A minute of arc, arcminute, or minute arc (MOA), is a unit of angular measurement equal to one sixtieth (1/60) of one degree (circle/21,600), or $\\pi /10,800 radians$. In turn, a second of arc or arcsecond is one sixtieth (1/60) of one minute of arc. Since one degree is defined as one three hundred and sixtieth (1/360) of a rotation, one minute of arc is 1/21,600 of a rotation.  the milliarcsecond, abbreviated mas, is used in astronomy."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MilliARCSEC> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "mas"^^qudt:symbol,
+        "m''"^^qudt:ucumCode ;
+    skos:prefLabel "Milli ArcSecond"@en .
+
 <https://vocab.sentier.dev/units/unit/MilliGM-PER-DeciL> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
         sou:CGS-EMU,
@@ -16869,6 +17116,41 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:note "0.000001-fold of the SI base unit kilogram divided by the unit millilitre" ;
     skos:prefLabel "Milligram per Millilitre"@en,
         "Milligram per Milliliter"@en-us .
+
+<https://vocab.sentier.dev/units/unit/MilliK-PER-K> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/K-PER-K> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio>,
+        <https://vocab.sentier.dev/units/unit/K-PER-K> ;
+    skos:definition "0.001-fold of SI base unit kelvin divided by the SI base unit kelvin" ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MilliK-PER-K> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAB842"^^qudt:iec61360Code,
+        "mK/K"^^qudt:symbol ;
+    skos:prefLabel "millikelvin per kelvin"@en .
+
+<https://vocab.sentier.dev/units/unit/MilliRAD> a skos:Concept ;
+    qudt:applicableSystem sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 0.001 ;
+    qudt:conversionMultiplierSN 1e-03 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:exactMatch <http://qudt.org/vocab/unit/MilliRAD> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA897"^^qudt:iec61360Code,
+        "mrad"^^qudt:symbol,
+        "mrad"^^qudt:ucumCode,
+        "C25"^^qudt:uneceCommonCode ;
+    skos:prefLabel "milliradian"@en .
 
 <https://vocab.sentier.dev/units/unit/NanoGM-PER-DeciL> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -17155,6 +17437,33 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:prefLabel "Planck Density"@en ;
     skos:related "http://dbpedia.org/resource/Planck_density"^^xsd:anyURI .
 
+<https://vocab.sentier.dev/units/unit/REV> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 6.28318531 ;
+    qudt:conversionMultiplierSN 6.283185e+00 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Revolution?oldid=494110330"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:definition "\"Revolution\" is a unit for  'Plane Angle' expressed as $rev$."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/REV> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAB206"^^qudt:iec61360Code,
+        "rev"^^qudt:symbol,
+        "M44"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Revolution"@en ;
+    skos:related "http://dbpedia.org/resource/Revolution"^^xsd:anyURI .
+
 <https://vocab.sentier.dev/units/unit/SLUG-PER-FT3> a skos:Concept ;
     qudt:applicableSystem sou:IMPERIAL,
         sou:USCS ;
@@ -17321,17 +17630,6 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         <https://vocab.sentier.dev/units/unit/M-YR> ;
     skos:prefLabel "Length Time"@en .
 
-<https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient> a skos:Concept ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    skos:definition "A dimensionless ratio that is the logarithm of the ratio of a compound's concentration within a two phase mixture of octanol and water at equilibrium.  More simply, it is a comparison of the solubilities of the compound solute in these two immiscible liquids.  This property is used to measure the lipophilicity and the hydrophilicity of a substance."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/quantitykind/LogOctanolWaterPartitionCoefficient> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/UNITLESS> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
-        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
-    skos:note "A dimensionless ratio that is the logarithm of the ratio of a compound's concentration within a two phase mixture of octanol and water at equilibrium.  More simply, it is a comparison of the solubilities of the compound solute in these two immiscible liquids.  This property is used to measure the lipophilicity and the hydrophilicity of a substance." ;
-    skos:prefLabel "Logarithm Of Octanol Water Partition Coefficient"@en .
-
 <https://vocab.sentier.dev/units/quantity-kind/MassTime> a skos:Concept ;
     dcterms:description "\"Mass Time\" is a measure of mass over time, used for example for storage."^^qudt:LatexString ;
     qudt:applicableUnit <https://vocab.sentier.dev/units/unit/KiloGM-DAY>,
@@ -17354,20 +17652,18 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         <https://vocab.sentier.dev/units/unit/PERSON-M> ;
     skos:prefLabel "Passenger transport"@en .
 
-<https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber> a skos:Concept ;
+<https://vocab.sentier.dev/units/quantity-kind/Population> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:informativeReference "http://en.wikipedia.org/wiki/Stoichiometry"^^xsd:anyURI ;
-    qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
-    qudt:latexSymbol "$\\nu_B$"^^qudt:LatexString ;
-    skos:definition "Chemical reactions, as macroscopic unit operations, consist of simply a very large number of elementary reactions, where a single molecule reacts with another molecule. As the reacting molecules (or moieties) consist of a definite set of atoms in an integer ratio, the ratio between reactants in a complete reaction is also in integer ratio. A reaction may consume more than one molecule, and the \"Stoichiometric Number\" counts this number, defined as positive for products (added) and negative for reactants (removed)."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/quantitykind/StoichiometricNumber> ;
+    qudt:informativeReference "https://en.wikipedia.org/wiki/Population"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/Count> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count> ;
+    skos:definition "Population typically refers to the number of people in a single area, whether it be a city or town, region, country, continent, or the world, but can also represent the number of any kind of entity."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/Population> ;
     skos:inScheme <https://vocab.sentier.dev/units/> ;
     skos:narrower <https://vocab.sentier.dev/units/unit/NUM> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
-        <https://vocab.sentier.dev/units/unit/NUM>,
-        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
-    skos:note "Chemical reactions, as macroscopic unit operations, consist of simply a very large number of elementary reactions, where a single molecule reacts with another molecule. As the reacting molecules (or moieties) consist of a definite set of atoms in an integer ratio, the ratio between reactants in a complete reaction is also in integer ratio. A reaction may consume more than one molecule, and the \"Stoichiometric Number\" counts this number, defined as positive for products (added) and negative for reactants (removed)." ;
-    skos:prefLabel "Stoichiometric Number"@en .
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/NUM> ;
+    skos:note "Population typically refers to the number of people in a single area, whether it be a city or town, region, country, continent, or the world, but can also represent the number of any kind of entity." ;
+    skos:prefLabel "Population"@en .
 
 <https://vocab.sentier.dev/units/quantity-kind/TemperatureGradient> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-1I0M0H1T0D0> ;
@@ -17411,6 +17707,46 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/M3-PER-HA>,
         <https://vocab.sentier.dev/units/unit/M3-PER-M2> ;
     skos:prefLabel "Volume Per Unit Area"@en .
+
+<https://vocab.sentier.dev/units/unit/GR> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Grade?oldid=485504533"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "the tangent of an angle of inclination multiplied by 100"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/GR> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "gr"^^qudt:symbol ;
+    skos:prefLabel "Grade"@en ;
+    skos:related "http://dbpedia.org/resource/Grade"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR> a skos:Concept ;
+    qudt:applicableSystem sou:CGS,
+        sou:SI ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "Kilocalories per kilowatt-hour. Used for efficiencies, such as energy in divided by energy produced."^^xsd:string ;
+    skos:exactMatch <https://glossary.ecoinvent.org/ids/41b2b2e3-338f-4b5f-be29-4f501bb4cf83> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "kcal/kW.h"^^qudt:symbol ;
+    skos:prefLabel "Kilocalories per kilowatt-hour"@en .
 
 <https://vocab.sentier.dev/units/unit/KiloGM-SEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -17465,6 +17801,67 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:prefLabel "Square metre second"@en-GB,
         "Square meter second"@en-US .
 
+<https://vocab.sentier.dev/units/unit/PERCENT> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.01 ;
+    qudt:conversionMultiplierSN 1e-02 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Percentage?oldid=495284540"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "\"Percent\" is a unit for  'Dimensionless Ratio' expressed as $\\%$."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PERCENT> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA000"^^qudt:iec61360Code,
+        "%"^^qudt:symbol,
+        "%"^^qudt:ucumCode,
+        "P1"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Percent"@en ;
+    skos:related "http://dbpedia.org/resource/Percentage"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/units/unit/PERMITTIVITY_REL> a skos:Concept ;
+    qudt:applicableSystem sou:CGS ;
+    qudt:conversionMultiplier 0.000000000008854187817 ;
+    qudt:conversionMultiplierSN 8.854188e-12 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Relative_permittivity?oldid=489664437"^^xsd:anyURI,
+        "http://en.wikipedia.org/wiki/Relative_static_permittivity?oldid=334224492"^^xsd:anyURI,
+        "http://www.ncert.nic.in/html/learning_basket/electricity/electricity/charges%20&%20fields/absolute_permittivity.htm"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition """
+  The $\\textit{relative permittivity}$ of a material under given conditions reflects the extent to which it concentrates electrostatic lines of flux. 
+  In technical terms, it is the ratio of the amount of electrical energy stored in a material by an applied voltage, 
+  relative to that stored in a vacuum. 
+  Likewise, it is also the ratio of the capacitance of a capacitor using that material as a dielectric, compared to a similar capacitor that has a vacuum as its dielectric. 
+  Relative permittivity is a dimensionless number that is in general complex. 
+  The imaginary portion of the permittivity corresponds to a phase shift of the polarization $P$ relative to $E$ and leads to the attenuation of electromagnetic waves passing through the medium.
+  $$\\epsilon_r(w) = \\frac{\\epsilon(w)}{\\epsilon_O}$$,
+   where $\\epsilon_r(w)$ is the complex frequency-dependent absolute permittivity of the material,
+    and $\\epsilon_O$ is the vacuum permittivity.
+  """^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PERMITTIVITY_REL> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "εᵣ"^^qudt:symbol,
+        "[eps_0]"^^qudt:ucumCode ;
+    skos:prefLabel "Relative Permittivity"@en ;
+    skos:related "http://dbpedia.org/resource/Relative_static_permittivity"^^xsd:anyURI .
+
 <https://vocab.sentier.dev/units/unit/PERSON-M> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
         sou:SI ;
@@ -17481,6 +17878,191 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:notation "personm"^^qudt:symbol ;
     skos:prefLabel "Person metre"@en-GB,
         "Person meter"@en-US .
+
+<https://vocab.sentier.dev/units/unit/PPB> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.000000001 ;
+    qudt:conversionMultiplierSN 1e-09 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    qudt:informativeReference "http://aurora.regenstrief.org/~ucum/ucum.html#section-Derived-Unit-Atoms"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "Dimensionless unit for concentration. Recommended practice is to use specific units such as $ug/l$."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PPB> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAD926"^^qudt:iec61360Code,
+        "PPB"^^qudt:symbol,
+        "[ppb]"^^qudt:ucumCode,
+        "61"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Parts per billion"@en .
+
+<https://vocab.sentier.dev/units/unit/PPM> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.000001 ;
+    qudt:conversionMultiplierSN 1e-06 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    qudt:informativeReference "http://aurora.regenstrief.org/~ucum/ucum.html#section-Derived-Unit-Atoms"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "Dimensionless unit for concentration. Recommended practice is to use specific units such as $ug/l$."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PPM> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAD925"^^qudt:iec61360Code,
+        "PPM"^^qudt:symbol,
+        "[ppm]"^^qudt:ucumCode,
+        "59"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Parts per million"@en .
+
+<https://vocab.sentier.dev/units/unit/PPQ> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.0000000000000001 ;
+    qudt:conversionMultiplierSN 1e-16 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "unit of proportion equal to 10⁻¹⁶" ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PPQ> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAD928"^^qudt:iec61360Code,
+        "ppq"^^qudt:symbol,
+        "[ppq]"^^qudt:ucumCode ;
+    skos:prefLabel "part per quadrillion"@en .
+
+<https://vocab.sentier.dev/units/unit/PPT> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.000000000001 ;
+    qudt:conversionMultiplierSN 1e-12 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "trillionth of a quantity, unit of proportion equal to 10⁻¹²" ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PPT> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAD927"^^qudt:iec61360Code,
+        "ppt"^^qudt:symbol,
+        "[ppt]"^^qudt:ucumCode,
+        "NX"^^qudt:uneceCommonCode ;
+    skos:prefLabel "part per trillion"@en .
+
+<https://vocab.sentier.dev/units/unit/PPTH> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.001 ;
+    qudt:conversionMultiplierSN 1e-03 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    qudt:informativeReference "http://aurora.regenstrief.org/~ucum/ucum.html#section-Derived-Unit-Atoms"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "Dimensionless unit for concentration. Recommended practice is to use specific units such as $ug/l$."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PPTH> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "0112/2///62720#UAA015"^^qudt:iec61360Code,
+        "‰"^^qudt:symbol,
+        "[ppth]"^^qudt:ucumCode,
+        "NX"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Parts per thousand"@en .
+
+<https://vocab.sentier.dev/units/unit/PPTM> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:conversionMultiplier 0.0000001 ;
+    qudt:conversionMultiplierSN 1e-07 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "Dimensionless unit for concentration. Recommended practice is to use specific units such as $ug/l$."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PPTM> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "PPTM"^^qudt:symbol ;
+    skos:prefLabel "Parts per Ten Million"@en .
+
+<https://vocab.sentier.dev/units/unit/PSU> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    qudt:informativeReference "https://en.wikipedia.org/wiki/Salinity#PSU"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:definition "Practical salinity scale 1978 (PSS-78) is used for ionic content of seawater determined by electrical conductivity. Salinities measured using PSS-78 do not have units, but are approximately scaled to parts-per-thousand for the valid range. The suffix psu or PSU (denoting practical salinity unit) is sometimes added to PSS-78 measurement values. The addition of PSU as a unit after the value is \"formally incorrect and strongly discouraged\"."^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/PSU> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "PSU"^^qudt:symbol ;
+    skos:prefLabel "Practical Salinity Unit"@en ;
+    skos:related <http://qudt.org/vocab/unit/PPTH> .
 
 <https://vocab.sentier.dev/units/unit/SEC-PER-M2> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -17603,21 +18185,6 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         "摩尔质量"@zh ;
     skos:related "http://dbpedia.org/resource/Molar_mass"^^xsd:anyURI .
 
-<https://vocab.sentier.dev/units/quantity-kind/Population> a skos:Concept ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:informativeReference "https://en.wikipedia.org/wiki/Population"^^xsd:anyURI ;
-    skos:broader <https://vocab.sentier.dev/units/quantity-kind/Count> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count> ;
-    skos:definition "Population typically refers to the number of people in a single area, whether it be a city or town, region, country, continent, or the world, but can also represent the number of any kind of entity."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/quantitykind/Population> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/NUM> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
-        <https://vocab.sentier.dev/units/unit/NUM>,
-        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
-    skos:note "Population typically refers to the number of people in a single area, whether it be a city or town, region, country, continent, or the world, but can also represent the number of any kind of entity." ;
-    skos:prefLabel "Population"@en .
-
 <https://vocab.sentier.dev/units/quantity-kind/VolumeTime> a skos:Concept ;
     dcterms:description "\"Volume Time\" is a measure of volume over time, used for example for storage."^^qudt:LatexString ;
     qudt:applicableUnit <https://vocab.sentier.dev/units/unit/L-DAY>,
@@ -17630,24 +18197,6 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         <https://vocab.sentier.dev/units/unit/M3-SEC>,
         <https://vocab.sentier.dev/units/unit/M3-YR> ;
     skos:prefLabel "Volume Time"@en .
-
-<https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR> a skos:Concept ;
-    qudt:applicableSystem sou:CGS,
-        sou:SI ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient> ;
-    skos:broader <https://vocab.sentier.dev/units/unit/UNITLESS> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
-        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
-        <https://vocab.sentier.dev/units/quantity-kind/Population>,
-        <https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber>,
-        <https://vocab.sentier.dev/units/unit/NUM>,
-        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
-    skos:definition "Kilocalories per kilowatt-hour. Used for efficiencies, such as energy in divided by energy produced."^^xsd:string ;
-    skos:exactMatch <https://glossary.ecoinvent.org/ids/41b2b2e3-338f-4b5f-be29-4f501bb4cf83> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:notation "kcal/kW.h"^^qudt:symbol ;
-    skos:prefLabel "Kilocalories per kilowatt-hour"@en .
 
 <https://vocab.sentier.dev/units/unit/M3-SEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -17669,44 +18218,40 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:prefLabel "Cubic metre second"@en-GB,
         "Cubic meter second"@en-US .
 
-<https://vocab.sentier.dev/units/quantity-kind/Count> a skos:Concept ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    skos:definition "\"Count\" is the value of a count of items."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/quantitykind/Count> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/quantity-kind/Population>,
-        <https://vocab.sentier.dev/units/unit/NUM> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/quantity-kind/Population>,
-        <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
-        <https://vocab.sentier.dev/units/unit/NUM>,
-        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
-    skos:note "\"Count\" is the value of a count of items." ;
-    skos:prefLabel "Count"@en .
-
-<https://vocab.sentier.dev/units/unit/K-PER-K> a skos:Concept ;
-    qudt:applicableSystem sou:SI ;
+<https://vocab.sentier.dev/units/unit/NUM> a skos:Concept ;
+    qudt:applicableSystem sou:ASU,
+        sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-ESU,
+        sou:CGS-GAUSS,
+        sou:IMPERIAL,
+        sou:PLANCK,
+        sou:SI ;
     qudt:conversionMultiplier 1.0 ;
     qudt:conversionMultiplierSN 1e+00 ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
-    skos:broader <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
-    skos:definition "SI base unit kelvin divided by the SI base unit kelvin"^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/K-PER-K> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/Population>,
+        <https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber> ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/Population>,
+        <https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/Population>,
+        <https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber> ;
+    skos:definition "\"Number\" is a unit for  'Dimensionless' expressed as (\\#$."^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/NUM>,
+        <https://glossary.ecoinvent.org/ids/577e242a-461f-44a7-922c-d8e1c3d2bf45>,
+        <https://vocab.sentier.dev/simapro/unit/n>,
+        <https://vocab.sentier.dev/simapro/unit/p> ;
     skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/DEG_C-PER-K>,
-        <https://vocab.sentier.dev/units/unit/DEG_F-PER-K>,
-        <https://vocab.sentier.dev/units/unit/MilliK-PER-K> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/DEG_C-PER-K>,
-        <https://vocab.sentier.dev/units/unit/DEG_F-PER-K>,
-        <https://vocab.sentier.dev/units/unit/MilliK-PER-K> ;
-    skos:notation "0112/2///62720#UAA186"^^qudt:iec61360Code,
-        "0112/2///62720#UAD694"^^qudt:iec61360Code,
-        "K/K"^^qudt:symbol,
-        "K.K-1"^^qudt:ucumCode,
-        "F02"^^qudt:uneceCommonCode ;
-    skos:note "SI base unit kelvin divided by the SI base unit kelvin" ;
-    skos:prefLabel "Kelvin per Kelvin"@en .
+    skos:notation "#"^^qudt:symbol,
+        "1"^^qudt:ucumCode,
+        "{#}"^^qudt:ucumCode ;
+    skos:prefLabel "Number"@en .
 
 <https://vocab.sentier.dev/units/unit/T> a skos:Concept ;
     qudt:applicableSystem sou:CGS-EMU,
@@ -17773,79 +18318,31 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         <https://vocab.sentier.dev/units/unit/T_Ab> ;
     skos:prefLabel "Magnetic Field"@en .
 
-<https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> a skos:Concept ;
+<https://vocab.sentier.dev/units/unit/K-PER-K> a skos:Concept ;
+    qudt:applicableSystem sou:SI ;
+    qudt:conversionMultiplier 1.0 ;
+    qudt:conversionMultiplierSN 1e+00 ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    skos:exactMatch <http://qudt.org/vocab/quantitykind/TemperatureRatio> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> ;
+    skos:definition "SI base unit kelvin divided by the SI base unit kelvin"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/K-PER-K> ;
     skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/K-PER-K> ;
+    skos:narrower <https://vocab.sentier.dev/units/unit/DEG_C-PER-K>,
+        <https://vocab.sentier.dev/units/unit/DEG_F-PER-K>,
+        <https://vocab.sentier.dev/units/unit/MilliK-PER-K> ;
     skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/DEG_C-PER-K>,
         <https://vocab.sentier.dev/units/unit/DEG_F-PER-K>,
-        <https://vocab.sentier.dev/units/unit/K-PER-K>,
         <https://vocab.sentier.dev/units/unit/MilliK-PER-K> ;
-    skos:prefLabel "Temperature Ratio"@en .
-
-<https://vocab.sentier.dev/units/unit/NUM> a skos:Concept ;
-    qudt:applicableSystem sou:ASU,
-        sou:CGS,
-        sou:CGS-EMU,
-        sou:CGS-ESU,
-        sou:CGS-GAUSS,
-        sou:IMPERIAL,
-        sou:PLANCK,
-        sou:SI ;
-    qudt:conversionMultiplier 1.0 ;
-    qudt:conversionMultiplierSN 1e+00 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Count>,
-        <https://vocab.sentier.dev/units/quantity-kind/Population>,
-        <https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber> ;
-    skos:broader <https://vocab.sentier.dev/units/quantity-kind/Count>,
-        <https://vocab.sentier.dev/units/quantity-kind/Population>,
-        <https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
-        <https://vocab.sentier.dev/units/quantity-kind/Population>,
-        <https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber> ;
-    skos:definition "\"Number\" is a unit for  'Dimensionless' expressed as (\\#$."^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/NUM>,
-        <https://glossary.ecoinvent.org/ids/577e242a-461f-44a7-922c-d8e1c3d2bf45>,
-        <https://vocab.sentier.dev/simapro/unit/n>,
-        <https://vocab.sentier.dev/simapro/unit/p> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/UNITLESS> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
-        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
-    skos:notation "#"^^qudt:symbol,
-        "1"^^qudt:ucumCode,
-        "{#}"^^qudt:ucumCode ;
-    skos:prefLabel "Number"@en .
-
-<https://vocab.sentier.dev/units/unit/UNITLESS> a skos:Concept ;
-    qudt:applicableSystem sou:CGS,
-        sou:CGS-EMU,
-        sou:CGS-GAUSS,
-        sou:IMPERIAL,
-        sou:SI,
-        sou:USCS ;
-    qudt:conversionMultiplier 1.0 ;
-    qudt:conversionMultiplierSN 1e+00 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Count>,
-        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient> ;
-    skos:broader <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
-        <https://vocab.sentier.dev/units/unit/NUM> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
-        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
-        <https://vocab.sentier.dev/units/quantity-kind/Population>,
-        <https://vocab.sentier.dev/units/quantity-kind/StoichiometricNumber>,
-        <https://vocab.sentier.dev/units/unit/NUM> ;
-    skos:definition "An explicit unit to say something has no units."^^rdf:HTML ;
-    skos:exactMatch <http://qudt.org/vocab/unit/UNITLESS> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR> ;
-    skos:notation "一"^^qudt:symbol,
-        "C62"^^qudt:uneceCommonCode ;
-    skos:prefLabel "Unitless"@en .
+    skos:notation "0112/2///62720#UAA186"^^qudt:iec61360Code,
+        "0112/2///62720#UAD694"^^qudt:iec61360Code,
+        "K/K"^^qudt:symbol,
+        "K.K-1"^^qudt:ucumCode,
+        "F02"^^qudt:uneceCommonCode ;
+    skos:note "SI base unit kelvin divided by the SI base unit kelvin" ;
+    skos:prefLabel "Kelvin per Kelvin"@en .
 
 <https://vocab.sentier.dev/units/unit/KiloGM-M2> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -18048,6 +18545,19 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         "Momentum"@tr,
         "动量"@zh ;
     skos:related "http://dbpedia.org/resource/Momentum"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/TemperatureRatio> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/unit/K-PER-K> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/DEG_C-PER-K>,
+        <https://vocab.sentier.dev/units/unit/DEG_F-PER-K>,
+        <https://vocab.sentier.dev/units/unit/K-PER-K>,
+        <https://vocab.sentier.dev/units/unit/MilliK-PER-K> ;
+    skos:prefLabel "Temperature Ratio"@en .
 
 <https://vocab.sentier.dev/units/unit/J-PER-M3> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -18457,6 +18967,54 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         <https://vocab.sentier.dev/units/unit/OZ-PER-IN2> ;
     skos:note "The area density (also known as areal density, surface density, or superficial density) of a two-dimensional object is calculated as the mass per unit area." ;
     skos:prefLabel "Surface Density"@en .
+
+<https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:definition "A dimensionless ratio that is the logarithm of the ratio of a compound's concentration within a two phase mixture of octanol and water at equilibrium.  More simply, it is a comparison of the solubilities of the compound solute in these two immiscible liquids.  This property is used to measure the lipophilicity and the hydrophilicity of a substance."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/LogOctanolWaterPartitionCoefficient> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/GR>,
+        <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
+        <https://vocab.sentier.dev/units/unit/PERCENT>,
+        <https://vocab.sentier.dev/units/unit/PERMITTIVITY_REL>,
+        <https://vocab.sentier.dev/units/unit/PPB>,
+        <https://vocab.sentier.dev/units/unit/PPM>,
+        <https://vocab.sentier.dev/units/unit/PPQ>,
+        <https://vocab.sentier.dev/units/unit/PPT>,
+        <https://vocab.sentier.dev/units/unit/PPTH>,
+        <https://vocab.sentier.dev/units/unit/PPTM>,
+        <https://vocab.sentier.dev/units/unit/PSU>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:note "A dimensionless ratio that is the logarithm of the ratio of a compound's concentration within a two phase mixture of octanol and water at equilibrium.  More simply, it is a comparison of the solubilities of the compound solute in these two immiscible liquids.  This property is used to measure the lipophilicity and the hydrophilicity of a substance." ;
+    skos:prefLabel "Logarithm Of Octanol Water Partition Coefficient"@en .
+
+<https://vocab.sentier.dev/units/quantity-kind/Count> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    skos:definition "\"Count\" is the value of a count of items."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/Count> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/quantity-kind/Population>,
+        <https://vocab.sentier.dev/units/unit/NUM>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/quantity-kind/Population>,
+        <https://vocab.sentier.dev/units/unit/GR>,
+        <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
+        <https://vocab.sentier.dev/units/unit/NUM>,
+        <https://vocab.sentier.dev/units/unit/PERCENT>,
+        <https://vocab.sentier.dev/units/unit/PERMITTIVITY_REL>,
+        <https://vocab.sentier.dev/units/unit/PPB>,
+        <https://vocab.sentier.dev/units/unit/PPM>,
+        <https://vocab.sentier.dev/units/unit/PPQ>,
+        <https://vocab.sentier.dev/units/unit/PPT>,
+        <https://vocab.sentier.dev/units/unit/PPTH>,
+        <https://vocab.sentier.dev/units/unit/PPTM>,
+        <https://vocab.sentier.dev/units/unit/PSU>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:note "\"Count\" is the value of a count of items." ;
+    skos:prefLabel "Count"@en .
 
 <https://vocab.sentier.dev/units/unit/OHM> a skos:Concept ;
     qudt:applicableSystem sou:CGS-EMU,
@@ -18978,74 +19536,66 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:prefLabel "Reciprocal Metre"@en,
         "Reciprocal Meter"@en-us .
 
-<https://vocab.sentier.dev/units/unit/RAD> a skos:Concept ;
-    qudt:applicableSystem sou:CGS,
-        sou:CGS-EMU,
+<https://vocab.sentier.dev/units/unit/S-PER-M> a skos:Concept ;
+    qudt:applicableSystem sou:CGS-EMU,
         sou:CGS-GAUSS,
         sou:SI ;
     qudt:conversionMultiplier 1.0 ;
     qudt:conversionMultiplierSN 1e+00 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    qudt:informativeReference "http://en.wikipedia.org/wiki/Radian?oldid=492309312"^^xsd:anyURI ;
-    skos:broader <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
-    skos:definition "The radian is the standard unit of angular measure, used in many areas of mathematics. It describes the plane angle subtended by a circular arc as the length of the arc divided by the radius of the arc. In the absence of any symbol radians are assumed, and when degrees are meant the symbol $^{\\ circ}$ is used. "^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/RAD>,
-        <https://si-digital-framework.org/SI/units/radian> ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:definition "SI derived unit siemens divided by the SI base unit metre"^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/S-PER-M> ;
     skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/ARCMIN>,
-        <https://vocab.sentier.dev/units/unit/ARCSEC>,
-        <https://vocab.sentier.dev/units/unit/DEG>,
-        <https://vocab.sentier.dev/units/unit/GON>,
-        <https://vocab.sentier.dev/units/unit/GRAD>,
-        <https://vocab.sentier.dev/units/unit/MIL>,
-        <https://vocab.sentier.dev/units/unit/MIN_Angle>,
-        <https://vocab.sentier.dev/units/unit/MicroRAD>,
-        <https://vocab.sentier.dev/units/unit/MilliARCSEC>,
-        <https://vocab.sentier.dev/units/unit/MilliRAD>,
-        <https://vocab.sentier.dev/units/unit/REV> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/ARCMIN>,
-        <https://vocab.sentier.dev/units/unit/ARCSEC>,
-        <https://vocab.sentier.dev/units/unit/DEG>,
-        <https://vocab.sentier.dev/units/unit/GON>,
-        <https://vocab.sentier.dev/units/unit/GRAD>,
-        <https://vocab.sentier.dev/units/unit/MIL>,
-        <https://vocab.sentier.dev/units/unit/MIN_Angle>,
-        <https://vocab.sentier.dev/units/unit/MicroRAD>,
-        <https://vocab.sentier.dev/units/unit/MilliARCSEC>,
-        <https://vocab.sentier.dev/units/unit/MilliRAD>,
-        <https://vocab.sentier.dev/units/unit/REV> ;
-    skos:notation "0112/2///62720#UAA966"^^qudt:iec61360Code,
-        "rad"^^qudt:symbol,
-        "rad"^^qudt:ucumCode,
-        "C81"^^qudt:uneceCommonCode ;
-    skos:note "The radian and steradian are special names for the number one that may be used to convey information about the quantity concerned. In practice the symbols rad and sr are used where appropriate, but the symbol for the derived unit one is generally omitted in specifying the values of dimensionless quantities.",
-        "The radian is the standard unit of angular measure, used in many areas of mathematics. It describes the plane angle subtended by a circular arc as the length of the arc divided by the radius of the arc. The unit was formerly a SI supplementary unit, but this category was abolished in 1995 and the radian is now considered a SI derived unit. The SI unit of solid angle measurement is the steradian.  The radian is represented by the symbol \"rad\" or, more rarely, by the superscript c (for \"circular measure\"). For example, an angle of 1.2 radians would be written as \"1.2 rad\" or \"1.2c\" (the second symbol is often mistaken for a degree: \"1.2u00b0\"). As the ratio of two lengths, the radian is a \"pure number\" that needs no unit symbol, and in mathematical writing the symbol \"rad\" is almost always omitted. In the absence of any symbol radians are assumed, and when degrees are meant the symbol u00b0 is used. [Wikipedia]" ;
-    skos:prefLabel "راديان"@ar,
-        "радиан"@bg,
-        "radián"@cs,
-        "Radiant"@de,
-        "ακτίνιο"@el,
-        "radian"@en,
-        "radián"@es,
-        "رادیان"@fa,
-        "radian"@fr,
-        "רדיאן"@he,
-        "वर्ग मीटर"@hi,
-        "radián"@hu,
-        "radiante"@it,
-        "ラジアン"@ja,
-        "radian"@la,
-        "radian"@ms,
-        "radian"@pl,
-        "radiano"@pt,
-        "radian"@ro,
-        "радиан"@ru,
-        "radian"@sl,
-        "radyan"@tr,
-        "弧度"@zh ;
-    skos:related "http://dbpedia.org/resource/Radian"^^xsd:anyURI .
+    skos:narrower <https://vocab.sentier.dev/units/unit/DeciS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/KiloS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/MegaS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/MicroS-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/MicroS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/MilliS-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/MilliS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/NanoS-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/NanoS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/PicoS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/S-PER-CentiM> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/DeciS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/KiloS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/MegaS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/MicroS-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/MicroS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/MilliS-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/MilliS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/NanoS-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/NanoS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/PicoS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/S-PER-CentiM> ;
+    skos:notation "0112/2///62720#UAA279"^^qudt:iec61360Code,
+        "S/m"^^qudt:symbol,
+        "S.m-1"^^qudt:ucumCode,
+        "S/m"^^qudt:ucumCode,
+        "D10"^^qudt:uneceCommonCode ;
+    skos:note "SI derived unit siemens divided by the SI base unit metre" ;
+    skos:prefLabel "مقياس التبادل، الأس السالب للمتر"@ar,
+        "siemensů na metr"@cs,
+        "Siemens je Meter"@de,
+        "siemens per metre"@en,
+        "Siemens per Meter"@en-us,
+        "siemens por metro"@es,
+        "زیمنس بر متر"@fa,
+        "siemens par mètre"@fr,
+        "प्रति मीटर सीमैन्स"@hi,
+        "siemens al metro"@it,
+        "ジーメンス毎メートル"@ja,
+        "siemens per meter"@ms,
+        "simens na metr"@pl,
+        "siemens por metro"@pt,
+        "siemens pe metru"@ro,
+        "сименс на метр"@ru,
+        "siemens na meter"@sl,
+        "siemens bölü metre"@tr,
+        "西门子每米"@zh .
 
 <https://vocab.sentier.dev/units/quantity-kind/AmountOfSubstance> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A1E0L0I0M0H0T0D0> ;
@@ -19110,27 +19660,6 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         "物质的量"@zh ;
     skos:related "http://dbpedia.org/resource/Amount_of_substance"^^xsd:anyURI .
 
-<https://vocab.sentier.dev/units/quantity-kind/Angle> a skos:Concept ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    skos:definition "The abstract notion of angle. Narrow concepts include plane angle and solid angle. While both plane angle and solid angle are dimensionless, they are actually length/length and area/area respectively."^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/quantitykind/Angle> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/RAD> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/ARCMIN>,
-        <https://vocab.sentier.dev/units/unit/ARCSEC>,
-        <https://vocab.sentier.dev/units/unit/DEG>,
-        <https://vocab.sentier.dev/units/unit/GON>,
-        <https://vocab.sentier.dev/units/unit/GRAD>,
-        <https://vocab.sentier.dev/units/unit/MIL>,
-        <https://vocab.sentier.dev/units/unit/MIN_Angle>,
-        <https://vocab.sentier.dev/units/unit/MicroRAD>,
-        <https://vocab.sentier.dev/units/unit/MilliARCSEC>,
-        <https://vocab.sentier.dev/units/unit/MilliRAD>,
-        <https://vocab.sentier.dev/units/unit/RAD>,
-        <https://vocab.sentier.dev/units/unit/REV> ;
-    skos:prefLabel "Angle"@en ;
-    skos:related "http://dbpedia.org/resource/Angle"^^xsd:anyURI .
-
 <https://vocab.sentier.dev/units/quantity-kind/Concentration> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A1E0L-3I0M0H0T0D0> ;
     qudt:informativeReference "http://en.wikipedia.org/wiki/Concentration"^^xsd:anyURI ;
@@ -19153,6 +19682,40 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:note "In chemistry, concentration is defined as the abundance of a constituent divided by the total volume of a mixture. Furthermore, in chemistry, four types of mathematical description can be distinguished: mass concentration, molar concentration, number concentration, and volume concentration. The term concentration can be applied to any kind of chemical mixture, but most frequently it refers to solutes in solutions." ;
     skos:prefLabel "Concentration"@en ;
     skos:related "http://dbpedia.org/resource/Concentration"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/units/quantity-kind/Conductivity> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E2L-3I0M-1H0T3D0> ;
+    qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-12-03"^^xsd:anyURI,
+        "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
+    qudt:latexDefinition "$\\mathbf{J} = \\sigma \\mathbf{E}$, where $\\mathbf{J}$ is electric current density, and $\\mathbf{E}$ is electric field strength."^^qudt:LatexString ;
+    qudt:latexSymbol "$\\gamma$"^^qudt:LatexString,
+        "$\\sigma$"^^qudt:LatexString ;
+    skos:altLabel "0112/2///62720#UAD025" ;
+    skos:definition """
+  $\\textit{Conductivity}$ is a scalar or tensor quantity the product of which by the electric field strength in a medium is equal to the electric current density. 
+  For an isotropic medium the conductivity is a scalar quantity; for an anisotropic medium it is a tensor quantity.
+  $$\\mathbf{J} = \\sigma \\mathbf{E}$$
+  Where $\\mathbf{J}$ is electric current density, and $\\mathbf{E}$ is electric field strength.
+  """^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/Conductivity> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/DeciS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/KiloS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/MegaS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/MicroS-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/MicroS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/MilliS-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/MilliS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/NanoS-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/NanoS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/PicoS-PER-M>,
+        <https://vocab.sentier.dev/units/unit/S-PER-CentiM>,
+        <https://vocab.sentier.dev/units/unit/S-PER-M> ;
+    skos:note "\"Conductivity\" is a scalar or tensor quantity the product of which by the electric field strength in a medium is equal to the electric current density. For an isotropic medium the conductivity is a scalar quantity; for an anisotropic medium it is a tensor quantity." ;
+    skos:prefLabel "Conductivity"@en ;
+    skos:related <http://qudt.org/vocab/quantitykind/ElectricCurrentDensity>,
+        <http://qudt.org/vocab/quantitykind/ElectricFieldStrength> .
 
 <https://vocab.sentier.dev/units/quantity-kind/InverseLength> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L-1I0M0H0T0D0> ;
@@ -19197,6 +19760,76 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
         <https://vocab.sentier.dev/units/unit/PicoGM-PER-KiloGM> ;
     skos:note "In aerospace engineering, mass ratio is a measure of the efficiency of a rocket. It describes how much more massive the vehicle is with propellant than without; that is, it is the ratio of the rocket's wet mass (vehicle plus contents plus propellant) to its dry mass (vehicle plus contents)" ;
     skos:prefLabel "Mass Ratio"@en .
+
+<https://vocab.sentier.dev/units/unit/RAD> a skos:Concept ;
+    qudt:applicableSystem sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 1.0 ;
+    qudt:conversionMultiplierSN 1e+00 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    qudt:informativeReference "http://en.wikipedia.org/wiki/Radian?oldid=492309312"^^xsd:anyURI ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/Angle> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:definition "The radian is the standard unit of angular measure, used in many areas of mathematics. It describes the plane angle subtended by a circular arc as the length of the arc divided by the radius of the arc. In the absence of any symbol radians are assumed, and when degrees are meant the symbol $^{\\ circ}$ is used. "^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/RAD>,
+        <https://si-digital-framework.org/SI/units/radian> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/unit/ARCMIN>,
+        <https://vocab.sentier.dev/units/unit/ARCSEC>,
+        <https://vocab.sentier.dev/units/unit/DEG>,
+        <https://vocab.sentier.dev/units/unit/GON>,
+        <https://vocab.sentier.dev/units/unit/GRAD>,
+        <https://vocab.sentier.dev/units/unit/MIL>,
+        <https://vocab.sentier.dev/units/unit/MIN_Angle>,
+        <https://vocab.sentier.dev/units/unit/MicroRAD>,
+        <https://vocab.sentier.dev/units/unit/MilliARCSEC>,
+        <https://vocab.sentier.dev/units/unit/MilliRAD>,
+        <https://vocab.sentier.dev/units/unit/REV> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/ARCMIN>,
+        <https://vocab.sentier.dev/units/unit/ARCSEC>,
+        <https://vocab.sentier.dev/units/unit/DEG>,
+        <https://vocab.sentier.dev/units/unit/GON>,
+        <https://vocab.sentier.dev/units/unit/GRAD>,
+        <https://vocab.sentier.dev/units/unit/MIL>,
+        <https://vocab.sentier.dev/units/unit/MIN_Angle>,
+        <https://vocab.sentier.dev/units/unit/MicroRAD>,
+        <https://vocab.sentier.dev/units/unit/MilliARCSEC>,
+        <https://vocab.sentier.dev/units/unit/MilliRAD>,
+        <https://vocab.sentier.dev/units/unit/REV> ;
+    skos:notation "0112/2///62720#UAA966"^^qudt:iec61360Code,
+        "rad"^^qudt:symbol,
+        "rad"^^qudt:ucumCode,
+        "C81"^^qudt:uneceCommonCode ;
+    skos:note "The radian and steradian are special names for the number one that may be used to convey information about the quantity concerned. In practice the symbols rad and sr are used where appropriate, but the symbol for the derived unit one is generally omitted in specifying the values of dimensionless quantities.",
+        "The radian is the standard unit of angular measure, used in many areas of mathematics. It describes the plane angle subtended by a circular arc as the length of the arc divided by the radius of the arc. The unit was formerly a SI supplementary unit, but this category was abolished in 1995 and the radian is now considered a SI derived unit. The SI unit of solid angle measurement is the steradian.  The radian is represented by the symbol \"rad\" or, more rarely, by the superscript c (for \"circular measure\"). For example, an angle of 1.2 radians would be written as \"1.2 rad\" or \"1.2c\" (the second symbol is often mistaken for a degree: \"1.2u00b0\"). As the ratio of two lengths, the radian is a \"pure number\" that needs no unit symbol, and in mathematical writing the symbol \"rad\" is almost always omitted. In the absence of any symbol radians are assumed, and when degrees are meant the symbol u00b0 is used. [Wikipedia]" ;
+    skos:prefLabel "راديان"@ar,
+        "радиан"@bg,
+        "radián"@cs,
+        "Radiant"@de,
+        "ακτίνιο"@el,
+        "radian"@en,
+        "radián"@es,
+        "رادیان"@fa,
+        "radian"@fr,
+        "רדיאן"@he,
+        "वर्ग मीटर"@hi,
+        "radián"@hu,
+        "radiante"@it,
+        "ラジアン"@ja,
+        "radian"@la,
+        "radian"@ms,
+        "radian"@pl,
+        "radiano"@pt,
+        "radian"@ro,
+        "радиан"@ru,
+        "radian"@sl,
+        "radyan"@tr,
+        "弧度"@zh ;
+    skos:related "http://dbpedia.org/resource/Radian"^^xsd:anyURI .
 
 <https://vocab.sentier.dev/units/unit/BQ> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -19398,6 +20031,29 @@ The Baumé scale is a pair of hydrometer scales developed by French pharmacist A
     skos:prefLabel "Activity"@en ;
     skos:related "http://dbpedia.org/resource/Radioactive_decay"^^xsd:anyURI .
 
+<https://vocab.sentier.dev/units/quantity-kind/Angle> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> ;
+    skos:definition "The abstract notion of angle. Narrow concepts include plane angle and solid angle. While both plane angle and solid angle are dimensionless, they are actually length/length and area/area respectively."^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/Angle> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/unit/RAD> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/ARCMIN>,
+        <https://vocab.sentier.dev/units/unit/ARCSEC>,
+        <https://vocab.sentier.dev/units/unit/DEG>,
+        <https://vocab.sentier.dev/units/unit/GON>,
+        <https://vocab.sentier.dev/units/unit/GRAD>,
+        <https://vocab.sentier.dev/units/unit/MIL>,
+        <https://vocab.sentier.dev/units/unit/MIN_Angle>,
+        <https://vocab.sentier.dev/units/unit/MicroRAD>,
+        <https://vocab.sentier.dev/units/unit/MilliARCSEC>,
+        <https://vocab.sentier.dev/units/unit/MilliRAD>,
+        <https://vocab.sentier.dev/units/unit/RAD>,
+        <https://vocab.sentier.dev/units/unit/REV> ;
+    skos:prefLabel "Angle"@en ;
+    skos:related "http://dbpedia.org/resource/Angle"^^xsd:anyURI .
+
 <https://vocab.sentier.dev/units/quantity-kind/Voltage> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E-1L2I0M1H0T-3D0> ;
     qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
@@ -19425,59 +20081,53 @@ For an irrotational electric field, the voltage is independent of the path betwe
         <https://vocab.sentier.dev/units/unit/V_Stat> ;
     skos:prefLabel "Voltage"@en .
 
-<https://vocab.sentier.dev/units/unit/J-PER-KiloGM> a skos:Concept ;
+<https://vocab.sentier.dev/units/unit/UNITLESS> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
         sou:CGS-EMU,
         sou:CGS-GAUSS,
-        sou:SI ;
+        sou:IMPERIAL,
+        sou:SI,
+        sou:USCS ;
     qudt:conversionMultiplier 1.0 ;
     qudt:conversionMultiplierSN 1e+00 ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
-    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy> ;
-    skos:broader <https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy> ;
-    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy> ;
-    skos:definition """
-  A $\\textit{Joule Per Kilogram}$, ($J/kg$), is a unit in the category of Thermal heat capacity. 
-  It is also known as $\\textit{joules per kilogram}$.  
-  The unit has a dimension of $L2T^{-2}$ where $L$ is length, and $T$ is time. 
-  This unit is the standard SI unit in this category.
-  """^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/unit/J-PER-KiloGM> ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient> ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/Count>,
+        <https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient> ;
+    skos:definition "An explicit unit to say something has no units."^^rdf:HTML ;
+    skos:exactMatch <http://qudt.org/vocab/unit/UNITLESS> ;
     skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/BTU_IT-PER-LB>,
-        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-LB>,
-        <https://vocab.sentier.dev/units/unit/CAL_IT-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/CAL_TH-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/ERG-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/J-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/KiloCAL-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/KiloJ-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/KiloLB_F-FT-PER-LB>,
-        <https://vocab.sentier.dev/units/unit/MegaJ-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/MilliJ-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/N-M-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/W-HR-PER-KiloGM> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/BTU_IT-PER-LB>,
-        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-LB>,
-        <https://vocab.sentier.dev/units/unit/CAL_IT-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/CAL_TH-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/ERG-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/J-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/KiloCAL-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/KiloJ-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/KiloLB_F-FT-PER-LB>,
-        <https://vocab.sentier.dev/units/unit/MegaJ-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/MilliJ-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/N-M-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/W-HR-PER-KiloGM> ;
-    skos:notation "0112/2///62720#UAA175"^^qudt:iec61360Code,
-        "J/kg"^^qudt:symbol,
-        "J.kg-1"^^qudt:ucumCode,
-        "J/kg"^^qudt:ucumCode,
-        "J2"^^qudt:uneceCommonCode ;
-    skos:prefLabel "Joule per Kilogram"@en .
+    skos:narrower <https://vocab.sentier.dev/units/unit/GR>,
+        <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
+        <https://vocab.sentier.dev/units/unit/PERCENT>,
+        <https://vocab.sentier.dev/units/unit/PERMITTIVITY_REL>,
+        <https://vocab.sentier.dev/units/unit/PPB>,
+        <https://vocab.sentier.dev/units/unit/PPM>,
+        <https://vocab.sentier.dev/units/unit/PPQ>,
+        <https://vocab.sentier.dev/units/unit/PPT>,
+        <https://vocab.sentier.dev/units/unit/PPTH>,
+        <https://vocab.sentier.dev/units/unit/PPTM>,
+        <https://vocab.sentier.dev/units/unit/PSU> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/GR>,
+        <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
+        <https://vocab.sentier.dev/units/unit/PERCENT>,
+        <https://vocab.sentier.dev/units/unit/PERMITTIVITY_REL>,
+        <https://vocab.sentier.dev/units/unit/PPB>,
+        <https://vocab.sentier.dev/units/unit/PPM>,
+        <https://vocab.sentier.dev/units/unit/PPQ>,
+        <https://vocab.sentier.dev/units/unit/PPT>,
+        <https://vocab.sentier.dev/units/unit/PPTH>,
+        <https://vocab.sentier.dev/units/unit/PPTM>,
+        <https://vocab.sentier.dev/units/unit/PSU> ;
+    skos:notation "一"^^qudt:symbol,
+        "C62"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Unitless"@en .
 
 <https://vocab.sentier.dev/units/unit/M-PER-SEC2> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -19587,56 +20237,6 @@ For an irrotational electric field, the voltage is independent of the path betwe
         "加速度"@zh ;
     skos:related "http://dbpedia.org/resource/Acceleration"^^xsd:anyURI .
 
-<https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy> a skos:Concept ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
-    qudt:informativeReference "http://en.citizendium.org/wiki/Enthalpy"^^xsd:anyURI,
-        "http://en.wikipedia.org/wiki/Specific_energy"^^xsd:anyURI ;
-    qudt:latexDefinition "$e = E/m$, where $E$ is energy and $m$ is mass."^^qudt:LatexString ;
-    skos:altLabel "e" ;
-    skos:definition """
-  $\\textit{Specific Energy}$ is defined as the energy per unit mass. 
-  Common metric units are $J/kg$. 
-  It is an intensive property. 
-  Contrast this with energy, which is an extensive property. 
-  There are two main types of specific energy: potential energy and specific kinetic energy. 
-  Others are the $\\textit{gray}$ and $\\textit{sievert}$, which are measures for the absorption of radiation. 
-  $$$$
-  The concept of specific energy applies to a particular or theoretical way of extracting useful energy from the material considered that is usually implied by context. 
-  These intensive properties are each symbolized by using the lower case letter of the symbol for the corresponding extensive property,
-   which is symbolized by a capital letter. 
-  For example, the extensive thermodynamic property enthalpy is symbolized by $H$; specific enthalpy is symbolized by $h$.
-  """^^qudt:LatexString ;
-    skos:exactMatch <http://qudt.org/vocab/quantitykind/SpecificEnergy>,
-        <https://si-digital-framework.org/SI/quantities/SENG> ;
-    skos:inScheme <https://vocab.sentier.dev/units/> ;
-    skos:narrower <https://vocab.sentier.dev/units/unit/J-PER-KiloGM> ;
-    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/BTU_IT-PER-LB>,
-        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-LB>,
-        <https://vocab.sentier.dev/units/unit/CAL_IT-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/CAL_TH-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/ERG-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/J-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/J-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/KiloCAL-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/KiloJ-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/KiloLB_F-FT-PER-LB>,
-        <https://vocab.sentier.dev/units/unit/MegaJ-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/MilliJ-PER-GM>,
-        <https://vocab.sentier.dev/units/unit/N-M-PER-KiloGM>,
-        <https://vocab.sentier.dev/units/unit/W-HR-PER-KiloGM> ;
-    skos:prefLabel "Specific Energy"@en ;
-    skos:related <http://qudt.org/vocab/quantitykind/Enthalpy>,
-        <http://qudt.org/vocab/quantitykind/MassieuFunction>,
-        <http://qudt.org/vocab/quantitykind/PlanckFunction>,
-        <http://qudt.org/vocab/quantitykind/SpecificEnthalpy>,
-        <http://qudt.org/vocab/quantitykind/SpecificGibbsEnergy>,
-        <http://qudt.org/vocab/quantitykind/SpecificHelmholtzEnergy>,
-        <http://qudt.org/vocab/quantitykind/SpecificInternalEnergy>,
-        <http://qudt.org/vocab/unit/GRAY>,
-        <http://qudt.org/vocab/unit/SV>,
-        "http://dbpedia.org/resource/Specific_energy"^^xsd:anyURI .
-
 <https://vocab.sentier.dev/units/unit/A> a skos:Concept ;
     qudt:applicableSystem sou:CGS-EMU,
         sou:CGS-GAUSS,
@@ -19721,6 +20321,62 @@ Note that SI supports only the use of symbols and deprecates the use of any abbr
         "安培"@zh ;
     skos:related "http://dbpedia.org/resource/Ampere"^^xsd:anyURI .
 
+<https://vocab.sentier.dev/units/unit/J-PER-KiloGM> a skos:Concept ;
+    qudt:applicableSystem sou:CGS,
+        sou:CGS-EMU,
+        sou:CGS-GAUSS,
+        sou:SI ;
+    qudt:conversionMultiplier 1.0 ;
+    qudt:conversionMultiplierSN 1e+00 ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy> ;
+    skos:broader <https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy> ;
+    skos:definition """
+  A $\\textit{Joule Per Kilogram}$, ($J/kg$), is a unit in the category of Thermal heat capacity. 
+  It is also known as $\\textit{joules per kilogram}$.  
+  The unit has a dimension of $L2T^{-2}$ where $L$ is length, and $T$ is time. 
+  This unit is the standard SI unit in this category.
+  """^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/unit/J-PER-KiloGM> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/unit/BTU_IT-PER-LB>,
+        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-LB>,
+        <https://vocab.sentier.dev/units/unit/CAL_IT-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/CAL_TH-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/ERG-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/J-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/KiloCAL-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/KiloJ-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/KiloLB_F-FT-PER-LB>,
+        <https://vocab.sentier.dev/units/unit/KiloW-HR-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/MegaJ-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/MilliJ-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/N-M-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/W-HR-PER-KiloGM> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/BTU_IT-PER-LB>,
+        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-LB>,
+        <https://vocab.sentier.dev/units/unit/CAL_IT-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/CAL_TH-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/ERG-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/J-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/KiloCAL-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/KiloJ-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/KiloLB_F-FT-PER-LB>,
+        <https://vocab.sentier.dev/units/unit/KiloW-HR-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/MegaJ-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/MilliJ-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/N-M-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/W-HR-PER-KiloGM> ;
+    skos:notation "0112/2///62720#UAA175"^^qudt:iec61360Code,
+        "J/kg"^^qudt:symbol,
+        "J.kg-1"^^qudt:ucumCode,
+        "J/kg"^^qudt:ucumCode,
+        "J2"^^qudt:uneceCommonCode ;
+    skos:prefLabel "Joule per Kilogram"@en .
+
 <https://vocab.sentier.dev/units/quantity-kind/ElectricCurrent> a skos:Concept ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E1L0I0M0H0T0D0> ;
     qudt:informativeReference "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=31891"^^xsd:anyURI ;
@@ -19779,6 +20435,57 @@ Note that SI supports only the use of symbols and deprecates the use of any abbr
         "elektrik akımı"@tr,
         "电流"@zh ;
     skos:related "http://dbpedia.org/resource/Electric_current"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/units/quantity-kind/SpecificEnergy> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L2I0M0H0T-2D0> ;
+    qudt:informativeReference "http://en.citizendium.org/wiki/Enthalpy"^^xsd:anyURI,
+        "http://en.wikipedia.org/wiki/Specific_energy"^^xsd:anyURI ;
+    qudt:latexDefinition "$e = E/m$, where $E$ is energy and $m$ is mass."^^qudt:LatexString ;
+    skos:altLabel "e" ;
+    skos:definition """
+  $\\textit{Specific Energy}$ is defined as the energy per unit mass. 
+  Common metric units are $J/kg$. 
+  It is an intensive property. 
+  Contrast this with energy, which is an extensive property. 
+  There are two main types of specific energy: potential energy and specific kinetic energy. 
+  Others are the $\\textit{gray}$ and $\\textit{sievert}$, which are measures for the absorption of radiation. 
+  $$$$
+  The concept of specific energy applies to a particular or theoretical way of extracting useful energy from the material considered that is usually implied by context. 
+  These intensive properties are each symbolized by using the lower case letter of the symbol for the corresponding extensive property,
+   which is symbolized by a capital letter. 
+  For example, the extensive thermodynamic property enthalpy is symbolized by $H$; specific enthalpy is symbolized by $h$.
+  """^^qudt:LatexString ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/SpecificEnergy>,
+        <https://si-digital-framework.org/SI/quantities/SENG> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/unit/J-PER-KiloGM> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/unit/BTU_IT-PER-LB>,
+        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/BTU_TH-PER-LB>,
+        <https://vocab.sentier.dev/units/unit/CAL_IT-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/CAL_TH-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/ERG-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/J-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/J-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/KiloCAL-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/KiloJ-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/KiloLB_F-FT-PER-LB>,
+        <https://vocab.sentier.dev/units/unit/KiloW-HR-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/MegaJ-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/MilliJ-PER-GM>,
+        <https://vocab.sentier.dev/units/unit/N-M-PER-KiloGM>,
+        <https://vocab.sentier.dev/units/unit/W-HR-PER-KiloGM> ;
+    skos:prefLabel "Specific Energy"@en ;
+    skos:related <http://qudt.org/vocab/quantitykind/Enthalpy>,
+        <http://qudt.org/vocab/quantitykind/MassieuFunction>,
+        <http://qudt.org/vocab/quantitykind/PlanckFunction>,
+        <http://qudt.org/vocab/quantitykind/SpecificEnthalpy>,
+        <http://qudt.org/vocab/quantitykind/SpecificGibbsEnergy>,
+        <http://qudt.org/vocab/quantitykind/SpecificHelmholtzEnergy>,
+        <http://qudt.org/vocab/quantitykind/SpecificInternalEnergy>,
+        <http://qudt.org/vocab/unit/GRAY>,
+        <http://qudt.org/vocab/unit/SV>,
+        "http://dbpedia.org/resource/Specific_energy"^^xsd:anyURI .
 
 <https://vocab.sentier.dev/units/unit/KiloGM-PER-J> a skos:Concept ;
     qudt:applicableSystem sou:CGS,
@@ -20263,6 +20970,53 @@ t stands for time."""^^qudt:LatexString ;
         "kuvvet"@tr,
         "力"@zh ;
     skos:related "http://dbpedia.org/resource/Force"^^xsd:anyURI .
+
+<https://vocab.sentier.dev/units/quantity-kind/DimensionlessRatio> a skos:Concept ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    skos:exactMatch <http://qudt.org/vocab/quantitykind/DimensionlessRatio> ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:narrower <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/Efficiency>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio>,
+        <https://vocab.sentier.dev/units/unit/FRACTION>,
+        <https://vocab.sentier.dev/units/unit/NUM>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/units/quantity-kind/Angle>,
+        <https://vocab.sentier.dev/units/quantity-kind/Efficiency>,
+        <https://vocab.sentier.dev/units/quantity-kind/LogOctanolWaterPartitionCoefficient>,
+        <https://vocab.sentier.dev/units/quantity-kind/TemperatureRatio>,
+        <https://vocab.sentier.dev/units/unit/ARCMIN>,
+        <https://vocab.sentier.dev/units/unit/ARCSEC>,
+        <https://vocab.sentier.dev/units/unit/DEG>,
+        <https://vocab.sentier.dev/units/unit/DEG_C-PER-K>,
+        <https://vocab.sentier.dev/units/unit/DEG_F-PER-K>,
+        <https://vocab.sentier.dev/units/unit/FRACTION>,
+        <https://vocab.sentier.dev/units/unit/GON>,
+        <https://vocab.sentier.dev/units/unit/GR>,
+        <https://vocab.sentier.dev/units/unit/GRAD>,
+        <https://vocab.sentier.dev/units/unit/K-PER-K>,
+        <https://vocab.sentier.dev/units/unit/KiloCAL_PER_KiloW-HR>,
+        <https://vocab.sentier.dev/units/unit/MIL>,
+        <https://vocab.sentier.dev/units/unit/MIN_Angle>,
+        <https://vocab.sentier.dev/units/unit/MicroRAD>,
+        <https://vocab.sentier.dev/units/unit/MilliARCSEC>,
+        <https://vocab.sentier.dev/units/unit/MilliK-PER-K>,
+        <https://vocab.sentier.dev/units/unit/MilliRAD>,
+        <https://vocab.sentier.dev/units/unit/NUM>,
+        <https://vocab.sentier.dev/units/unit/PERCENT>,
+        <https://vocab.sentier.dev/units/unit/PERMITTIVITY_REL>,
+        <https://vocab.sentier.dev/units/unit/PPB>,
+        <https://vocab.sentier.dev/units/unit/PPM>,
+        <https://vocab.sentier.dev/units/unit/PPQ>,
+        <https://vocab.sentier.dev/units/unit/PPT>,
+        <https://vocab.sentier.dev/units/unit/PPTH>,
+        <https://vocab.sentier.dev/units/unit/PPTM>,
+        <https://vocab.sentier.dev/units/unit/PSU>,
+        <https://vocab.sentier.dev/units/unit/RAD>,
+        <https://vocab.sentier.dev/units/unit/REV>,
+        <https://vocab.sentier.dev/units/unit/UNITLESS> ;
+    skos:prefLabel "Dimensionless Ratio"@en .
 
 <https://vocab.sentier.dev/units/unit/PER-SEC> a skos:Concept ;
     qudt:applicableSystem sou:CGS,

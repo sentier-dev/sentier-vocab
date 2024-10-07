@@ -274,7 +274,7 @@ class QUDT:
             for _, _, quantity_kind in unit_graph.triples((key_uri, QUDTS.hasQuantityKind, None)):
                 if quantity_kind not in top_level:
                     continue
-                if top_level[quantity_kind] == value_uri:
+                if value_uri in top_level.values():
                     self.add((value_uri, SKOS.broader, qk_mapping[quantity_kind]))
                     self.add((value_uri, QUDTS.hasQuantityKind, qk_mapping[quantity_kind]))
                     self.add((qk_mapping[quantity_kind], SKOS.narrower, value_uri))

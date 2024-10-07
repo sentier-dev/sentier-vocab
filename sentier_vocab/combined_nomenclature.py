@@ -6,6 +6,8 @@ import skosify
 from loguru import logger
 from rdflib import Graph, Literal
 
+from sentier_vocab.open_energy_ontology import OpenEnergyOntology
+
 sanity = re.compile("^[0-9 ]*[-]+ ")
 # sanity.match("0102 29 41 ----- For slaughter")
 # re.sub(sanity, "", "0102 29 41 ----- For slaughter")
@@ -20,6 +22,8 @@ def CN2024(filepath: Path):
         if isinstance(o, Literal) and isinstance(o.value, str) and sanity.match(o.value):
             graph.add((s, v, Literal(re.sub(sanity, "", o.value).strip(), lang=o.language)))
             graph.remove((s, v, o))
+
+    OpenEnergyOntology(graph)
 
     logger.info("Creating reciprocal relations")
     skosify.infer.skos_topConcept(graph)

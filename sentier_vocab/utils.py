@@ -98,7 +98,7 @@ def get_latest_github_file_from_release(
 
 
 class GithubZipfileRelease:
-    def __init__(self, repo_url: str, data_dir: Path) -> None:
+    def __init__(self, repo_url: str, data_dir: Path = DEFAULT_DATA_DIR) -> None:
         if repo_url.endswith("/"):
             repo_url = repo_url[:-1]
         self.zipball_url = self.get_zipball_url(repo_url)
@@ -156,3 +156,20 @@ class GithubZipfileRelease:
             if zipinfo.filename.startswith(self.zipfile_prefix + path):
                 return self.zip_archive.open(zipinfo.filename)
         raise KeyError
+
+
+def get_file_in_downloadable_zip_archive(
+    url: str,
+    path: str,
+    data_dir: Path = DEFAULT_DATA_DIR
+) -> TextIO:
+    zip_archive = ZipFile(
+        open(
+            streaming_download(url, dirpath=data_dir),
+            "rb",
+        )
+    )
+    for zipinfo in zip_archive.infolist():
+        if zipinfo.filename.startswith(path):
+            return zip_archive.open(zipinfo.filename)
+    raise KeyError

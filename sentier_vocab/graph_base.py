@@ -5,6 +5,8 @@ from rdflib import Graph, Literal, Namespace, URIRef
 
 from sentier_vocab.utils import DEFAULT_DATA_DIR, GithubZipfileRelease
 
+vocab_data_dir = Path(__file__).parent / "data"
+
 
 class GraphBase:
     def __init__(
@@ -52,3 +54,14 @@ class GraphBase:
 
     def get_identifier(self, uri: URIRef) -> str:
         return uri.split("/")[-1]
+
+    def write_graph(
+        self, filename: str, dirpath: Path | None = None
+    ) -> Path:
+        if not filename.endswith(".ttl"):
+            filename += ".ttl"
+        if not dirpath:
+            dirpath = vocab_data_dir
+        output_fp = Path(dirpath) / filename
+        self.graph.serialize(destination=output_fp)
+        return output_fp

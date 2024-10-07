@@ -1,0 +1,45 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.sentier.dev/products/aec-electrolyzer> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/854330700080>,
+        <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:definition "An electrolyzer with two electrodes operating in a liquid alkaline electrolyte."@en ;
+    skos:prefLabel "Alkaline Electrolysis Cell Electrolyzer"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Alkaline_water_electrolysis> .
+
+<https://vocab.sentier.dev/products/pem-electrolyzer> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/854330700080>,
+        <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:definition "An electrolyzer with a solid polymer electrolyte and a proton exchange membrane."@en ;
+    skos:prefLabel "Proton Exchange Membrane Electrolyzer"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Proton_exchange_membrane_electrolysis> .
+
+<https://vocab.sentier.dev/products/soel-electrolyzer> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/854330700080>,
+        <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:definition "A solid oxide fuel cell that runs in regenerative mode to achieve the electrolysis of water."@en ;
+    skos:prefLabel "Solid Oxide Electrolyzer"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Solid_oxide_electrolyzer_cell> .
+
+<http://data.europa.eu/xsp/cn2024/854330700080> skos:narrower <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/products/aec-electrolyzer>,
+        <https://vocab.sentier.dev/products/electrolyzer>,
+        <https://vocab.sentier.dev/products/pem-electrolyzer>,
+        <https://vocab.sentier.dev/products/soel-electrolyzer> .
+
+<https://vocab.sentier.dev/products/electrolyzer> a skos:Concept ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/854330700080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/854330700080> ;
+    skos:definition "An electrolyzer is a machine that uses electricity to drive a chemical reaction."@en ;
+    skos:narrower <https://vocab.sentier.dev/products/aec-electrolyzer>,
+        <https://vocab.sentier.dev/products/pem-electrolyzer>,
+        <https://vocab.sentier.dev/products/soel-electrolyzer> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/products/aec-electrolyzer>,
+        <https://vocab.sentier.dev/products/pem-electrolyzer>,
+        <https://vocab.sentier.dev/products/soel-electrolyzer> ;
+    skos:prefLabel "Electrolyzer"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Electrolysis> .
+

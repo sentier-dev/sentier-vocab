@@ -55,6 +55,15 @@
     qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/MassPerTime> ;
     skos:definition "The net amount of desired output produced per time interval."@en .
 
+<https://vocab.sentier.dev/model-terms/electrolyser/product_lifetime> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/generic> ;
+    skos:related <https://en.wikipedia.org/wiki/Product_lifetime> ;
+    skos:related <https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2010.00250.x> ;
+    skos:prefLabel "Product lifetime"@en ;
+    skos:altLabel "Product lifespan"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Time> ;
+    skos:definition "Product lifetime is the time interval from when a product is sold to when it is discarded."@en .
+
 # Energy production and consumption
 
 <https://vocab.sentier.dev/model-terms/energy> a skos:ConceptScheme ;

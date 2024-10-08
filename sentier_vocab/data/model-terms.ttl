@@ -1,0 +1,202 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sou: <http://qudt.org/vocab/sou/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Generic terms
+
+<https://vocab.sentier.dev/model-terms/generic> a skos:ConceptScheme ;
+    dcterms:contributor "Chris Mutel";
+    dcterms:created "2024-10-07"^^xsd:date ;
+    dcterms:creator "Chris Mutel" ;
+    dcterms:description "Generic terms that can be used for most Sentier.dev models" ;
+    dcterms:rights "Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to Sentier.dev" ;
+    dcterms:subject "Sentier.dev models" ;
+    skos:prefLabel "Generic terms"@en .
+
+<https://vocab.sentier.dev/model-terms/generic/product> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/generic> ;
+    skos:prefLabel "Product"@en ;
+    skos:definition "A product is an object, or system, or service made available for consumer use as of the consumer demand; it is anything that can be offered to a domestic or an international market to satisfy the desire or need of a customer (from Wikipedia)."@en ;
+    skos:related <https://en.wikipedia.org/wiki/Product_(business)> .
+
+<https://vocab.sentier.dev/model-terms/generic/company> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/generic> ;
+    skos:prefLabel "Company"@en ;
+    skos:altLabel "Firm"@en ;
+    skos:definition "A legal entity representing an association of legal people, whether natural, juridical or a mixture of both, with a specific objective (from Wikipedia)."@en ;
+    skos:related <https://en.wikipedia.org/wiki/Company> .
+
+<https://vocab.sentier.dev/model-terms/generic/footprint_area> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/generic> ;
+    skos:prefLabel "Footprint (areal)"@en ;
+    skos:altLabel "Footprint"@en ;
+    skos:altLabel "Occupied space"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Area> ;
+    skos:definition "The amount of area needed for a given piece of equipment or process."@en .
+
+<https://vocab.sentier.dev/model-terms/generic/availability> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/generic> ;
+    skos:prefLabel "Availabilty"@en ;
+    skos:altLabel "Maximum System Availabilty"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/unit/FRACTION> ;
+    skos:definition "The fraction of time a system can be operational. Includes both unexpected outages and scheduled maintenance."@en ;
+    skos:related <https://en.wikipedia.org/wiki/Availability> .
+
+<https://vocab.sentier.dev/model-terms/generic/mass_prod_rate> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/generic> ;
+    skos:related <https://www.wikidata.org/wiki/Property:P2197> ;
+    skos:prefLabel "Mass production rate"@en ;
+    skos:altLabel "Production rate"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/MassPerTime> ;
+    skos:definition "The net amount of desired output produced per time interval."@en .
+
+# Energy production and consumption
+
+<https://vocab.sentier.dev/model-terms/energy> a skos:ConceptScheme ;
+    dcterms:contributor "Chris Mutel";
+    dcterms:created "2024-10-07"^^xsd:date ;
+    dcterms:creator "Chris Mutel" ;
+    dcterms:description "Generic terms for products which consume or produce energy" ;
+    dcterms:rights "Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to Sentier.dev" ;
+    dcterms:subject "Sentier.dev models" ;
+    skos:prefLabel "Generic energy terms"@en .
+
+<https://vocab.sentier.dev/model-terms/energy/min_power_cons> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:prefLabel "Minimum operational power consumption"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Power> ;
+    skos:definition "The minimum amount of power needed to operate the reference item"@en .
+
+<https://vocab.sentier.dev/model-terms/energy/nom_power_cons> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:prefLabel "Normal operational power consumption"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Power> ;
+    skos:definition "The amount of power consumed during normal operations of the reference item"@en .
+
+<https://vocab.sentier.dev/model-terms/energy/max_power_cons> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:prefLabel "Maximum operational power consumption"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Power> ;
+    skos:definition "The maximum amount of power needed to operate the reference item"@en .
+
+<https://vocab.sentier.dev/model-terms/energy/input_voltage> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:prefLabel "Input voltage"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Voltage> ;
+    skos:definition "The voltage required to operate the reference item"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00240024> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:definition "An energy service demand is a demand of an agent to use energy as a means to obtain or facilitate desired end services or states." ;
+    skos:prefLabel "energy service demand"@en .
+
+<https://vocab.sentier.dev/model-terms/energy/elec_energy_serv_dem> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:related <http://data.europa.eu/xsp/cn2024/271600000080> ;
+    skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00240024>;
+    skos:definition "Demand of an agent to use electrical energy as a means to obtain or facilitate desired end services or states." ;
+    skos:prefLabel "Electrical energy service demand"@en .
+
+<https://vocab.sentier.dev/model-terms/energy/therm_energy_serv_dem> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:related <http://openenergy-platform.org/ontology/oeo/OEO_00110001> ;
+    skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00240024>;
+    skos:definition "Demand of an agent to user thermal energy as a means to obtain or facilitate desired end services or states. Thermal energy is normally provided as steam." ;
+    skos:prefLabel "Thermal energy service demand"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00140049> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:definition "Energy conversion efficiency is a process attribute describing the ratio between the input of an energy transformation and the outputs that are used." ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/unit/FRACTION> ;
+    skos:related <https://en.wikipedia.org/wiki/Energy_conversion_efficiency> ;
+    skos:prefLabel "energy conversion efficiency "@en .
+
+<https://vocab.sentier.dev/model-terms/energy/therm_energy_conv_eff> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00140049>;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/unit/FRACTION> ;
+    skos:definition "Ratio of useful thermal output energy to total input energy." ;
+    skos:prefLabel "Thermal energy conversion efficiency"@en .
+
+<https://vocab.sentier.dev/model-terms/energy/energy_conv_eff_lhv> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00140049>;
+    skos:related <https://en.wikipedia.org/wiki/Heat_of_combustion> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/unit/FRACTION> ;
+    skos:definition "Ratio of useful output product lower heating value (LHV) energy to total input energy." ;
+    skos:prefLabel "Energy conversion efficiency (LHV)"@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/temp_useful_heat> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/energy> ;
+    skos:prefLabel "Temperature of useful heat"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Temperature> ;
+    skos:definition "The temperature of the produced thermal energy carrier which can provide useful heat"@en .
+
+# Electrolyzers
+
+<https://vocab.sentier.dev/model-terms/electrolyser> a skos:ConceptScheme ;
+    dcterms:contributor "Chris Mutel";
+    dcterms:created "2024-10-07"^^xsd:date ;
+    dcterms:creator "Chris Mutel" ;
+    dcterms:description "Terms needed to model electrolyser construction and operation" ;
+    dcterms:rights "Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to Sentier.dev" ;
+    dcterms:subject "Electrolyser models" ;
+    skos:prefLabel "Electrolyser terms"@en-GB ;
+    skos:prefLabel "Electrolyzer terms"@en-US ;
+    skos:altLabel "Electrolysis terms"@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/min_amb_temp> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Minimum ambient temperature"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Temperature> ;
+    skos:definition "The minimum required temperature in the immediate environment of the electrolyser for successful operation"@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/max_amb_temp> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyser> ;
+    skos:prefLabel "Maximum ambient temperature"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Temperature> ;
+    skos:definition "The maximum allowed temperature in the immediate environment of the electrolyser for successful operation"@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/min_stack_temp> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Minimum stack temperature"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Temperature> ;
+    skos:definition "The minimum required temperature of the electrolyser stack for successful operation"@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/max_stack_temp> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Maximum stack temperature"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Temperature> ;
+    skos:definition "The maximum allowed temperature of the electrolyser stack for successful operation"@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/max_water_conduc> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Maximum water conductivity"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Conductivity_(electrolytic)> ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Conductivity> ;
+    skos:definition "The maximum allowed water conductivity for successful operation. Water conductivity is a measure of total dissolved solids in the water, which can effect electrolyser efficiency or operation."@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/max_stack_lifetime> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Maximum stack lifetime"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Time> ;
+    skos:definition "The maximum time an electrolyser stack can be operated before replacement."@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/h2_pressure> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Hydrogen pressure"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Pressure> ;
+    skos:definition "The pressure of the hydrogen produced by the electrolyser."@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/h2_quality> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:related <http://openenergy-platform.org/ontology/oeo/OEO_00010379> ;
+    skos:related <https://www.iso.org/standard/69539.html> ;
+    skos:prefLabel "Hydrogen quality"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Count> ;
+    skos:definition "Hydrogen quality according to ISO 14687-2."@en .

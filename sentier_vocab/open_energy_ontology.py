@@ -1,7 +1,7 @@
 from rdflib import Graph, Namespace, URIRef
 from sentier_vocab.utils import get_file_in_downloadable_zip_archive
 from sentier_vocab.graph_base import GraphBase
-from rdflib.namespace import RDFS, SKOS
+from rdflib.namespace import RDFS, SKOS, RDF
 import skosify
 from loguru import logger
 
@@ -53,7 +53,7 @@ MAPPING = {
 }
 
 
-class OpenEnergyOntology(GraphBase):
+class OpenEnergyProducts(GraphBase):
     def __init__(self, graph: Graph | None = None):
         logger.info("Parsing and creating Open Energy Ontology elements")
         data = get_file_in_downloadable_zip_archive(
@@ -66,9 +66,11 @@ class OpenEnergyOntology(GraphBase):
 
         for key, value in MATCHES.items():
             self.graph.add((key, SKOS.exactMatch, value))
+            self.graph.add((key, RDF.type, SKOS.Concept))
 
         for key, value in NARROWER.items():
             self.graph.add((key, SKOS.broader, value))
+            self.graph.add((key, RDF.type, SKOS.Concept))
 
             for _, p, o in self.input_graph.triples((key, None, None)):
                 try:
@@ -82,4 +84,4 @@ class OpenEnergyOntology(GraphBase):
 
 
 if __name__ == "__main__":
-    OpenEnergyOntology().write_graph("oeo-vocab.ttl")
+    OpenEnergyProducts().write_graph("oeo-product-vocab.ttl")

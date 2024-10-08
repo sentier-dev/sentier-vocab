@@ -54,6 +54,15 @@
     skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
     skos:prefLabel "Minimum stack temperature"@en .
 
+<https://vocab.sentier.dev/model-terms/electrolyser/product_lifetime> a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Time> ;
+    skos:altLabel "Product lifespan"@en ;
+    skos:definition "Product lifetime is the time interval from when a product is sold to when it is discarded."@en ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/generic> ;
+    skos:prefLabel "Product lifetime"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Product_lifetime>,
+        <https://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2010.00250.x> .
+
 <https://vocab.sentier.dev/model-terms/electrolyser/temp_useful_heat> a skos:Concept ;
     qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Temperature> ;
     skos:definition "The temperature of the produced thermal energy carrier which can provide useful heat"@en ;

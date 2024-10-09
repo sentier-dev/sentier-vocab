@@ -18,16 +18,13 @@ GENERATORS=(
     custom_products
     envo
     model_terms
-    nace
     open_energy_ontology
     qudt
-    supplements
 )
 
 declare -A GENERATOR_ARGS
 GENERATOR_ARGS=(
     [combined_nomenclature]=sentier_vocab/CN_2024.rdf
-    [nace]=sentier_vocab/CN_2024.rdf
 )
 
 main() {

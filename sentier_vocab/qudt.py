@@ -346,14 +346,7 @@ def add_quantity_kinds_to_graph(
     The `input_ttl` concept scheme was written by hand (!), but we can make it more useful by
     positioning each input concept in the QUDT quantity kind hierarchy.
     """
-    logger.info(f"Original input file {input_ttl}")
-    path_stem = str(input_ttl.stem)
-    output_ttl = Path(__file__).parent / "output" / Path(path_stem + ".supplemented" + str(input_ttl.suffix))
-    iwf = input_ttl.with_suffix(".supplemented" + input_ttl.suffix)
-    logger.info(f"iwf {iwf}")
-    logger.info(f"Parent: {Path(__file__).parent}")
-    logger.info(f"input {input_ttl}")
-    logger.info(f"built output file: {output_ttl}")
+    output_ttl = Path(__file__).parent / "output" / Path(str(input_ttl.stem)+ ".supplemented" + str(input_ttl.suffix))
 
     input_graph = Graph().parse(input_ttl)
     qudt = Graph().parse(qudt_ttl)

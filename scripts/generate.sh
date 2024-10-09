@@ -14,12 +14,12 @@
 set -euo pipefail
 
 GENERATORS=(
+    qudt
     combined_nomenclature
-    custom_products
     envo
     model_terms
     open_energy_ontology
-    qudt
+    custom_products
 )
 
 declare -A GENERATOR_ARGS

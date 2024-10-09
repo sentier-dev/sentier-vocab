@@ -1,0 +1,127 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00000139> a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/xsp/cn2024/271600000080> .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00000220> a skos:Concept ;
+    skos:exactMatch <http://data.europa.eu/xsp/cn2024/280410000080> .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010015> a skos:Concept ;
+    skos:altLabel "fossiler Wasserstoff"@de ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/280410000080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/280410000080> ;
+    skos:definition "Fossil hydrogen is hydrogen with fossil origin." ;
+    skos:prefLabel "fossil hydrogen"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010016> a skos:Concept ;
+    skos:altLabel "synthetischer Wasserstoff"@de ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/280410000080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/280410000080> ;
+    skos:definition "Synthetic hydrogen is hydrogen with synthetic origin." ;
+    skos:prefLabel "synthetic hydrogen"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010384> a skos:Concept ;
+    skos:altLabel "erneuerbare elektrische Energie"@de ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/271600000080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/271600000080> ;
+    skos:definition "Renewable electrical energy is electrical energy with a renewable origin." ;
+    skos:prefLabel "renewable electrical energy"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010417> a skos:Concept ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/271600000080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/271600000080> ;
+    skos:definition "Nuclear electrical energy is electrical energy with a nuclear origin." ;
+    skos:prefLabel "nuclear electrical energy"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010419> a skos:Concept ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/271600000080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/271600000080> ;
+    skos:definition "Solar electrical energy is electrical energy that is energy output of a solar energy transformation." ;
+    skos:prefLabel "solar electrical energy"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010380> a skos:Concept ;
+    skos:altLabel "erneuerbarer Elektrolysewasserstoff"@de,
+        "green hydrogen"@en ;
+    skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00010379> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/280410000080>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010379> ;
+    skos:definition "Renewable electrolytic hydrogen is electrolytic hydrogen that is produced with renewable electrical energy." ;
+    skos:prefLabel "renewable electrolytic hydrogen"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010382> a skos:Concept ;
+    skos:altLabel "grey hydrogen" ;
+    skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00010381> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/280410000080>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010381> ;
+    skos:definition "Fossil steam reforming hydrogen is hydrogen that is produced from a fossil combustion fuel in a steam reforming process which is not followed by a carbon capture and storage process." ;
+    skos:prefLabel "fossil steam reforming hydrogen"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010383> a skos:Concept ;
+    skos:altLabel "CCS steam reforming hydrogen",
+        "blue hydrogen" ;
+    skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00010381> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/280410000080>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010381> ;
+    skos:definition "Abated steam reforming hydrogen is hydrogen that is output of a steam reforming process which is followed by a carbon capture and storage process." ;
+    skos:prefLabel "abated steam reforming hydrogen"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010416> a skos:Concept ;
+    skos:altLabel "pink hydrogen" ;
+    skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00010379> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/280410000080>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010379> ;
+    skos:definition "Nuclear electrolytic hydrogen is electrolytic hydrogen that is produced with nuclear electrical energy." ;
+    skos:prefLabel "nuclear electric hydrogen"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010418> a skos:Concept ;
+    skos:altLabel "yellow hydrogen" ;
+    skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00010379> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/280410000080>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010379> ;
+    skos:definition "Solar electrolytic hydrogen is electrolytic hydrogen that is produced with solar electrical energy." ;
+    skos:prefLabel "solar electrolytic hydrogen"@en .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010381> a skos:Concept ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/280410000080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/280410000080> ;
+    skos:definition "Steam reforming hydrogen is hydrogen that is a physical output of a steam reforming process." ;
+    skos:narrower <http://openenergy-platform.org/ontology/oeo/OEO_00010382>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010383> ;
+    skos:narrowerTransitive <http://openenergy-platform.org/ontology/oeo/OEO_00010382>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010383> ;
+    skos:prefLabel "steam reforming hydrogen"@en .
+
+<http://data.europa.eu/xsp/cn2024/271600000080> skos:narrower <http://openenergy-platform.org/ontology/oeo/OEO_00010384>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010417>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010419> ;
+    skos:narrowerTransitive <http://openenergy-platform.org/ontology/oeo/OEO_00010384>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010417>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010419> .
+
+<http://openenergy-platform.org/ontology/oeo/OEO_00010379> a skos:Concept ;
+    skos:altLabel "Elektrolysewasserstoff"@de ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/280410000080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/280410000080> ;
+    skos:definition "Electrolytic hydrogen is hydrogen that is a physical output of a water electrolysis process." ;
+    skos:narrower <http://openenergy-platform.org/ontology/oeo/OEO_00010380>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010416>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010418> ;
+    skos:narrowerTransitive <http://openenergy-platform.org/ontology/oeo/OEO_00010380>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010416>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010418> ;
+    skos:prefLabel "electrolytic hydrogen"@en .
+
+<http://data.europa.eu/xsp/cn2024/280410000080> skos:narrower <http://openenergy-platform.org/ontology/oeo/OEO_00010015>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010016>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010379>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010381> ;
+    skos:narrowerTransitive <http://openenergy-platform.org/ontology/oeo/OEO_00010015>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010016>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010379>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010380>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010381>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010382>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010383>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010416>,
+        <http://openenergy-platform.org/ontology/oeo/OEO_00010418> .
+

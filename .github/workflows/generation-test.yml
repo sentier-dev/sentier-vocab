@@ -8,7 +8,6 @@ name: Python 🐍 CI/CD tests for ttl generation
 
 on:
   push:
-    branches: [main]
     paths-ignore: # prevents workflow execution when only these types of files are modified
       - "**.md" # wildcards prevent file in any repo dir from trigering workflow
       - "**.bib"
@@ -16,7 +15,6 @@ on:
       - "LICENSE"
       - ".gitignore"
   pull_request:
-    branches: [main]
     types: [opened, reopened] # excludes syncronize to avoid redundant trigger from commits on PRs
     paths-ignore:
       - "**.md"

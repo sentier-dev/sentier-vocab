@@ -64,6 +64,13 @@
     qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Time> ;
     skos:definition "Product lifetime is the time interval from when a product is sold to when it is discarded."@en .
 
+<https://vocab.sentier.dev/model-terms/electrolyser/capacity_factor> a skos:Concept ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/generic> ;
+    skos:related <https://en.wikipedia.org/wiki/Capacity_factor> ;
+    skos:prefLabel "Capacity factor"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/unit/FRACTION> ;
+    skos:definition "Ratio of actual output to potential output considering availability constraints."@en .
+
 # Energy production and consumption
 
 <https://vocab.sentier.dev/model-terms/energy> a skos:ConceptScheme ;
@@ -170,6 +177,21 @@
     skos:prefLabel "Maximum ambient temperature"@en ;
     qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Temperature> ;
     skos:definition "The maximum allowed temperature in the immediate environment of the electrolyser for successful operation"@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/stack> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Stack (electrolyser)"@en-GB ;
+    skos:prefLabel "Stack (electrolyzer)"@en-US ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Power> ;
+    skos:definition "Multiple electrolysis cells connected together form the electrolyser stack"@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/balance_of_plant> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Balance of Plant"@en ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Power> ;
+    skos:definition "The other components of an electrolyser other than the stack. Usually less costly and has a longer lifetime."@en .
 
 <https://vocab.sentier.dev/model-terms/electrolyser/min_stack_temp> a skos:Concept ;
     skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;

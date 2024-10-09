@@ -1,5 +1,25 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+<http://data.europa.eu/xsp/cn2024/290349000080> skos:narrower <https://vocab.sentier.dev/products/tetrafluoroethylene> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/products/tetrafluoroethylene> .
+
+<http://data.europa.eu/xsp/cn2024/382400000080> skos:narrower <https://vocab.sentier.dev/products/zeolite> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/products/zeolite> .
+
+<https://vocab.sentier.dev/products/tetrafluoroethylene> a skos:Concept ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/290349000080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/290349000080> ;
+    skos:definition "Tetrafluoroethylene (TFE) is a fluorocarbon with the chemical formula C2F4. It is the simplest perfluorinated alkene. This gaseous species is used primarily in the industrial preparation of fluoropolymers (from Wikipedia)"@en ;
+    skos:prefLabel "Tetrafluoroethylene"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Tetrafluoroethylene> .
+
+<https://vocab.sentier.dev/products/zeolite> a skos:Concept ;
+    skos:broader <http://data.europa.eu/xsp/cn2024/382400000080> ;
+    skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/382400000080> ;
+    skos:definition "Zeolite is a family of several microporous, crystalline aluminosilicate materials commonly used as commercial adsorbents and catalysts (from Wikipedia)"@en ;
+    skos:prefLabel "Zeolite"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Zeolite> .
+
 <https://vocab.sentier.dev/products/aec-electrolyzer> a skos:Concept ;
     skos:broader <https://vocab.sentier.dev/products/electrolyzer> ;
     skos:broaderTransitive <http://data.europa.eu/xsp/cn2024/854330700080>,

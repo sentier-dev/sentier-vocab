@@ -1,0 +1,584 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002018> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002001> ;
+    skos:definition "Wastewater that is contaminated with feces or urine,"@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002018> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "sewage"@en ;
+    skos:related "SWEETRealm:Sewage",
+        "https://en.wikipedia.org/wiki/Sewage" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002042> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water that is found on the surface of an astronomical object."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002042> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "surface water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002142> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002141> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002142> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "borax leachate"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002150> a skos:Concept ;
+    skos:altLabel "coastal ocean water"@en,
+        "coastal oceanic water"@en,
+        "coastal seawater"@en,
+        "coastal water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002149> ;
+    skos:definition "Coastal sea water is sea water that is adjacent to a coast."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002150> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "coastal sea water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002158> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002011> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002158> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "ditch water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002159> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002159> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "drilling bore water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002193> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002001> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002193> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "pulp-bleaching waste water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002194> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002194> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "oil field production water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002223> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which has very low concentrations of nutrients."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002223> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "oligotrophic water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002225> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water with a nutrient level intermediate between eutrophic and oligotrophic."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002225> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "mesotrophic water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002228> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002011> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002228> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "pond water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00003045> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00003044> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00003045> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "bacon curing brine"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00003064> a skos:Concept ;
+    skos:altLabel "potable water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002011> ;
+    skos:definition "Drinking water is water which may be consumed by humans with no adverse effects on their health."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00003064> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "drinking water"@en ;
+    skos:related "EcoLexicon:drinking_water",
+        "SWEETRealm:DrinkingWater",
+        "https://en.wikipedia.org/wiki/Drinking_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00003065> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00003065> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "distilled water"@en ;
+    skos:related "https://en.wikipedia.org/wiki/Distilled_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00003096> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002011> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00003096> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "tap water"@en ;
+    skos:related "https://en.wikipedia.org/wiki/Tap_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00003097> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00003097> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "bore hole water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00005791> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Sterile water is water which does not contain lliving organisms."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00005791> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "sterile water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00005793> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00005793> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "muddy water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000134> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002141> ;
+    skos:definition "High temperature water ejected from hydrothermal vents and laden with dissolved metals and minerals as a result of percolation through crustal rocks."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000134> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "hydrothermal fluid"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000173> a skos:Concept ;
+    skos:altLabel "anaerobic water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which lacks dissolved oxygen."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000173> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "anoxic water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000301> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002019> ;
+    skos:definition "Brackish water which is part of an estuary."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000301> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "estuarine water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000357> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "A portion of alkaline water is a portion of water with a pH greater than 7."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000357> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "alkaline water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000358> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "A portion of acidic water is a portion of water with a pH less than 7."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000358> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "acidic water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000599> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_03605006> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000599> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "river water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000600> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002011> ;
+    skos:definition "Rainwater is liquid water which has precipitated in the form of droplets through the condensation of atmospheric water vapour."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000600> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "rainwater"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000722> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Meltwater is the water released by the melting of snow or ice, including glacial ice, tabular icebergs and ice shelves over oceans."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000722> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "meltwater"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000872> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Ballast water is water contained in the ballast tanks of sea-going vessels."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000872> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "ballast water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000940> a skos:Concept ;
+    skos:altLabel "fracture water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which is partially contained within a fissure or a geological fracture."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000940> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "fissure water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01000964> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002001> ;
+    skos:definition "Wastewater which is produced by industrial activity and which contains chemical contaminants other than those associated with urine and fecal matter."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01000964> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "industrial wastewater"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001004> a skos:Concept ;
+    skos:altLabel "ground water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00005792> ;
+    skos:definition "Underground water which is located in pore spaces found in rock or unconsolidated deposits such as soil, clay, or gravel."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001004> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "groundwater"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001018> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002224> ;
+    skos:definition "Water which has a very high concentration of nutrients."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001018> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "hypereutrophic water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001037> a skos:Concept ;
+    skos:altLabel "slightly salty water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002010> ;
+    skos:definition "Water which contains a slightly increased concentration of dissolved salts, relative to their concentration in freshwater."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001037> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "slightly saline water"@en ;
+    skos:related "EcoLexicon:saltwater",
+        "SWEETRealm:SalineWater",
+        "SWEETRealm:SaltWater",
+        "https://en.wikipedia.org/wiki/Saline_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001038> a skos:Concept ;
+    skos:altLabel "moderately salty water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002010> ;
+    skos:definition "Water which contains a moderately increased concentration of dissolved salts, relative to their concentration in freshwater."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001038> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "moderately saline water"@en ;
+    skos:related "EcoLexicon:saltwater",
+        "SWEETRealm:SalineWater",
+        "SWEETRealm:SaltWater",
+        "https://en.wikipedia.org/wiki/Saline_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001039> a skos:Concept ;
+    skos:altLabel "highly salty water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002010> ;
+    skos:definition "Water which contains a highly increased concentration of dissolved salts, relative to their concentration in freshwater."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001039> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "highly saline water"@en ;
+    skos:related "EcoLexicon:saltwater",
+        "SWEETRealm:SalineWater",
+        "SWEETRealm:SaltWater",
+        "https://en.wikipedia.org/wiki/Saline_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001063> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which has an appreciable concentration of dissolved oxygen."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001063> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "oxic water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001064> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which has low levels of dissolved oxygen."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001064> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "hypoxic water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001257> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002010> ;
+    skos:definition "Saline water which is derived from sea water and used during the cultivation of crustaceans."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001257> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "saline shrimp pond water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001268> a skos:Concept ;
+    skos:altLabel "urban storm water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_01001267> ;
+    skos:definition "Stormwater which accumulates in an urban ecosystem."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001268> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "urban stormwater"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001270> a skos:Concept ;
+    skos:altLabel "rural storm water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_01001267> ;
+    skos:definition "Stormwater which accumulates in a rural ecosystem."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001270> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "rural stormwater"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_02000145> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00005792> ;
+    skos:definition "A lake underneath the surface of the Earth."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_02000145> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "subterranean lake"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_03501370> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "A liquid water which has no current or flow and is susceptible to contamination by pathogens or pathogenic vectors."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_03501370> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "stagnant water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_03600002> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Liquid water which is a participant in a water cooling process."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_03600002> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "cooling water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_03600009> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Liquid water which occurs naturally within the pores of rocks and sediments."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_03600009> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "interstitial water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_03600042> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Liquid water which is either part of or was removed from a marine lake."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_03600042> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "marine lake water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_03600065> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which comes from a spring."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_03600065> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "spring water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_03600081> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002011> ;
+    skos:definition "Fresh water which is harvested from cloud."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_03600081> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "cloud water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_04000007> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which is part of a lake."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_04000007> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "lake water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_06105211> a skos:Concept ;
+    skos:altLabel "overland flow"@en,
+        "surface runoff"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Liquid water which 1) flows over land and 2) is not absorbed or retained by the materials if flows over or through."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_06105211> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "runoff"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_06105238> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Liquid water which is present in soils as discontinuous volumnes of water in contact with solid and gaseous components of the soil."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_06105238> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "residual water in soil"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_06105268> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Waste water which was converted into an effluent that can be either returned to the water cycle with minimal environmental issues or reused."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_06105268> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "treated wastewater"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_06105269> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Saline water from which minerals have been removed to produce fresh water suitable for human consumption or irrigation."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_06105269> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "desalinated water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002012> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002010> ;
+    skos:definition "Water which contains a highly increased concentration of dissolved salts, surpassing the average salinity of seawater."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002012> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_00003044> ;
+    skos:prefLabel "hypersaline water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002019> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002010> ;
+    skos:definition "Water which has a higher salinity than fresh water but a lower salinity than marine water."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002019> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_01000301> ;
+    skos:prefLabel "brackish water"@en ;
+    skos:related "EcoLexicon:brackish_water",
+        "LTER:702",
+        "SPIRE:Brackish_water",
+        "SWEETRealm:BrackishWater",
+        "https://en.wikipedia.org/wiki/Brackish_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002149> a skos:Concept ;
+    skos:altLabel "ocean water"@en,
+        "seawater"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002010> ;
+    skos:definition "Water which has physicochemical properties that have been determined by the processes occuring in a sea or ocean."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002149> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_00002150> ;
+    skos:prefLabel "sea water"@en ;
+    skos:related "EcoLexicon:sea_water",
+        "LTER:701",
+        "SWEETRealm:SeaWater",
+        "https://en.wikipedia.org/wiki/Sea_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002186> a skos:Concept ;
+    skos:altLabel "polluted water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002186> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_00002001> ;
+    skos:prefLabel "contaminated water"@en ;
+    skos:related "EcoLexicon:water_pollution",
+        "https://en.wikipedia.org/wiki/Contaminated_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002224> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water with a high nutrient level."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002224> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_01001018> ;
+    skos:prefLabel "eutrophic water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00003044> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002012> ;
+    skos:definition "Water saturated or nearly saturated with salt (NaCl)."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00003044> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_00003045> ;
+    skos:prefLabel "brine"@en ;
+    skos:related "EcoLexicon:brine",
+        "SWEETRealm:Brine",
+        "https://en.wikipedia.org/wiki/Brine" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_03605006> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which is part of a stream."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_03605006> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_01000599> ;
+    skos:prefLabel "stream water"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002141> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "The liquid produced when water percolates through any permeable material. It can contain either dissolved or suspended material, or usually both."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002141> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_00002142>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01000134> ;
+    skos:prefLabel "leachate"@en ;
+    skos:related "https://en.wikipedia.org/wiki/Leachate" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00005792> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which has physicochemical properties determined by processes which occur beneath the planetary crust."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00005792> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_01001004>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_02000145> ;
+    skos:prefLabel "underground water"@en ;
+    skos:related "SWEETRealm:UndergroundWater" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_01001267> a skos:Concept ;
+    skos:altLabel "storm water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which accumulates on a solid surface during precipitation events and snow/ice melt."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_01001267> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_01001268>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01001270> ;
+    skos:prefLabel "stormwater"@en .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002001> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002186> ;
+    skos:definition "Water that has been adversely affected in quality by anthropogenic influence."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002001> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_00002018>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002193>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01000964> ;
+    skos:prefLabel "waste water"@en ;
+    skos:related "EcoLexicon:waste_water",
+        "SWEETRealm:Wastewater",
+        "https://en.wikipedia.org/wiki/Waste_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002011> a skos:Concept ;
+    skos:altLabel "freshwater"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which has a low concentration of dissolved solutes, particularly that of sodium chloride."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002011> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_00002158>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002228>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00003064>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00003096>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01000600>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_03600081> ;
+    skos:prefLabel "fresh water"@en ;
+    skos:related "EcoLexicon:fresh_water",
+        "LTER:216",
+        "SWEETRealm:FreshWater",
+        "https://en.wikipedia.org/wiki/Fresh_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002010> a skos:Concept ;
+    skos:altLabel "salt water"@en ;
+    skos:broader <https://vocab.sentier.dev/flows/envo/ENVO_00002006> ;
+    skos:definition "Water which contains a significant concentration of dissolved salts."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002010> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_00002012>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002019>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002149>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01001037>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01001038>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01001039>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01001257> ;
+    skos:prefLabel "saline water"@en ;
+    skos:related "EcoLexicon:saltwater",
+        "SWEETRealm:SalineWater",
+        "SWEETRealm:SaltWater",
+        "https://en.wikipedia.org/wiki/Saline_water" .
+
+<https://vocab.sentier.dev/flows/envo/ENVO_00002006> a skos:Concept ;
+    skos:altLabel "water"@en ;
+    skos:definition "An environmental material primarily composed of dihydrogen oxide in its liquid form."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002006> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:narrower <https://vocab.sentier.dev/flows/envo/ENVO_00002010>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002011>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002042>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002141>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002159>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002186>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002194>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002223>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002224>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00002225>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00003065>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00003097>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00005791>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00005792>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_00005793>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01000173>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01000357>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01000358>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01000722>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01000872>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01000940>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01001063>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01001064>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_01001267>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_03501370>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_03600002>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_03600009>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_03600042>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_03600065>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_03605006>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_04000007>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_06105211>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_06105238>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_06105268>,
+        <https://vocab.sentier.dev/flows/envo/ENVO_06105269> ;
+    skos:prefLabel "liquid water"@en ;
+    skos:related "EcoLexicon:water",
+        "LTER:617",
+        "https://en.wikipedia.org/wiki/Water" ;
+    skos:topConceptOf <https://vocab.sentier.dev/flows/> .
+
+<https://vocab.sentier.dev/flows/> a skos:ConceptScheme ;
+    skos:altLabel "Biosphere flows"@en ;
+    skos:definition "Material or energy entering the system being studied that has been drawn from the environment without previous human transformation, or material or energy leaving the system being studied that is released into the environment without subsequent human transformation."@en ;
+    skos:prefLabel "Elementary flows"@en .
+

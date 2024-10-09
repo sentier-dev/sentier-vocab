@@ -1,6 +1,6 @@
 from rdflib import Graph, Namespace, URIRef
 from sentier_vocab.graph_base import GraphBase
-from sentier_vocab.data.input.custom_products import CUSTOM_PRODUCTS_DATA
+from sentier_vocab.input.custom_products import CUSTOM_PRODUCTS_DATA
 from rdflib.namespace import RDFS, SKOS, RDF
 import skosify
 from loguru import logger

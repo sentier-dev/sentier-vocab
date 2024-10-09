@@ -1,0 +1,22 @@
+name: deploy ttl to fuseki
+
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: deploy
+      uses: mdallasanta/ssh-scp-deploy@v1.2.0
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        local: 'sentier_vocab/output/*ttl'
+        remote: sentier_vocab
+        scp_options: -r

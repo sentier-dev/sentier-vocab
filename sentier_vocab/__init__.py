@@ -7,7 +7,7 @@ __all__ = (
     # Add functions and variables you want exposed in `sentier_vocab.` namespace here
 )
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 from .envo import ENVO
 from .qudt import QUDT

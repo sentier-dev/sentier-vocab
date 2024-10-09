@@ -104,4 +104,57 @@ CUSTOM_PRODUCTS_DATA = [
         SKOS.related,
         URIRef("https://en.wikipedia.org/wiki/Solid_oxide_electrolyzer_cell")
     ),
+    # Missing from Combined Nomenclature
+    # tetraflouroethylene, not poly-
+    (
+        URIRef(PRODUCTS + "tetrafluoroethylene"),
+        RDF.type,
+        SKOS.Concept
+    ),
+    (
+        URIRef(PRODUCTS + "tetrafluoroethylene"),
+        SKOS.broader,
+        URIRef("http://data.europa.eu/xsp/cn2024/290349000080")
+    ),
+    (
+        URIRef(PRODUCTS + "tetrafluoroethylene"),
+        SKOS.prefLabel,
+        Literal("Tetrafluoroethylene", lang="en")
+    ),
+    (
+        URIRef(PRODUCTS + "tetrafluoroethylene"),
+        SKOS.related,
+        URIRef("https://en.wikipedia.org/wiki/Tetrafluoroethylene")
+    ),
+    (
+        URIRef(PRODUCTS + "tetrafluoroethylene"),
+        SKOS.definition,
+        Literal("Tetrafluoroethylene (TFE) is a fluorocarbon with the chemical formula C2F4. It is the simplest perfluorinated alkene. This gaseous species is used primarily in the industrial preparation of fluoropolymers (from Wikipedia)", lang="en")
+    ),
+    # Zeolite
+    (
+        URIRef(PRODUCTS + "zeolite"),
+        RDF.type,
+        SKOS.Concept
+    ),
+    (
+        URIRef(PRODUCTS + "zeolite"),
+        SKOS.broader,
+        URIRef("http://data.europa.eu/xsp/cn2024/382400000080")
+    ),
+    (
+        URIRef(PRODUCTS + "zeolite"),
+        SKOS.prefLabel,
+        Literal("Zeolite", lang="en")
+    ),
+    (
+        URIRef(PRODUCTS + "zeolite"),
+        SKOS.related,
+        URIRef("https://en.wikipedia.org/wiki/Zeolite")
+    ),
+    (
+        URIRef(PRODUCTS + "zeolite"),
+        SKOS.definition,
+        Literal("Zeolite is a family of several microporous, crystalline aluminosilicate materials commonly used as commercial adsorbents and catalysts (from Wikipedia)", lang="en")
+    ),
 ]

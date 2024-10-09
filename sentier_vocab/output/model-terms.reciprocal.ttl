@@ -3,6 +3,13 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://vocab.sentier.dev/model-terms/electrolyser/capacity_factor> a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/unit/FRACTION> ;
+    skos:definition "Ratio of actual output to potential output considering availability constraints."@en ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/generic> ;
+    skos:prefLabel "Capacity factor"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Capacity_factor> .
+
 <https://vocab.sentier.dev/model-terms/electrolyser/h2_pressure> a skos:Concept ;
     qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Pressure> ;
     skos:definition "The pressure of the hydrogen produced by the electrolyser."@en ;
@@ -141,6 +148,23 @@
     skos:prefLabel "Electrolyser terms"@en-GB,
         "Electrolyzer terms"@en-US .
 
+<https://vocab.sentier.dev/model-terms/electrolyser/balance_of_plant> a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Power> ;
+    skos:broader <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:definition "The other components of an electrolyser other than the stack. Usually less costly and has a longer lifetime."@en ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Balance of Plant"@en .
+
+<https://vocab.sentier.dev/model-terms/electrolyser/stack> a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Power> ;
+    skos:broader <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/products/electrolyzer> ;
+    skos:definition "Multiple electrolysis cells connected together form the electrolyser stack"@en ;
+    skos:inScheme <https://vocab.sentier.dev/model-terms/electrolyzer> ;
+    skos:prefLabel "Stack (electrolyser)"@en-GB,
+        "Stack (electrolyzer)"@en-US .
+
 <https://vocab.sentier.dev/model-terms/energy/elec_energy_serv_dem> a skos:Concept ;
     skos:broader <http://openenergy-platform.org/ontology/oeo/OEO_00240024> ;
     skos:broaderTransitive <http://openenergy-platform.org/ontology/oeo/OEO_00240024> ;
@@ -193,6 +217,11 @@
     skos:narrowerTransitive <https://vocab.sentier.dev/model-terms/energy/elec_energy_serv_dem>,
         <https://vocab.sentier.dev/model-terms/energy/therm_energy_serv_dem> ;
     skos:prefLabel "energy service demand"@en .
+
+<https://vocab.sentier.dev/products/electrolyzer> skos:narrower <https://vocab.sentier.dev/model-terms/electrolyser/balance_of_plant>,
+        <https://vocab.sentier.dev/model-terms/electrolyser/stack> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/model-terms/electrolyser/balance_of_plant>,
+        <https://vocab.sentier.dev/model-terms/electrolyser/stack> .
 
 <https://vocab.sentier.dev/model-terms/generic> a skos:ConceptScheme ;
     dcterms:contributor "Chris Mutel" ;

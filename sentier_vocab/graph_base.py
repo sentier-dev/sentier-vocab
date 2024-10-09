@@ -5,7 +5,7 @@ from rdflib import Graph, Literal, Namespace, URIRef
 
 from sentier_vocab.utils import DEFAULT_DATA_DIR, GithubZipfileRelease
 
-vocab_data_dir = Path(__file__).parent / "data"
+vocab_data_dir = Path(__file__).parent / "output"
 
 
 class GraphBase:

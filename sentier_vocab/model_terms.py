@@ -4,7 +4,7 @@ import skosify
 from loguru import logger
 from rdflib import Graph
 
-filepath = Path(__file__).parent / "data" / "model-terms.ttl"
+filepath = Path(__file__).parent / "input" / "model-terms.ttl"
 
 
 def ModelTerms():
@@ -15,7 +15,7 @@ def ModelTerms():
     skosify.infer.skos_hierarchical(graph, narrower=True)
     skosify.infer.skos_transitive(graph, narrower=True)
 
-    output_path = filepath.with_suffix(".reciprocal.ttl")
+    output_path = Path(__file__).parent / "output" / "model-terms.reciprocal.ttl"
     logger.info("Writing output TTL file {}", output_path)
     graph.serialize(destination=output_path)
     return filepath.with_suffix(".ttl")

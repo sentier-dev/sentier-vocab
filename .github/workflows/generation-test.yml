@@ -27,10 +27,8 @@ on:
 jobs:
   generate_script:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       # general Python setup
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
@@ -45,6 +43,7 @@ jobs:
         shell: bash -l {0}
         run: |
           bash scripts/generate.sh generate custom_products
+      # deploy files to server
       - name: deploy
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:

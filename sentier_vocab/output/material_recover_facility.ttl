@@ -1,0 +1,65 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sorting_machines: <http://data.europa.eu/xsp/cn2024/847410000080> .
+
+sorting_machines: a skos:ConceptScheme .
+
+sorting_machines:NIR_HDPE a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:prefLabel "near infrared sorting machine of HDPE plastics"@en .
+
+sorting_machines:NIR_PET a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:prefLabel "near infrared sorting machine of PET plastics"@en .
+
+sorting_machines:disc_screen_1 a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:definition "An inclined plane filled with a series of parallel rods with discs spread along each rod such that large materials travel over the top while smaller materials fall between the discs"@en ;
+    skos:prefLabel "disc screen sorting machine"@en .
+
+sorting_machines:disc_screen_2 a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:definition "An inclined plane filled with a series of parallel rods with discs spread along each rod such that large materials travel over the top while smaller materials fall between the discs"@en ;
+    skos:prefLabel "disc screen sorting machine"@en .
+
+sorting_machines:disc_screen_3 a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:definition "An inclined plane filled with a series of parallel rods with discs spread along each rod such that large materials travel over the top while smaller materials fall between the discs"@en ;
+    skos:prefLabel "disc screen sorting machine"@en .
+
+sorting_machines:eddy a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:definition "Uses magnetic fields to remove aluminum and other non-ferrous metals"@en ;
+    skos:prefLabel "eddy current separator"@en .
+
+sorting_machines:glass_breaker a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:prefLabel "glass breaker sorting machine"@en .
+
+sorting_machines:magnet a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:definition "Uses magnetic fields to remove ferrous metals"@en ;
+    skos:prefLabel "magnet sorting machine for ferrous metals"@en .
+
+sorting_machines:optical_glass a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:definition "Identifies pre-determined material(s) using optical technology (e.g., cameras, lasers, sensors) and removes the identified materialfrom the stream using bursts of compressed air"@en ;
+    skos:prefLabel "optical sorting machine for glass"@en .
+
+sorting_machines:vacuum a skos:Concept ;
+    qudt:hasQuantityKind <https://vocab.sentier.dev/units/quantity-kind/Efficiency> ;
+    skos:broader <https://publications.europa.eu/resource/authority/cpv/cpv/43411000> ;
+    skos:prefLabel "vacuum sorting machine for film plastic"@en .
+
+<https://vocab.sentier.dev/model-terms/generic/sequence> a skos:Concept ;
+    skos:exactMatch <http://semanticscience.org/resource/SIO_001118> .
+

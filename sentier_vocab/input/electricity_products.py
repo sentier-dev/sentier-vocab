@@ -270,18 +270,6 @@ ELECTRICITY_PRODUCTS_DATA = [
         "Other electrical energy includes various forms of electrical energy generation not classified as renewable or fossil fuel-based.",
         "en",
     ),
-    # Nuclear-based electrical energy
-    ("nuclear", "type", "Concept"),
-    ("nuclear", "broader", "http://data.europa.eu/xsp/cn2024/271600000080"),
-    ("nuclear", "prefLabel", "Electricity from nuclear power plants", "en-US"),
-    (
-        "nuclear",
-        "definition",
-        "Nuclear power is the generation of electricity through the process of nuclear fission, where atomic nuclei are split to release energy.",
-        "en",
-    ),
-    ("nuclear", "related", "https://en.wikipedia.org/wiki/Nuclear_power"),
-    ("nuclear", "exactMatch", "http://openenergy-platform.org/ontology/oeo/OEO_00010417"),
     # Waste-based electrical energy
     ("waste", "type", "Concept"),
     ("waste", "broader", "http://data.europa.eu/xsp/cn2024/271600000080"),
@@ -293,14 +281,4 @@ ELECTRICITY_PRODUCTS_DATA = [
         "en",
     ),
     ("waste", "related", "https://en.wikipedia.org/wiki/Waste-to-energy"),
-    # Electricity mix
-    ("electricity-mix", "type", "Concept"),
-    ("electricity-mix", "broader", "http://data.europa.eu/xsp/cn2024/271600000080"),
-    ("electricity-mix", "prefLabel", "Electricity mix", "en"),
-    (
-        "electricity-mix",
-        "definition",
-        "Electricity mix is the combination of different energy technologies, including renewables and non-renewables, used for electricity generation.",
-        "en",
-    ),
 ]

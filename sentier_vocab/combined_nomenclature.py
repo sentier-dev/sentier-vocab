@@ -30,10 +30,10 @@ def CN2024(filepath: Path):
     skosify.infer.skos_hierarchical(graph, narrower=True)
     skosify.infer.skos_transitive(graph, narrower=True)
 
-    output_path = filepath.with_suffix(".ttl")
+    output_path = Path(__file__).parent / "output" / Path(str(filepath.stem) + ".ttl")
     logger.info("Writing output TTL file {}", output_path)
     graph.serialize(destination=output_path)
-    return filepath.with_suffix(".ttl")
+    return output_path
 
 
 if __name__ == "__main__":

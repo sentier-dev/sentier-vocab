@@ -33,6 +33,7 @@ dependencies = [
     "platformdirs",
     "rdflib",
     "requests",
+    "rfc3987",
     "skosify",
     "tqdm",
 ]

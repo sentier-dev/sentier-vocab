@@ -141,6 +141,7 @@ def add_custom_terms(data: list[dict], namespace: str, filename: str) -> Path:
         if object_type is not None and not isinstance(object_, object_type):
             raise ValueError(
                 f"Object {object_} has incorrect type for this function; should be {object_type} but got {type(object_)} in triple ({s} {p} {o})"
+                f"Object {object_} has incorrect type for this function; should be {type(object_type)} but got {type(object_)}"
             )
 
         graph.add((subject, predicate, object_))

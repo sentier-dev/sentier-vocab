@@ -6,8 +6,8 @@ from sentier_vocab.input.peakachu_model_terms import ELECTRICITY_MODEL_TERMS_DAT
 
 def add_custom_products():
     add_custom_terms(CUSTOM_PRODUCTS_DATA, "https://vocab.sentier.dev/products/", "custom-products")
-    add_custom_terms(ELECTRICITY_PRODUCTS_DATA, "https://vocab.sentier.dev/products/", "electricity-custom-products")
-    add_custom_terms(ELECTRICITY_MODEL_TERMS_DATA, "https://vocab.sentier.dev/model-terms/", "electricity-custom-model-terms")
+    add_custom_terms(ELECTRICITY_PRODUCTS_DATA, "https://vocab.sentier.dev/products/electricity/", "electricity-custom-products")
+    add_custom_terms(ELECTRICITY_MODEL_TERMS_DATA, "https://vocab.sentier.dev/model-terms/emission-factor/", "electricity-custom-model-terms")
 
 
 if __name__ == "__main__":

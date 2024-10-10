@@ -8,7 +8,7 @@ name: TTL generation and deployment
 
 on:
   push:
-    paths-ignore: # prevents workflow execution when only these types of files are modified
+    branches: [main]
       - "**.md" # wildcards prevent file in any repo dir from trigering workflow
       - "**.bib"
       - "**.ya?ml"

@@ -45,19 +45,14 @@ jobs:
         shell: bash -l {0}
         run: |
           bash scripts/generate.sh
-
-  deploy_to_server:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: deploy
-      uses: mdallasanta/ssh-scp-deploy@v1.2.0
-      with:
-        host: ${{ secrets.HOST }}
-        user: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
-        port: ${{ secrets.PORT }}
-        local: 'sentier_vocab/output/*'
-        remote: sentier_vocab
-        scp_options: -r
-        post_upload: '/home/sentier_vocab_robot/load_graphs.sh /home/sentier_vocab_robot/sentier_vocab/new_ttls.json'
+      - name: deploy
+        uses: mdallasanta/ssh-scp-deploy@v1.2.0
+        with:
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          local: 'sentier_vocab/output/*'
+          remote: sentier_vocab
+          scp_options: -r
+          post_upload: '/home/sentier_vocab_robot/load_graphs.sh /home/sentier_vocab_robot/sentier_vocab/new_ttls.json'

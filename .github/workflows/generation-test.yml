@@ -4,7 +4,7 @@
 # For more info see:
 # https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: TTL generation
+name: TTL generation and deployment
 
 on:
   push:

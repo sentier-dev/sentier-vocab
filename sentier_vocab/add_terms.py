@@ -1,8 +1,10 @@
-from .ordered_serialization import OrderedTurtleSerializer
 from pathlib import Path
+
+import skosify
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, RDF, RDFS, SKOS
-import skosify
+
+from .ordered_serialization import OrderedTurtleSerializer
 
 VAEM = Namespace("http://www.linkedmodel.org/schema/vaem")
 QUDTS = Namespace("http://qudt.org/schema/qudt/")
@@ -11,30 +13,30 @@ QK = QUDTV.quantitykind
 
 
 COMMON_PREDICATES = {
-    'broader': SKOS.broader,
-    'narrower': SKOS.narrower,
-    'prefLabel': SKOS.prefLabel,
-    'altLabel': SKOS.altLabel,
-    'hiddenLabel': SKOS.hiddenLabel,
-    'notation': SKOS.notation,
-    'definition': SKOS.definition,
-    'related': SKOS.related,
-    'exactMatch': SKOS.exactMatch,
-    'closeMatch': SKOS.closeMatch,
-    'inScheme': SKOS.inScheme,
-    'isDefinedBy': RDFS.isDefinedBy,
-    'isReplacedBy': DCTERMS.isReplacedBy,
-    'type': RDF.type,
-    'hasQuantityKind': QUDTS.hasQuantityKind,
-    'hasDimensionVector': QUDTS.hasDimensionVector,
-    'conversionMultiplier': QUDTS.conversionMultiplier,
-    'conversionMultiplier': QUDTS.conversionMultiplier,
-    'conversionMultiplierSN': QUDTS.conversionMultiplierSN,
-    'created': DCTERMS.created,
-    'creator': DCTERMS.creator,
-    'description': DCTERMS.description,
-    'rights': DCTERMS.rights,
-    'subject': DCTERMS.subject,
+    "broader": SKOS.broader,
+    "narrower": SKOS.narrower,
+    "prefLabel": SKOS.prefLabel,
+    "altLabel": SKOS.altLabel,
+    "hiddenLabel": SKOS.hiddenLabel,
+    "notation": SKOS.notation,
+    "definition": SKOS.definition,
+    "related": SKOS.related,
+    "exactMatch": SKOS.exactMatch,
+    "closeMatch": SKOS.closeMatch,
+    "inScheme": SKOS.inScheme,
+    "isDefinedBy": RDFS.isDefinedBy,
+    "isReplacedBy": DCTERMS.isReplacedBy,
+    "type": RDF.type,
+    "hasQuantityKind": QUDTS.hasQuantityKind,
+    "hasDimensionVector": QUDTS.hasDimensionVector,
+    "conversionMultiplier": QUDTS.conversionMultiplier,
+    "conversionMultiplier": QUDTS.conversionMultiplier,
+    "conversionMultiplierSN": QUDTS.conversionMultiplierSN,
+    "created": DCTERMS.created,
+    "creator": DCTERMS.creator,
+    "description": DCTERMS.description,
+    "rights": DCTERMS.rights,
+    "subject": DCTERMS.subject,
 }
 OBJECT_TYPES_FOR_PREDICATES = {
     SKOS.broader: URIRef,
@@ -63,8 +65,8 @@ OBJECT_TYPES_FOR_PREDICATES = {
     DCTERMS.subject: Literal,
 }
 COMMON_OBJECTS = {
-    'Concept': SKOS.Concept,
-    'ConceptScheme': SKOS.ConceptScheme,
+    "Concept": SKOS.Concept,
+    "ConceptScheme": SKOS.ConceptScheme,
 }
 
 
@@ -137,7 +139,9 @@ def add_custom_terms(data: list[dict], namespace: str, filename: str) -> Path:
             raise ValueError(f"Object {o} can be translated into correct form")
 
         if object_type is not None and not isinstance(object_, object_type):
-            raise ValueError(f"Object {object_} has incorrect type for this function; should be {object_type} but got {type(object_)} in triple ({s} {p} {o})")
+            raise ValueError(
+                f"Object {object_} has incorrect type for this function; should be {object_type} but got {type(object_)} in triple ({s} {p} {o})"
+            )
 
         graph.add((subject, predicate, object_))
 
@@ -147,7 +151,7 @@ def add_custom_terms(data: list[dict], namespace: str, filename: str) -> Path:
 
     output_path = (Path(__file__).parent / "output" / filename).with_suffix(".ttl")
     serializer = OrderedTurtleSerializer(graph)
-    with open(output_path, 'wb') as fp:
+    with open(output_path, "wb") as fp:
         serializer.serialize(fp)
 
     return output_path

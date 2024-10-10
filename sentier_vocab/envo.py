@@ -112,4 +112,4 @@ class ENVO(GraphBase):
 
 
 if __name__ == "__main__":
-    ENVO().write_graph(dirpath = Path(__file__).parent / "output")
+    ENVO().write_graph(dirpath=Path(__file__).parent / "output")

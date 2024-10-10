@@ -42,9 +42,9 @@ jobs:
           pip install .
       # generate the ttl files
       - name: generate
-        shell: bash {0}
+        shell: bash -l {0}
         run: |
-          sh scripts/generate.sh
+          bash scripts/generate.sh
 
   deploy_to_server:
     runs-on: ubuntu-latest

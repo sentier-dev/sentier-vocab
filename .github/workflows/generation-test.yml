@@ -43,7 +43,7 @@ jobs:
       # generate the ttl files
       - name: generate
         run: |
-          sh scripts/generate.sh
+          bash scripts/generate.sh
   deploy_to_server:
     runs-on: ubuntu-latest
     steps:

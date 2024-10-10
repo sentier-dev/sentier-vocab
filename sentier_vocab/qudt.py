@@ -346,7 +346,11 @@ def add_quantity_kinds_to_graph(
     The `input_ttl` concept scheme was written by hand (!), but we can make it more useful by
     positioning each input concept in the QUDT quantity kind hierarchy.
     """
-    output_ttl = Path(__file__).parent / "output" / Path(str(input_ttl.stem)+ ".supplemented" + str(input_ttl.suffix))
+    output_ttl = (
+        Path(__file__).parent
+        / "output"
+        / Path(str(input_ttl.stem) + ".supplemented" + str(input_ttl.suffix))
+    )
 
     input_graph = Graph().parse(input_ttl)
     qudt = Graph().parse(qudt_ttl)
@@ -378,5 +382,5 @@ if __name__ == "__main__":
     QUDT().write_graph()
     add_quantity_kinds_to_graph(
         Path(__file__).parent / "input" / "simapro.ttl",
-        Path(__file__).parent / "output" / "qudt-sentier-dev.ttl"
+        Path(__file__).parent / "output" / "qudt-sentier-dev.ttl",
     )

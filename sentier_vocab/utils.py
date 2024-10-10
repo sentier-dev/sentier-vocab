@@ -159,9 +159,7 @@ class GithubZipfileRelease:
 
 
 def get_file_in_downloadable_zip_archive(
-    url: str,
-    path: str,
-    data_dir: Path = DEFAULT_DATA_DIR
+    url: str, path: str, data_dir: Path = DEFAULT_DATA_DIR
 ) -> TextIO:
     zip_archive = ZipFile(
         open(

@@ -55,9 +55,7 @@ class GraphBase:
     def get_identifier(self, uri: URIRef) -> str:
         return uri.split("/")[-1]
 
-    def write_graph(
-        self, filename: str, dirpath: Path | None = None
-    ) -> Path:
+    def write_graph(self, filename: str, dirpath: Path | None = None) -> Path:
         if not filename.endswith(".ttl"):
             filename += ".ttl"
         if not dirpath:

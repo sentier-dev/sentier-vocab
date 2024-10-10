@@ -1,12 +1,13 @@
-from rdflib import Graph, Namespace, URIRef
-from sentier_vocab.utils import get_file_in_downloadable_zip_archive
-from sentier_vocab.graph_base import GraphBase
-from rdflib.namespace import RDFS, SKOS, RDF
 import skosify
 from loguru import logger
+from rdflib import Graph, Namespace, URIRef
+from rdflib.namespace import RDF, RDFS, SKOS
+
+from sentier_vocab.graph_base import GraphBase
+from sentier_vocab.utils import get_file_in_downloadable_zip_archive
 
 OEO = Namespace("http://openenergy-platform.org/ontology/oeo/")
-OBO = Namespace('http://purl.obolibrary.org/obo/')
+OBO = Namespace("http://purl.obolibrary.org/obo/")
 
 MATCHES = {
     # Hydrogen
@@ -34,7 +35,6 @@ NARROWER = {
     URIRef(OEO + "OEO_00010382"): URIRef(OEO + "OEO_00010381"),
     # Fossil steam reforming hydrogen with CCS
     URIRef(OEO + "OEO_00010383"): URIRef(OEO + "OEO_00010381"),
-
     ### Electricity
     # renewable electrical energy
     URIRef(OEO + "OEO_00010384"): URIRef("http://data.europa.eu/xsp/cn2024/271600000080"),
@@ -57,8 +57,7 @@ class OpenEnergyProducts(GraphBase):
     def __init__(self, graph: Graph | None = None):
         logger.info("Parsing and creating Open Energy Ontology elements")
         data = get_file_in_downloadable_zip_archive(
-            "https://openenergyplatform.org/ontology/oeo/releases/latest",
-            "oeo-full.owl"
+            "https://openenergyplatform.org/ontology/oeo/releases/latest", "oeo-full.owl"
         )
         self.input_graph = Graph().parse(data, format="xml")
         new_graph = graph is None

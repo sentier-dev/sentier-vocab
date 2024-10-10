@@ -4,7 +4,7 @@
 # For more info see:
 # https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Python 🐍 CI/CD tests for ttl generation
+name: TTL generation
 
 on:
   push:
@@ -60,3 +60,4 @@ jobs:
         local: 'sentier_vocab/output/*'
         remote: sentier_vocab
         scp_options: -r
+        post_upload: '/home/sentier_vocab_robot/load_graphs.sh /home/sentier_vocab_robot/sentier_vocab/new_ttls.json'

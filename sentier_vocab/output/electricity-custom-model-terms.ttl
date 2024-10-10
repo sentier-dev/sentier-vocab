@@ -1,0 +1,38 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vocab.sentier.dev/model-terms/emission-factor/bonsai-prod-ef> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/model-terms/emission-factor> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/model-terms/emission-factor> ;
+    skos:definition "The Bonsai production emission factor is the ratio of emissions produced to the amount of electricity generated based on data from Bonsai."@en ;
+    skos:prefLabel "Bonsai production emission factor"@en ;
+    skos:related <https://github.com/BONSAMURAIS/>,
+        <https://lca.aau.dk/> .
+
+<https://vocab.sentier.dev/model-terms/emission-factor/bonsai-sc-ef> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/model-terms/emission-factor> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/model-terms/emission-factor> ;
+    skos:definition "The Bonsai supply chain emission factor is the ratio of emissions produced indirectly to the amount of electricity generated."@en ;
+    skos:prefLabel "Bonsai supply chain emission factor"@en .
+
+<https://vocab.sentier.dev/model-terms/emission-factor/prod-ef> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/model-terms/emission-factor> ;
+    skos:broaderTransitive <https://vocab.sentier.dev/model-terms/emission-factor> ;
+    skos:definition "The production emission factor is the ratio of emissions produced to the amount of electricity generated."@en ;
+    skos:prefLabel "Production emission factor"@en .
+
+<https://vocab.sentier.dev/model-terms/emission-factor> a skos:ConceptScheme ;
+    dcterms:created "2024-10-10"^^xsd:date ;
+    dcterms:creator "Chris Mutel" ;
+    dcterms:description "Terms related to technology emission factors"@en ;
+    dcterms:subject "Sentier.dev models" ;
+    skos:definition "The production emission factor is the ratio of emissions produced to the amount of electricity generated."@en ;
+    skos:narrower <https://vocab.sentier.dev/model-terms/emission-factor/bonsai-prod-ef>,
+        <https://vocab.sentier.dev/model-terms/emission-factor/bonsai-sc-ef>,
+        <https://vocab.sentier.dev/model-terms/emission-factor/prod-ef> ;
+    skos:narrowerTransitive <https://vocab.sentier.dev/model-terms/emission-factor/bonsai-prod-ef>,
+        <https://vocab.sentier.dev/model-terms/emission-factor/bonsai-sc-ef>,
+        <https://vocab.sentier.dev/model-terms/emission-factor/prod-ef> ;
+    skos:prefLabel "Emission factor terms"@en .
+

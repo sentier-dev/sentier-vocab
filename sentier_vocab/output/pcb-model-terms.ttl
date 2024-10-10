@@ -1,0 +1,7 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.sentier.dev/model-terms/electronics/pcb/surface_finish> a skos:Concept ;
+    skos:definition "This is the surface on pcb taken by all pads and vias, finished by a coating"@en ;
+    skos:prefLabel "Surface finish type (usually silver, nickel-gold, or tin)"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Printed_circuit_board#Plating_and_coating> .
+

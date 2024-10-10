@@ -1,0 +1,14 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.sentier.dev/products/electronics/electronics_factory> a skos:Concept ;
+    skos:definition "A factory which makes various types of electronics and electronic components, including PCBs, which are the best kind."@en ;
+    skos:prefLabel "Electronics factory"@en ;
+    skos:related <https://fr.wikipedia.org/wiki/Fabricant_de_composant_%C3%A9lectronique> .
+
+<https://vocab.sentier.dev/products/energy/heat> a skos:Concept ;
+    skos:prefLabel "Heat"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Heat> .
+
+<http://data.europa.eu/xsp/cn2024/853400000080> skos:altLabel "Printed circuit board"@en ;
+    skos:related <https://en.wikipedia.org/wiki/Printed_circuit_board> .
+

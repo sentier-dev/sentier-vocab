@@ -1,0 +1,63 @@
+---
+# This workflow will install Python dependencies and run tests
+# across operating systems, select versions of Python, and user + dev environments
+# For more info see:
+# https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: TTL generation
+
+on:
+  push:
+    paths-ignore: # prevents workflow execution when only these types of files are modified
+      - "**.md" # wildcards prevent file in any repo dir from trigering workflow
+      - "**.bib"
+      - "**.ya?ml"
+      - "LICENSE"
+      - ".gitignore"
+  pull_request:
+    types: [opened, reopened] # excludes syncronize to avoid redundant trigger from commits on PRs
+    paths-ignore:
+      - "**.md"
+      - "**.bib"
+      - "**.ya?ml"
+      - "LICENSE"
+      - ".gitignore"
+  workflow_dispatch: # also allow manual trigger, for testing purposes
+
+jobs:
+  generate_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # general Python setup
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # install 
+      - name: Install package
+        run: |
+          pip install .
+      # generate the ttl files
+      - name: generate
+        shell: bash -l {0}
+        run: |
+          bash scripts/generate.sh
+
+  deploy_to_server:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: deploy
+      uses: mdallasanta/ssh-scp-deploy@v1.2.0
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        local: 'sentier_vocab/output/*'
+        remote: sentier_vocab
+        scp_options: -r
+        post_upload: '/home/sentier_vocab_robot/load_graphs.sh /home/sentier_vocab_robot/sentier_vocab/new_ttls.json'

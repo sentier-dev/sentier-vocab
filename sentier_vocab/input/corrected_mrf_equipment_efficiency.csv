@@ -1,0 +1,19 @@
+plant model;equipment;sequence;film;cardboard;glass;paper;PET;HDPE;iron;aluminium;other
+4P;vacuum;1;0.98;0.02;0;0.02;0;0;0;0;0
+4P;disc screen 1;2;0;0.75;0;0.02;0;0;0;0;0
+4P;glass breaker;3;0;0;0.97;0;0;0;0;0;0
+4P;disc screen 2;4;0.02;0.02;0;0.94;0;0;0;0;0
+4P;NIR PET;5;0.2;0.05;0.08;0.05;0.91;0.1;0;0.03;0.05
+4P;NIR HDPE;6;0.2;0.05;0.08;0.05;0.01;0.7;0;0.03;0.05
+4P;magnet;7;0.01;0;0;0;0;0;0.92;0;0.02
+4P;eddy;8;0;0;0.5;0;0;0;0;0.8;0
+Pressley et al. 2015;vacuum;1;0.90;0;0;0;0;0;0;0;0
+Pressley et al. 2015;disc screen 1;2;0;0.7;0;0;0;0;0;0;0
+Pressley et al. 2015;disc screen 2;3;0;0.85;0;0.85;0;0;0;0;0
+Pressley et al. 2015;disc screen 3;4;0;0.91;0;0.91;0;0;0;0;0
+Pressley et al. 2015;glass breaker;5;0;0;0.97;0;0;0;0;0;0
+Pressley et al. 2015;optical glass;6;0;0;0.98;0;0;0;0;0;0
+Pressley et al. 2015;NIR PET;7;0;0;0;0;0.98;0;0;0;0
+Pressley et al. 2015;NIR HDPE;8;0;0;0;0;0;0.98;0;0;0
+Pressley et al. 2015;magnet;9;0;0;0;0;0;0;0.98;0;0
+Pressley et al. 2015;eddy;10;0;0;0;0;0;0;0;0.97;0

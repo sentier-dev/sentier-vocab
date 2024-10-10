@@ -30,10 +30,15 @@ COMMON_PREDICATES = {
     'conversionMultiplier': QUDTS.conversionMultiplier,
     'conversionMultiplier': QUDTS.conversionMultiplier,
     'conversionMultiplierSN': QUDTS.conversionMultiplierSN,
+    'created': DCTERMS.created,
+    'creator': DCTERMS.creator,
+    'description': DCTERMS.description,
+    'rights': DCTERMS.rights,
+    'subject': DCTERMS.subject,
 }
 OBJECT_TYPES_FOR_PREDICATES = {
-    SKOS.broader: Literal,
-    SKOS.narrower: Literal,
+    SKOS.broader: URIRef,
+    SKOS.narrower: URIRef,
     SKOS.prefLabel: Literal,
     SKOS.altLabel: Literal,
     SKOS.hiddenLabel: Literal,
@@ -51,6 +56,11 @@ OBJECT_TYPES_FOR_PREDICATES = {
     QUDTS.conversionMultiplier: URIRef,
     QUDTS.conversionMultiplier: URIRef,
     QUDTS.conversionMultiplierSN: URIRef,
+    DCTERMS.created: Literal,
+    DCTERMS.creator: Literal,
+    DCTERMS.description: Literal,
+    DCTERMS.rights: Literal,
+    DCTERMS.subject: Literal,
 }
 COMMON_OBJECTS = {
     'Concept': SKOS.Concept,
@@ -88,10 +98,13 @@ def add_custom_terms(data: list[dict], namespace: str, filename: str) -> Path:
         elif len(line) == 4:
             s, p, o, lang = line
         else:
-            raise ValueError(f"Data line {line} has wrong number of elements")
+            raise ValueError(f"Subject {s} has incorrect type for this function")
 
         object_type = None
-        subject = URIRef(namespace + s)
+        if isinstance(s, URIRef):
+            subject = s
+        elif isinstance(s, str):
+            subject = URIRef(namespace + s)
 
         if isinstance(p, URIRef):
             predicate = p
@@ -124,7 +137,7 @@ def add_custom_terms(data: list[dict], namespace: str, filename: str) -> Path:
             raise ValueError(f"Object {o} can be translated into correct form")
 
         if object_type is not None and not isinstance(object_, object_type):
-            raise ValueError(f"Object {object_} has incorrect type for this function; should be {type(object_type)} but got {type(object_)}")
+            raise ValueError(f"Object {object_} has incorrect type for this function; should be {object_type} but got {type(object_)} in triple ({s} {p} {o})")
 
         graph.add((subject, predicate, object_))
 

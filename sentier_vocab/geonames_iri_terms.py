@@ -5,7 +5,6 @@ from rdflib import Literal
 from rdflib.namespace import XSD
 from skosify import infer
 import sentier_data_tools as sdt
-from tqdm.notebook import tqdm
 import os
 import zipfile
 from urllib.request import urlretrieve
@@ -90,7 +89,7 @@ def generateGeonameVocabulary(world_path: str, hierarchy_path: str):
 
     world = Graph()
 
-    for item in tqdm(filtered_world.iter_rows(),total=filtered_world.height):
+    for item in filtered_world.iter_rows():
         uri = URIRef(GEOSPACES + str(item[0]))
         pref_name = Literal(item[1])
         alt_names = []

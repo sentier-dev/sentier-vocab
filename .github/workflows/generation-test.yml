@@ -42,8 +42,9 @@ jobs:
           pip install .
       # generate the ttl files
       - name: generate
+        shell: bash {0}
         run: |
-          bash scripts/generate.sh
+          sh scripts/generate.sh
 
   deploy_to_server:
     runs-on: ubuntu-latest
@@ -56,6 +57,6 @@ jobs:
         user: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        local: 'sentier_vocab/output/'
+        local: 'sentier_vocab/output/*'
         remote: sentier_vocab
         scp_options: -r

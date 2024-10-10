@@ -42,7 +42,7 @@ jobs:
       - name: generate
         shell: bash -l {0}
         run: |
-          bash scripts/generate.sh generate custom_products
+          bash scripts/generate.sh
       # deploy files to server
       - name: deploy
         uses: mdallasanta/ssh-scp-deploy@v1.2.0

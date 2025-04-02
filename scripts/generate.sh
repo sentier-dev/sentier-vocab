@@ -54,14 +54,14 @@ EOF
 fetch() {
     [[ "$#" -eq 0 ]] || usage
     echo == CN_2024.rdf.zip ==
-    curl \
-        --silent --show-error \
-        --cookie-jar cookies.txt --output /dev/null \
-        --data 'email=public%40showvoc.eu&password=showvoc' \
-        'https://showvoc.op.europa.eu/semanticturkey/it.uniroma2.art.semanticturkey/st-core-services/Auth/login'
-    curl \
-        --cookie cookies.txt --output CN_2024.rdf.zip \
-        'https://showvoc.op.europa.eu/semanticturkey/it.uniroma2.art.semanticturkey/st-core-services/Download/getFile?fileName=CN_2024.rdf.zip&ctx_project=ESTAT_Combined_Nomenclature%2C_2024_(CN_2024)'
+    curl 'https://showvoc.op.europa.eu/semanticturkey/it.uniroma2.art.semanticturkey/st-core-services/Download/getFile?fileName=CN_2024.zip&ctx_project=ESTAT_Combined_Nomenclature%2C_2024_(CN_2024)&' \
+        --compressed \
+        -H 'Accept: application/json, text/plain, */*' \
+        -H 'Accept-Encoding: gzip, deflate, br, zstd' \
+        -H 'Connection: keep-alive' \
+        -H 'Referer: https://showvoc.op.europa.eu/'\
+        -H 'Cookie: translate.lang=en' \
+        --output CN_2024.rdf.zip
     unzip -u CN_2024.rdf.zip
 }
 

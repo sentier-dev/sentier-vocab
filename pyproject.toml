@@ -29,12 +29,15 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
+    "httpx",
     "loguru",
+    "orjson",
     "platformdirs",
     "rdflib",
     "requests",
     "rfc3987",
     "skosify",
+    "structlog",
     "tqdm",
 ]
 

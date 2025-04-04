@@ -21,7 +21,7 @@ SAMPLE_CORRESPONDENCE_BY_YEAR = {
         URIRef("http://data.europa.eu/xsp/cn2024/CN2024_PRODCOM2024"),
     ],
     25: [
-        # URIRef("http://data.europa.eu/xsp/cn2025/CN2025_CN2024_FULL"),
+        URIRef("http://data.europa.eu/xsp/cn2025/CN2025_CN2024_FULL"),
         URIRef("http://data.europa.eu/xsp/cn2025/CN2025_CPA22"),
     ],
 }

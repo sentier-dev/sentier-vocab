@@ -94,7 +94,7 @@ class QUDT:
         # skosify.infer.rdfs_properties(self.graph)
 
     def add_concept_scheme(self) -> URIRef:
-        schema_graph = self.get_graph_for_file("/schema/SCHEMA_QUDT-v")
+        schema_graph = self.get_graph_for_file("/src/main/rdf/schema/SCHEMA_QUDT")
         ontology = get_one_in_graph(schema_graph, ((None, RDF.type, OWL.Ontology)))[0]
         graph_metdata_node = get_one_in_graph(
             schema_graph, (ontology, VAEM["#hasGraphMetadata"], None)
@@ -147,7 +147,7 @@ class QUDT:
         return deprecated.difference(replaced)
 
     def add_quantity_kinds(self, cs: URIRef) -> dict[URIRef, URIRef]:
-        qk_graph = self.get_graph_for_file("/vocab/quantitykinds/VOCAB_QUDT-QUANTITY-KINDS-ALL-v")
+        qk_graph = self.get_graph_for_file("/src/main/rdf/vocab/quantitykinds/VOCAB_QUDT-QUANTITY-KINDS-ALL")
         assert not self.check_that_deprecated_have_replaced_by(qk_graph, QK)
 
         qk_mapping = {
@@ -249,7 +249,7 @@ class QUDT:
             self.add((uri, QUDTS.hasQuantityKind, qk_mapping[possibles[0]]))
 
     def add_units(self, cs: URIRef, qk_mapping: dict[URIRef, URIRef]) -> None:
-        unit_graph = self.get_graph_for_file("/vocab/unit/VOCAB_QUDT-UNITS-ALL-v")
+        unit_graph = self.get_graph_for_file("/src/main/rdf/vocab/unit/VOCAB_QUDT-UNITS-ALL")
         for triple in Graph().parse(qudt_patches_data):
             unit_graph.add(triple)
         self.check_all_units_have_vector(unit_graph)

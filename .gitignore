@@ -130,3 +130,6 @@ dmypy.json
 
 # Design / planning docs (local-only working artifacts, never committed)
 docs/superpowers/
+
+# uv workflow artifacts
+uv.lock

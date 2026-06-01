@@ -16,3 +16,16 @@ def test_common_schema_defines_concept_base():
     slots = sv.class_slots("Concept")
     assert "iri" in slots
     assert "pref_label" in slots
+
+
+def test_elementary_flow_schema_structure():
+    sv = SchemaView(str(paths.SCHEMAS_DIR / "elementary-flow.yaml"))
+    classes = sv.all_classes()
+    assert "ElementaryFlow" in classes
+    assert "ElementaryFlowCollection" in classes
+    # Collection is the validation tree root for a scheme/group file.
+    assert classes["ElementaryFlowCollection"].tree_root is True
+    # ElementaryFlow inherits the SKOS spine from Concept.
+    ef_slots = sv.class_slots("ElementaryFlow")
+    assert "pref_label" in ef_slots
+    assert "compartment" in ef_slots

@@ -1,6 +1,21 @@
+import pytest
 from linkml_runtime import SchemaView
 
 from sentier_vocab import paths
+from sentier_vocab.errors import SchemaValidationError
+from sentier_vocab.schemas import validate_data_file
+
+FIXTURES = paths.REPO_ROOT / "tests" / "fixtures"
+EF_SCHEMA = paths.SCHEMAS_DIR / "elementary-flow.yaml"
+
+
+def test_valid_data_file_passes():
+    assert validate_data_file(FIXTURES / "valid_flows.yaml", EF_SCHEMA) is True
+
+
+def test_invalid_data_file_raises():
+    with pytest.raises(SchemaValidationError):
+        validate_data_file(FIXTURES / "invalid_flows.yaml", EF_SCHEMA)
 
 
 def test_paths_point_at_repo_root():

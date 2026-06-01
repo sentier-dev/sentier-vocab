@@ -63,6 +63,26 @@ def test_build_graph_handles_notation_close_match_related():
     assert (x3, SKOS.related, URIRef("http://example.org/rel")) in result
 
 
+def test_generate_category_rejects_unregistered_scheme(tmp_path):
+    import pytest
+    from sentier_vocab.errors import SchemaValidationError
+    bad = tmp_path / "bad.yaml"
+    bad.write_text(
+        "scheme: https://vocab.sentier.dev/NOT-A-REAL-NS/\n"
+        "flows:\n"
+        "  - iri: https://vocab.sentier.dev/NOT-A-REAL-NS/X\n"
+        "    pref_label: X\n"
+        "    status: published\n"
+    )
+    with pytest.raises(SchemaValidationError):
+        generate_category(
+            category="elementary-flows",
+            schema_path=paths.SCHEMAS_DIR / "elementary-flow.yaml",
+            data_path=bad,
+            output_path=tmp_path / "out.ttl",
+        )
+
+
 def test_generate_category_writes_valid_ttl(tmp_path):
     out = tmp_path / "flows.ttl"
     result_path = generate_category(

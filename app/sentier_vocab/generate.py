@@ -10,6 +10,8 @@ import yaml
 from rdflib import Graph, Literal, URIRef
 from rdflib.namespace import RDF, SKOS
 
+from sentier_vocab.errors import SchemaValidationError
+from sentier_vocab.iris import NAMESPACES
 from sentier_vocab.ordered_serialization import OrderedTurtleSerializer
 from sentier_vocab.schemas import validate_data_file
 
@@ -79,7 +81,13 @@ def generate_category(
     """Validate one data file, build its graph, and write the TTL. Returns the output path."""
     validate_data_file(data_path, schema_path)
     raw = yaml.safe_load(Path(data_path).read_text())
+    scheme = raw["scheme"]
+    if scheme not in set(NAMESPACES.values()):
+        raise SchemaValidationError(
+            f"{data_path}: scheme {scheme!r} is not a registered Sentier.dev namespace "
+            f"(see sentier_vocab.iris.NAMESPACES)"
+        )
     collection_key = CATEGORY_COLLECTION_KEY.get(category, "concepts")
     concepts = raw.get(collection_key) or []
-    graph = build_graph(concepts, raw["scheme"])
+    graph = build_graph(concepts, scheme)
     return write_ttl(graph, output_path)

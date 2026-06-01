@@ -44,3 +44,9 @@ def test_elementary_flow_schema_structure():
     ef_slots = sv.class_slots("ElementaryFlow")
     assert "pref_label" in ef_slots
     assert "compartment" in ef_slots
+
+
+def test_pilot_water_data_is_valid():
+    data_file = paths.DATA_DIR / "elementary-flows" / "water.yaml"
+    assert data_file.exists()
+    assert validate_data_file(data_file, EF_SCHEMA) is True

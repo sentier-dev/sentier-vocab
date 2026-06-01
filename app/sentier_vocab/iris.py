@@ -15,21 +15,23 @@ __all__ = ("NAMESPACES", "namespace_for", "iri_for", "identifier_from")
 
 BASE = "https://vocab.sentier.dev/"
 
-NAMESPACES: Mapping[str, str] = types.MappingProxyType({
-    # Existing published namespaces — DO NOT change without a vocabulary migration.
-    "flows": BASE + "flows/",
-    "units": BASE + "units/",
-    "products": BASE + "products/",
-    "model-terms": BASE + "model-terms/",
-    # New LCIA data types (ILCD-aligned).
-    "flow-properties": BASE + "flow-properties/",
-    "processes": BASE + "processes/",
-    "lcia-methods": BASE + "lcia-methods/",
-    "impact-categories": BASE + "impact-categories/",
-    "characterization-factors": BASE + "characterization-factors/",
-    "sources": BASE + "sources/",
-    "contacts": BASE + "contacts/",
-})
+NAMESPACES: Mapping[str, str] = types.MappingProxyType(
+    {
+        # Existing published namespaces — DO NOT change without a vocabulary migration.
+        "flows": BASE + "flows/",
+        "units": BASE + "units/",
+        "products": BASE + "products/",
+        "model-terms": BASE + "model-terms/",
+        # New LCIA data types (ILCD-aligned).
+        "flow-properties": BASE + "flow-properties/",
+        "processes": BASE + "processes/",
+        "lcia-methods": BASE + "lcia-methods/",
+        "impact-categories": BASE + "impact-categories/",
+        "characterization-factors": BASE + "characterization-factors/",
+        "sources": BASE + "sources/",
+        "contacts": BASE + "contacts/",
+    }
+)
 
 
 def namespace_for(category: str) -> Namespace:

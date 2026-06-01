@@ -65,7 +65,9 @@ def test_build_graph_handles_notation_close_match_related():
 
 def test_generate_category_rejects_unregistered_scheme(tmp_path):
     import pytest
+
     from sentier_vocab.errors import SchemaValidationError
+
     bad = tmp_path / "bad.yaml"
     bad.write_text(
         "scheme: https://vocab.sentier.dev/NOT-A-REAL-NS/\n"

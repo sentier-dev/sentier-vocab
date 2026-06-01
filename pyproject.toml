@@ -61,7 +61,9 @@ testing = [
     "python-coveralls"
 ]
 dev = [
+    "black",
     "build",
+    "flake8",
     "pre-commit",
     "pylint",
     "pytest",

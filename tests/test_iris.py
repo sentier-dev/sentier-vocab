@@ -17,7 +17,10 @@ def test_new_lcia_namespaces_exact():
     assert iris.NAMESPACES["processes"] == "https://vocab.sentier.dev/processes/"
     assert iris.NAMESPACES["lcia-methods"] == "https://vocab.sentier.dev/lcia-methods/"
     assert iris.NAMESPACES["impact-categories"] == "https://vocab.sentier.dev/impact-categories/"
-    assert iris.NAMESPACES["characterization-factors"] == "https://vocab.sentier.dev/characterization-factors/"
+    assert (
+        iris.NAMESPACES["characterization-factors"]
+        == "https://vocab.sentier.dev/characterization-factors/"
+    )
     assert iris.NAMESPACES["sources"] == "https://vocab.sentier.dev/sources/"
     assert iris.NAMESPACES["contacts"] == "https://vocab.sentier.dev/contacts/"
 
@@ -45,4 +48,6 @@ def test_namespaces_is_immutable():
 
 
 def test_identifier_from_accepts_plain_string():
-    assert iris.identifier_from("https://vocab.sentier.dev/processes/steel-making") == "steel-making"
+    assert (
+        iris.identifier_from("https://vocab.sentier.dev/processes/steel-making") == "steel-making"
+    )

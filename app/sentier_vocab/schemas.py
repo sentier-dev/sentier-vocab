@@ -19,9 +19,7 @@ def _get_tree_root(schema_path: Path | str) -> str:
     for name, cls in sv.all_classes().items():
         if cls.tree_root:
             return name
-    raise SchemaValidationError(
-        f"No class with tree_root: true found in schema {schema_path}"
-    )
+    raise SchemaValidationError(f"No class with tree_root: true found in schema {schema_path}")
 
 
 def validate_data_file(data_path: Path | str, schema_path: Path | str) -> bool:

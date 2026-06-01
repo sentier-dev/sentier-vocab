@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import skosify
-from rdflib import Graph, Literal, Namespace, URIRef
+from rdflib import Graph, Literal, URIRef
 
 from sentier_vocab.utils import DEFAULT_DATA_DIR, GithubZipfileRelease
 

@@ -1,0 +1,85 @@
+id: https://vocab.sentier.dev/schemas/common
+name: sentier_common
+title: Sentier.dev common vocabulary classes
+description: Shared SKOS-based building blocks reused by every Sentier.dev data type.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  sentier: https://vocab.sentier.dev/
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+
+classes:
+  Concept:
+    abstract: true
+    class_uri: skos:Concept
+    description: Base SKOS concept. Every Sentier.dev term is_a Concept.
+    slots:
+      - iri
+      - pref_label
+      - alt_labels
+      - definition
+      - notation
+      - broader
+      - exact_match
+      - close_match
+      - related
+      - status
+
+slots:
+  iri:
+    description: Globally unique IRI identifying this concept.
+    identifier: true
+    range: uriorcurie
+  pref_label:
+    description: Preferred human-readable label (English).
+    slot_uri: skos:prefLabel
+    required: true
+  alt_labels:
+    description: Alternative labels / synonyms.
+    slot_uri: skos:altLabel
+    multivalued: true
+  definition:
+    description: SKOS definition.
+    slot_uri: skos:definition
+  notation:
+    description: SKOS notation / code.
+    slot_uri: skos:notation
+  broader:
+    description: IRI of the broader (parent) concept.
+    slot_uri: skos:broader
+    range: uriorcurie
+  exact_match:
+    description: "Crosswalk: exactly equivalent concept in another vocabulary."
+    slot_uri: skos:exactMatch
+    range: uriorcurie
+    multivalued: true
+  close_match:
+    description: "Crosswalk: closely related concept in another vocabulary."
+    slot_uri: skos:closeMatch
+    range: uriorcurie
+    multivalued: true
+  related:
+    description: Associative (non-hierarchical) related concept.
+    slot_uri: skos:related
+    range: uriorcurie
+    multivalued: true
+  status:
+    description: Curation status of this term.
+    range: status_enum
+
+enums:
+  status_enum:
+    permissible_values:
+      draft:
+        description: Proposed, not yet published.
+      published:
+        description: Published in the live vocabulary.
+      deprecated:
+        description: Retained for stability but no longer recommended.

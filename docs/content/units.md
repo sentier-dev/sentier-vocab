@@ -37,6 +37,3 @@ Units are organized into a simple hierarchy:
 [QUDT](https://qudt.org/) is the foundation that our unit systems are built on top of.
 
 As QUDT is quite broad, we only need to use a subset
-
-
-

@@ -30,9 +30,11 @@ classifiers = [
 requires-python = ">=3.10"
 dependencies = [
     "httpx",
+    "linkml",
     "loguru",
     "orjson",
     "platformdirs",
+    "pyyaml",
     "rdflib",
     "requests",
     "rfc3987",
@@ -68,7 +70,9 @@ dev = [
 [tool.setuptools]
 license-files = ["LICENSE"]
 include-package-data = true
-packages = ["sentier_vocab"]
+
+[tool.setuptools.packages.find]
+where = ["app"]
 
 [tool.setuptools.dynamic]
 version = {attr = "sentier_vocab.__version__"}

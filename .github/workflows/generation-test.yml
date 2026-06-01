@@ -52,7 +52,7 @@ jobs:
           user: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          local: 'sentier_vocab/output/*'
+          local: 'app/sentier_vocab/importers/output/*'
           remote: sentier_vocab
           scp_options: -r
           post_upload: '/home/sentier_vocab_robot/load_graphs.sh /home/sentier_vocab_robot/sentier_vocab/new_ttls.json'

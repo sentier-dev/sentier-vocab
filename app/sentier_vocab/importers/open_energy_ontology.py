@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import skosify
 from loguru import logger
 from rdflib import Graph, Namespace, URIRef
@@ -83,4 +85,6 @@ class OpenEnergyProducts(GraphBase):
 
 
 if __name__ == "__main__":
-    OpenEnergyProducts().write_graph("oeo-product-vocab.ttl")
+    OpenEnergyProducts().write_graph(
+        "oeo-product-vocab.ttl", dirpath=Path(__file__).parent / "output"
+    )

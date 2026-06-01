@@ -1,0 +1,17 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.sentier.dev/flows/ENVO_00002006> a skos:Concept ;
+    skos:definition "Water with low concentrations of dissolved salts and other dissolved solids."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002006> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "Freshwater"@en .
+
+<https://vocab.sentier.dev/flows/ENVO_00002010> a skos:Concept ;
+    skos:broader <https://vocab.sentier.dev/flows/ENVO_00002006> ;
+    skos:definition "Water that contains a significant concentration of dissolved salts."@en ;
+    skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_00002010> ;
+    skos:inScheme <https://vocab.sentier.dev/flows/> ;
+    skos:prefLabel "Saline water"@en .
+
+<https://vocab.sentier.dev/flows/> a skos:ConceptScheme .
+

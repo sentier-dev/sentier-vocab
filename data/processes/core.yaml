@@ -1,0 +1,19 @@
+scheme: https://vocab.sentier.dev/processes/
+processes:
+  - iri: https://vocab.sentier.dev/processes/steel-production
+    pref_label: Steel production
+    definition: Production of crude steel.
+    geography: https://sws.geonames.org/6295630/
+    valid_from: "2020-01-01"
+    technology: Basic oxygen furnace
+    process_type: unit
+    status: published
+    exchanges:
+      - flow: https://vocab.sentier.dev/flows/ENVO_iron_ore
+        direction: input
+        amount: 1.5
+        unit: http://qudt.org/vocab/unit/KiloGM
+      - flow: https://vocab.sentier.dev/flows/ENVO_carbon_dioxide
+        direction: output
+        amount: 2.1
+        unit: http://qudt.org/vocab/unit/KiloGM

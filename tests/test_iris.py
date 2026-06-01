@@ -51,3 +51,19 @@ def test_identifier_from_accepts_plain_string():
     assert (
         iris.identifier_from("https://vocab.sentier.dev/processes/steel-making") == "steel-making"
     )
+
+
+def test_ontology_namespace():
+    assert iris.ONTOLOGY == "https://vocab.sentier.dev/ontology/"
+
+
+def test_unit_groups_namespace():
+    assert iris.NAMESPACES["unit-groups"] == "https://vocab.sentier.dev/units/group/"
+
+
+def test_iri_for_cf_is_deterministic():
+    cf = iris.iri_for_cf("ipcc-2021-gwp100", "climate-change", "ENVO_carbon_dioxide")
+    assert str(cf) == (
+        "https://vocab.sentier.dev/characterization-factors/"
+        "ipcc-2021-gwp100_climate-change_ENVO_carbon_dioxide"
+    )

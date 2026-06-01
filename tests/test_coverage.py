@@ -14,6 +14,8 @@ def test_render_includes_header_and_rows():
     assert "Elementary flows" in text
     # Pilot file present -> at least one native file counted for elementary-flows.
     assert "| Elementary flows |" in text
+    assert "Layer" in text
+    assert "vocabulary" in text and "data" in text
 
 
 def test_write_creates_file(tmp_path):

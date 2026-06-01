@@ -1,0 +1,12 @@
+@prefix ont: <https://vocab.sentier.dev/ontology/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.sentier.dev/products/electricity> a skos:Concept ;
+    skos:definition "Electrical energy as a product."@en ;
+    skos:inScheme <https://vocab.sentier.dev/products/> ;
+    skos:prefLabel "Electricity"@en ;
+    ont:cpcCode "17100" ;
+    ont:referenceFlowProperty <https://vocab.sentier.dev/flow-properties/energy> .
+
+<https://vocab.sentier.dev/products/> a skos:ConceptScheme .
+

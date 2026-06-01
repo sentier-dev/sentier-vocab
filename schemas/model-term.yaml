@@ -1,0 +1,59 @@
+id: https://vocab.sentier.dev/schemas/model-term
+name: sentier_model_term
+title: Sentier.dev model terms
+description: Schema for native model-term vocabulary entries.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  ModelTerm:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A named parameter or variable used in a computational model,
+      optionally linked to a QUDT quantity kind and unit.
+    slots:
+      - quantity_kind
+      - unit
+
+  ModelTermCollection:
+    tree_root: true
+    description: A scheme/group file holding many model terms.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these model terms belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      model_terms:
+        description: The model terms in this collection.
+        range: ModelTerm
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  quantity_kind:
+    description: The QUDT quantity kind associated with this model term.
+    slot_uri: qudt:hasQuantityKind
+    range: uriorcurie
+  unit:
+    description: The QUDT unit associated with this model term.
+    slot_uri: qudt:hasUnit
+    range: uriorcurie

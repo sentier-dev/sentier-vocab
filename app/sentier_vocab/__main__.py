@@ -10,6 +10,16 @@ from sentier_vocab.generate import generate_category
 # Maps a category to (schema filename, data filename) under schemas/ and data/<category>/.
 NATIVE_CATEGORIES = {
     "elementary-flows": ("elementary-flow.yaml", "water.yaml"),
+    "flow-properties": ("flow-property.yaml", "core.yaml"),
+    "unit-groups": ("unit-group.yaml", "core.yaml"),
+    "products": ("product.yaml", "core.yaml"),
+    "impact-categories": ("impact-category.yaml", "core.yaml"),
+    "lcia-methods": ("lcia-method.yaml", "core.yaml"),
+    "sources": ("source.yaml", "core.yaml"),
+    "contacts": ("contact.yaml", "core.yaml"),
+    "model-terms": ("model-term.yaml", "core.yaml"),
+    "characterization-factors": ("characterization-factor.yaml", "core.yaml"),
+    "processes": ("process.yaml", "core.yaml"),
 }
 
 
@@ -17,11 +27,12 @@ def cmd_generate(args: argparse.Namespace) -> None:
     output_dir = Path(args.output_dir) if args.output_dir else paths.OUTPUT_DIR
     output_dir.mkdir(parents=True, exist_ok=True)
     for category, (schema_name, data_name) in NATIVE_CATEGORIES.items():
+        stem = "flows" if category == "elementary-flows" else category
         out = generate_category(
             category=category,
             schema_path=paths.SCHEMAS_DIR / schema_name,
             data_path=paths.DATA_DIR / category / data_name,
-            output_path=output_dir / "flows.ttl",
+            output_path=output_dir / f"{stem}.ttl",
         )
         print(f"wrote {out}")
 

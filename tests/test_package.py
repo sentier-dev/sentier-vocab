@@ -3,6 +3,8 @@
 from pathlib import Path
 
 import sentier_vocab
+from sentier_vocab.importers.envo import ENVO
+from sentier_vocab.importers.qudt import QUDT
 
 
 def test_package_imports_and_has_version():
@@ -16,8 +18,5 @@ def test_package_lives_under_app_dir():
 
 
 def test_importers_are_accessible():
-    from sentier_vocab.importers.envo import ENVO
-    from sentier_vocab.importers.qudt import QUDT
-
     assert ENVO is not None
     assert QUDT is not None

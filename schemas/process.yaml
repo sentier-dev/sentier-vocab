@@ -1,0 +1,114 @@
+id: https://vocab.sentier.dev/schemas/process
+name: sentier_process
+title: Sentier.dev processes
+description: Schema for life cycle inventory processes with nested exchanges.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  Exchange:
+    class_uri: ont:Exchange
+    description: A quantified flow exchange within a process.
+    attributes:
+      flow:
+        slot_uri: ont:flow
+        range: uriorcurie
+      direction:
+        slot_uri: ont:direction
+        range: flow_direction_enum
+      amount:
+        slot_uri: ont:amount
+        range: double
+      unit:
+        slot_uri: qudt:hasUnit
+        range: uriorcurie
+
+  Process:
+    is_a: Concept
+    class_uri: ont:Process
+    description: >
+      A unit process or system process representing a set of activities
+      with quantified inputs and outputs.
+    slots:
+      - geography
+      - valid_from
+      - technology
+      - process_type
+      - exchanges
+
+  ProcessCollection:
+    tree_root: true
+    description: A collection file holding process records.
+    annotations:
+      layer: data
+    attributes:
+      scheme:
+        description: The namespace IRI for this collection of processes.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      processes:
+        description: The processes in this collection.
+        range: Process
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  geography:
+    description: The geographic scope of this process.
+    slot_uri: ont:geography
+    range: uriorcurie
+  valid_from:
+    description: The date from which this process record is valid.
+    slot_uri: ont:validFrom
+    range: date
+  technology:
+    description: Technology description for this process.
+    slot_uri: ont:technology
+    annotations:
+      lang_tagged: true
+  process_type:
+    description: Type of process (unit, system, or LCI result).
+    slot_uri: ont:processType
+    range: process_type_enum
+  exchanges:
+    description: The quantified input and output flows of this process.
+    slot_uri: ont:hasExchange
+    range: Exchange
+    multivalued: true
+    inlined_as_list: true
+    annotations:
+      iri_key: flow
+      iri_suffix: direction
+
+enums:
+  flow_direction_enum:
+    permissible_values:
+      input:
+        description: A flow entering the process.
+      output:
+        description: A flow leaving the process.
+
+  process_type_enum:
+    permissible_values:
+      unit:
+        description: A unit process with explicit inputs and outputs.
+      system:
+        description: A system process aggregating multiple unit processes.
+      lci_result:
+        description: A cradle-to-gate LCI result.

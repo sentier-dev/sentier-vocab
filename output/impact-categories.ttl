@@ -1,0 +1,18 @@
+@prefix ont: <https://vocab.sentier.dev/ontology/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vocab.sentier.dev/impact-categories/climate-change> a skos:Concept ;
+    qudt:hasUnit <http://qudt.org/vocab/unit/KiloGM> ;
+    skos:definition "Impact on the global climate system."@en ;
+    skos:inScheme <https://vocab.sentier.dev/impact-categories/> ;
+    skos:prefLabel "Climate change"@en ;
+    ont:indicator "Radiative forcing"@en ;
+    ont:method <https://vocab.sentier.dev/lcia-methods/ipcc-2021> ;
+    ont:normalizationFactor 1e+00 ;
+    ont:timeHorizon "100 years" ;
+    ont:weightingFactor 1e+00 .
+
+<https://vocab.sentier.dev/impact-categories/> a skos:ConceptScheme .
+

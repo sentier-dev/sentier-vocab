@@ -1,0 +1,64 @@
+id: https://vocab.sentier.dev/schemas/unit-group
+name: sentier_unit_group
+title: Sentier.dev unit groups
+description: Schema for native unit-group terms.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  UnitGroup:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A group of units that share the same quantity kind (e.g. units of mass).
+    slots:
+      - reference_unit
+      - units
+      - quantity_kind
+
+  UnitGroupCollection:
+    tree_root: true
+    description: A scheme/group file holding many unit groups.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these unit groups belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      unit_groups:
+        description: The unit groups in this collection.
+        range: UnitGroup
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  reference_unit:
+    description: The reference (base) unit for this unit group.
+    slot_uri: qudt:hasUnit
+    range: uriorcurie
+  units:
+    description: All units belonging to this unit group.
+    slot_uri: ont:hasUnit
+    range: uriorcurie
+    multivalued: true
+  quantity_kind:
+    description: The quantity kind this unit group measures.
+    slot_uri: qudt:hasQuantityKind
+    range: uriorcurie

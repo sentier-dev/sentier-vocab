@@ -1,0 +1,8 @@
+scheme: https://vocab.sentier.dev/products/
+products:
+  - iri: https://vocab.sentier.dev/products/electricity
+    pref_label: Electricity
+    definition: Electrical energy as a product.
+    cpc_code: "17100"
+    reference_flow_property: https://vocab.sentier.dev/flow-properties/energy
+    status: published

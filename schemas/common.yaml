@@ -9,6 +9,8 @@ prefixes:
   skos: http://www.w3.org/2004/02/skos/core#
   dcterms: http://purl.org/dc/terms/
   sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  qudt: http://qudt.org/schema/qudt/
 default_prefix: sentier
 default_range: string
 
@@ -41,13 +43,19 @@ slots:
     description: Preferred human-readable label (English).
     slot_uri: skos:prefLabel
     required: true
+    annotations:
+      lang_tagged: true
   alt_labels:
     description: Alternative labels / synonyms.
     slot_uri: skos:altLabel
     multivalued: true
+    annotations:
+      lang_tagged: true
   definition:
     description: SKOS definition.
     slot_uri: skos:definition
+    annotations:
+      lang_tagged: true
   notation:
     description: SKOS notation / code.
     slot_uri: skos:notation
@@ -73,6 +81,8 @@ slots:
   status:
     description: Curation status of this term.
     range: status_enum
+    annotations:
+      internal: true
 
 enums:
   status_enum:

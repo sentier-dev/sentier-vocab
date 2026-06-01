@@ -1,0 +1,16 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ont: <https://vocab.sentier.dev/ontology/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vocab.sentier.dev/lcia-methods/ipcc-2021> a skos:Concept ;
+    dcterms:source <https://vocab.sentier.dev/sources/ipcc-ar6> ;
+    skos:definition "IPCC sixth assessment report characterization factors."@en ;
+    skos:inScheme <https://vocab.sentier.dev/lcia-methods/> ;
+    skos:prefLabel "IPCC 2021"@en ;
+    ont:impactCategory <https://vocab.sentier.dev/impact-categories/climate-change> ;
+    ont:methodology "Global warming potentials"@en ;
+    ont:validFrom "2021-01-01"^^xsd:date .
+
+<https://vocab.sentier.dev/lcia-methods/> a skos:ConceptScheme .
+

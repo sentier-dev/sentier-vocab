@@ -1,0 +1,71 @@
+id: https://vocab.sentier.dev/schemas/lcia-method
+name: sentier_lcia_method
+title: Sentier.dev LCIA methods
+description: Schema for native LCIA-method terms.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  LCIAMethod:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A life cycle impact assessment method providing characterization factors
+      for one or more impact categories.
+    slots:
+      - methodology
+      - impact_categories
+      - source
+      - valid_from
+
+  LCIAMethodCollection:
+    tree_root: true
+    description: A scheme/group file holding many LCIA methods.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these LCIA methods belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      lcia_methods:
+        description: The LCIA methods in this collection.
+        range: LCIAMethod
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  methodology:
+    description: The overarching methodology or framework of this LCIA method.
+    slot_uri: ont:methodology
+    annotations:
+      lang_tagged: true
+  impact_categories:
+    description: Impact categories covered by this LCIA method.
+    slot_uri: ont:impactCategory
+    range: uriorcurie
+    multivalued: true
+  source:
+    description: Source reference for this LCIA method.
+    slot_uri: dcterms:source
+    range: uriorcurie
+  valid_from:
+    description: Date from which this LCIA method is valid.
+    slot_uri: ont:validFrom
+    range: date

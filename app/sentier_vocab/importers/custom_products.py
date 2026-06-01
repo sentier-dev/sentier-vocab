@@ -7,7 +7,10 @@ from sentier_vocab.add_terms import add_custom_terms
 from sentier_vocab.importers.input.custom_products import CUSTOM_PRODUCTS_DATA
 from sentier_vocab.importers.input.electricity_model_terms import ELECTRICITY_MODEL_TERMS_DATA
 from sentier_vocab.importers.input.electricity_products import ELECTRICITY_PRODUCTS_DATA
-from sentier_vocab.importers.input.printed_circuit_board import PCB_PRODUCTS_DATA, PCB_MODEL_TERMS_DATA
+from sentier_vocab.importers.input.printed_circuit_board import (
+    PCB_MODEL_TERMS_DATA,
+    PCB_PRODUCTS_DATA,
+)
 
 created_ttls = []
 

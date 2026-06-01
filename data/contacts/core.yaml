@@ -1,0 +1,8 @@
+scheme: https://vocab.sentier.dev/contacts/
+contacts:
+  - iri: https://vocab.sentier.dev/contacts/sentier-dev
+    pref_label: Sentier.dev
+    email: info@sentier.dev
+    organisation: Sentier.dev
+    url: https://sentier.dev
+    status: published

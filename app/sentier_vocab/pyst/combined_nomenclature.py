@@ -108,7 +108,9 @@ class CombinedNomenclature:
 
         # Remove alt labels if they are copies of pref labels
         for concept in concept_uris:
-            pref_labels = {concept: o for s, v, o in graph.triples((concept, SKOS.prefLabel, None))}
+            pref_labels = {
+                concept: o for s, v, o in graph.triples((concept, SKOS.prefLabel, None))
+            }
             for s, v, o in graph.triples((concept, SKOS.altLabel, None)):
                 if o == pref_labels[s]:
                     graph.remove((s, v, o))

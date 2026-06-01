@@ -1,10 +1,9 @@
 from pathlib import Path
 
-from rdflib import Graph, Literal, Namespace, URIRef
-from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS
+from rdflib import Graph, Namespace, URIRef
+from rdflib.namespace import RDF, RDFS, SKOS
 
 from sentier_vocab.graph_base import GraphBase
-from sentier_vocab.utils import get_one_in_graph
 
 EF_ISO = "Material or energy entering the system being studied that has been drawn from the environment without previous human transformation, or material or energy leaving the system being studied that is released into the environment without subsequent human transformation."
 OBO = Namespace("http://www.geneontology.org/formats/oboInOwl/")

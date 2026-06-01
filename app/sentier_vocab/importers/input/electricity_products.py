@@ -1,5 +1,4 @@
-from rdflib import Literal, Namespace, URIRef
-from rdflib.namespace import RDF, RDFS, SKOS
+from rdflib import Namespace
 
 PRODUCTS = Namespace("https://vocab.sentier.dev/products/electricity/")
 

@@ -63,7 +63,7 @@ testing = [
 dev = [
     "black",
     "build",
-    "flake8",
+    "ruff",
     "pre-commit",
     "pylint",
     "pytest",
@@ -91,26 +91,28 @@ norecursedirs = [
 ]
 testpaths = ["tests/*.py"]
 
-[tool.flake8]
-# Some sane defaults for the code style checker flake8
-max_line_length = 100
-extend_ignore = ["E203", "W503"]
-# ^  Black-compatible
-#    E203 and W503 have edge cases handled by black
-exclude = [
-    ".tox",
-    "build",
-    "dist",
-    ".eggs",
-    "docs/conf.py",
-]
+[tool.ruff]
+line-length = 99
+extend-exclude = ["docs/conf.py", "dev"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "PLC0415"]
+ignore = ["E203"]
+
+[tool.ruff.lint.per-file-ignores]
+# Transitional importer modules hold long literal data (ISO definitions, URLs,
+# product/description strings) that cannot be meaningfully wrapped.
+"app/sentier_vocab/importers/**" = ["E501"]
+# Generated Pydantic (gen-pydantic) inlines long description/docstring string
+# literals that cannot be wrapped; everything else is still linted.
+"schemas/_generated/**" = ["E501"]
 
 [tool.black]
-line-length = 100
+line-length = 99
 
 [tool.isort]
 profile = "black"
-line_length = 100
+line_length = 99
 multi_line_output = 3
 include_trailing_comma = true
 force_grid_wrap = 0

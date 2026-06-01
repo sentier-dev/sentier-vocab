@@ -1,0 +1,76 @@
+id: https://vocab.sentier.dev/schemas/source
+name: sentier_source
+title: Sentier.dev sources
+description: Schema for native source (bibliographic reference) terms.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  Source:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A bibliographic source or reference used to support vocabulary terms.
+    slots:
+      - title
+      - creators
+      - date
+      - publisher
+      - identifier
+      - citation
+
+  SourceCollection:
+    tree_root: true
+    description: A scheme/group file holding many sources.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these sources belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      sources:
+        description: The sources in this collection.
+        range: Source
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  title:
+    description: The title of the source.
+    slot_uri: dcterms:title
+    annotations:
+      lang_tagged: true
+  creators:
+    description: The creators or authors of the source.
+    slot_uri: dcterms:creator
+    multivalued: true
+  date:
+    description: The date of publication.
+    slot_uri: dcterms:date
+    range: date
+  publisher:
+    description: The publisher of the source.
+    slot_uri: dcterms:publisher
+  identifier:
+    description: A formal identifier (e.g. DOI) for the source.
+    slot_uri: dcterms:identifier
+  citation:
+    description: A human-readable citation string.
+    slot_uri: ont:citation

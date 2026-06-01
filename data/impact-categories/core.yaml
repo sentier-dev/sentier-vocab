@@ -1,0 +1,12 @@
+scheme: https://vocab.sentier.dev/impact-categories/
+impact_categories:
+  - iri: https://vocab.sentier.dev/impact-categories/climate-change
+    pref_label: Climate change
+    definition: Impact on the global climate system.
+    indicator: Radiative forcing
+    reference_unit: http://qudt.org/vocab/unit/KiloGM
+    time_horizon: 100 years
+    method: https://vocab.sentier.dev/lcia-methods/ipcc-2021
+    normalization_factor: 1.0
+    weighting_factor: 1.0
+    status: published

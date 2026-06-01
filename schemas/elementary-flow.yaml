@@ -8,6 +8,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   skos: http://www.w3.org/2004/02/skos/core#
   sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
 default_prefix: sentier
 default_range: string
 
@@ -31,11 +32,15 @@ classes:
   ElementaryFlowCollection:
     tree_root: true
     description: A scheme/group file holding many elementary flows (one file per group).
+    annotations:
+      layer: vocabulary
     attributes:
       scheme:
         description: The ConceptScheme IRI these flows belong to.
         range: uriorcurie
         required: true
+        annotations:
+          internal: true
       flows:
         description: The elementary flows in this group.
         range: ElementaryFlow
@@ -45,9 +50,13 @@ classes:
 slots:
   compartment:
     description: Environmental compartment (e.g. air, water, soil).
+    slot_uri: ont:compartment
   sub_compartment:
     description: Sub-compartment refinement (e.g. "low population density").
+    slot_uri: ont:subCompartment
   cas_number:
     description: CAS registry number, if applicable.
+    slot_uri: ont:casNumber
   formula:
     description: Chemical formula, if applicable.
+    slot_uri: ont:formula

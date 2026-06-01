@@ -1,0 +1,28 @@
+id: https://vocab.sentier.dev/schemas/_test_nested
+name: test_nested
+prefixes:
+  linkml: https://w3id.org/linkml/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+default_prefix: sentier
+default_range: string
+imports:
+  - linkml:types
+classes:
+  Exchange:
+    class_uri: ont:Exchange
+    attributes:
+      flow: {slot_uri: ont:flow, range: uriorcurie}
+      direction: {slot_uri: ont:direction}
+      amount: {slot_uri: ont:amount, range: double}
+  Parent:
+    class_uri: ont:Parent
+    tree_root: true
+    attributes:
+      iri: {identifier: true, range: uriorcurie}
+      exchanges:
+        slot_uri: ont:hasExchange
+        range: Exchange
+        multivalued: true
+        inlined_as_list: true
+        annotations: {iri_key: flow, iri_suffix: direction}

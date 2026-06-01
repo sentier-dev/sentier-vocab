@@ -1,0 +1,57 @@
+id: https://vocab.sentier.dev/schemas/product
+name: sentier_product
+title: Sentier.dev products
+description: Schema for native product terms.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  Product:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A good or service that is the output of an economic process.
+    slots:
+      - cpc_code
+      - reference_flow_property
+
+  ProductCollection:
+    tree_root: true
+    description: A scheme/group file holding many products.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these products belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      products:
+        description: The products in this collection.
+        range: Product
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  cpc_code:
+    description: Central Product Classification code.
+    slot_uri: ont:cpcCode
+  reference_flow_property:
+    description: The reference flow property for this product.
+    slot_uri: ont:referenceFlowProperty
+    range: uriorcurie

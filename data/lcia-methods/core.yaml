@@ -1,0 +1,11 @@
+scheme: https://vocab.sentier.dev/lcia-methods/
+lcia_methods:
+  - iri: https://vocab.sentier.dev/lcia-methods/ipcc-2021
+    pref_label: IPCC 2021
+    definition: IPCC sixth assessment report characterization factors.
+    methodology: Global warming potentials
+    impact_categories:
+      - https://vocab.sentier.dev/impact-categories/climate-change
+    source: https://vocab.sentier.dev/sources/ipcc-ar6
+    valid_from: "2021-01-01"
+    status: published

@@ -1,7 +1,6 @@
 from datetime import date
 
-from rdflib import Literal, Namespace, URIRef
-from rdflib.namespace import RDF, RDFS, SKOS
+from rdflib import Literal, URIRef
 
 CS = URIRef("https://vocab.sentier.dev/model-terms/emission-factor")
 

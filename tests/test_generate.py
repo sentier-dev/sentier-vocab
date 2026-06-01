@@ -1,9 +1,12 @@
+import pytest
 from rdflib import Graph, Literal, URIRef
 from rdflib.compare import isomorphic
 from rdflib.namespace import RDF, SKOS
 
 from sentier_vocab import paths
+from sentier_vocab.errors import SchemaValidationError
 from sentier_vocab.generate import build_graph, generate_category
+from sentier_vocab.rdf_mapping import schema_view
 
 
 def test_build_graph_produces_expected_triples():
@@ -15,7 +18,12 @@ def test_build_graph_produces_expected_triples():
             "exact_match": ["http://example.org/X1"],
         }
     ]
-    result = build_graph(concepts, "https://vocab.sentier.dev/flows/")
+    result = build_graph(
+        concepts,
+        "https://vocab.sentier.dev/flows/",
+        schema_view(str(paths.SCHEMAS_DIR / "elementary-flow.yaml")),
+        "ElementaryFlow",
+    )
 
     expected = Graph()
     scheme = URIRef("https://vocab.sentier.dev/flows/")
@@ -39,7 +47,12 @@ def test_build_graph_handles_broader_and_alt_labels():
             "broader": "https://vocab.sentier.dev/flows/X1",
         }
     ]
-    result = build_graph(concepts, "https://vocab.sentier.dev/flows/")
+    result = build_graph(
+        concepts,
+        "https://vocab.sentier.dev/flows/",
+        schema_view(str(paths.SCHEMAS_DIR / "elementary-flow.yaml")),
+        "ElementaryFlow",
+    )
     x2 = URIRef("https://vocab.sentier.dev/flows/X2")
     assert (x2, SKOS.altLabel, Literal("Baz", lang="en")) in result
     assert (x2, SKOS.broader, URIRef("https://vocab.sentier.dev/flows/X1")) in result
@@ -55,7 +68,12 @@ def test_build_graph_handles_notation_close_match_related():
             "related": ["http://example.org/rel"],
         }
     ]
-    result = build_graph(concepts, "https://vocab.sentier.dev/flows/")
+    result = build_graph(
+        concepts,
+        "https://vocab.sentier.dev/flows/",
+        schema_view(str(paths.SCHEMAS_DIR / "elementary-flow.yaml")),
+        "ElementaryFlow",
+    )
     x3 = URIRef("https://vocab.sentier.dev/flows/X3")
     # notation is a plain literal (NOT language-tagged)
     assert (x3, SKOS.notation, Literal("Q3")) in result
@@ -64,10 +82,6 @@ def test_build_graph_handles_notation_close_match_related():
 
 
 def test_generate_category_rejects_unregistered_scheme(tmp_path):
-    import pytest
-
-    from sentier_vocab.errors import SchemaValidationError
-
     bad = tmp_path / "bad.yaml"
     bad.write_text(
         "scheme: https://vocab.sentier.dev/NOT-A-REAL-NS/\n"
@@ -100,3 +114,18 @@ def test_generate_category_writes_valid_ttl(tmp_path):
     freshwater = URIRef("https://vocab.sentier.dev/flows/ENVO_00002006")
     assert (freshwater, RDF.type, SKOS.Concept) in reparsed
     assert (freshwater, SKOS.prefLabel, Literal("Freshwater", lang="en")) in reparsed
+
+
+def test_process_exchanges_generate(tmp_path):
+    out = generate_category(
+        category="processes",
+        schema_path=paths.SCHEMAS_DIR / "process.yaml",
+        data_path=paths.DATA_DIR / "processes" / "core.yaml",
+        output_path=tmp_path / "processes.ttl",
+    )
+    g = Graph().parse(out, format="turtle")
+    ONT = "https://vocab.sentier.dev/ontology/"
+    assert any(p == URIRef(ONT + "hasExchange") for _, p, _ in g)
+    assert any(p == URIRef(ONT + "amount") for _, p, _ in g)
+    # the minted exchange child node is addressable under the process IRI
+    assert any("/exchanges/" in str(s) for s, _, _ in g)

@@ -1,0 +1,30 @@
+@prefix ont: <https://vocab.sentier.dev/ontology/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vocab.sentier.dev/processes/> a skos:ConceptScheme .
+
+<https://vocab.sentier.dev/processes/steel-production/exchanges/ENVO_carbon_dioxide-output> a ont:Exchange ;
+    qudt:hasUnit <http://qudt.org/vocab/unit/KiloGM> ;
+    ont:amount 2.1e+00 ;
+    ont:direction "output" ;
+    ont:flow <https://vocab.sentier.dev/flows/ENVO_carbon_dioxide> .
+
+<https://vocab.sentier.dev/processes/steel-production/exchanges/ENVO_iron_ore-input> a ont:Exchange ;
+    qudt:hasUnit <http://qudt.org/vocab/unit/KiloGM> ;
+    ont:amount 1.5e+00 ;
+    ont:direction "input" ;
+    ont:flow <https://vocab.sentier.dev/flows/ENVO_iron_ore> .
+
+<https://vocab.sentier.dev/processes/steel-production> a ont:Process ;
+    skos:definition "Production of crude steel."@en ;
+    skos:inScheme <https://vocab.sentier.dev/processes/> ;
+    skos:prefLabel "Steel production"@en ;
+    ont:geography <https://sws.geonames.org/6295630/> ;
+    ont:hasExchange <https://vocab.sentier.dev/processes/steel-production/exchanges/ENVO_carbon_dioxide-output>,
+        <https://vocab.sentier.dev/processes/steel-production/exchanges/ENVO_iron_ore-input> ;
+    ont:processType "unit" ;
+    ont:technology "Basic oxygen furnace"@en ;
+    ont:validFrom "2020-01-01"^^xsd:date .
+

@@ -1,0 +1,63 @@
+id: https://vocab.sentier.dev/schemas/contact
+name: sentier_contact
+title: Sentier.dev contacts
+description: Schema for native contact terms.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  Contact:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A contact person or organisation associated with vocabulary terms or datasets.
+    slots:
+      - email
+      - organisation
+      - url
+
+  ContactCollection:
+    tree_root: true
+    description: A scheme/group file holding many contacts.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these contacts belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      contacts:
+        description: The contacts in this collection.
+        range: Contact
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  email:
+    description: Email address for this contact.
+    slot_uri: ont:email
+  organisation:
+    description: Organisation this contact belongs to.
+    slot_uri: ont:organisation
+    annotations:
+      lang_tagged: true
+  url:
+    description: URL for this contact or organisation.
+    slot_uri: ont:url
+    range: uriorcurie

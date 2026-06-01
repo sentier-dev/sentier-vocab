@@ -1,0 +1,16 @@
+@prefix ont: <https://vocab.sentier.dev/ontology/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vocab.sentier.dev/characterization-factors/> a skos:ConceptScheme .
+
+<https://vocab.sentier.dev/characterization-factors/ipcc-2021_climate-change_ENVO_carbon_dioxide> a ont:CharacterizationFactor ;
+    qudt:hasUnit <http://qudt.org/vocab/unit/KiloGM> ;
+    skos:inScheme <https://vocab.sentier.dev/characterization-factors/> ;
+    skos:prefLabel "IPCC 2021 GWP100 — carbon dioxide"@en ;
+    ont:factorValue 1e+00 ;
+    ont:flow <https://vocab.sentier.dev/flows/ENVO_carbon_dioxide> ;
+    ont:impactCategory <https://vocab.sentier.dev/impact-categories/climate-change> ;
+    ont:method <https://vocab.sentier.dev/lcia-methods/ipcc-2021> .
+

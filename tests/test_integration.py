@@ -30,3 +30,4 @@ def test_cli_generate_runs(tmp_path):
     )
     assert result.returncode == 0, result.stderr
     assert (tmp_path / "flows.ttl").exists()
+    assert (tmp_path / "impact-categories.ttl").exists()

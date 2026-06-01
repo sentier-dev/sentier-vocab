@@ -1,0 +1,10 @@
+scheme: https://vocab.sentier.dev/characterization-factors/
+characterization_factors:
+  - iri: https://vocab.sentier.dev/characterization-factors/ipcc-2021_climate-change_ENVO_carbon_dioxide
+    pref_label: IPCC 2021 GWP100 — carbon dioxide
+    method: https://vocab.sentier.dev/lcia-methods/ipcc-2021
+    impact_category: https://vocab.sentier.dev/impact-categories/climate-change
+    flow: https://vocab.sentier.dev/flows/ENVO_carbon_dioxide
+    factor_value: 1.0
+    unit: http://qudt.org/vocab/unit/KiloGM
+    status: published

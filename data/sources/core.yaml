@@ -1,0 +1,12 @@
+scheme: https://vocab.sentier.dev/sources/
+sources:
+  - iri: https://vocab.sentier.dev/sources/ipcc-ar6
+    pref_label: IPCC AR6
+    title: "Climate Change 2021: The Physical Science Basis"
+    creators:
+      - IPCC
+    date: "2021-08-09"
+    publisher: Cambridge University Press
+    identifier: 10.1017/9781009157896
+    citation: "IPCC, 2021. Climate Change 2021: The Physical Science Basis."
+    status: published

@@ -7,58 +7,31 @@ independent and emit their own TTL separately.
 from pathlib import Path
 
 import yaml
-from rdflib import Graph, Literal, URIRef
+from linkml_runtime import SchemaView
+from rdflib import Graph
+from rdflib import Namespace as RDFNamespace
+from rdflib import URIRef
 from rdflib.namespace import RDF, SKOS
 
 from sentier_vocab.errors import SchemaValidationError
 from sentier_vocab.iris import NAMESPACES
 from sentier_vocab.ordered_serialization import OrderedTurtleSerializer
+from sentier_vocab.rdf_mapping import concept_to_triples, member_slot_and_class, schema_view
 from sentier_vocab.schemas import validate_data_file
 
-DEFAULT_LANG = "en"
 
-# Each category's collection file uses one top-level list key.
-CATEGORY_COLLECTION_KEY = {
-    "elementary-flows": "flows",
-}
-
-
-def _lang(value: str) -> Literal:
-    return Literal(value, lang=DEFAULT_LANG)
-
-
-def build_graph(concepts: list[dict], scheme_uri: str) -> Graph:
-    """Build an rdflib SKOS graph from a list of concept dicts."""
-    # Pilot scope: only the shared SKOS spine is serialized. Domain-specific slots
-    # defined in the per-type LinkML schemas (e.g. compartment, sub_compartment,
-    # cas_number, formula) are intentionally NOT emitted yet — they have no canonical
-    # RDF predicate assigned, and `status` is internal curation metadata not published
-    # to the vocabulary. Per-category serialization is follow-on work.
+def build_graph(concepts: list[dict], scheme_uri: str, sv: SchemaView, class_name: str) -> Graph:
+    """Build an rdflib SKOS graph from a list of concept dicts using the schema engine."""
     graph = Graph()
     graph.bind("skos", SKOS)
-    scheme = URIRef(scheme_uri)
-    graph.add((scheme, RDF.type, SKOS.ConceptScheme))
-
-    for concept in concepts:
-        uri = URIRef(concept["iri"])
-        graph.add((uri, RDF.type, SKOS.Concept))
-        graph.add((uri, SKOS.inScheme, scheme))
-        graph.add((uri, SKOS.prefLabel, _lang(concept["pref_label"])))
-        if concept.get("definition"):
-            graph.add((uri, SKOS.definition, _lang(concept["definition"])))
-        for alt in concept.get("alt_labels") or []:
-            graph.add((uri, SKOS.altLabel, _lang(alt)))
-        if concept.get("notation"):
-            graph.add((uri, SKOS.notation, Literal(concept["notation"])))
-        if concept.get("broader"):
-            graph.add((uri, SKOS.broader, URIRef(concept["broader"])))
-        for match in concept.get("exact_match") or []:
-            graph.add((uri, SKOS.exactMatch, URIRef(match)))
-        for match in concept.get("close_match") or []:
-            graph.add((uri, SKOS.closeMatch, URIRef(match)))
-        for rel in concept.get("related") or []:
-            graph.add((uri, SKOS.related, URIRef(rel)))
-
+    # Bind all schema-declared prefixes so rdflib never auto-assigns ns1/ns2,
+    # which would make serialization non-deterministic.
+    for prefix, uri in sv.schema.prefixes.items():
+        graph.bind(prefix, RDFNamespace(str(uri.prefix_reference)))
+    graph.add((URIRef(scheme_uri), RDF.type, SKOS.ConceptScheme))
+    for record in concepts:
+        for triple in concept_to_triples(record, class_name, sv, scheme_uri):
+            graph.add(triple)
     return graph
 
 
@@ -87,7 +60,8 @@ def generate_category(
             f"{data_path}: scheme {scheme!r} is not a registered Sentier.dev namespace "
             f"(see sentier_vocab.iris.NAMESPACES)"
         )
-    collection_key = CATEGORY_COLLECTION_KEY.get(category, "concepts")
+    sv = schema_view(str(schema_path))
+    collection_key, class_name = member_slot_and_class(sv)
     concepts = raw.get(collection_key) or []
-    graph = build_graph(concepts, scheme)
+    graph = build_graph(concepts, scheme, sv, class_name)
     return write_ttl(graph, output_path)

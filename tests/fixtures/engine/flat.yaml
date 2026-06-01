@@ -1,0 +1,37 @@
+id: https://vocab.sentier.dev/schemas/_test_flat
+name: test_flat
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+imports:
+  - linkml:types
+classes:
+  Thing:
+    class_uri: ont:Thing
+    tree_root: true
+    attributes:
+      iri:
+        identifier: true
+        range: uriorcurie
+      label:
+        slot_uri: skos:prefLabel
+        annotations: {lang_tagged: true}
+      code:
+        slot_uri: skos:notation
+      ratio:
+        slot_uri: ont:ratio
+        range: float
+      unit:
+        slot_uri: qudt:hasUnit
+        range: uriorcurie
+      tags:
+        slot_uri: ont:tag
+        multivalued: true
+      secret:
+        annotations: {internal: true}

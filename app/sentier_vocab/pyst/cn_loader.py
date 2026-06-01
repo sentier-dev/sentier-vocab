@@ -147,7 +147,9 @@ class CombinedNomenclatureLoader:
 
         return response
 
-    async def _chunked_request(self, url_component: str, data: list[bytes]) -> list[httpx.Response]:
+    async def _chunked_request(
+        self, url_component: str, data: list[bytes]
+    ) -> list[httpx.Response]:
         async with httpx.AsyncClient() as client:
             tasks = []
             for chunk in data:

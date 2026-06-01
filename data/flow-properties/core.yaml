@@ -1,0 +1,14 @@
+scheme: https://vocab.sentier.dev/flow-properties/
+flow_properties:
+  - iri: https://vocab.sentier.dev/flow-properties/mass
+    pref_label: Mass
+    definition: Physical mass of a flow.
+    default_unit: http://qudt.org/vocab/unit/KiloGM
+    data_type: physical
+    status: published
+  - iri: https://vocab.sentier.dev/flow-properties/energy
+    pref_label: Energy
+    definition: Energy content of a flow.
+    default_unit: http://qudt.org/vocab/unit/J
+    data_type: physical
+    status: published

@@ -1,0 +1,74 @@
+id: https://vocab.sentier.dev/schemas/flow-property
+name: sentier_flow_property
+title: Sentier.dev flow properties
+description: Schema for native flow-property terms.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  FlowProperty:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A quantitative property used to express the magnitude of an elementary or
+      product flow (e.g. mass, volume, energy).
+    slots:
+      - default_unit_group
+      - default_unit
+      - data_type
+
+  FlowPropertyCollection:
+    tree_root: true
+    description: A scheme/group file holding many flow properties.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these flow properties belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      flow_properties:
+        description: The flow properties in this collection.
+        range: FlowProperty
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  default_unit_group:
+    description: The default unit group for this flow property.
+    slot_uri: ont:defaultUnitGroup
+    range: uriorcurie
+  default_unit:
+    description: The default unit for this flow property.
+    slot_uri: qudt:hasUnit
+    range: uriorcurie
+  data_type:
+    description: The data type category of this flow property.
+    slot_uri: ont:dataType
+    range: data_type_enum
+
+enums:
+  data_type_enum:
+    permissible_values:
+      physical:
+        description: Physical quantity.
+      economic:
+        description: Economic quantity.
+      technical:
+        description: Technical quantity.

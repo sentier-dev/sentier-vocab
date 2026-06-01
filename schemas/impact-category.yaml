@@ -1,0 +1,78 @@
+id: https://vocab.sentier.dev/schemas/impact-category
+name: sentier_impact_category
+title: Sentier.dev impact categories
+description: Schema for native impact-category terms.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  ImpactCategory:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A category of environmental impact assessed in life cycle impact assessment.
+    slots:
+      - indicator
+      - reference_unit
+      - time_horizon
+      - method
+      - normalization_factor
+      - weighting_factor
+
+  ImpactCategoryCollection:
+    tree_root: true
+    description: A scheme/group file holding many impact categories.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these impact categories belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      impact_categories:
+        description: The impact categories in this collection.
+        range: ImpactCategory
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  indicator:
+    description: The characterisation indicator for this impact category.
+    slot_uri: ont:indicator
+    annotations:
+      lang_tagged: true
+  reference_unit:
+    description: The reference unit for this impact category.
+    slot_uri: qudt:hasUnit
+    range: uriorcurie
+  time_horizon:
+    description: The time horizon for this impact category.
+    slot_uri: ont:timeHorizon
+  method:
+    description: The LCIA method this category belongs to.
+    slot_uri: ont:method
+    range: uriorcurie
+  normalization_factor:
+    description: Normalisation factor for this impact category.
+    slot_uri: ont:normalizationFactor
+    range: double
+  weighting_factor:
+    description: Weighting factor for this impact category.
+    slot_uri: ont:weightingFactor
+    range: double

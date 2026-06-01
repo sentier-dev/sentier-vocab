@@ -43,8 +43,8 @@ jobs:
 
       - name: Generated artifacts are up to date
         run: |
-          git diff --exit-code -- output/flows.ttl docs/COVERAGE.md \
-            || { echo "::error::output/flows.ttl or docs/COVERAGE.md is stale — run 'python -m sentier_vocab generate' and 'python -m sentier_vocab coverage' and commit the result."; exit 1; }
+          git diff --exit-code -- output/ docs/COVERAGE.md \
+            || { echo "::error::output/ or docs/COVERAGE.md is stale — run 'python -m sentier_vocab generate' and 'python -m sentier_vocab coverage' and commit the result."; exit 1; }
 
       - name: Build sdist + wheel
         run: |

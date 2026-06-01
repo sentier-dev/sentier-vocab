@@ -1,0 +1,79 @@
+id: https://vocab.sentier.dev/schemas/characterization-factor
+name: sentier_characterization_factor
+title: Sentier.dev characterization factors
+description: Schema for life cycle impact assessment characterization factors.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  CharacterizationFactor:
+    is_a: Concept
+    class_uri: ont:CharacterizationFactor
+    description: >
+      A factor quantifying the impact of a unit of an elementary flow on
+      an impact category, as used in LCIA.
+    slots:
+      - method
+      - impact_category
+      - flow
+      - factor_value
+      - unit
+      - location
+
+  CharacterizationFactorCollection:
+    tree_root: true
+    description: A collection file holding characterization factors.
+    annotations:
+      layer: data
+    attributes:
+      scheme:
+        description: The namespace IRI for this collection of characterization factors.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      characterization_factors:
+        description: The characterization factors in this collection.
+        range: CharacterizationFactor
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  method:
+    description: The LCIA method this characterization factor belongs to.
+    slot_uri: ont:method
+    range: uriorcurie
+  impact_category:
+    description: The impact category this factor characterizes.
+    slot_uri: ont:impactCategory
+    range: uriorcurie
+  flow:
+    description: The elementary flow being characterized.
+    slot_uri: ont:flow
+    range: uriorcurie
+  factor_value:
+    description: The numerical characterization factor value.
+    slot_uri: ont:factorValue
+    range: double
+  unit:
+    description: The unit of the characterization factor.
+    slot_uri: qudt:hasUnit
+    range: uriorcurie
+  location:
+    description: Optional location scope for this characterization factor.
+    slot_uri: ont:location
+    range: uriorcurie

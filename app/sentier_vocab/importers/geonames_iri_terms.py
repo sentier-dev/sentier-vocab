@@ -1,11 +1,6 @@
-import os
-import zipfile
-from urllib.request import urlretrieve
-
 import polars as pl
-import sentier_data_tools as sdt
 from rdflib import Graph, Literal, Namespace, URIRef
-from rdflib.namespace import RDF, SKOS, XSD
+from rdflib.namespace import RDF, SKOS
 from skosify import infer
 
 """
@@ -94,9 +89,9 @@ def generateGeonameVocabulary(world_path: str, hierarchy_path: str):
     for item in filtered_world.iter_rows():
         uri = URIRef(GEOSPACES + str(item[0]))
         pref_name = Literal(item[1])
-        alt_names = []
+        _alt_names = []
         # if item[3]:
-        #   alt_names = item[3].split(",")
+        #   _alt_names = item[3].split(",")
         world.add((uri, RDF.type, SKOS.Concept))
         world.add((uri, SKOS.prefLabel, pref_name))
         world.add((uri, GN.countryCode, Literal(item[8])))

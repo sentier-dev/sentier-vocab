@@ -1,0 +1,7 @@
+scheme: https://vocab.sentier.dev/model-terms/
+model_terms:
+  - iri: https://vocab.sentier.dev/model-terms/efficiency
+    pref_label: Efficiency
+    definition: Ratio of useful output to input.
+    quantity_kind: http://qudt.org/vocab/quantitykind/DimensionlessRatio
+    status: published

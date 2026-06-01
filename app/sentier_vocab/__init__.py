@@ -9,5 +9,5 @@ __all__ = (
 
 __version__ = "0.0.2"
 
-from .envo import ENVO
-from .qudt import QUDT
+from .importers.envo import ENVO
+from .importers.qudt import QUDT

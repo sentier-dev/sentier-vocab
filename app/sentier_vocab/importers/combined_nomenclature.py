@@ -6,7 +6,7 @@ import skosify
 from loguru import logger
 from rdflib import Graph, Literal
 
-from sentier_vocab.open_energy_ontology import OpenEnergyProducts
+from sentier_vocab.importers.open_energy_ontology import OpenEnergyProducts
 
 sanity = re.compile("^[0-9 ]*[-]+ ")
 # sanity.match("0102 29 41 ----- For slaughter")

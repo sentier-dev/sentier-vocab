@@ -27,6 +27,27 @@ You can install _svd_ via [pip] from [PyPI]:
 $ pip install svd
 ```
 
+## Repository layout
+
+- `app/sentier_vocab/` — Python package (importable as `sentier_vocab`)
+  - `iris.py` — central registry of published IRI namespaces (stability contract)
+  - `generate.py` — validates `data/` YAML and emits `output/` TTL
+  - `coverage.py` — generates `docs/COVERAGE.md`
+  - `importers/` — external-ontology importers (ENVO, QUDT, OEO, …) — transitional layer
+- `data/<category>/` — native curated terms (YAML), one subfolder per LCIA category
+- `schemas/` — LinkML schemas (one per data type) + generated Pydantic in `_generated/`
+- `output/` — generated, committed TTL served by the triplestore
+
+## Building native vocabulary
+
+```bash
+pip install -e .
+python -m sentier_vocab generate     # validate data/ -> write output/*.ttl
+python -m sentier_vocab coverage     # regenerate docs/COVERAGE.md
+```
+
+See `docs/COVERAGE.md` for the current data-type coverage matrix.
+
 ## Contributing
 
 Contributions are very welcome.

@@ -1,0 +1,53 @@
+id: https://vocab.sentier.dev/schemas/elementary-flow
+name: sentier_elementary_flow
+title: Sentier.dev elementary (biosphere) flows
+description: Schema for native elementary-flow terms.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  sentier: https://vocab.sentier.dev/
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  ElementaryFlow:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      Material or energy entering the system from, or released to, the environment
+      without human transformation.
+    slots:
+      - compartment
+      - sub_compartment
+      - cas_number
+      - formula
+
+  ElementaryFlowCollection:
+    tree_root: true
+    description: A scheme/group file holding many elementary flows (one file per group).
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these flows belong to.
+        range: uriorcurie
+        required: true
+      flows:
+        description: The elementary flows in this group.
+        range: ElementaryFlow
+        multivalued: true
+        inlined_as_list: true
+
+slots:
+  compartment:
+    description: Environmental compartment (e.g. air, water, soil).
+  sub_compartment:
+    description: Sub-compartment refinement (e.g. "low population density").
+  cas_number:
+    description: CAS registry number, if applicable.
+  formula:
+    description: Chemical formula, if applicable.

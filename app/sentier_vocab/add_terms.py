@@ -30,7 +30,6 @@ COMMON_PREDICATES = {
     "hasQuantityKind": QUDTS.hasQuantityKind,
     "hasDimensionVector": QUDTS.hasDimensionVector,
     "conversionMultiplier": QUDTS.conversionMultiplier,
-    "conversionMultiplier": QUDTS.conversionMultiplier,
     "conversionMultiplierSN": QUDTS.conversionMultiplierSN,
     "created": DCTERMS.created,
     "creator": DCTERMS.creator,
@@ -56,7 +55,6 @@ OBJECT_TYPES_FOR_PREDICATES = {
     QUDTS.hasQuantityKind: URIRef,
     QUDTS.hasDimensionVector: URIRef,
     QUDTS.conversionMultiplier: URIRef,
-    QUDTS.conversionMultiplier: URIRef,
     QUDTS.conversionMultiplierSN: URIRef,
     DCTERMS.created: Literal,
     DCTERMS.creator: Literal,
@@ -79,12 +77,13 @@ def add_custom_terms(data: list[dict], namespace: str, filename: str) -> Path:
     {
         'subject': str, # required; will be combined with `namespace` and turned into a `URIRef`
         'predicate': str | URIRef, # required; see COMMON_PREDICATES for allowed strings
-        'object': str | URIRef | Literal, # required; type will be inferred from predicate if possible
+        'object': str | URIRef | Literal, # required; type inferred from predicate if possible
         'language': str  # optional; only for literal `object` values.
     }
     ```
 
-    If given a string, and the `predicate` is `RDF.type`, `object` will use `COMMON_OBJECTS` mapping if possible.
+    If given a string, and the `predicate` is `RDF.type`, `object` will use `COMMON_OBJECTS`
+    mapping if possible.
 
     """
     if not namespace or not isinstance(namespace, str):
@@ -140,8 +139,8 @@ def add_custom_terms(data: list[dict], namespace: str, filename: str) -> Path:
 
         if object_type is not None and not isinstance(object_, object_type):
             raise ValueError(
-                f"Object {object_} has incorrect type for this function; should be {object_type} but got {type(object_)} in triple ({s} {p} {o})"
-                f"Object {object_} has incorrect type for this function; should be {type(object_type)} but got {type(object_)}"
+                f"Object {object_} has incorrect type; should be {object_type} but got"
+                f" {type(object_)} in triple ({s} {p} {o})"
             )
 
         graph.add((subject, predicate, object_))

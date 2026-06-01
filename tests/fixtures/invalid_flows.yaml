@@ -1,0 +1,5 @@
+scheme: https://vocab.sentier.dev/flows/
+flows:
+  - iri: https://vocab.sentier.dev/flows/ENVO_00002006
+    definition: Water with low concentrations of dissolved salts.
+    compartment: water

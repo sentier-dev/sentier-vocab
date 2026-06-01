@@ -70,7 +70,7 @@ generate() {
     local x
     for x; do
         echo "== $x =="
-        python -m "sentier_vocab.$x" ${GENERATOR_ARGS[$x]-}
+        python -m "sentier_vocab.importers.$x" ${GENERATOR_ARGS[$x]-}
     done
 }
 

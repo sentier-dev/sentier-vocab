@@ -10,40 +10,40 @@ import datetime
 
 project = "svd"
 author = "Brightway Developers"
-copyright = datetime.date.today().strftime("%Y") + ' Brightway Developers'
+copyright = datetime.date.today().strftime("%Y") + " Brightway Developers"
 
 ### project configuration #########################################################################
 
 extensions = [
     # native extensions
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.extlinks',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.extlinks",
     # theme
-    'sphinx_rtd_theme',
+    "sphinx_rtd_theme",
     # Markdown support
-    'myst_parser',
+    "myst_parser",
     # API documentation support
-    'autoapi',
+    "autoapi",
     # responsive web component support
-    'sphinx_design',
+    "sphinx_design",
     # copy button on code blocks
     "sphinx_copybutton",
 ]
 
-exclude_patterns = ['_build']
+exclude_patterns = ["_build"]
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 ### intersphinx configuration ######################################################################
 
 intersphinx_mapping = {
     "bw": ("https://docs.brightway.dev/en/latest/", None),
-}    
+}
 
 ### theme configuration ############################################################################
 
@@ -52,19 +52,19 @@ html_title = "svd"
 html_show_sphinx = False
 
 html_theme_options = {
-    'logo_only': False,
-    'display_version': True,
-    'prev_next_buttons_location': 'bottom',
+    "logo_only": False,
+    "display_version": True,
+    "prev_next_buttons_location": "bottom",
     # Toc options
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 4,
-    'includehidden': True,
-    'titles_only': False
+    "collapse_navigation": True,
+    "sticky_navigation": True,
+    "navigation_depth": 4,
+    "includehidden": True,
+    "titles_only": False,
 }
 
-html_logo = 'https://raw.githubusercontent.com/brightway-lca/brightway-documentation/main/source/_static/logo/BW_all_white_transparent_landscape_wide.svg'
-html_favicon = 'https://github.com/brightway-lca/brightway-documentation/blob/main/source/_static/logo/BW_favicon_500x500.png'
+html_logo = "https://raw.githubusercontent.com/brightway-lca/brightway-documentation/main/source/_static/logo/BW_all_white_transparent_landscape_wide.svg"
+html_favicon = "https://github.com/brightway-lca/brightway-documentation/blob/main/source/_static/logo/BW_favicon_500x500.png"
 
 ### extension configuration ########################################################################
 
@@ -72,8 +72,8 @@ html_favicon = 'https://github.com/brightway-lca/brightway-documentation/blob/ma
 ## https://myst-parser.readthedocs.io/en/latest/configuration.html
 
 source_suffix = {
-    '.rst': 'restructuredtext',
-    '.md': 'markdown',
+    ".rst": "restructuredtext",
+    ".md": "markdown",
 }
 
 myst_enable_extensions = [
@@ -88,31 +88,31 @@ myst_enable_extensions = [
 ## https://sphinx-autoapi.readthedocs.io/en/latest/reference/config.html#customisation-options
 
 autoapi_options = [
-    'members',
-    'undoc-members',
-    'private-members',
-    'show-inheritance',
-    'show-module-summary',
+    "members",
+    "undoc-members",
+    "private-members",
+    "show-inheritance",
+    "show-module-summary",
 ]
 
-autoapi_python_class_content = 'both'
-autoapi_member_order = 'groupwise'
-autoapi_root = 'content/api'
+autoapi_python_class_content = "both"
+autoapi_member_order = "groupwise"
+autoapi_root = "content/api"
 autoapi_keep_files = False
 
 autoapi_dirs = [
-    '../svd',
+    "../svd",
 ]
 
 autoapi_ignore = [
-    '*/data/*',
-    '*tests/*',
-    '*tests.py',
-    '*validation.py',
-    '*version.py',
-    '*.rst',
-    '*.yml',
-    '*.md',
-    '*.json',
-    '*.data'
+    "*/data/*",
+    "*tests/*",
+    "*tests.py",
+    "*validation.py",
+    "*version.py",
+    "*.rst",
+    "*.yml",
+    "*.md",
+    "*.json",
+    "*.data",
 ]

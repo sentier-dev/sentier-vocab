@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Design / planning docs (local-only working artifacts, never committed)
+docs/superpowers/
+
+# uv workflow artifacts
+uv.lock

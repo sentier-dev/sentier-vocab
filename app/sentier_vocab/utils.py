@@ -102,7 +102,7 @@ class GithubZipfileRelease:
         if repo_url.endswith("/"):
             repo_url = repo_url[:-1]
         self.zipball_url = self.get_zipball_url(repo_url)
-        self.catalogue_filepath = data_dir / f"{repo_url.split("/")[-1]}.json"
+        self.catalogue_filepath = data_dir / f"{repo_url.split('/')[-1]}.json"
         self.zip_archive = ZipFile(
             open(
                 self.get_latest_version(
@@ -122,11 +122,13 @@ class GithubZipfileRelease:
             )
         if repo_url.count("/") != 4:
             raise ValueError(
-                "`repo_url` must have form 'https://github.com/<something>/<something>' with four '/' characters"
+                "`repo_url` must have form"
+                " 'https://github.com/<something>/<something>' with four '/' characters"
             )
-        return requests.get(
-            f"https://api.github.com/repos/{repo_url.replace("https://github.com/", "")}/releases/latest"
-        ).json()["zipball_url"]
+        repo_path = repo_url.replace("https://github.com/", "")
+        return requests.get(f"https://api.github.com/repos/{repo_path}/releases/latest").json()[
+            "zipball_url"
+        ]
 
     def get_latest_version(
         self, data_dir: Path, catalogue_filepath: Path, zipball_url: str

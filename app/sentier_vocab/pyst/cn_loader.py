@@ -50,7 +50,7 @@ class CombinedNomenclatureLoader:
             logger.info(f"Using cached CN 20{self.year} file")
             return filepath
 
-        url = f"https://showvoc.op.europa.eu/semanticturkey/it.uniroma2.art.semanticturkey/st-core-services/Download/getFile?fileName=CN_20{self.year}.zip&ctx_project=ESTAT_Combined_Nomenclature%2C_20{self.year}_(CN_20{self.year})&"
+        url = f"https://showvoc.op.europa.eu/semanticturkey/it.uniroma2.art.semanticturkey/st-core-services/Download/getFile?fileName=CN_20{self.year}.zip&ctx_project=ESTAT_Combined_Nomenclature%2C_20{self.year}_(CN_20{self.year})&"  # noqa: E501
         logger.info(f"Downloading CN 20{self.year} from SHOWVOC")
         headers = {
             "Accept": "application/json, text/plain, */*",

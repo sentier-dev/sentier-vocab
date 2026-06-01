@@ -30,9 +30,11 @@ classifiers = [
 requires-python = ">=3.10"
 dependencies = [
     "httpx",
+    "linkml",
     "loguru",
     "orjson",
     "platformdirs",
+    "pyyaml",
     "rdflib",
     "requests",
     "rfc3987",
@@ -46,6 +48,9 @@ source = "https://github.com/sentier-dev/sentier_vocab"
 homepage = "https://github.com/sentier-dev/sentier_vocab"
 tracker = "https://github.com/sentier-dev/sentier_vocab/issues"
 
+[project.scripts]
+sentier-vocab = "sentier_vocab.__main__:main"
+
 [project.optional-dependencies]
 # Getting recursive dependencies to work is a pain, this
 # seems to work, at least for now
@@ -56,7 +61,9 @@ testing = [
     "python-coveralls"
 ]
 dev = [
+    "black",
     "build",
+    "flake8",
     "pre-commit",
     "pylint",
     "pytest",
@@ -68,7 +75,9 @@ dev = [
 [tool.setuptools]
 license-files = ["LICENSE"]
 include-package-data = true
-packages = ["sentier_vocab"]
+
+[tool.setuptools.packages.find]
+where = ["app"]
 
 [tool.setuptools.dynamic]
 version = {attr = "sentier_vocab.__version__"}

@@ -17,7 +17,7 @@ on:
       - ".gitignore"
   pull_request:
     branches: [main]
-    types: [opened, reopened] # excludes syncronize to avoid redundant trigger from commits on PRs
+    types: [opened, reopened, synchronize] # re-run on PR updates so the gate reflects the latest commit
     paths-ignore:
       - "**.md"
       - "**.bib"
@@ -52,7 +52,11 @@ jobs:
       # install testing
       - name: Install package and test deps
         run: |
-          pip install .[testing] # install the package and the testing deps
+          # Editable install: the package is a repo build-tool whose tests read
+          # the source-tree schemas/, data/, output/ dirs (paths.py derives the
+          # repo root from the package location). A non-editable install would put
+          # the package in site-packages, away from those dirs, and break the tests.
+          pip install -e .[testing]
 
       - name: Test with pytest
         run: |

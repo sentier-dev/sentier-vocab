@@ -1,7 +1,9 @@
 # Pre-commit hooks for sentier_vocab.
 # Transitional importer code and generated artifacts are excluded from style
 # enforcement (see the `exclude` regex).
-exclude: '^(app/sentier_vocab/importers/|schemas/_generated/|docs/conf\.py)'
+# Generated TTL artifacts (\.ttl$) are excluded so the generator's exact output
+# is preserved (whitespace/EOF hooks must not rewrite generated graphs).
+exclude: '^(app/sentier_vocab/importers/|schemas/_generated/|docs/conf\.py)|\.ttl$'
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks

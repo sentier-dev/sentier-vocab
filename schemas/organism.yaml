@@ -1,0 +1,46 @@
+id: https://vocab.sentier.dev/schemas/organism
+name: sentier_organism
+title: Sentier.dev organisms
+description: Schema for biological source organisms and taxa (the living origin of products).
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  Organism:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A biological organism or taxon (animal, plant, fungus, micro-organism) that is a
+      source of food or feed products. Distinct from the product derived from it.
+
+  OrganismCollection:
+    tree_root: true
+    description: A scheme/group file holding many organisms.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these organisms belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      organisms:
+        description: The organisms in this collection.
+        range: Organism
+        multivalued: true
+        inlined_as_list: true

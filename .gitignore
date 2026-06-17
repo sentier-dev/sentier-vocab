@@ -133,3 +133,8 @@ docs/superpowers/
 
 # uv workflow artifacts
 uv.lock
+
+# Bulk imported vocab TTL (e.g. FoodEx2): regenerated from the committed Parquet source
+# at deploy and loaded into Fuseki — not committed (see docs spec 2026-06-17). The Parquet
+# under data/<category>/ IS committed; only the large generated TTL is excluded.
+output/*.foodex2.ttl

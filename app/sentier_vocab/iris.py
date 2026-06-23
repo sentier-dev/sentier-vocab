@@ -33,6 +33,9 @@ NAMESPACES: Mapping[str, str] = types.MappingProxyType(
         "contacts": BASE + "contacts/",
         # New term namespaces.
         "unit-groups": BASE + "units/group/",
+        # Imported food/agriculture vocabularies (FoodEx2 and future sources).
+        "organisms": BASE + "organisms/",
+        "qualifiers": BASE + "qualifiers/",
     }
 )
 

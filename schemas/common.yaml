@@ -32,6 +32,8 @@ classes:
       - exact_match
       - close_match
       - related
+      - source
+      - additional_notations
       - status
 
 slots:
@@ -77,6 +79,16 @@ slots:
     description: Associative (non-hierarchical) related concept.
     slot_uri: skos:related
     range: uriorcurie
+    multivalued: true
+  source:
+    description: Provenance — the bibliographic Source (in data/sources) this term was imported from.
+    slot_uri: dcterms:source
+    range: uriorcurie
+  additional_notations:
+    description: >
+      Source-side identifiers and legacy codes preserved verbatim as prefixed notations
+      (e.g. "foodex1:A.01.000028", "gems:GC0652") so no upstream coding is lost.
+    slot_uri: skos:notation
     multivalued: true
   status:
     description: Curation status of this term.

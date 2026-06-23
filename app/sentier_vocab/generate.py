@@ -6,7 +6,6 @@ independent and emit their own TTL separately.
 
 from pathlib import Path
 
-import yaml
 from linkml_runtime import SchemaView
 from rdflib import Graph
 from rdflib import Namespace as RDFNamespace
@@ -15,9 +14,10 @@ from rdflib.namespace import RDF, SKOS
 
 from sentier_vocab.errors import SchemaValidationError
 from sentier_vocab.iris import NAMESPACES
+from sentier_vocab.loaders import load_source
 from sentier_vocab.ordered_serialization import OrderedTurtleSerializer
 from sentier_vocab.rdf_mapping import concept_to_triples, member_slot_and_class, schema_view
-from sentier_vocab.schemas import validate_data_file
+from sentier_vocab.schemas import validate_collection
 
 
 def build_graph(concepts: list[dict], scheme_uri: str, sv: SchemaView, class_name: str) -> Graph:
@@ -45,23 +45,57 @@ def write_ttl(graph: Graph, output_path: Path | str) -> Path:
     return output_path
 
 
+def _check_registered_scheme(scheme: str, source: Path | str) -> None:
+    if scheme not in set(NAMESPACES.values()):
+        raise SchemaValidationError(
+            f"{source}: scheme {scheme!r} is not a registered Sentier.dev namespace "
+            f"(see sentier_vocab.iris.NAMESPACES)"
+        )
+
+
+def generate_sources(
+    schema_path: Path | str,
+    data_paths: list[Path | str],
+    output_path: Path | str,
+) -> Path:
+    """Validate and merge one or more source files (YAML or Parquet) into one TTL.
+
+    Every source for a category must declare the same registered ``scheme``; their
+    records are concatenated into a single SKOS graph. Each source is validated against
+    the schema via :func:`validate_collection` (format-agnostic). Returns the output path.
+    """
+    sv = schema_view(str(schema_path))
+    collection_key, class_name = member_slot_and_class(sv)
+
+    schemes: set[str] = set()
+    records: list[dict] = []
+    for data_path in data_paths:
+        scheme, source_records = load_source(data_path, collection_key)
+        _check_registered_scheme(scheme, data_path)
+        validate_collection(scheme, source_records, collection_key, schema_path)
+        schemes.add(scheme)
+        records.extend(source_records)
+
+    if len(schemes) > 1:
+        raise SchemaValidationError(
+            f"{output_path}: sources declare conflicting schemes {sorted(schemes)}; "
+            f"all files in a category must share one ConceptScheme"
+        )
+    if not schemes:
+        raise SchemaValidationError(f"{output_path}: no source files provided")
+
+    graph = build_graph(records, schemes.pop(), sv, class_name)
+    return write_ttl(graph, output_path)
+
+
 def generate_category(
     category: str,
     schema_path: Path | str,
     data_path: Path | str,
     output_path: Path | str,
 ) -> Path:
-    """Validate one data file, build its graph, and write the TTL. Returns the output path."""
-    validate_data_file(data_path, schema_path)
-    raw = yaml.safe_load(Path(data_path).read_text())
-    scheme = raw["scheme"]
-    if scheme not in set(NAMESPACES.values()):
-        raise SchemaValidationError(
-            f"{data_path}: scheme {scheme!r} is not a registered Sentier.dev namespace "
-            f"(see sentier_vocab.iris.NAMESPACES)"
-        )
-    sv = schema_view(str(schema_path))
-    collection_key, class_name = member_slot_and_class(sv)
-    concepts = raw.get(collection_key) or []
-    graph = build_graph(concepts, scheme, sv, class_name)
-    return write_ttl(graph, output_path)
+    """Validate one data file, build its graph, and write the TTL. Returns the output path.
+
+    Thin single-file wrapper over :func:`generate_sources`.
+    """
+    return generate_sources(schema_path, [data_path], output_path)

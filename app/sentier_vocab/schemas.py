@@ -52,3 +52,30 @@ def validate_data_file(data_path: Path | str, schema_path: Path | str) -> bool:
             f"{data_path} failed validation against {schema_path}:\n{messages}"
         )
     return True
+
+
+def validate_collection(
+    scheme: str, records: list[dict], items_key: str, schema_path: Path | str
+) -> bool:
+    """Validate an in-memory collection ``{scheme, <items_key>: records}`` against a schema.
+
+    The format-agnostic counterpart of :func:`validate_data_file`: it validates records
+    that may have come from YAML *or* Parquet, with no file or YAML materialization.
+    Returns True on success; raises ``SchemaValidationError`` listing every problem.
+    """
+    schema_path = Path(schema_path)
+    sv = SchemaView(str(schema_path))
+    target_class = _get_tree_root(schema_path)
+
+    plugin = JsonschemaValidationPlugin(closed=True)
+    validator = Validator(sv.schema, validation_plugins=[plugin])
+
+    instance = {"scheme": scheme, items_key: records}
+    report = validator.validate(instance, target_class)
+    if report.results:
+        messages = "\n".join(f"  - {result.message}" for result in report.results)
+        raise SchemaValidationError(
+            f"collection for scheme {scheme!r} failed validation against "
+            f"{schema_path}:\n{messages}"
+        )
+    return True

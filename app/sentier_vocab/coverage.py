@@ -118,17 +118,39 @@ CATALOG: list[DataType] = [
         "contacts",
         "Data providers / contacts",
     ),
+    DataType(
+        "Organisms",
+        iris.NAMESPACES["organisms"],
+        "✅ schema + import",
+        "importer",
+        "organisms",
+        "FoodEx2 biological source taxa (Parquet delivery)",
+    ),
+    DataType(
+        "Qualifiers",
+        iris.NAMESPACES["qualifiers"],
+        "✅ schema + import",
+        "importer",
+        "qualifiers",
+        "FoodEx2 facets / non-food matrices (Parquet delivery)",
+    ),
 ]
+
+_SOURCE_GLOBS = ("*.yaml", "*.parquet")
 
 
 def count_terms(folder: str | None) -> int:
-    """Count native term YAML files in a category folder (0 if folder absent/None)."""
+    """Count native source files (YAML or Parquet) in a category folder.
+
+    Returns 0 if the folder is absent or None. Counts files, not records — a single
+    bulk Parquet (e.g. FoodEx2) counts as one source.
+    """
     if not folder:
         return 0
     directory = DATA_DIR / folder
     if not directory.exists():
         return 0
-    return len(list(directory.glob("*.yaml")))
+    return sum(len(list(directory.glob(pattern))) for pattern in _SOURCE_GLOBS)
 
 
 def render(catalog: list[DataType] = CATALOG) -> str:

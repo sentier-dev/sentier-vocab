@@ -1,0 +1,13 @@
+scheme: https://vocab.sentier.dev/sources/
+sources:
+- citation: EFSA, 2015. The food classification and description system FoodEx2 (revision
+    2). EFSA Supporting Publication 2015:EN-804. doi:10.2903/sp.efsa.2015.EN-804.
+    Imported from the EFSA MTX catalogue v17.1 (openefsa/efsa-catalogues @ 242ead56e40a).
+  creators:
+  - European Food Safety Authority (EFSA)
+  identifier: 10.2903/sp.efsa.2015.EN-804
+  iri: https://vocab.sentier.dev/sources/foodex2
+  pref_label: FoodEx2
+  publisher: European Food Safety Authority
+  status: published
+  title: The food classification and description system FoodEx2 (revision 2)

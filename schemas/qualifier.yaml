@@ -1,0 +1,49 @@
+id: https://vocab.sentier.dev/schemas/qualifier
+name: sentier_qualifier
+title: Sentier.dev qualifiers
+description: >
+  Schema for qualifier / descriptor terms — controlled vocabulary used to describe or
+  refine products (process applied, part consumed, packaging, sampling matrix, ...)
+  rather than naming a product itself.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  sentier: https://vocab.sentier.dev/
+  ont: https://vocab.sentier.dev/ontology/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_prefix: sentier
+default_range: string
+
+imports:
+  - linkml:types
+  - common
+
+classes:
+  Qualifier:
+    is_a: Concept
+    class_uri: skos:Concept
+    description: >
+      A descriptor that qualifies a product — e.g. a FoodEx2 facet (part-nature, process,
+      packaging) or a sampling/test matrix. Not a product or an organism.
+
+  QualifierCollection:
+    tree_root: true
+    description: A scheme/group file holding many qualifiers.
+    annotations:
+      layer: vocabulary
+    attributes:
+      scheme:
+        description: The ConceptScheme IRI these qualifiers belong to.
+        range: uriorcurie
+        required: true
+        annotations:
+          internal: true
+      qualifiers:
+        description: The qualifiers in this collection.
+        range: Qualifier
+        multivalued: true
+        inlined_as_list: true

@@ -1,0 +1,12 @@
+scheme: https://vocab.sentier.dev/sources/
+sources:
+- citation: European Commission, Joint Research Centre. Environmental Footprint (EF)
+    3.1. Harmonised elementary-flow list extracted from the EF 3.1 reference package
+    via dds-agribalyse; nomenclature only, no LCI data.
+  creators:
+  - European Commission, Joint Research Centre (JRC)
+  iri: https://vocab.sentier.dev/sources/ef-3.1
+  pref_label: Environmental Footprint 3.1
+  publisher: European Commission, Joint Research Centre
+  status: published
+  title: Environmental Footprint (EF) 3.1 method and reference elementary flows

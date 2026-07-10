@@ -1,0 +1,12 @@
+scheme: https://vocab.sentier.dev/sources/
+sources:
+- citation: ADEME. AGRIBALYSE 3.2. Reference synthese (product impact scores) published
+    as French open data (Licence Ouverte / Etalab) via data.gouv.fr. Product nomenclature
+    (CIQUAL codes, French names, food groups) imported; no LCI amounts.
+  creators:
+  - ADEME (Agence de la transition écologique)
+  iri: https://vocab.sentier.dev/sources/agribalyse-3.2
+  pref_label: AGRIBALYSE 3.2
+  publisher: ADEME
+  status: published
+  title: AGRIBALYSE 3.2 — French agricultural and food LCI database

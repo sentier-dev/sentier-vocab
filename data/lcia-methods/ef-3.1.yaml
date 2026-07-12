@@ -1,0 +1,33 @@
+lcia_methods:
+- impact_categories:
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/acidification
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/climate-change
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/climate-change-biogenic
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/climate-change-fossil
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/climate-change-land-use-and-land-use-change
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/ef-particulate-matter
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/eutrophication-marine
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/eutrophication-freshwater
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/eutrophication-terrestrial
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-cancer-organics
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-cancer
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-cancer-inorganics
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-non-cancer
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-non-cancer-inorganics
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-non-cancer-organics
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/ionising-radiation-human-health
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/land-use
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/ozone-depletion
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/photochemical-ozone-formation-human-health
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/resource-use-fossils
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/resource-use-minerals-and-metals
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/water-use
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/ecotoxicity-freshwater
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/ecotoxicity-freshwater-inorganics
+  - https://vocab.sentier.dev/impact-categories/ef-3.1/ecotoxicity-freshwater-organics
+  iri: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  methodology: European Commission Environmental Footprint (EF) 3.1
+  pref_label: Environmental Footprint 3.1
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+scheme: https://vocab.sentier.dev/lcia-methods/

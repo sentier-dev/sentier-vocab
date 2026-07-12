@@ -1,0 +1,127 @@
+impact_categories:
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/acidification
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Acidification
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/climate-change
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Climate change
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/climate-change-biogenic
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Climate change-Biogenic
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/climate-change-fossil
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Climate change-Fossil
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/climate-change-land-use-and-land-use-change
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Climate change-Land use and land use change
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/ef-particulate-matter
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: EF-particulate Matter
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/eutrophication-marine
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Eutrophication marine
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/eutrophication-freshwater
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Eutrophication, freshwater
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/eutrophication-terrestrial
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Eutrophication, terrestrial
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-cancer-organics
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Human toxicity, cancer_organics
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-cancer
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Human toxicity, cancer
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-cancer-inorganics
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Human toxicity, cancer_inorganics
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-non-cancer
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Human toxicity, non-cancer
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-non-cancer-inorganics
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Human toxicity, non-cancer_inorganics
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/human-toxicity-non-cancer-organics
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Human toxicity, non-cancer_organics
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/ionising-radiation-human-health
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Ionising radiation, human health
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/land-use
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Land use
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/ozone-depletion
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Ozone depletion
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/photochemical-ozone-formation-human-health
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Photochemical ozone formation - human health
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/resource-use-fossils
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Resource use, fossils
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/resource-use-minerals-and-metals
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Resource use, minerals and metals
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/water-use
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Water use
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/ecotoxicity-freshwater
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Ecotoxicity, freshwater
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/ecotoxicity-freshwater-inorganics
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Ecotoxicity, freshwater_inorganics
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+- iri: https://vocab.sentier.dev/impact-categories/ef-3.1/ecotoxicity-freshwater-organics
+  method: https://vocab.sentier.dev/lcia-methods/ef-3.1
+  pref_label: Ecotoxicity, freshwater_organics
+  source: https://vocab.sentier.dev/sources/ef-3.1
+  status: draft
+scheme: https://vocab.sentier.dev/impact-categories/

@@ -138,3 +138,6 @@ uv.lock
 # at deploy and loaded into Fuseki — not committed (see docs spec 2026-06-17). The Parquet
 # under data/<category>/ IS committed; only the large generated TTL is excluded.
 output/*.foodex2.ttl
+output/*.agribalyse.ttl
+output/*.agribalyse-3.2.ttl
+output/*.ef-3.1.ttl

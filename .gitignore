@@ -142,3 +142,5 @@ output/*.agribalyse.ttl
 output/*.agribalyse-3.2.ttl
 output/*.ef-3.1.ttl
 output/*.ef31-*.ttl
+
+docs/

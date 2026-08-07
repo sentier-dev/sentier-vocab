@@ -1,0 +1,12 @@
+scheme: https://vocab.sentier.dev/sources/
+sources:
+- citation: Life Cycle Inventory database of the Swiss Federal Administration, BAFU:2026.
+    Version 1, EcoSpold v1 export (11,947 datasets).
+  creators:
+  - Swiss Federal Office for the Environment (BAFU/FOEN)
+  iri: https://vocab.sentier.dev/sources/bafu-2026
+  pref_label: BAFU:2026
+  publisher: Swiss Federal Office for the Environment (BAFU/FOEN)
+  status: published
+  title: Life Cycle Inventory database of the Swiss Federal Administration, BAFU:2026
+    (v1)

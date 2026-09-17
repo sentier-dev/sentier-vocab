@@ -1,93 +1,94 @@
-# svd
+# sentier-vocab
 
-[![PyPI](https://img.shields.io/pypi/v/svd.svg)][pypi status]
-[![Status](https://img.shields.io/pypi/status/svd.svg)][pypi status]
-[![Python Version](https://img.shields.io/pypi/pyversions/svd)][pypi status]
-[![License](https://img.shields.io/pypi/l/svd)][license]
-
-[![Read the documentation at https://svd.readthedocs.io/](https://img.shields.io/readthedocs/svd/latest.svg?label=Read%20the%20Docs)][read the docs]
-[![Tests](https://github.com/sentier-dev/svd/actions/workflows/python-test.yml/badge.svg)][tests]
-[![Codecov](https://codecov.io/gh/sentier-dev/svd/branch/main/graph/badge.svg)][codecov]
-
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
-[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
-
-[pypi status]: https://pypi.org/project/svd/
-[read the docs]: https://svd.readthedocs.io/
-[tests]: https://github.com/sentier-dev/svd/actions?workflow=Tests
-[codecov]: https://app.codecov.io/gh/sentier-dev/svd
-[pre-commit]: https://github.com/pre-commit/pre-commit
-[black]: https://github.com/psf/black
-
-## Installation
-
-You can install _svd_ via [pip] from [PyPI]:
-
-```console
-$ pip install svd
+```mermaid
+flowchart LR
+    ext["External ontologies (ENVO, QUDT, OEO, CN, geonames)"] -->|fetch| voc[sentier-vocab]
+    imp[sentier-importers] -->|PR| voc
+    voc -->|scp on push to main| fus["vocab.sentier.dev (Fuseki)"]
+    voc -->|fetch| bw[sentier-brightway]
 ```
 
-## Repository layout
+## What it is
 
-- `app/sentier_vocab/` — Python package (importable as `sentier_vocab`)
-  - `iris.py` — central registry of published IRI namespaces (stability contract)
-  - `generate.py` — validates `data/` YAML and emits `output/` TTL
-  - `coverage.py` — generates `docs/COVERAGE.md`
-  - `importers/` — external-ontology importers (ENVO, QUDT, OEO, …) — transitional layer
-- `data/<category>/` — native curated terms (YAML), one subfolder per LCIA category
-- `schemas/` — LinkML schemas (one per data type) + generated Pydantic in `_generated/`
-- `output/` — generated, committed TTL served by the triplestore
+- One canonical IRI per term under `https://vocab.sentier.dev/`: flows, units, products, processes, LCIA methods, impact categories, and more.
+- `app/sentier_vocab/iris.py` is the registry of published namespaces. They never change without a migration.
+- LinkML schemas in `schemas/` define each term type. A generator validates `data/` against them and writes TTL to `output/`.
+- Bulk terms arrive as Parquet through `sentier-importers` pull requests, not by hand.
 
-## Building native vocabulary
+## Install
+
+Not on PyPI. Clone, then sync:
 
 ```bash
-pip install -e .
-python -m sentier_vocab generate     # validate data/ -> write output/*.ttl
-python -m sentier_vocab coverage     # regenerate docs/COVERAGE.md
+git clone https://github.com/sentier-dev/sentier-vocab.git
 ```
 
-See `docs/COVERAGE.md` for the current data-type coverage matrix.
+```bash
+uv sync
+```
+
+## Use
+
+```mermaid
+flowchart LR
+    load["Load data/category sources"] --> val["Validate against LinkML schemas"]
+    val --> build["Build SKOS graph"]
+    build --> write["Write ordered TTL to output/"]
+```
+
+Validate every `data/<category>/` source and write `output/*.ttl` (`--output-dir DIR` writes elsewhere):
+
+```bash
+uv run python -m sentier_vocab generate
+```
+
+Regenerate the coverage matrix `docs/COVERAGE.md`. `uv run sentier-vocab <command>` is the same CLI:
+
+```bash
+uv run python -m sentier_vocab coverage
+```
+
+Fetch the external ontologies and run the transitional importers. They write `app/sentier_vocab/importers/output/*.ttl`, which `generation-test.yml` copies to the triplestore on push to `main`:
+
+```bash
+uv run bash scripts/generate.sh
+```
+
+## Layout
+
+| Path | Holds |
+|---|---|
+| `app/sentier_vocab/` | Package. `iris.py` namespaces, `generate.py`, `coverage.py`, `__main__.py` CLI, `importers/` with its own `output/`. |
+| `data/<category>/` | Curated terms. YAML plus content-named Parquet for bulk imports. 13 categories. |
+| `schemas/` | LinkML, one per term type, shared blocks in `common.yaml`. `_generated/` Pydantic is a build artifact. |
+| `output/` | Generated TTL. `<category>.ttl` is committed. `<category>.<stem>.ttl` is gitignored. |
+| `.github/workflows/` | `ci.yml` PR gate, `generation-test.yml` importer TTL deploy, `python-test.yml`, `python-package-deploy.yml`. |
+
+## Data
+
+- Every `*.yaml` and `*.parquet` file in `data/<category>/` is a source. Each source declares a `scheme`, and it must be registered in `iris.py`.
+- Source stems `core` and `water` emit the committed `<category>.ttl`. Any other stem emits `<category>.<stem>.ttl`, which is gitignored.
+- Bulk Parquet is named by content (per sector, per compartment) and stays under 3 MB (`check-added-large-files --maxkb=3000`). Shard with a `-NN` suffix, never git-LFS.
+- Regenerate `output/` and `docs/COVERAGE.md` in the same PR as any `data/` or `schemas/` change. CI fails otherwise.
 
 ## Contributing
 
-Contributions are very welcome.
-To learn more, see the [Contributor Guide][Contributor Guide].
+Format, then test:
+
+```bash
+uv run --extra dev pre-commit run --all-files
+```
+
+```bash
+uv run --extra testing pytest
+```
+
+- See [CONTRIBUTING.md](CONTRIBUTING.md) and file bugs on the [issue tracker](https://github.com/sentier-dev/sentier-vocab/issues).
+- Docs are Sphinx. The conda env is `docs/environment.yaml` (`sphinx_svd`); build with `sphinx-build docs _build/html`.
 
 ## License
 
 Distributed under the terms of the [MIT license][License],
 _svd_ is free and open source software.
 
-## Issues
-
-If you encounter any problems,
-please [file an issue][Issue Tracker] along with a detailed description.
-
-
-<!-- github-only -->
-
-[command-line reference]: https://svd.readthedocs.io/en/latest/usage.html
-[License]: https://github.com/sentier-dev/svd/blob/main/LICENSE
-[Contributor Guide]: https://github.com/sentier-dev/svd/blob/main/CONTRIBUTING.md
-[Issue Tracker]: https://github.com/sentier-dev/svd/issues
-
-
-## Building the Documentation
-
-You can build the documentation locally by installing the documentation Conda environment:
-
-```bash
-conda env create -f docs/environment.yml
-```
-
-activating the environment
-
-```bash
-conda activate sphinx_svd
-```
-
-and [running the build command](https://www.sphinx-doc.org/en/master/man/sphinx-build.html#sphinx-build):
-
-```bash
-sphinx-build docs _build/html --builder=html --jobs=auto --write-all; open _build/html/index.html
-```
+[License]: LICENSE

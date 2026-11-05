@@ -1,9 +1,8 @@
 """Central registry of published Sentier.dev IRI namespaces.
 
-This module is the single source of truth for every `https://vocab.sentier.dev/`
-namespace and the stability contract for the published vocabulary. All term
-generation and schema prefixes reference it; nothing should hardcode these
-strings elsewhere.
+The namespaces are read from ``schemas/term.yaml`` (the ``types`` section): that
+file is the stability contract for the published vocabulary. ``NAMESPACES`` keeps
+its historical shape, ``{category: namespace}``, so external code keeps working.
 """
 
 import types
@@ -11,32 +10,33 @@ from typing import Mapping
 
 from rdflib import Namespace, URIRef
 
-__all__ = ("NAMESPACES", "ONTOLOGY", "namespace_for", "iri_for", "iri_for_cf", "identifier_from")
+from sentier_vocab import paths
+from sentier_vocab.schema import load_term_schema
+
+__all__ = (
+    "NAMESPACES",
+    "ONTOLOGY",
+    "namespace_for",
+    "iri_for",
+    "iri_for_cf",
+    "identifier_from",
+    "category_for_type",
+    "type_for_iri",
+)
 
 BASE = "https://vocab.sentier.dev/"
 ONTOLOGY = BASE + "ontology/"
 
+_SCHEMA = load_term_schema(paths.TERM_SCHEMA)
+
 NAMESPACES: Mapping[str, str] = types.MappingProxyType(
-    {
-        # Existing published namespaces — DO NOT change without a vocabulary migration.
-        "flows": BASE + "flows/",
-        "units": BASE + "units/",
-        "products": BASE + "products/",
-        "model-terms": BASE + "model-terms/",
-        # New LCIA data types (ILCD-aligned).
-        "flow-properties": BASE + "flow-properties/",
-        "processes": BASE + "processes/",
-        "lcia-methods": BASE + "lcia-methods/",
-        "impact-categories": BASE + "impact-categories/",
-        "characterization-factors": BASE + "characterization-factors/",
-        "sources": BASE + "sources/",
-        "contacts": BASE + "contacts/",
-        # New term namespaces.
-        "unit-groups": BASE + "units/group/",
-        # Imported food/agriculture vocabularies (FoodEx2 and future sources).
-        "organisms": BASE + "organisms/",
-        "qualifiers": BASE + "qualifiers/",
-    }
+    {t.category: t.namespace for t in _SCHEMA.types.values()}
+)
+
+# Longest namespace first so units/group/ wins over units/.
+_TYPES_BY_NAMESPACE = sorted(
+    ((t.namespace, t.name) for t in _SCHEMA.types.values()),
+    key=lambda pair: -len(pair[0]),
 )
 
 
@@ -51,16 +51,26 @@ def iri_for(category: str, identifier: str) -> URIRef:
 
 
 def iri_for_cf(method_id: str, impact_id: str, flow_id: str) -> URIRef:
-    """Deterministic IRI for a characterization factor (method + impact category + flow)."""
+    """Deterministic IRI for a characterization factor (method + impact category + flow).
+
+    Kept so sentier-methods can mint the same IRIs; vocab stores no CF rows.
+    """
     return namespace_for("characterization-factors")[f"{method_id}_{impact_id}_{flow_id}"]
 
 
 def identifier_from(iri: str | URIRef) -> str:
-    """Extract the trailing identifier from a Sentier.dev term IRI.
-
-    The *iri* argument must be a full **term** IRI — that is, a namespace IRI
-    with an identifier appended, e.g.
-    ``https://vocab.sentier.dev/flows/ENVO_00002006``.  Passing a bare
-    namespace IRI (one that ends with ``/``) is undefined behaviour.
-    """
+    """Trailing identifier of a full term IRI (not a bare namespace)."""
     return str(iri).rstrip("/").split("/")[-1]
+
+
+def category_for_type(type_name: str) -> str:
+    """The output/iris category of a term type (``elementary-flow`` -> ``flows``)."""
+    return _SCHEMA.types[type_name].category
+
+
+def type_for_iri(iri: str) -> str | None:
+    """The term type whose namespace is the longest prefix of ``iri``, or None."""
+    for namespace, type_name in _TYPES_BY_NAMESPACE:
+        if iri.startswith(namespace):
+            return type_name
+    return None

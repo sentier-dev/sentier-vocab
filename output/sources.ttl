@@ -8,10 +8,17 @@
     dcterms:date "2021-08-09"^^xsd:date ;
     dcterms:identifier "10.1017/9781009157896" ;
     dcterms:publisher "Cambridge University Press" ;
+    dcterms:source <https://vocab.sentier.dev/sources/sentier-core> ;
     dcterms:title "Climate Change 2021: The Physical Science Basis"@en ;
     skos:inScheme <https://vocab.sentier.dev/sources/> ;
     skos:prefLabel "IPCC AR6"@en ;
     ont:citation "IPCC, 2021. Climate Change 2021: The Physical Science Basis." .
+
+<https://vocab.sentier.dev/sources/sentier-core> a skos:Concept ;
+    dcterms:source <https://vocab.sentier.dev/sources/sentier-core> ;
+    skos:definition "Terms curated by Sentier.dev itself, not imported from a published source."@en ;
+    skos:inScheme <https://vocab.sentier.dev/sources/> ;
+    skos:prefLabel "Sentier.dev curated terms"@en .
 
 <https://vocab.sentier.dev/sources/> a skos:ConceptScheme .
 

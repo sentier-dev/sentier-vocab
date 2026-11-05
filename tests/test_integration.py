@@ -1,12 +1,10 @@
 import subprocess
 import sys
 
-import pytest
 from rdflib import Graph, URIRef
 from rdflib.namespace import RDF, SKOS
 from tests.conftest import CORE
 
-from sentier_vocab import paths
 from sentier_vocab.layers import write_terms
 
 
@@ -52,7 +50,6 @@ def test_cli_validate_reports_errors_and_fails(layout):
     assert "widget" in result.stdout
 
 
-@pytest.mark.skipif(not paths.TERMS_DIR.exists(), reason="layers not migrated yet")
 def test_cli_on_repository_layout():
     """The committed layers validate (slow; the real data)."""
     result = _run("validate")

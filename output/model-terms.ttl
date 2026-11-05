@@ -1,7 +1,9 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <https://vocab.sentier.dev/model-terms/efficiency> a skos:Concept ;
+    dcterms:source <https://vocab.sentier.dev/sources/sentier-core> ;
     qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/DimensionlessRatio> ;
     skos:definition "Ratio of useful output to input."@en ;
     skos:inScheme <https://vocab.sentier.dev/model-terms/> ;

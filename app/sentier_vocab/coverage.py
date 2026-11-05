@@ -1,10 +1,10 @@
-"""Generate the living coverage matrix (docs/COVERAGE.md) from the ILCD catalog."""
+"""Generate the living coverage matrix (docs/COVERAGE.md) from the terms layer."""
 
 from dataclasses import dataclass
 from pathlib import Path
 
-from sentier_vocab import iris
-from sentier_vocab.paths import DATA_DIR
+from sentier_vocab import iris, paths
+from sentier_vocab.layers import load_terms
 
 
 @dataclass(frozen=True)
@@ -13,166 +13,126 @@ class DataType:
     namespace: str
     status: str
     source_layer: str
-    folder: str | None
+    type_name: str | None
     notes: str
     layer: str = "vocabulary"
 
 
-# ILCD / ISO 14040-44 reference taxonomy. `namespace` values must exist in iris.NAMESPACES.
+def _dt(name, category, status, source_layer, type_name, notes, layer="vocabulary"):
+    return DataType(name, iris.NAMESPACES[category], status, source_layer, type_name, notes, layer)
+
+
+# ILCD / ISO 14040-44 reference taxonomy. Every iris.NAMESPACES entry has one row.
 CATALOG: list[DataType] = [
-    DataType(
+    _dt(
         "Elementary flows",
-        iris.NAMESPACES["flows"],
-        "🟡 partial",
+        "flows",
+        "✅ imported",
         "importer + native",
-        "elementary-flows",
-        "ENVO water subset; native curation underway",
+        "elementary-flow",
+        "EF 3.1 and BAFU:2026 flow lists; ENVO water pilot",
     ),
-    DataType(
-        "Flow properties",
-        iris.NAMESPACES["flow-properties"],
-        "✅ schema + pilot",
-        "native",
-        "flow-properties",
-        "New schema + data",
+    _dt(
+        "Flow properties", "flow-properties", "✅ pilot", "native", "flow-property", "Pilot terms"
     ),
-    DataType(
-        "Units / unit groups",
-        iris.NAMESPACES["units"],
+    _dt(
+        "Units",
+        "units",
         "🟡 partial",
         "importer",
-        None,
-        "QUDT units imported; no group model yet (transitional)",
+        "unit",
+        "QUDT units referenced by IRI; native unit terms only where QUDT has none",
     ),
-    DataType(
-        "Unit groups",
-        iris.NAMESPACES["unit-groups"],
-        "✅ schema + pilot",
-        "native",
-        "unit-groups",
-        "New schema + data (Phase 4)",
-    ),
-    DataType(
-        "Products",
-        iris.NAMESPACES["products"],
-        "✅ schema + pilot",
-        "both",
-        "products",
-        "Some native products; formalize schema",
-    ),
-    DataType(
+    _dt("Unit groups", "unit-groups", "✅ pilot", "native", "unit-group", "Pilot terms"),
+    _dt("Products", "products", "✅ imported", "both", "product", "FoodEx2 and Agribalyse 3.2"),
+    _dt(
         "Processes",
-        iris.NAMESPACES["processes"],
-        "✅ schema + pilot",
-        "native",
         "processes",
-        "New schema + data",
+        "✅ imported",
+        "importer + native",
+        "process",
+        "BAFU:2026 and Agribalyse 3.2",
         layer="data",
     ),
-    DataType(
+    _dt(
         "LCIA methods",
-        iris.NAMESPACES["lcia-methods"],
-        "✅ schema + pilot",
-        "native (+ Phase-2 import)",
         "lcia-methods",
-        "AGB/BAFU import planned",
+        "✅ pilot",
+        "native + import",
+        "lcia-method",
+        "EF 3.1, IPCC pilot",
     ),
-    DataType(
+    _dt(
         "Impact categories",
-        iris.NAMESPACES["impact-categories"],
-        "✅ schema + pilot",
-        "native",
         "impact-categories",
-        "New schema + data",
+        "✅ pilot",
+        "native + import",
+        "impact-category",
+        "EF 3.1, IPCC pilot",
     ),
-    DataType(
+    _dt(
         "Characterization factors",
-        iris.NAMESPACES["characterization-factors"],
-        "✅ schema + pilot",
-        "native (+ Phase-2 import)",
         "characterization-factors",
-        "Links flow ↔ impact category",
+        "⬜ moved",
+        "sentier-methods",
+        None,
+        "Namespace reserved; CF rows live in sentier-methods",
         layer="data",
     ),
-    DataType(
-        "Model terms",
-        iris.NAMESPACES["model-terms"],
-        "✅ schema + pilot",
-        "native",
-        "model-terms",
-        "Formalize schema",
-    ),
-    DataType(
+    _dt("Model terms", "model-terms", "✅ pilot", "native", "model-term", "Pilot terms"),
+    _dt(
         "Sources",
-        iris.NAMESPACES["sources"],
-        "✅ schema + pilot",
-        "native",
         "sources",
-        "Bibliographic references",
+        "✅ pilot",
+        "native + import",
+        "source",
+        "One term per source release",
     ),
-    DataType(
-        "Contacts",
-        iris.NAMESPACES["contacts"],
-        "✅ schema + pilot",
-        "native",
-        "contacts",
-        "Data providers / contacts",
-    ),
-    DataType(
+    _dt("Contacts", "contacts", "✅ pilot", "native", "contact", "Data providers / contacts"),
+    _dt(
         "Organisms",
-        iris.NAMESPACES["organisms"],
-        "✅ schema + import",
-        "importer",
         "organisms",
-        "FoodEx2 biological source taxa (Parquet delivery)",
-    ),
-    DataType(
-        "Qualifiers",
-        iris.NAMESPACES["qualifiers"],
-        "✅ schema + import",
+        "✅ imported",
         "importer",
-        "qualifiers",
-        "FoodEx2 facets / non-food matrices (Parquet delivery)",
+        "organism",
+        "FoodEx2 biological source taxa",
     ),
+    _dt("Qualifiers", "qualifiers", "✅ imported", "importer", "qualifier", "FoodEx2 facets"),
 ]
 
-_SOURCE_GLOBS = ("*.yaml", "*.parquet")
+
+def count_terms(terms: dict[Path, list[dict]]) -> dict[str, int]:
+    """Rows per term type across every term file."""
+    counts: dict[str, int] = {}
+    for rows in terms.values():
+        for row in rows:
+            counts[row["type"]] = counts.get(row["type"], 0) + 1
+    return counts
 
 
-def count_terms(folder: str | None) -> int:
-    """Count native source files (YAML or Parquet) in a category folder.
-
-    Returns 0 if the folder is absent or None. Counts files, not records — a single
-    bulk Parquet (e.g. FoodEx2) counts as one source.
-    """
-    if not folder:
-        return 0
-    directory = DATA_DIR / folder
-    if not directory.exists():
-        return 0
-    return sum(len(list(directory.glob(pattern))) for pattern in _SOURCE_GLOBS)
-
-
-def render(catalog: list[DataType] = CATALOG) -> str:
+def render(terms: dict[Path, list[dict]], catalog: list[DataType] = CATALOG) -> str:
     """Render the coverage matrix as Markdown."""
+    counts = count_terms(terms)
     lines = [
         "# Sentier.dev Vocabulary Coverage",
         "",
-        "Generated by `app/sentier_vocab/coverage.py`. ILCD / ISO 14040-44 reference taxonomy.",
+        "Generated by `app/sentier_vocab/coverage.py` from `terms/`. "
+        "ILCD / ISO 14040-44 reference taxonomy.",
         "",
-        "| Data type | IRI namespace | Status | Layer | Source layer | Native files | Notes |",
+        "| Data type | IRI namespace | Status | Layer | Source layer | Terms | Notes |",
         "|---|---|---|---|---|---|---|",
     ]
     for dt in catalog:
+        n = counts.get(dt.type_name, 0) if dt.type_name else 0
         lines.append(
             f"| {dt.name} | `{dt.namespace}` | {dt.status} | {dt.layer} | {dt.source_layer} "
-            f"| {count_terms(dt.folder)} | {dt.notes} |"
+            f"| {n} | {dt.notes} |"
         )
     return "\n".join(lines) + "\n"
 
 
-def write(path: Path | str) -> Path:
+def write(path: Path | str, terms: dict[Path, list[dict]] | None = None) -> Path:
     """Write the rendered matrix to a file. Returns the path."""
     path = Path(path)
-    path.write_text(render())
+    path.write_text(render(terms if terms is not None else load_terms(paths.TERMS_DIR)))
     return path

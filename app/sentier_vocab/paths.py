@@ -9,5 +9,3 @@ RELATION_SCHEMA = SCHEMAS_DIR / "relation.yaml"
 TERMS_DIR = REPO_ROOT / "terms"
 RELATIONS_DIR = REPO_ROOT / "relations"
 OUTPUT_DIR = REPO_ROOT / "output"
-# Kept until the old per-type pipeline is removed.
-DATA_DIR = REPO_ROOT / "data"

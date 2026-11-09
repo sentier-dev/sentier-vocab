@@ -1,0 +1,37 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.sentier.dev/units/unit/KiloM-TONNE> a skos:Concept ;
+    dcterms:source <https://vocab.sentier.dev/sources/sentier-core> ;
+    skos:altLabel "Tonne (metric) kilometer"@en ;
+    skos:definition "One metric tonne carried over a distance of one kilometer"@en ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "tkm" ;
+    skos:prefLabel "Tonne (metric) kilometre"@en .
+
+<https://vocab.sentier.dev/units/unit/M2-YR> a skos:Concept ;
+    dcterms:source <https://vocab.sentier.dev/sources/sentier-core> ;
+    skos:altLabel "Square meter year"@en ;
+    skos:definition "Square meter-year"@en ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "m2a" ;
+    skos:prefLabel "Square metre year"@en .
+
+<https://vocab.sentier.dev/units/unit/M3-YR> a skos:Concept ;
+    dcterms:source <https://vocab.sentier.dev/sources/sentier-core> ;
+    skos:altLabel "Cubic meter year"@en ;
+    skos:definition "One cubic meter over one year"@en ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "m3a" ;
+    skos:prefLabel "Cubic metre year"@en .
+
+<https://vocab.sentier.dev/units/unit/PERSON-KiloM> a skos:Concept ;
+    dcterms:source <https://vocab.sentier.dev/sources/sentier-core> ;
+    skos:altLabel "Person kilometer"@en ;
+    skos:definition "Transport of one person over one kilometer. Does not depend on mass of person or duration of transport."@en ;
+    skos:inScheme <https://vocab.sentier.dev/units/> ;
+    skos:notation "personkm" ;
+    skos:prefLabel "Person kilometre"@en .
+
+<https://vocab.sentier.dev/units/> a skos:ConceptScheme .
+

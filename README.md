@@ -2,18 +2,18 @@
 
 ```mermaid
 flowchart LR
-    ext["External ontologies (ENVO, QUDT, OEO, CN, geonames)"] -->|fetch| voc[sentier-vocab]
-    imp[sentier-importers] -->|PR| voc
-    voc -->|scp on push to main| fus["vocab.sentier.dev (Fuseki)"]
-    voc -->|fetch| bw[sentier-brightway]
+    imp[sentier-importers] -->|PR: terms + relations parquet| voc[sentier-vocab]
+    voc -->|generate| ttl[output/*.ttl]
+    voc -->|read parquet| bw[sentier-brightway]
+    voc -.->|loader, planned| pyst["vocab.sentier.dev (PyST)"]
 ```
 
 ## What it is
 
-- One canonical IRI per term under `https://vocab.sentier.dev/`: flows, units, products, processes, LCIA methods, impact categories, and more.
-- `app/sentier_vocab/iris.py` is the registry of published namespaces. They never change without a migration.
-- LinkML schemas in `schemas/` define each term type. A generator validates `data/` against them and writes TTL to `output/`.
-- Bulk terms arrive as Parquet through `sentier-importers` pull requests, not by hand.
+- One canonical IRI per term under `https://vocab.sentier.dev/`: flows, units, products, processes, LCIA methods, impact categories, organisms, and more.
+- Two parquet layers hold everything: `terms/` (one row per term, any type) and `relations/` (one row per directed edge between terms). Both are cut per source release.
+- Two plain YAML contracts describe them: `schemas/term.yaml` lists the term columns and the allowed term types (IRI namespace, attribute keys); `schemas/relation.yaml` lists the edge columns and the allowed predicates (subject and object types). `app/sentier_vocab/iris.py` reads the namespaces from `term.yaml`; they never change without a migration.
+- Bulk terms arrive as parquet through `sentier-importers` pull requests, not by hand. Correspondences to other identifier spaces (Brightway, ecoinvent) live in `sentier-mappings`, characterization factors in `sentier-methods`, exchanges in `sentier-inventory`.
 
 ## Install
 
@@ -29,14 +29,13 @@ uv sync
 
 ## Use
 
-```mermaid
-flowchart LR
-    load["Load data/category sources"] --> val["Validate against LinkML schemas"]
-    val --> build["Build SKOS graph"]
-    build --> write["Write ordered TTL to output/"]
+Check both layers against the contracts (IRI unique, type listed, IRI in the type's namespace, attribute keys declared, every edge resolves, one source per file, one unit per flow):
+
+```bash
+uv run python -m sentier_vocab validate
 ```
 
-Validate every `data/<category>/` source and write `output/*.ttl` (`--output-dir DIR` writes elsewhere):
+Validate, then write `output/*.ttl` (`--output-dir DIR` writes elsewhere):
 
 ```bash
 uv run python -m sentier_vocab generate
@@ -48,28 +47,44 @@ Regenerate the coverage matrix `docs/COVERAGE.md`. `uv run sentier-vocab <comman
 uv run python -m sentier_vocab coverage
 ```
 
-Fetch the external ontologies and run the transitional importers. They write `app/sentier_vocab/importers/output/*.ttl`, which `generation-test.yml` copies to the triplestore on push to `main`:
+Fetch the external ontologies and run the transitional importers. They write `app/sentier_vocab/importers/output/*.ttl`, which `generation-test.yml` copies to the legacy Fuseki on push to `main`:
 
 ```bash
 uv run bash scripts/generate.sh
+```
+
+## Read the data
+
+The `terms/` directory is one parquet dataset; filter on `type` instead of picking a folder. Type-specific literals sit in the `attributes` JSON column; links to other terms are rows of `relations/`.
+
+```python
+import json
+import pandas as pd
+
+flows = pd.read_parquet("terms", filters=[("type", "==", "elementary-flow")])
+attrs = flows["attributes"].map(lambda s: json.loads(s) if s else {})
+flows["compartment"] = attrs.map(lambda a: a.get("compartment"))
+units = pd.read_parquet("relations", filters=[("predicate", "==", "qudt:hasUnit")])
 ```
 
 ## Layout
 
 | Path | Holds |
 |---|---|
-| `app/sentier_vocab/` | Package. `iris.py` namespaces, `generate.py`, `coverage.py`, `__main__.py` CLI, `importers/` with its own `output/`. |
-| `data/<category>/` | Curated terms. YAML plus content-named Parquet for bulk imports. 13 categories. |
-| `schemas/` | LinkML, one per term type, shared blocks in `common.yaml`. `_generated/` Pydantic is a build artifact. |
-| `output/` | Generated TTL. `<category>.ttl` is committed. `<category>.<stem>.ttl` is gitignored. |
+| `app/sentier_vocab/` | Package. `schema.py` loads the contracts, `layers.py` reads and writes parquet, `validate.py`, `generate.py`, `coverage.py`, `iris.py`, `__main__.py` CLI, `importers/` with its own `output/`. |
+| `schemas/` | `term.yaml` and `relation.yaml`, the two contracts. |
+| `terms/` | `<release>.parquet` or `<release>-NN.parquet`: every term of one source release, all types mixed. |
+| `relations/` | `<release>.parquet`: every edge of one source release, all predicates mixed. |
+| `output/` | Generated TTL. `<category>.ttl` (sentier-core) is committed. `<category>.<stem>.ttl` is gitignored. |
 | `.github/workflows/` | `ci.yml` PR gate, `generation-test.yml` importer TTL deploy, `python-test.yml`, `python-package-deploy.yml`. |
 
 ## Data
 
-- Every `*.yaml` and `*.parquet` file in `data/<category>/` is a source. Each source declares a `scheme`, and it must be registered in `iris.py`.
-- Source stems `core` and `water` emit the committed `<category>.ttl`. Any other stem emits `<category>.<stem>.ttl`, which is gitignored.
-- Bulk Parquet is named by content (per sector, per compartment) and stays under 3 MB (`check-added-large-files --maxkb=3000`). Shard with a `-NN` suffix, never git-LFS.
-- Regenerate `output/` and `docs/COVERAGE.md` in the same PR as any `data/` or `schemas/` change. CI fails otherwise.
+- A file belongs to one source release and its stem is the source term's identifier (`ef-3.1`, `bafu-2026`, `foodex2`, `agribalyse-3.2`, `sentier-core` for terms Sentier curates itself). A delivery replaces its own files whole.
+- Term columns: `iri, type, pref_label, alt_labels, definition, notation, additional_notations, source, status, attributes`. Relation columns: `subject, predicate, object, source, status`.
+- A relation's object is a `vocab.sentier.dev` IRI or an external IRI allow-listed on the predicate (QUDT units, geonames, OBO). Tool identifiers are never relation objects; they go to `sentier-mappings`.
+- Files stay under 3 MB (`check-added-large-files --maxkb=3000`). Shard with a `-NN` suffix, never git-LFS.
+- Regenerate `output/` and `docs/COVERAGE.md` in the same PR as any `terms/`, `relations/` or `schemas/` change. CI fails otherwise.
 
 ## Contributing
 

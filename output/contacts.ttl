@@ -1,7 +1,9 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ont: <https://vocab.sentier.dev/ontology/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <https://vocab.sentier.dev/contacts/sentier-dev> a skos:Concept ;
+    dcterms:source <https://vocab.sentier.dev/sources/sentier-core> ;
     skos:inScheme <https://vocab.sentier.dev/contacts/> ;
     skos:prefLabel "Sentier.dev"@en ;
     ont:email "info@sentier.dev" ;

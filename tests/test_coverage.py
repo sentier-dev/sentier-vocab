@@ -1,4 +1,5 @@
 from sentier_vocab import coverage, iris
+from sentier_vocab.layers import load_terms
 
 
 def test_catalog_covers_every_registry_namespace():
@@ -7,19 +8,24 @@ def test_catalog_covers_every_registry_namespace():
         assert namespace in catalog_namespaces, f"{namespace} missing from coverage catalog"
 
 
-def test_render_includes_header_and_rows():
-    text = coverage.render()
+def test_count_terms_per_type(layout):
+    terms_dir, _ = layout
+    counts = coverage.count_terms(load_terms(terms_dir))
+    assert counts["elementary-flow"] == 3
+    assert counts["source"] == 2
+    assert counts.get("unit", 0) == 0
+
+
+def test_render_includes_header_and_rows(layout):
+    terms_dir, _ = layout
+    text = coverage.render(load_terms(terms_dir))
     assert "# Sentier.dev Vocabulary Coverage" in text
+    assert "| Elementary flows |" in text and "| 3 |" in text
     assert "https://vocab.sentier.dev/flows/" in text
-    assert "Elementary flows" in text
-    # Pilot file present -> at least one native file counted for elementary-flows.
-    assert "| Elementary flows |" in text
-    assert "Layer" in text
-    assert "vocabulary" in text and "data" in text
 
 
-def test_write_creates_file(tmp_path):
+def test_write_creates_file(layout, tmp_path):
+    terms_dir, _ = layout
     out = tmp_path / "COVERAGE.md"
-    coverage.write(out)
-    assert out.exists()
+    coverage.write(out, load_terms(terms_dir))
     assert "Vocabulary Coverage" in out.read_text()

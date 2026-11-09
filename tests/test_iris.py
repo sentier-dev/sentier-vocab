@@ -67,3 +67,18 @@ def test_iri_for_cf_is_deterministic():
         "https://vocab.sentier.dev/characterization-factors/"
         "ipcc-2021-gwp100_climate-change_ENVO_carbon_dioxide"
     )
+
+
+def test_namespaces_come_from_term_yaml():
+    from sentier_vocab import paths
+    from sentier_vocab.schema import load_term_schema
+
+    schema = load_term_schema(paths.TERM_SCHEMA)
+    assert iris.NAMESPACES == {t.category: t.namespace for t in schema.types.values()}
+
+
+def test_category_for_type_and_type_for_namespace():
+    assert iris.category_for_type("elementary-flow") == "flows"
+    assert iris.type_for_iri("https://vocab.sentier.dev/units/group/mass") == "unit-group"
+    assert iris.type_for_iri("https://vocab.sentier.dev/units/KiloGM") == "unit"
+    assert iris.type_for_iri("https://example.org/x") is None

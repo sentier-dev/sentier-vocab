@@ -36,8 +36,9 @@ jobs:
       - name: Run tests
         run: pytest
 
-      - name: Native CLI commands
+      - name: Validate layers and regenerate artifacts
         run: |
+          python -m sentier_vocab validate
           python -m sentier_vocab generate
           python -m sentier_vocab coverage
 

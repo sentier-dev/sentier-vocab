@@ -1,131 +1,152 @@
-import pytest
 from rdflib import Graph, Literal, URIRef
-from rdflib.compare import isomorphic
-from rdflib.namespace import RDF, SKOS
+from rdflib.namespace import RDF, SKOS, XSD
+from tests.conftest import CORE, FLOWS, KG, MASS
 
 from sentier_vocab import paths
-from sentier_vocab.errors import SchemaValidationError
-from sentier_vocab.generate import build_graph, generate_category
-from sentier_vocab.rdf_mapping import schema_view
+from sentier_vocab.generate import (
+    build_graphs,
+    generate,
+    output_name,
+    relation_triple,
+    term_triples,
+)
+from sentier_vocab.layers import load_relations, load_terms
+from sentier_vocab.schema import load_relation_schema, load_term_schema
+
+ONT = "https://vocab.sentier.dev/ontology/"
+QUDT = "http://qudt.org/schema/qudt/"
+DCT = "http://purl.org/dc/terms/"
 
 
-def test_build_graph_produces_expected_triples():
-    concepts = [
-        {
-            "iri": "https://vocab.sentier.dev/flows/X1",
-            "pref_label": "Foo",
-            "definition": "A foo.",
-            "exact_match": ["http://example.org/X1"],
-        }
+def test_term_triples_for_a_flow():
+    schema = load_term_schema(paths.TERM_SCHEMA)
+    row = {
+        "iri": FLOWS + "X1",
+        "type": "elementary-flow",
+        "pref_label": "Foo",
+        "definition": "A foo.",
+        "alt_labels": ["Bar"],
+        "notation": "X1",
+        "additional_notations": ["ec:1"],
+        "source": CORE,
+        "status": "draft",
+        "attributes": {"compartment": "air", "cas_number": "1-2-3"},
+    }
+    t = set(term_triples(row, schema))
+    s = URIRef(FLOWS + "X1")
+    assert (s, RDF.type, SKOS.Concept) in t
+    assert (s, SKOS.inScheme, URIRef(FLOWS)) in t
+    assert (s, SKOS.prefLabel, Literal("Foo", lang="en")) in t
+    assert (s, SKOS.altLabel, Literal("Bar", lang="en")) in t
+    assert (s, SKOS.definition, Literal("A foo.", lang="en")) in t
+    assert (s, SKOS.notation, Literal("X1")) in t
+    assert (s, SKOS.notation, Literal("ec:1")) in t
+    assert (s, URIRef(DCT + "source"), URIRef(CORE)) in t
+    assert (s, URIRef(ONT + "compartment"), Literal("air")) in t
+    assert (s, URIRef(ONT + "casNumber"), Literal("1-2-3")) in t
+    assert not any(o == Literal("draft") for _, _, o in t)  # status is internal
+
+
+def test_term_triples_datatypes_and_class():
+    schema = load_term_schema(paths.TERM_SCHEMA)
+    row = {
+        "iri": "https://vocab.sentier.dev/processes/p",
+        "type": "process",
+        "pref_label": "P",
+        "source": CORE,
+        "attributes": {"valid_from": "2020-01-01", "technology": "BOF", "process_type": "unit"},
+    }
+    t = set(term_triples(row, schema))
+    s = URIRef(row["iri"])
+    assert (s, RDF.type, URIRef(ONT + "Process")) in t
+    assert (s, URIRef(ONT + "validFrom"), Literal("2020-01-01", datatype=XSD.date)) in t
+    assert (s, URIRef(ONT + "technology"), Literal("BOF", lang="en")) in t
+    assert (s, URIRef(ONT + "processType"), Literal("unit")) in t
+    ic = {
+        "iri": "https://vocab.sentier.dev/impact-categories/c",
+        "type": "impact-category",
+        "pref_label": "C",
+        "source": CORE,
+        "attributes": {"normalization_factor": 1.0},
+    }
+    nf = URIRef(ONT + "normalizationFactor")
+    assert (URIRef(ic["iri"]), nf, Literal(1.0)) in set(term_triples(ic, schema))
+    src = {
+        "iri": CORE,
+        "type": "source",
+        "pref_label": "S",
+        "source": CORE,
+        "attributes": {"creators": ["A", "B"], "date": "2021-08-09"},
+    }
+    ts = set(term_triples(src, schema))
+    assert (URIRef(CORE), URIRef(DCT + "creator"), Literal("A")) in ts
+    assert (URIRef(CORE), URIRef(DCT + "creator"), Literal("B")) in ts
+    assert (URIRef(CORE), URIRef(DCT + "date"), Literal("2021-08-09", datatype=XSD.date)) in ts
+    contact = {
+        "iri": "https://vocab.sentier.dev/contacts/c",
+        "type": "contact",
+        "pref_label": "C",
+        "source": CORE,
+        "attributes": {"url": "https://sentier.dev"},
+    }
+    tc = set(term_triples(contact, schema))
+    assert (URIRef(contact["iri"]), URIRef(ONT + "url"), URIRef("https://sentier.dev")) in tc
+
+
+def test_relation_triple():
+    rel_schema = load_relation_schema(paths.RELATION_SCHEMA)
+    row = {"subject": FLOWS + "a", "predicate": "qudt:hasUnit", "object": KG, "source": CORE}
+    assert relation_triple(row, rel_schema) == (
+        URIRef(FLOWS + "a"),
+        URIRef(QUDT + "hasUnit"),
+        URIRef(KG),
+    )
+
+
+def test_output_name():
+    assert output_name("flows", "sentier-core") == "flows.ttl"
+    assert output_name("flows", "ef-3.1-03") == "flows.ef-3.1-03.ttl"
+
+
+def test_build_graphs_groups_by_category_and_file(layout):
+    terms_dir, relations_dir = layout
+    graphs = build_graphs(load_terms(terms_dir), load_relations(relations_dir))
+    assert set(graphs) == {
+        ("sources", "sentier-core"),
+        ("flows", "sentier-core"),
+        ("unit-groups", "sentier-core"),
+        ("processes", "sentier-core"),
+        ("sources", "ef-3.1"),
+        ("flows", "ef-3.1"),
+    }
+    flows = graphs[("flows", "sentier-core")]
+    assert (URIRef(FLOWS), RDF.type, SKOS.ConceptScheme) in flows
+    assert (
+        URIRef(FLOWS + "ENVO_00002010"),
+        SKOS.broader,
+        URIRef(FLOWS + "ENVO_00002006"),
+    ) in flows
+    # a relation lands in the graph of its subject
+    assert (URIRef(MASS), URIRef(QUDT + "hasUnit"), URIRef(KG)) in graphs[
+        ("unit-groups", "sentier-core")
     ]
-    result = build_graph(
-        concepts,
-        "https://vocab.sentier.dev/flows/",
-        schema_view(str(paths.SCHEMAS_DIR / "elementary-flow.yaml")),
-        "ElementaryFlow",
-    )
-
-    expected = Graph()
-    scheme = URIRef("https://vocab.sentier.dev/flows/")
-    x1 = URIRef("https://vocab.sentier.dev/flows/X1")
-    expected.add((scheme, RDF.type, SKOS.ConceptScheme))
-    expected.add((x1, RDF.type, SKOS.Concept))
-    expected.add((x1, SKOS.inScheme, scheme))
-    expected.add((x1, SKOS.prefLabel, Literal("Foo", lang="en")))
-    expected.add((x1, SKOS.definition, Literal("A foo.", lang="en")))
-    expected.add((x1, SKOS.exactMatch, URIRef("http://example.org/X1")))
-
-    assert isomorphic(result, expected)
 
 
-def test_build_graph_handles_broader_and_alt_labels():
-    concepts = [
-        {
-            "iri": "https://vocab.sentier.dev/flows/X2",
-            "pref_label": "Bar",
-            "alt_labels": ["Baz"],
-            "broader": "https://vocab.sentier.dev/flows/X1",
-        }
+def test_generate_writes_ttl_files(layout, tmp_path):
+    terms_dir, relations_dir = layout
+    out = tmp_path / "out"
+    written = generate(terms_dir, relations_dir, out)
+    names = sorted(p.name for p in written)
+    assert names == [
+        "flows.ef-3.1.ttl",
+        "flows.ttl",
+        "processes.ttl",
+        "sources.ef-3.1.ttl",
+        "sources.ttl",
+        "unit-groups.ttl",
     ]
-    result = build_graph(
-        concepts,
-        "https://vocab.sentier.dev/flows/",
-        schema_view(str(paths.SCHEMAS_DIR / "elementary-flow.yaml")),
-        "ElementaryFlow",
-    )
-    x2 = URIRef("https://vocab.sentier.dev/flows/X2")
-    assert (x2, SKOS.altLabel, Literal("Baz", lang="en")) in result
-    assert (x2, SKOS.broader, URIRef("https://vocab.sentier.dev/flows/X1")) in result
-
-
-def test_build_graph_handles_notation_close_match_related():
-    concepts = [
-        {
-            "iri": "https://vocab.sentier.dev/flows/X3",
-            "pref_label": "Qux",
-            "notation": "Q3",
-            "close_match": ["http://example.org/close"],
-            "related": ["http://example.org/rel"],
-        }
-    ]
-    result = build_graph(
-        concepts,
-        "https://vocab.sentier.dev/flows/",
-        schema_view(str(paths.SCHEMAS_DIR / "elementary-flow.yaml")),
-        "ElementaryFlow",
-    )
-    x3 = URIRef("https://vocab.sentier.dev/flows/X3")
-    # notation is a plain literal (NOT language-tagged)
-    assert (x3, SKOS.notation, Literal("Q3")) in result
-    assert (x3, SKOS.closeMatch, URIRef("http://example.org/close")) in result
-    assert (x3, SKOS.related, URIRef("http://example.org/rel")) in result
-
-
-def test_generate_category_rejects_unregistered_scheme(tmp_path):
-    bad = tmp_path / "bad.yaml"
-    bad.write_text(
-        "scheme: https://vocab.sentier.dev/NOT-A-REAL-NS/\n"
-        "flows:\n"
-        "  - iri: https://vocab.sentier.dev/NOT-A-REAL-NS/X\n"
-        "    pref_label: X\n"
-        "    status: published\n"
-    )
-    with pytest.raises(SchemaValidationError):
-        generate_category(
-            category="elementary-flows",
-            schema_path=paths.SCHEMAS_DIR / "elementary-flow.yaml",
-            data_path=bad,
-            output_path=tmp_path / "out.ttl",
-        )
-
-
-def test_generate_category_writes_valid_ttl(tmp_path):
-    out = tmp_path / "flows.ttl"
-    result_path = generate_category(
-        category="elementary-flows",
-        schema_path=paths.SCHEMAS_DIR / "elementary-flow.yaml",
-        data_path=paths.DATA_DIR / "elementary-flows" / "water.yaml",
-        output_path=out,
-    )
-    assert result_path == out
-    assert out.exists()
-    # Re-parse the emitted TTL and confirm the freshwater concept is present.
-    reparsed = Graph().parse(out, format="turtle")
-    freshwater = URIRef("https://vocab.sentier.dev/flows/ENVO_00002006")
-    assert (freshwater, RDF.type, SKOS.Concept) in reparsed
-    assert (freshwater, SKOS.prefLabel, Literal("Freshwater", lang="en")) in reparsed
-
-
-def test_process_exchanges_generate(tmp_path):
-    out = generate_category(
-        category="processes",
-        schema_path=paths.SCHEMAS_DIR / "process.yaml",
-        data_path=paths.DATA_DIR / "processes" / "core.yaml",
-        output_path=tmp_path / "processes.ttl",
-    )
-    g = Graph().parse(out, format="turtle")
-    ONT = "https://vocab.sentier.dev/ontology/"
-    assert any(p == URIRef(ONT + "hasExchange") for _, p, _ in g)
-    assert any(p == URIRef(ONT + "amount") for _, p, _ in g)
-    # the minted exchange child node is addressable under the process IRI
-    assert any("/exchanges/" in str(s) for s, _, _ in g)
+    g = Graph().parse(out / "flows.ttl", format="turtle")
+    assert (URIRef(FLOWS + "ENVO_00002006"), SKOS.prefLabel, Literal("Freshwater", lang="en")) in g
+    first = (out / "flows.ttl").read_bytes()
+    generate(terms_dir, relations_dir, out)
+    assert (out / "flows.ttl").read_bytes() == first

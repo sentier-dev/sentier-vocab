@@ -1,16 +1,14 @@
 class GraphFilterError(Exception):
     """Filter on graph produced undesired result"""
 
-    pass
-
 
 class MissingDimensionVector(Exception):
     """Unit is missing `hasDimensionVector` attribute"""
 
-    pass
+
+class ValidationError(Exception):
+    """The terms/ or relations/ layer violates term.yaml or relation.yaml."""
 
 
-class SchemaValidationError(Exception):
-    """A data file failed validation against its LinkML schema."""
-
-    pass
+# Old name, kept one release for callers that catch it.
+SchemaValidationError = ValidationError

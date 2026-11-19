@@ -11,7 +11,7 @@ import datetime as dt
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from sentier_vocab import paths
+from sentier_vocab import flow_identity, paths
 from sentier_vocab.errors import ValidationError
 from sentier_vocab.iris import identifier_from
 from sentier_vocab.layers import load_relations, load_terms, release_of
@@ -24,7 +24,6 @@ from sentier_vocab.schema import (
 )
 
 STATUS = ("draft", "published", "deprecated")
-UNIT_PREDICATE = "qudt:hasUnit"
 
 #: ``{iri: (type, file)}`` for every term.
 Index = dict[str, tuple[str, Path]]
@@ -159,37 +158,6 @@ def _check_cardinality(relations: dict[Path, list[dict]], rel_schema: RelationSc
     ]
 
 
-def _check_flow_identity(
-    terms: dict[Path, list[dict]], relations: dict[Path, list[dict]]
-) -> list[str]:
-    """(label, compartment, sub_compartment, unit) is unique per file, for flows with a unit."""
-    units: dict[str, str] = {}
-    for rows in relations.values():
-        for row in rows:
-            if row.get("predicate") == UNIT_PREDICATE:
-                units.setdefault(row["subject"], row["object"])
-    errors = []
-    for path, rows in terms.items():
-        seen: dict[tuple, str] = {}
-        for row in rows:
-            if row.get("type") != "elementary-flow" or row["iri"] not in units:
-                continue
-            attrs = row.get("attributes") or {}
-            key = (
-                row.get("pref_label"),
-                attrs.get("compartment"),
-                attrs.get("sub_compartment"),
-                units[row["iri"]],
-            )
-            if key in seen:
-                errors.append(
-                    f"{path.name}: flow identity {key!r} is shared by {seen[key]} and {row['iri']}"
-                )
-            else:
-                seen[key] = row["iri"]
-    return errors
-
-
 def _index_terms(terms: dict[Path, list[dict]]) -> tuple[Index, list[str]]:
     index: Index = {}
     duplicates: dict[str, set[str]] = defaultdict(set)
@@ -209,8 +177,16 @@ def _index_terms(terms: dict[Path, list[dict]]) -> tuple[Index, list[str]]:
 def validate(
     terms_dir: Path | str = paths.TERMS_DIR,
     relations_dir: Path | str = paths.RELATIONS_DIR,
+    known_duplicates_dir: Path | str | None = None,
 ) -> list[str]:
-    """Every problem in both layers as a list of lines; empty means valid."""
+    """Every problem in both layers as a list of lines; empty means valid.
+
+    ``known_duplicates_dir`` holds the per-release lists of accepted duplicate flows
+    (see ``flow_identity``); by default ``schemas/known-duplicate-flows/`` beside
+    ``terms_dir``.
+    """
+    if known_duplicates_dir is None:
+        known_duplicates_dir = flow_identity.default_known_dir(terms_dir)
     schema = load_term_schema(paths.TERM_SCHEMA)
     rel_schema = load_relation_schema(paths.RELATION_SCHEMA)
     terms = load_terms(terms_dir)
@@ -227,15 +203,16 @@ def validate(
         errors.extend(_check_relation_rows(path, rows, index, rel_schema))
         errors.extend(_check_sources(path, rows, index))
     errors.extend(_check_cardinality(relations, rel_schema))
-    errors.extend(_check_flow_identity(terms, relations))
+    errors.extend(flow_identity.check(terms, relations, known_duplicates_dir))
     return errors
 
 
 def validate_or_raise(
     terms_dir: Path | str = paths.TERMS_DIR,
     relations_dir: Path | str = paths.RELATIONS_DIR,
+    known_duplicates_dir: Path | str | None = None,
 ) -> None:
     """Raise ``ValidationError`` listing every problem, or return silently."""
-    errors = validate(terms_dir, relations_dir)
+    errors = validate(terms_dir, relations_dir, known_duplicates_dir)
     if errors:
         raise ValidationError("\n".join(errors))

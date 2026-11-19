@@ -1,0 +1,1214 @@
+# Known duplicate flows of the release ef-3.1.
+#
+# Flows that share their identity (label | compartment | sub_compartment | unit)
+# with another flow of the release and are accepted as the source publishes
+# them. `python -m sentier_vocab validate` accepts a shared identity only when
+# every flow sharing it is listed here, and refuses a listed flow that is not a
+# flow of the release or no longer shares its identity.
+#
+# Generated, then reviewed. To regenerate:
+#   uv run python -m sentier_vocab duplicate-flows ef-3.1 \
+#     > schemas/known-duplicate-flows/ef-3.1.txt
+#
+# 297 identities shared by 607 flows.
+
+# (rs)-1,2-dihydroxyhexane | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1f31e7a0-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/ee1cb8a8-d279-45af-9efc-8b003bcf2d91
+
+# 1,3-benzenediamine | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/8ab6f157-e94d-49c1-8259-33a6b0358e3a
+https://vocab.sentier.dev/flows/bcfe35cb-6ffe-4951-8f37-3478bfbd8130
+
+# 1,3-benzenediamine | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/3a0708b6-44e1-458e-8702-49da1a099fe8
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b085-0050c2490048
+
+# 1,3-benzenediamine | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/d931883f-f189-47e0-a9fb-4df1b37da4e7
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b086-0050c2490048
+
+# 1,3-benzenediamine | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/ee97f00c-ec02-4a3d-b4f3-b11ac330da78
+https://vocab.sentier.dev/flows/f214ae17-6555-11dd-ad8b-0800200c9a66
+
+# 1,3-benzenediamine | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5bd6768c-c9f5-4a3f-a05d-2d2d349b1445
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b088-0050c2490048
+
+# 1,3-benzenediamine | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/ef83568c-1dcf-41c8-8e8e-e858e9ce8c09
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b087-0050c2490048
+
+# 1,3-benzenediamine | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/eb998f1c-ab52-4255-b859-1fa865848d7a
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b083-0050c2490048
+
+# 1,3-benzenediamine | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/c9fa8940-cd81-4964-b8aa-133098195452
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b08c-0050c2490048
+
+# 1,3-benzenediamine | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/0b0fbc84-3592-47f8-9735-17d3f38fecd8
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b084-0050c2490048
+
+# 1,3-benzenediamine | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/df97302e-534e-4a8d-ae83-9920cd654945
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b089-0050c2490048
+
+# 1,3-benzenediamine | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/14f562b9-5272-410d-ac82-fec1cbe7f353
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b08d-0050c2490048
+
+# 1,3-benzenediamine | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/064591e0-b497-4575-a0e5-5f71cfa772ac
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b08b-0050c2490048
+
+# 1,3-benzenediamine | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2009c787-6123-4074-ba32-5934267530bc
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-b08a-0050c2490048
+
+# 1,6-hexanediyl-bis(2-(2-(1-ethylpentyl)-3-oxazolidinyl)ethyl)carbamate | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/be9b22ef-cd83-47e9-bf7e-87be9d654a22
+https://vocab.sentier.dev/flows/ea712464-aef6-4ca3-bf36-09cff4936001
+
+# 1,6-hexanediyl-bis(2-(2-(1-ethylpentyl)-3-oxazolidinyl)ethyl)carbamate | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5fde457a-9cd0-4d6d-a720-e0c34b7f0148
+https://vocab.sentier.dev/flows/d567f8ba-1f02-4027-9072-077fb51e751c
+
+# 1-pentene | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/ba13c942-4750-4808-80e5-3c5af57bac66
+https://vocab.sentier.dev/flows/c0eba73b-4455-4216-a047-c0b953c3a6e6
+
+# 1-pentene | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/7e2b93ae-cd6e-4355-aec7-d6e2f3bc743f
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9fe2-0050c2490048
+
+# 1-pentene | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5d3e4983-e629-4fc1-aca7-03ef02a35b80
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9fe3-0050c2490048
+
+# 1-pentene | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/573303c3-6843-4e79-9ef3-140d889fa492
+https://vocab.sentier.dev/flows/f214d52f-6555-11dd-ad8b-0800200c9a66
+
+# 1-pentene | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/f3ed77d4-cc94-4c03-a687-aa28c6fbac50
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9fe5-0050c2490048
+
+# 1-pentene | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/569b3ff0-923a-4842-a22a-1d2814a64d3d
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9fe4-0050c2490048
+
+# 1-pentene | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/ed2da0e9-043b-470c-9f77-8513aebc5962
+https://vocab.sentier.dev/flows/f214d52d-6555-11dd-ad8b-0800200c9a66
+
+# 1-pentene | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2c4262fa-6ee1-4ddd-bde6-9ad35fe72d19
+https://vocab.sentier.dev/flows/f214d530-6555-11dd-ad8b-0800200c9a66
+
+# 1-pentene | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/529108ef-688b-4cff-8da3-090d3c2aa498
+https://vocab.sentier.dev/flows/f214d532-6555-11dd-ad8b-0800200c9a66
+
+# 1-pentene | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/782ae43c-2c2f-4154-80c2-4f2f7a730b4f
+https://vocab.sentier.dev/flows/f214d52e-6555-11dd-ad8b-0800200c9a66
+
+# 1-pentene | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/da63d12c-c4eb-4956-a1f7-dd83f579e841
+https://vocab.sentier.dev/flows/f214d531-6555-11dd-ad8b-0800200c9a66
+
+# 1-pentene | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/aea8b4ce-a45f-43ad-90b0-976d848ee020
+https://vocab.sentier.dev/flows/f214d533-6555-11dd-ad8b-0800200c9a66
+
+# 1-pentene | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/ba46efaa-8075-497a-a304-a9408b255e0e
+https://vocab.sentier.dev/flows/f214d534-6555-11dd-ad8b-0800200c9a66
+
+# 2,4-dihydroxy-n-(3-hydroxypropyl)-3,3-dimethylbutanamide | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5c0eebcc-74d5-4939-9818-8d2177ae48b4
+https://vocab.sentier.dev/flows/b64614c0-5ac8-49b1-a654-d960e79d4f69
+
+# 2,4-dihydroxy-n-(3-hydroxypropyl)-3,3-dimethylbutanamide | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/8b75eecc-7fe2-4c2f-8a27-f70358a1bf96
+https://vocab.sentier.dev/flows/e7cab797-bdf1-4b1e-9b9f-bb6ff9a3f2a9
+
+# 2-bromo-1,1,1-trifluoroethane | air | - | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/04209569-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a0f8-0050c2490048
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a0f9-0050c2490048
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a0fa-0050c2490048
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a0fb-0050c2490048
+
+# 2-pentene | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-97a3-0050c2490048
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a5c1-0050c2490048
+
+# 2-pentene | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-97a4-0050c2490048
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a5c2-0050c2490048
+
+# 2-pentene | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/172a8bdb-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a5c5-0050c2490048
+
+# 2-pentene | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-97a6-0050c2490048
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a5c4-0050c2490048
+
+# 2-pentene | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-97a5-0050c2490048
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a5c3-0050c2490048
+
+# 2-pentene | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/172a8bd9-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/f214d535-6555-11dd-ad8b-0800200c9a66
+
+# 2-pentene | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/172a8bdc-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/f214d537-6555-11dd-ad8b-0800200c9a66
+
+# 2-pentene | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/172a8bda-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/f214d536-6555-11dd-ad8b-0800200c9a66
+
+# 2-pentene | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/172a8bde-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/f214d538-6555-11dd-ad8b-0800200c9a66
+
+# 2-pentene | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/172a8be0-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/f214d53a-6555-11dd-ad8b-0800200c9a66
+
+# 3,6-dimethyl-1,4-dioxane-2,5-dione | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/8220824e-d3d9-4de4-a0ab-51693ac60e4c
+https://vocab.sentier.dev/flows/e078a6ea-c14e-422e-ae54-3ff60ca5301f
+
+# 3,6-dimethyl-1,4-dioxane-2,5-dione | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/9a7da893-8364-4fbe-82c9-887abde6ec6c
+https://vocab.sentier.dev/flows/c22c2e2a-bfe5-4aa4-96e4-452ee9405313
+
+# 4-dodecylbenzenesulfonic acid | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/830f2bbf-7535-4874-baf8-feedf37a4210
+https://vocab.sentier.dev/flows/9ed8caee-be04-454e-9162-fc017c99f23b
+
+# 4-dodecylbenzenesulfonic acid | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/09cb104d-c5b1-48a4-baa1-1cfe16659954
+https://vocab.sentier.dev/flows/f2118dad-ee42-4918-bbb1-265e8f28a8a5
+
+# 4-dodecylbenzenesulfonic acid | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2964aab4-ae1d-42f9-9eeb-e09aec264b70
+https://vocab.sentier.dev/flows/3afafd81-f8fe-4af2-9a10-66732bf7f3d9
+
+# 4-dodecylbenzenesulfonic acid | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2cec753d-1892-46c9-99cf-bdf2dfbdb1e9
+https://vocab.sentier.dev/flows/3087e327-79b4-4ca6-b1ef-d5d099998c61
+
+# 4-dodecylbenzenesulfonic acid | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/63f67b42-8feb-4f1d-9fc5-28e1a0e18bc3
+https://vocab.sentier.dev/flows/d8039c58-5571-4d7f-b12b-634f10e4d3b2
+
+# 4-dodecylbenzenesulfonic acid | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/6e8e837a-a89c-40c3-b367-787ca8b144fd
+https://vocab.sentier.dev/flows/83a61e96-16d7-45d5-95cd-f4f631297003
+
+# 4-dodecylbenzenesulfonic acid | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/073392bb-ad0d-4d6b-be39-9477c091556b
+https://vocab.sentier.dev/flows/86a28829-a559-4d1a-8ac3-48acd009b8a7
+
+# 4-dodecylbenzenesulfonic acid | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1c690496-70a5-45ba-b2d4-8750b3edb588
+https://vocab.sentier.dev/flows/67d29d4b-e411-4ef5-bd91-e438f7b7700f
+
+# 4-dodecylbenzenesulfonic acid | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2655da11-5868-463b-a781-1eb4bd348f95
+https://vocab.sentier.dev/flows/37eaa1b2-e164-4706-9492-a528a9b591bb
+
+# 4-dodecylbenzenesulfonic acid | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/831139de-6daf-4787-971a-34705c663761
+https://vocab.sentier.dev/flows/c7b95859-fe55-4464-a59d-2cbb6f8dcd10
+
+# 4-dodecylbenzenesulfonic acid | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/63aa8397-b597-4d95-a075-7f1d8e14f97e
+https://vocab.sentier.dev/flows/a7271f59-f7d1-4c7d-905f-991b8cf5c1e1
+
+# 4-tert-Butylcyclohexyl acetate | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/510f68fa-5718-4a99-a385-5253fd40c298
+https://vocab.sentier.dev/flows/f3e69656-4370-47c0-9cf5-2a4adab853c4
+
+# 4-tert-Butylcyclohexyl acetate | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/75b83c69-e977-4922-9cf5-463dca432bd6
+https://vocab.sentier.dev/flows/d8062f35-3ef0-4572-8d0b-bd6f3396b84f
+
+# 4-tert-Butylcyclohexyl acetate | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a3d228-8c7c-4e74-b1cc-7ab0e7805859
+https://vocab.sentier.dev/flows/af22b92d-219a-4175-8269-160da438dee1
+
+# 4-tert-Butylcyclohexyl acetate | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2e516676-ad87-4c27-a2d9-1d11d459725b
+https://vocab.sentier.dev/flows/c0e6f145-2c85-4456-b4b3-d65a2df356b6
+
+# 4-tert-Butylcyclohexyl acetate | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/71bc0ce6-d8a9-4fe3-8321-3f72da4c34cd
+https://vocab.sentier.dev/flows/b5e23deb-c0a5-4c22-ae64-6190ccd892ba
+
+# 4-tert-Butylcyclohexyl acetate | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/02654ba9-1d80-40c5-86dd-10b3c6421a58
+https://vocab.sentier.dev/flows/0d9489ff-854b-480b-bf5f-98a47a5fd71d
+
+# 4-tert-Butylcyclohexyl acetate | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2b6c1b97-6441-44ed-89f7-4339180b010b
+https://vocab.sentier.dev/flows/e403fa56-0f42-4aa5-b7ce-67804ce63212
+
+# 4-tert-Butylcyclohexyl acetate | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/6aa0d9cf-ee8d-4488-9363-fdcce8ff9af8
+https://vocab.sentier.dev/flows/971f53bd-27a1-4b89-b568-bc009c6cadf6
+
+# 4-tert-Butylcyclohexyl acetate | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/ba32feaf-2a95-4ad7-861c-1afc7f0773ac
+https://vocab.sentier.dev/flows/d91ec5f3-fe5b-44fc-9bcf-0985634a652b
+
+# 4-tert-Butylcyclohexyl acetate | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/001f464f-93dc-4ce4-8764-d2e9224e2d6b
+https://vocab.sentier.dev/flows/78a5f941-4977-4df5-b770-410c921ecdb4
+
+# 4-tert-Butylcyclohexyl acetate | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/8e9f7689-fc29-4ed3-b1bd-8f038e92ef49
+https://vocab.sentier.dev/flows/f52fba25-1f62-494d-a6de-105d43315c97
+
+# Bis(2-ethylhexyl) But-2-enedioate | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1cef9329-399c-40ed-bf89-2bc020c7c590
+https://vocab.sentier.dev/flows/9f5dd172-4ebc-4211-b85a-69b14229b9c9
+
+# Bis(2-ethylhexyl) But-2-enedioate | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/66c96611-bcbc-4535-b218-f1730ef7f01a
+https://vocab.sentier.dev/flows/f1d869cf-2475-4511-8c54-b91ffa5a33e7
+
+# Bis(2-ethylhexyl) But-2-enedioate | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1c5aafa9-61dd-4cad-924c-ad40fd67e71f
+https://vocab.sentier.dev/flows/cafde9fc-64f4-4a2c-b521-1e01cae91cc3
+
+# Bis(2-ethylhexyl) But-2-enedioate | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1f4b58dd-ff4b-4188-a297-81a1e324c9d4
+https://vocab.sentier.dev/flows/3bffbe64-99f1-4d99-b7ad-2354ae68c1a0
+
+# Bis(2-ethylhexyl) But-2-enedioate | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/45527bbd-a5a4-4966-8139-8f9e83cf2eb2
+https://vocab.sentier.dev/flows/ad75375e-6eef-41ad-bb42-62fddebc833b
+
+# Bis(2-ethylhexyl) But-2-enedioate | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/7e818477-6d0a-4b59-9bf6-0af08984d366
+https://vocab.sentier.dev/flows/e8e179a7-2858-4886-a220-b968780fcbf3
+
+# Bis(2-ethylhexyl) But-2-enedioate | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2d6b0253-fbdc-45a1-a39e-676335efde21
+https://vocab.sentier.dev/flows/8a11a6c8-c6df-4a91-9a1a-801bc9039511
+
+# Bis(2-ethylhexyl) But-2-enedioate | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/d195ddb8-25c6-4d9e-9272-2770b5587ff2
+https://vocab.sentier.dev/flows/ee2c3750-d5ef-48fd-9c26-fda509bb11b4
+
+# Bis(2-ethylhexyl) But-2-enedioate | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/575fc6b1-04a6-4e22-9fc2-71d21c6eddd6
+https://vocab.sentier.dev/flows/e98bfa3d-dd39-48ce-a9af-baa46ffaf5bb
+
+# Bis(2-ethylhexyl) But-2-enedioate | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/c331e4b4-c3d2-48d2-b62e-486791c21812
+https://vocab.sentier.dev/flows/c5689df9-5244-415c-b638-9db6744cd4ba
+
+# Bisphenol A bis(2-hydroxypropyl) ether | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/cbb7d365-f361-4308-863e-d6e3eb56de78
+https://vocab.sentier.dev/flows/f709dbec-91d6-4f08-a71c-85a20f2d7864
+
+# Bisphenol A bis(2-hydroxypropyl) ether | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/980f360e-3020-4eaf-b414-9e6d4573da75
+https://vocab.sentier.dev/flows/a9a9454f-f60a-47d9-86be-44d0064cc239
+
+# Bisphenol A bis(2-hydroxypropyl) ether | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/6d9843df-78a8-41a7-b64a-23fe9c21747f
+https://vocab.sentier.dev/flows/7fdc8674-91b3-408b-bfe7-96b1f8cc5e5d
+
+# Bisphenol A bis(2-hydroxypropyl) ether | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5f724917-5e90-4a78-819c-70c52db3828f
+https://vocab.sentier.dev/flows/dbefae3b-1353-4c37-a44d-3202d16f43fd
+
+# Bisphenol A bis(2-hydroxypropyl) ether | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/76271204-cbfb-4ab4-b76b-447348a43bf0
+https://vocab.sentier.dev/flows/ca3be4c0-1621-4b8e-98e4-3b13e9c5d535
+
+# Bisphenol A bis(2-hydroxypropyl) ether | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/317cbec5-3c18-4f4b-92d2-e7af02347fd2
+https://vocab.sentier.dev/flows/a8418ed5-8e2c-4551-9288-9210f710f592
+
+# Bisphenol A bis(2-hydroxypropyl) ether | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/189591c8-b58e-41b0-ad04-c60c0b26189e
+https://vocab.sentier.dev/flows/59c03ba9-621b-4018-9e80-3521cec50436
+
+# Bisphenol A bis(2-hydroxypropyl) ether | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/64081b68-751f-4239-a209-e12c40a83f11
+https://vocab.sentier.dev/flows/a17fca7b-00bd-4c22-8478-a5e1b05dc11d
+
+# Bisphenol A bis(2-hydroxypropyl) ether | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/04ff2ceb-9aa6-4011-8e3f-d3c0284e7dc9
+https://vocab.sentier.dev/flows/5d1a94b3-8e5d-4d20-bf4b-b92b6809661b
+
+# Bisphenol A bis(2-hydroxypropyl) ether | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/742e5177-77dc-451f-ace2-27dc91932cb6
+https://vocab.sentier.dev/flows/d7ace58d-5a45-4efe-a00d-4f5d1bc397b8
+
+# Borax (B4Na2O7.10H2O) | soil | Non-renewable material resources from ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-97eb-0050c2490048
+https://vocab.sentier.dev/flows/72b7382f-a0f9-40dc-bf5d-3a537369e14e
+
+# C.I. Acid Orange 10 | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/b0c2f12e-f963-4e7d-8e87-0d65f50a206a
+https://vocab.sentier.dev/flows/e8362bd6-3723-4a25-b35e-0ca03f809231
+
+# C.I. Acid Orange 10 | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/e66afa17-2715-423f-9c9e-f5e3ff5f3581
+https://vocab.sentier.dev/flows/fcc8f96b-d8a6-49ec-9a37-ddbe9ba11759
+
+# C.I. Acid Orange 10 | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/09e8bf4f-fb61-4d8e-b584-87cb156ae7b6
+https://vocab.sentier.dev/flows/9fe9e529-da9b-4169-8e53-0f57a30f99b9
+
+# C.I. Acid Orange 10 | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/ac1abd53-565e-43d6-8ce5-0e7715cdc4e0
+https://vocab.sentier.dev/flows/bffb4f6e-56ff-421e-ad1f-d7193955d02d
+
+# C.I. Acid Orange 10 | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/21940ac1-994b-463e-af33-0a60718f3b06
+https://vocab.sentier.dev/flows/6e50f421-af8e-4ead-bf4e-570779a0969a
+
+# C.I. Acid Orange 10 | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/503b4731-f986-4120-b15f-ca364752b310
+https://vocab.sentier.dev/flows/6d7a5a37-be1a-49e3-aa72-a9bcada6917a
+
+# C.I. Acid Orange 10 | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1fdd132c-5758-4f90-bea2-6596d6ea2612
+https://vocab.sentier.dev/flows/8b5e31b2-023e-4e6e-b7ab-8a1cfdafe710
+
+# C.I. Acid Orange 10 | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/042274b8-6e69-49a1-98ab-7022a05d719b
+https://vocab.sentier.dev/flows/5438b57a-0657-4c56-a3e6-822fec083e53
+
+# C.I. Acid Orange 10 | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5bef5985-fff5-4526-a694-1b5d77ecff59
+https://vocab.sentier.dev/flows/c09d1dfa-cdcb-460a-876a-193b69f6334b
+
+# Citral | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/77ba59f0-009e-48fb-88fa-9bec5720159d
+https://vocab.sentier.dev/flows/a04426fc-53d3-453f-94bf-91f1b35875d5
+
+# Citral | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/0593cf90-7d34-4e4b-a37a-fdf2a0e6047a
+https://vocab.sentier.dev/flows/2116c3fa-7fbb-47c2-aed9-0b9d7bfbd9e7
+
+# Citral | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/381c146b-5b09-4922-93a0-be98020abd6d
+https://vocab.sentier.dev/flows/7a0a9f3b-95a6-4b38-983c-5493d44631d9
+
+# Citral | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/a9e0b9af-55c5-4ed6-8b8a-e62d3140fd63
+https://vocab.sentier.dev/flows/e233ab47-6b4e-4953-b861-7af195dcd879
+
+# Citral | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/9b9b5a27-6944-438f-a54a-8f754f75ad16
+https://vocab.sentier.dev/flows/f4b9339b-c128-4e94-aede-9fbb7f54a9ac
+
+# Citral | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2d91e2be-386f-4f65-9c2b-a1546821e64e
+https://vocab.sentier.dev/flows/80b52bdb-dc1f-4cde-be31-4dede355e992
+
+# Citral | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1bef52d9-2fc4-45df-98fc-8321e1fa7774
+https://vocab.sentier.dev/flows/22608514-449d-482a-a9c5-f1d2aef0ee9e
+
+# Citral | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/312172af-8291-4020-a7af-9a020b778939
+https://vocab.sentier.dev/flows/e1727bf4-4be5-4472-892b-72a275ed49a6
+
+# Citral | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/90dbc6ab-a8d6-4c02-895e-8c41851bb527
+https://vocab.sentier.dev/flows/cb13a6f5-f10f-4647-a8a3-5a56b3e4f7e7
+
+# Citral | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/a5a55b1d-277d-497a-8f23-72ccd28427d0
+https://vocab.sentier.dev/flows/d0669d8e-7ce3-4603-9d4c-8f24707d40f9
+
+# Dimethylhexadecylamine | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/21863fc5-2d94-4784-9fb1-e87aa7d87b76
+https://vocab.sentier.dev/flows/b0387def-14d5-4eb7-8f76-d634576e9fab
+https://vocab.sentier.dev/flows/fa0074dd-a294-4d91-9a8c-03f4fc01adef
+
+# Dimethylhexadecylamine | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/a15f014d-6906-423f-8bd4-15ecdbc2b94d
+https://vocab.sentier.dev/flows/ba56e4e9-d0e4-4b18-a902-df5dfc6551fa
+https://vocab.sentier.dev/flows/c8db6aa5-3e8f-4319-8a82-433a67d11cd0
+
+# Dimethylhexadecylamine | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/71aa1729-bb32-424c-b6bb-0b6aa06a9c16
+https://vocab.sentier.dev/flows/89e058c5-75ef-4a47-9c31-073b04ba6357
+https://vocab.sentier.dev/flows/f54c2e0e-e247-4469-9573-b069e975184c
+
+# Dimethylhexadecylamine | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2133baf6-4df9-4d63-b6fa-4267ac581450
+https://vocab.sentier.dev/flows/63d36688-0a0f-491c-ac29-e35b4abf9652
+https://vocab.sentier.dev/flows/a25c1436-f29b-4def-9ff6-2871ccd132cf
+
+# Dimethylhexadecylamine | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/7f150466-cb50-42e3-bc94-9435d358844f
+https://vocab.sentier.dev/flows/95958891-7faf-40ba-a765-f132ba52ad86
+https://vocab.sentier.dev/flows/e33cdc46-48c3-4682-8400-6f5e365892c1
+
+# Dimethylhexadecylamine | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2fd0cb38-eb33-43b3-923a-d22e085b12c6
+https://vocab.sentier.dev/flows/6ea51a55-5974-473c-9e6f-e2b9a1bfb63f
+https://vocab.sentier.dev/flows/afa78b13-eafb-4990-a9c4-8aeb9c42d364
+
+# Dimethylhexadecylamine | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/16d582e0-f463-44f3-b7ec-405e9a510c65
+https://vocab.sentier.dev/flows/9a48dd8e-3518-4a3f-ae4f-6ebfbf44ae0f
+https://vocab.sentier.dev/flows/ba00303e-1ba8-4202-86be-c3301ddfdc1d
+
+# Dimethylhexadecylamine | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08c05068-5d9f-4dfe-a4df-7102cee677c5
+https://vocab.sentier.dev/flows/2c1aee8f-750f-436a-b8cb-5e034ea39895
+
+# Dimethylhexadecylamine | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/0395274d-8a85-4bb4-833f-89b0ada1fe71
+https://vocab.sentier.dev/flows/183e210f-17a9-4d69-9c5d-41de7c88ab7a
+https://vocab.sentier.dev/flows/5bf5053a-ccbe-4a19-8a0a-45d12a5e1e06
+
+# Dimethylhexadecylamine | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/19135bab-d835-4131-88ca-29329a498c9c
+https://vocab.sentier.dev/flows/7cc42c13-d3a2-4ac1-a5ae-d7887d540b60
+https://vocab.sentier.dev/flows/cc1dfdfa-425a-4ba2-915c-39d3aa7d6fdf
+
+# Dimethylhexadecylamine | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1de9ce63-b00e-4e13-9fd0-29c5fc8efb1e
+https://vocab.sentier.dev/flows/2333aa93-c9f6-4a56-b60c-3fbdec58c9eb
+https://vocab.sentier.dev/flows/b5ed0674-6c06-45a3-96dd-0b7e46f085c4
+
+# HFE-7200 | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/b0681715-c852-4456-ab78-c88e68502c7a
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a39b-0050c2490048
+
+# HFE-7200 | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/f9c7caa5-1b99-4ce5-846c-9ca86fc074c2
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a39c-0050c2490048
+
+# HFE-7200 | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/ed1c4bbd-43e8-432d-8752-1a211ae0e573
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a39e-0050c2490048
+
+# HFE-7200 | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1b258cbc-798d-4d86-81c1-3cb852a54e8f
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a39d-0050c2490048
+
+# HFE-7200 | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/64b1f557-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/bdad7157-7f49-4f75-ae93-d86a8d71a7b6
+
+# HFE-7200 | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/55d0ee66-af45-49fb-91cb-933d8d151e28
+https://vocab.sentier.dev/flows/64b1f55c-6556-11dd-ad8b-0800200c9a66
+
+# HFE-7200 | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/64b1f558-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/6ac7bf23-16eb-4564-b4c0-0cc5a16a0008
+
+# HFE-7200 | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/0e131a92-397f-489e-aaa9-62817d1caba1
+https://vocab.sentier.dev/flows/64b1f55b-6556-11dd-ad8b-0800200c9a66
+
+# HFE-7200 | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/64b1f55d-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/6ae94596-1d03-4d2f-b36b-6a60ecf2ff76
+
+# Hexadecylamine | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/0dc33d0c-17c5-4831-8c24-a0afb762b898
+https://vocab.sentier.dev/flows/4a8c4b95-41e3-4a99-beae-059e22a08fd0
+
+# Hexadecylamine | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2f2a35a2-eb4e-45d2-b20a-6d3fdfd8c58c
+https://vocab.sentier.dev/flows/f53859cf-09bc-466e-a777-b3454eb8ec9a
+
+# Hexadecylamine | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/6600dd2e-74fb-491b-8d29-d84202895013
+https://vocab.sentier.dev/flows/e382c9a5-368e-487e-b361-e14ba4154f35
+
+# Hexadecylamine | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/501fad12-d639-4fee-8389-11212e3bf11f
+https://vocab.sentier.dev/flows/df7de835-0583-48ed-b7bd-466940aaee70
+
+# Hexadecylamine | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/58dd5cbd-8136-42b6-ace1-29b6d17b9319
+https://vocab.sentier.dev/flows/c3da9475-b229-4ba4-a5e5-5b9f89758326
+
+# Hexadecylamine | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4caf740a-de69-49d1-bd09-9fea12cde358
+https://vocab.sentier.dev/flows/8eec6371-ff46-44b2-8d89-ff1ff2a5f8ad
+
+# Hexadecylamine | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/22c0ee3e-dc4e-47ba-a7a9-d75e37b277c4
+https://vocab.sentier.dev/flows/e1bb2a1b-2f47-450e-99f3-28b02a80590c
+
+# Hexadecylamine | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/13ea2e8e-3c9a-4fff-85c3-374de2540fdc
+https://vocab.sentier.dev/flows/80f911c8-061a-4f45-abb6-676e413bb1b6
+
+# Hexadecylamine | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5b3a78bc-9cf9-484c-b4f2-871a0b9aa3cf
+https://vocab.sentier.dev/flows/a08a437e-737a-4c7c-850d-e20d6152cc1f
+
+# Hexadecylamine | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/6b8bb610-62d3-40b1-ad5f-2aca1e46e6db
+https://vocab.sentier.dev/flows/f2d787de-8461-426a-a7da-99872836bff1
+
+# Hexadecylamine | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/ae79f642-c970-462c-9a2b-f867d260189c
+https://vocab.sentier.dev/flows/d7e36ae2-19a8-4e7b-b5fd-fd2e17512d06
+
+# Isoamyl Alcohol | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5a87ea55-b7e6-475d-beb4-9dbb0b1c7286
+https://vocab.sentier.dev/flows/85d113dc-4dda-4ea7-abd1-42fbcb93d8a6
+
+# Isoamyl Alcohol | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/64f67ace-df7e-4e13-9923-7115b8e29130
+https://vocab.sentier.dev/flows/eb26ce1f-52d8-443a-a03e-580e6e04a786
+
+# Isoamyl Alcohol | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/d1a4f460-8c26-4461-95f9-e1a7af38f25d
+https://vocab.sentier.dev/flows/f795bc01-bd53-4eea-a810-dec6cae696be
+
+# Isoamyl Alcohol | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1d54fefe-5b56-4a46-9053-cb5463be37a6
+https://vocab.sentier.dev/flows/bb664818-1cfc-4241-9317-2bcf239814d0
+
+# Isoamyl Alcohol | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/581df13b-7f3d-4b2d-8480-5a316c29edea
+https://vocab.sentier.dev/flows/a3fcd056-c6ef-4e56-9303-ed10da2f2ba3
+
+# Isoamyl Alcohol | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/7382236d-f23a-46bb-9ac7-63fb44dc7ba2
+https://vocab.sentier.dev/flows/ea525a04-4052-44d6-863d-a7bceda36927
+
+# Isoamyl Alcohol | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4fe8de4f-1800-4988-ae8b-3da01ad6a310
+https://vocab.sentier.dev/flows/9a78bd4d-08ea-4b58-a4e3-bfe5e0f5c85e
+
+# Isoamyl Alcohol | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/203d3886-6d6a-4e6f-b096-f464288ac35f
+https://vocab.sentier.dev/flows/a0325e14-30ca-43b6-a479-d67679b2b9a9
+
+# Isoamyl Alcohol | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/76c6b968-a68c-4374-952e-44fb165ff400
+https://vocab.sentier.dev/flows/c33b35bf-d5e9-4504-a66b-9bfb048c7005
+
+# Isoamyl Alcohol | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/191fdb5f-34ad-481d-80d8-6e5d356371d3
+https://vocab.sentier.dev/flows/bb7791c1-47ef-4d46-a836-975d007cffeb
+
+# Isodecanol | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/22a52984-4573-47a4-b2ea-d918efbdffc0
+https://vocab.sentier.dev/flows/7bfaa37f-634c-4ab5-bd62-6d09271fea02
+
+# Isodecanol | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/66906903-0059-4265-9378-01ac9814b59a
+https://vocab.sentier.dev/flows/e7889a7e-5f86-41d1-9f99-e79f175fa144
+
+# Isodecanol | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/34381a95-debf-4370-80d7-3059cbad0ce2
+https://vocab.sentier.dev/flows/98813ff7-b173-4190-b175-153b106eac9f
+
+# Isodecanol | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/3c1eb12b-ccfb-4f96-9868-04ee974c1ad4
+https://vocab.sentier.dev/flows/57d906bb-fd7a-407b-b440-a58b1a435ef1
+
+# Isodecanol | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/12256e15-2748-4e48-8f73-50a94239a7a1
+https://vocab.sentier.dev/flows/4d5045c3-dcf2-4f7b-b837-08c1fbd3266c
+
+# Isodecanol | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1f031a9e-5103-4253-88ba-34956eed01e9
+https://vocab.sentier.dev/flows/854df2e5-2ed7-4fe2-9b25-f6784f360636
+
+# Isodecanol | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1590a3f6-c926-4117-82ee-6a91c53b5888
+https://vocab.sentier.dev/flows/bb78288b-050b-4b6f-9bf9-2186d088fa5b
+
+# Isodecanol | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1fc14aef-c6cb-414d-9005-51044525b9b1
+https://vocab.sentier.dev/flows/5f09cc59-926e-4a6d-b191-666b036a6ce2
+
+# Isodecanol | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5db27bc3-7e70-4563-bb14-b242a4155f04
+https://vocab.sentier.dev/flows/9d0f779a-dd91-407e-be4d-771735d31fb5
+
+# Isodecanol | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/c4bfbd18-a052-4e5d-8590-6d3ef90b4b45
+https://vocab.sentier.dev/flows/e2b303e1-d95f-4301-91d0-952a1c678e47
+
+# Isodecanol | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/c2608aea-5e29-4e8d-a4a4-db704843ebd6
+https://vocab.sentier.dev/flows/c77e24c3-9ebc-4b48-ab85-fb54475998ad
+
+# Isooctan-1-ol | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2c6aef2e-f47f-4b95-ac69-1bc833b5e883
+https://vocab.sentier.dev/flows/9acb8ddb-85f9-4067-bae1-a6b776f0b9c1
+
+# Isooctan-1-ol | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/9cbb6393-bb54-462d-8da6-7793cdfdd4f7
+https://vocab.sentier.dev/flows/ab4421b7-6984-4f5a-ac1b-3f6795ec38ce
+
+# Isooctan-1-ol | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/04bfec5d-7cdc-4edc-99f3-65bf13bf8b17
+https://vocab.sentier.dev/flows/8ed152ec-552e-4461-bdd2-e1085648a571
+
+# Isooctan-1-ol | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/0d29bab2-3bd0-4329-a219-f809c4e2f03a
+https://vocab.sentier.dev/flows/c19c4e60-0d94-441e-ba44-aa72a0435f06
+
+# Isooctan-1-ol | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/86a2e5c5-b341-4ba2-8922-00daee6e788a
+https://vocab.sentier.dev/flows/d9c23fe8-e3e0-4094-a47f-543ced60c0f6
+
+# Isooctan-1-ol | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5a64e196-0880-499f-8b9d-a490240ce638
+https://vocab.sentier.dev/flows/7fdb1ec8-94d3-4582-84ec-39969c39198e
+
+# Isooctan-1-ol | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/13bf0373-e327-4d49-9289-b923b4a94d13
+https://vocab.sentier.dev/flows/67c5a05b-a1ca-4810-9d1e-f8044c8f2a82
+
+# Isooctan-1-ol | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/38845097-e02d-489f-8b6b-2d9711719750
+https://vocab.sentier.dev/flows/ca181c6a-bd9a-4dc6-8021-13b213b3de7e
+
+# Isooctan-1-ol | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/10c43b4f-1e29-4337-ad9f-84497d38ab78
+https://vocab.sentier.dev/flows/648179ad-d952-410a-be94-32ab12c0f5a6
+
+# Isooctan-1-ol | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1147a983-dfb8-4901-a09a-8480e272d92b
+https://vocab.sentier.dev/flows/71fb55bb-2af9-4bf6-ace5-bab581d6879f
+
+# Isooctan-1-ol | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/6ba46ea3-0c44-4dba-a6e2-500aebcab2e2
+https://vocab.sentier.dev/flows/d3e5f1c9-6ba9-4198-8130-fb8d0749ad46
+
+# Isotridecan-1-ol | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2b361228-d28c-44a6-8d44-d333095cbdd1
+https://vocab.sentier.dev/flows/d57462ad-0621-471e-a0dd-f93481d6d3c1
+
+# Isotridecan-1-ol | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/85c86036-c3bf-4aca-a94c-1fc838cb0094
+https://vocab.sentier.dev/flows/b325a088-deb1-4706-b5e9-da8c0cfa3966
+
+# Isotridecan-1-ol | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/54ede9a4-c739-4688-aa45-5cae02bf6e85
+https://vocab.sentier.dev/flows/c0a0f75c-83c7-4534-be46-e8713be14d27
+
+# Isotridecan-1-ol | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/3380efd4-0b7a-4361-9787-c5b0a7028b6e
+https://vocab.sentier.dev/flows/64419642-726a-4f03-8015-4abb262a4b53
+
+# Isotridecan-1-ol | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1b90999a-d535-4c75-b7e3-9819a3e05475
+https://vocab.sentier.dev/flows/4f2d4ec6-659c-4934-b119-ca30f63245ca
+
+# Isotridecan-1-ol | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/294e2cda-b92a-4256-bcb6-8f46dabbd163
+https://vocab.sentier.dev/flows/859e47b7-1bd8-4ad4-8644-57383f248841
+
+# Isotridecan-1-ol | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/05c6f58b-fc81-482c-a4d5-6968f39c19f1
+https://vocab.sentier.dev/flows/f795ba4f-f29d-4c51-8588-ca5cbd23bd40
+
+# Isotridecan-1-ol | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/f12aea1f-dd8c-43c3-9d34-70a8513b3a80
+https://vocab.sentier.dev/flows/fc945a26-802c-43b6-b32b-daceaea53f6b
+
+# Isotridecan-1-ol | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/596924e8-1f8f-421f-9620-461c5b0a5dc1
+https://vocab.sentier.dev/flows/d96449c0-f90e-49f6-ae8a-bfe0b70a90ec
+
+# Isotridecan-1-ol | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2ca36ba6-c075-4e68-9d85-55a8c7e7c405
+https://vocab.sentier.dev/flows/9fbe41b9-1c42-4358-bdab-ef2292fdf59d
+
+# Lauryldimethylamine | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/28304470-3814-495b-a12b-c21ee68ffd01
+https://vocab.sentier.dev/flows/426f068d-353d-4454-bd28-1686be9da672
+
+# Lauryldimethylamine | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4a632fc5-f1bc-4059-ae82-72a2830bb65c
+https://vocab.sentier.dev/flows/c754fd97-caa5-409c-8174-05898ba91a62
+
+# Lauryldimethylamine | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/8bf84877-0fff-46db-861a-3b8d740e0d2f
+https://vocab.sentier.dev/flows/abfc6cf2-75d0-415b-a12f-47ec496109bb
+
+# Lauryldimethylamine | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/5b926c72-1436-45d4-b7c6-a87579b0d77b
+https://vocab.sentier.dev/flows/ce8c187e-a898-4f1d-b85d-45dd110fc1c8
+
+# Lauryldimethylamine | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/565cab15-50ce-462c-ad64-04f4ffa31439
+https://vocab.sentier.dev/flows/b81e6bfe-376f-4372-a5dd-523d5e97f0db
+
+# Lauryldimethylamine | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1d2f8f37-7dae-46ae-98dd-cb4b6c3a665a
+https://vocab.sentier.dev/flows/2c83a2ef-b4bc-4642-aaf0-b03949d8e17c
+
+# Lauryldimethylamine | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/21b857fd-fb40-4bc1-9f67-a5f2fa2ea707
+https://vocab.sentier.dev/flows/d09ba105-f6e3-467c-ab12-dc2e79b8f8be
+
+# Lauryldimethylamine | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/22069261-12de-4d9e-b2aa-186ebd502c33
+https://vocab.sentier.dev/flows/8846d521-fe34-46b9-9ab1-677dc2f3f1bd
+
+# Lauryldimethylamine | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/01d259a1-8255-416b-af70-01fc6212ea07
+https://vocab.sentier.dev/flows/f96b0993-e60d-4f28-9633-52aa65275daf
+
+# Lauryldimethylamine | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4cd2e14a-7a8e-4df0-b651-c6fc8ab28465
+https://vocab.sentier.dev/flows/70526ecc-8a7e-4f1c-aef9-82ac8c4ab486
+
+# Metaldehyde | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/29061466-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/ded87b2f-bd7d-48ec-8d52-c04d9bac62d8
+
+# Metaldehyde | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/29061469-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/65b9f711-fcd1-43d0-b9bd-53058633c596
+
+# Metaldehyde | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2906146b-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/4989a147-db85-4398-b3c0-f6b180b4a496
+
+# Metaldehyde | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2906146d-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/ea9ae214-0eca-44a6-b172-a74157b0d2c6
+
+# Metaldehyde | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-95fb-0050c2490048
+https://vocab.sentier.dev/flows/deeb7d56-80f6-475a-8d80-925ab0704687
+
+# Metaldehyde | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-95fc-0050c2490048
+https://vocab.sentier.dev/flows/a3e5e849-1606-4333-a316-fa7b74882765
+
+# Metaldehyde | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/176e66ad-0b8d-42a0-9433-0efa8100e674
+https://vocab.sentier.dev/flows/29061468-6556-11dd-ad8b-0800200c9a66
+
+# Metaldehyde | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/060a17a5-f8ca-4e47-9793-461931071bcd
+https://vocab.sentier.dev/flows/2906146c-6556-11dd-ad8b-0800200c9a66
+
+# Metaldehyde | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/16777f50-3d13-494e-a954-2f06efcc4bd4
+https://vocab.sentier.dev/flows/2906146e-6556-11dd-ad8b-0800200c9a66
+
+# Methyl Bromide | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/193bf7d2-bd2d-4422-a091-d9ef1f41dd5d
+https://vocab.sentier.dev/flows/afa677f0-2433-4f1c-a243-225f7acd6b07
+
+# Methyl Bromide | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/9ae43462-e251-11e6-bf01-fe55135034f3
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a8ef-0050c2490048
+
+# Methyl Bromide | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/9ae436c4-e251-11e6-bf01-fe55135034f3
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a8f0-0050c2490048
+
+# Methyl Bromide | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/b5e3438d-f01c-4e18-89fb-a0215d5ba067
+https://vocab.sentier.dev/flows/d86cb000-6555-11dd-ad8b-0800200c9a66
+
+# Methyl Bromide | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/9ae43854-e251-11e6-bf01-fe55135034f3
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a8f2-0050c2490048
+
+# Methyl Bromide | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/9ae439e4-e251-11e6-bf01-fe55135034f3
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a8f1-0050c2490048
+
+# Methyl Bromide | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/84deb48b-25ec-4647-8936-e7477cc73b77
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a8ed-0050c2490048
+
+# Methyl Bromide | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/05f9801a-6b28-46bd-bc4b-b1ec03616d2b
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a8f3-0050c2490048
+
+# Methyl Bromide | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/6ef990c8-c83e-426a-a05b-add7fa15dfde
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a8f7-0050c2490048
+
+# Methyl Bromide | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/6919fe6d-5eeb-44b7-a987-a7fbbfc6b99c
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a8f5-0050c2490048
+
+# Methylene chloride | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/a35d01c1-3eb6-4fee-a37c-e62772a4b880
+https://vocab.sentier.dev/flows/c4a99bb4-8fdc-4ee3-87d9-4907366aa6f3
+
+# Methylene chloride | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/0f5baea9-203e-4280-bb66-67da83840161
+https://vocab.sentier.dev/flows/68b1f890-bccc-4c43-a591-e4909b1c5062
+
+# Molybdenum | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2d9d1e32-4f68-422c-9e96-b4c4c3378dd4
+https://vocab.sentier.dev/flows/bd973905-f415-4ca0-8314-00b0becfd968
+
+# Molybdenum | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/69528fd2-9cbe-458c-93c4-7766a5dc8472
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a75d-0050c2490048
+
+# Molybdenum | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/e0811a4f-5f09-4400-a180-2cd0684ea8be
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a75e-0050c2490048
+
+# Molybdenum | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/09916dfe-8516-46ec-b04a-58f4ea2eb97f
+https://vocab.sentier.dev/flows/2905510a-6556-11dd-ad8b-0800200c9a66
+
+# Molybdenum | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/95e68400-6ef1-44ee-8adc-0a468a094bb0
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a760-0050c2490048
+
+# Molybdenum | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/a834c32e-80b8-4737-babc-9a3c031272f3
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a75f-0050c2490048
+
+# Molybdenum | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/7c2f829f-92ee-481c-bcfc-958d6c80e5d6
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a75b-0050c2490048
+
+# Molybdenum | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/19b259f2-12a6-4992-9208-9708ee0fbb80
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a761-0050c2490048
+
+# Molybdenum | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/d9d07ffa-74c2-4b01-8e2c-b56912f8f176
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-ac33-0050c2490048
+
+# Molybdenum | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/21c88a6c-e8b2-4499-b817-107d72014e88
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-ac31-0050c2490048
+
+# Monolaurin | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/85911fff-82f0-42a0-b520-89afb3143bbc
+https://vocab.sentier.dev/flows/fd2ec53f-106a-4d85-bd65-7dcb22158c4f
+
+# Monolaurin | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1c34ad9c-b52b-4a33-882d-cce15553df22
+https://vocab.sentier.dev/flows/647dc488-86cf-46ff-b6e4-e74432951091
+
+# Monolaurin | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/3b79185c-ac2a-4997-ac69-873c9c88a66a
+https://vocab.sentier.dev/flows/f9bd7368-fbab-4f9a-a96a-69bb5afe0419
+
+# Monolaurin | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/9d98ed0e-e617-4627-bfbb-0879a934f2ac
+https://vocab.sentier.dev/flows/bd22cedd-3037-4ab8-adff-1ff21108af23
+
+# Monolaurin | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2ad59894-693c-4f81-adfc-1b96e0b02f12
+https://vocab.sentier.dev/flows/d2f715ef-8388-4b73-b9bf-1e71ea637adc
+
+# Monolaurin | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/cb0a2156-d597-4841-b944-a6b8528642aa
+https://vocab.sentier.dev/flows/ed8071db-117b-418d-a55d-cf6003201fa8
+
+# Monolaurin | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4a8af671-17d1-46ad-a75d-140cebf27120
+https://vocab.sentier.dev/flows/c86b34de-72cc-4f59-9bb9-9ba806204a4e
+
+# Monolaurin | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4b9ba81b-dc08-4e9a-90fa-4b60632d685c
+https://vocab.sentier.dev/flows/c8b85d67-5df6-4d4e-b480-fcc4bbf7702d
+
+# Monolaurin | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/90dedd17-94d1-4412-b61b-8ddab66be31c
+https://vocab.sentier.dev/flows/f6f19b96-ad78-4cb6-b9e2-f12ccf7f875e
+
+# Monolaurin | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2fefb7d7-4214-4fcb-9f75-637c0bc55fa4
+https://vocab.sentier.dev/flows/f1715e62-3bf4-453d-8a61-afeb3202a00f
+
+# Nitrogen | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1afb7a07-3a0d-45e3-baa8-d3013042a976
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aad6-0050c2490048
+
+# Nitrogen | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/3f1a4ec2-da1d-408d-86e1-86e2ad0027cd
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aada-0050c2490048
+
+# Paraffins | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/38bf1669-d5dc-4400-a608-fbde9f878b31
+https://vocab.sentier.dev/flows/444a5342-144b-4c56-b5ae-21cf132dddcf
+
+# Paraquat | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/29f91915-f685-4315-9f01-5a86385d5a73
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-961c-0050c2490048
+
+# Paraquat | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/044f905a-380c-4341-849a-5d25a137edbb
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-961d-0050c2490048
+
+# Paraquat | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/1f30fd5e-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/986205ff-a062-4d2b-8263-8ea7d0478948
+
+# Paraquat | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/11936eb8-1423-4d79-adab-280cb918aa4d
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9ecd-0050c2490048
+
+# Paraquat | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/b0019a26-8c37-4e8e-acea-71b066d9c19a
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9ecc-0050c2490048
+
+# Paraquat | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-961a-0050c2490048
+https://vocab.sentier.dev/flows/e1baa14e-3363-4e99-91cb-a93aa8d295a7
+
+# Paraquat | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/0131c82e-8971-439f-bf4d-3b2ab971b69f
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-961b-0050c2490048
+
+# Paraquat | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/fafd0232-2d04-483c-b8f4-0d8f76badb6d
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9ece-0050c2490048
+
+# Paraquat | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/847b3ddd-fdc2-41c0-b337-c1c1ff7edbd5
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9ed2-0050c2490048
+
+# Paraquat | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/85c53554-6efb-4fcb-b9de-8b15f2c27da5
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9ed0-0050c2490048
+
+# Phosphorus | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/25d5cc35-2827-4541-9412-fa45c9313bbe
+https://vocab.sentier.dev/flows/631b2cb3-35e6-4c01-ab28-9b49dbb115df
+
+# Plutonium | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloBQ
+https://vocab.sentier.dev/flows/13d3b697-739e-47d6-a1a7-d500fff42ae4
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aa90-0050c2490048
+
+# Plutonium | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloBQ
+https://vocab.sentier.dev/flows/271b7a5d-a741-4de5-8d4c-c131fac0a177
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aa91-0050c2490048
+
+# Plutonium | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloBQ
+https://vocab.sentier.dev/flows/29057807-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/f79f0762-8501-48ab-afaa-c0ae00b5a979
+
+# Plutonium | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloBQ
+https://vocab.sentier.dev/flows/4057d39e-382f-4c8e-85ed-15a11fc7fa48
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aa93-0050c2490048
+
+# Plutonium | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloBQ
+https://vocab.sentier.dev/flows/6bf7d36b-aadd-4ef9-a482-aa6f47a19bb5
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aa92-0050c2490048
+
+# Plutonium | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloBQ
+https://vocab.sentier.dev/flows/aef0887d-2891-4c4c-9e3f-7c17c0b63e8f
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aa94-0050c2490048
+
+# Plutonium | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloBQ
+https://vocab.sentier.dev/flows/67225611-3d42-4daf-8972-28a1c5e50895
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aa97-0050c2490048
+
+# Silicon | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/093bf3d4-d071-46e9-9b6d-065b1ec46643
+https://vocab.sentier.dev/flows/ea1aba8a-bb55-44c3-9769-2e01e780b28a
+
+# Triethyl Citrate | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2e9e7630-e156-419d-a07d-8e86877c29f8
+https://vocab.sentier.dev/flows/df7da734-99cc-41c7-a570-599a074695d1
+
+# Triethyl Citrate | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2302cf47-74c2-4b0e-8266-9332ece7bbd8
+https://vocab.sentier.dev/flows/9b44c946-d348-4cd2-ae06-8f40d3c6bd43
+
+# Triethyl Citrate | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2155f649-e56c-4f72-82b2-2bc77a4c259e
+https://vocab.sentier.dev/flows/2539a531-ddd8-4ad2-a38e-20a17805d068
+
+# Triethyl Citrate | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4323aec4-fbdf-4676-b3f8-bbec5b0c7406
+https://vocab.sentier.dev/flows/a89374f9-dfb3-4eca-bf34-6adb8e586e42
+
+# Triethyl Citrate | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/045d3686-b740-47b2-a49f-5c8bd87c586c
+https://vocab.sentier.dev/flows/6dd9206f-1047-40e3-8f38-d418ee11b8e0
+
+# Triethyl Citrate | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/cfcc7b74-160e-4cdc-bfd1-e0b436bf1ab3
+https://vocab.sentier.dev/flows/eba02f58-2c1b-4dae-b79e-dea93057ecc5
+
+# Triflumizole | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2861736f-ca0f-4a5e-9aae-5f5b722e2c6a
+https://vocab.sentier.dev/flows/68b20a35-4fd3-41c3-b90f-6962a0ad6061
+
+# Triflumizole | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/49ae4156-47f6-461d-87dd-d1f2bd04f304
+https://vocab.sentier.dev/flows/acdd6add-9cf7-428e-bb32-63add275e503
+
+# Triflumizole | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2f15b4d7-bf03-48e3-b524-1e281f77560b
+https://vocab.sentier.dev/flows/a547d63f-b987-45a4-bf63-dcabf6605ae5
+
+# Triflumizole | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/27a96761-abb7-4e1e-8dda-0ca14029453e
+https://vocab.sentier.dev/flows/8afe75e8-d01a-4e80-b3c0-c094f649ef7b
+
+# Triflumizole | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/376b5de3-4336-4594-ae47-df0ab88427be
+https://vocab.sentier.dev/flows/9e75082b-63c6-4c03-9767-5cceb4070d1f
+
+# Triflumizole | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/b5ce46f4-5ec8-4914-8ac8-8fb911bdb92d
+https://vocab.sentier.dev/flows/eaa7f728-ce8f-4e30-b65c-02e19547b259
+
+# Triflumizole | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/46c36248-101f-4cc0-8bbc-eaf459d8015d
+https://vocab.sentier.dev/flows/bbc5a3de-b5f1-4cbf-b951-0b42b6c7979a
+
+# Triflumizole | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/685ae838-efc3-48f4-a69c-abf564dffc46
+https://vocab.sentier.dev/flows/fe2291af-1db9-4666-96c9-ef58e313d5e8
+
+# Triflumizole | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/25442761-9ee8-424b-bf1b-93bce1143d9b
+https://vocab.sentier.dev/flows/ff9fd593-187d-4d32-a413-527cac720b74
+
+# Triflumizole | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/889cd268-808d-4b0e-bddd-ce1d446b31cd
+https://vocab.sentier.dev/flows/f7a6a56a-025f-4b74-806a-0f96b1cfc057
+
+# Turpentine | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/29061453-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/72a04c98-6939-4e89-a1a9-45878da175d7
+
+# Turpentine | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/29061454-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/324f18e2-bbb5-428a-a9aa-f7f5b91b5f79
+
+# Turpentine | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/29061457-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/296f9e5f-d204-44a8-ac84-d9e14fc5e30b
+
+# Turpentine | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/29061459-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/588b832c-4adc-4421-b81a-a1816a4157b1
+
+# Vanadium | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-8dbe-0050c2490048
+https://vocab.sentier.dev/flows/e8409091-b011-4861-a004-d9ee13d15921
+
+# Vanadium | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-8dc2-0050c2490048
+https://vocab.sentier.dev/flows/f8152976-6dfb-4f09-ad89-c485d1473826
+
+# alpha-BHC | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a37f-0050c2490048
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aee7-0050c2490048
+
+# anethole | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/31ef6fbd-3531-497c-87b4-de182eb2f9e2
+https://vocab.sentier.dev/flows/e34b001e-0cea-49cf-9168-a7eab15d2242
+
+# bis(2-ethylhexyl) but-2-enedioate | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/0cbed8ad-1c91-4649-9435-fb6ad67e669e
+https://vocab.sentier.dev/flows/f93585fb-c81c-4e18-8747-787082d70fd1
+
+# calcium dihydrogen phosphate | soil | Emissions to soil, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/c08910ab-8ad3-419c-bf56-ce6549206e97
+https://vocab.sentier.dev/flows/d472c2df-e2cd-4514-b00d-2c82c9bb1716
+
+# calcium dihydrogen phosphate | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/2e35e741-3510-4bcb-b48d-61881ca51ad5
+https://vocab.sentier.dev/flows/dd0baea6-ff99-458e-8505-58ecaa4fd131
+
+# kresoxim methyl | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-95c7-0050c2490048
+https://vocab.sentier.dev/flows/8924aa98-f3ce-43bb-8718-cc401f85153a
+
+# kresoxim methyl | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-95c5-0050c2490048
+https://vocab.sentier.dev/flows/85c1b9b3-59e5-4154-983e-577825f661ed
+
+# methanol | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/049dcb27-00f8-41b9-986d-c4fb59ab45b1
+https://vocab.sentier.dev/flows/8a2cb261-6ab0-46be-9773-24b0b0869d20
+
+# methanol | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9bf0-0050c2490048
+https://vocab.sentier.dev/flows/9a6beba8-e494-487d-8a50-c5d5a0a85e32
+
+# methanol | air | Emissions to air, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9bf1-0050c2490048
+https://vocab.sentier.dev/flows/4abde74e-58ef-425b-8742-30a77b7dd36f
+
+# methanol | air | Emissions to lower stratosphere and upper troposphere | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/172a8bc5-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/8b707c66-fd91-4f14-940c-5c506d79e399
+
+# methanol | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9bf3-0050c2490048
+https://vocab.sentier.dev/flows/a4cf79a2-4c35-42ae-a18c-cabd47ece659
+
+# methanol | air | Emissions to urban air close to ground | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9bf2-0050c2490048
+https://vocab.sentier.dev/flows/5702e3b3-68ec-4e03-ab38-e55e52b4e298
+
+# methanol | soil | Emissions to agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/9ea409cf-847b-4d8f-81d6-3acc62a75f0c
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-af74-0050c2490048
+
+# methanol | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/72526831-da17-489d-bd10-8c02e706760f
+https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a93c-0050c2490048
+
+# methanol | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9bf4-0050c2490048
+https://vocab.sentier.dev/flows/c08200c8-668a-44f2-b9b1-59d0dfde72a4
+
+# methanol | water | Emissions to sea water | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9bf8-0050c2490048
+https://vocab.sentier.dev/flows/7c329b5b-4601-45ce-a47a-f710d5cadcda
+
+# methanol | water | Emissions to water, unspecified | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9bf6-0050c2490048
+https://vocab.sentier.dev/flows/b6ce9c16-d3c4-4e82-b4fc-81b65c403113
+
+# methyl 2-hydroxypropanoate | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/84fc17db-ed4c-4fc9-b8e8-bc7990e2822f
+https://vocab.sentier.dev/flows/c7e55d87-f691-47b2-bf2b-242f13d50933
+
+# pent-2-ene | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/172a64b9-6556-11dd-ad8b-0800200c9a66
+https://vocab.sentier.dev/flows/be88dbb3-91f2-49f1-a5ca-4b0e46f87985
+
+# tridemorph | soil | Emissions to non-agricultural soil | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9054-0050c2490048
+https://vocab.sentier.dev/flows/8d96fb52-8e31-45c0-a50a-5b0ec3bea6a1
+
+# tridemorph | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9052-0050c2490048
+https://vocab.sentier.dev/flows/66785a20-0bd9-403e-a845-b52da4740f26
+
+# turpentine | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/172c4e40-5de9-4622-8a88-ead3e2cebaba
+https://vocab.sentier.dev/flows/2906145a-6556-11dd-ad8b-0800200c9a66

@@ -10,7 +10,7 @@
 #   uv run python -m sentier_vocab duplicate-flows ef-3.1 \
 #     > schemas/known-duplicate-flows/ef-3.1.txt
 #
-# 297 identities shared by 607 flows.
+# 299 identities shared by 608 flows.
 
 # (rs)-1,2-dihydroxyhexane | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
 https://vocab.sentier.dev/flows/1f31e7a0-6556-11dd-ad8b-0800200c9a66
@@ -135,13 +135,6 @@ https://vocab.sentier.dev/flows/b64614c0-5ac8-49b1-a654-d960e79d4f69
 # 2,4-dihydroxy-n-(3-hydroxypropyl)-3,3-dimethylbutanamide | water | Emissions to water, unspecified (long-term) | http://qudt.org/vocab/unit/KiloGM
 https://vocab.sentier.dev/flows/8b75eecc-7fe2-4c2f-8a27-f70358a1bf96
 https://vocab.sentier.dev/flows/e7cab797-bdf1-4b1e-9b9f-bb6ff9a3f2a9
-
-# 2-bromo-1,1,1-trifluoroethane | air | - | http://qudt.org/vocab/unit/KiloGM
-https://vocab.sentier.dev/flows/04209569-6556-11dd-ad8b-0800200c9a66
-https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a0f8-0050c2490048
-https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a0f9-0050c2490048
-https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a0fa-0050c2490048
-https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-a0fb-0050c2490048
 
 # 2-pentene | air | Emissions to air, unspecified | http://qudt.org/vocab/unit/KiloGM
 https://vocab.sentier.dev/flows/4d9a8790-3ddd-11dd-97a3-0050c2490048
@@ -997,6 +990,10 @@ https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9ed2-0050c2490048
 https://vocab.sentier.dev/flows/85c53554-6efb-4fcb-b9de-8b15f2c27da5
 https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-9ed0-0050c2490048
 
+# Particles (PM2.5 - PM10) | air | Emissions to non-urban air or from high stacks | http://qudt.org/vocab/unit/KiloGM
+https://vocab.sentier.dev/flows/08a91e70-3ddc-11dd-9504-0050c2490048
+https://vocab.sentier.dev/flows/21de19e0-ee11-11e6-bc64-92361f002671
+
 # Phosphorus | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
 https://vocab.sentier.dev/flows/25d5cc35-2827-4541-9412-fa45c9313bbe
 https://vocab.sentier.dev/flows/631b2cb3-35e6-4c01-ab28-9b49dbb115df
@@ -1032,6 +1029,14 @@ https://vocab.sentier.dev/flows/fe0acd60-3ddc-11dd-aa97-0050c2490048
 # Silicon | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloGM
 https://vocab.sentier.dev/flows/093bf3d4-d071-46e9-9b6d-065b1ec46643
 https://vocab.sentier.dev/flows/ea1aba8a-bb55-44c3-9769-2e01e780b28a
+
+# Technetium-99m | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloBQ
+https://vocab.sentier.dev/flows/13e353a4-e56c-477b-abd0-4ede4def91ad
+https://vocab.sentier.dev/flows/94b93899-b947-456b-8143-01d6fcbd7512
+
+# Tellurium-123m | water | Emissions to fresh water | http://qudt.org/vocab/unit/KiloBQ
+https://vocab.sentier.dev/flows/5f968663-40ef-4da4-ba31-47c7b1b600f1
+https://vocab.sentier.dev/flows/db1d0ab4-2e87-4f48-aa3c-c543d2d23cd6
 
 # Triethyl Citrate | air | Emissions to air, indoor | http://qudt.org/vocab/unit/KiloGM
 https://vocab.sentier.dev/flows/2e9e7630-e156-419d-a07d-8e86877c29f8

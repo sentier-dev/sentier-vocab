@@ -1,0 +1,144 @@
+# What of this repo is published on the vocabulary server (PyST, vocab.sentier.dev)
+# and how it is grouped there. Read by `python -m sentier_vocab pyst-plan|pyst-push`.
+#
+# A term's IRI is never changed by this file: a scheme is only the list a term
+# is shown in on the server. Every (release, type) present in terms/ must be
+# selected by exactly one scheme or by 'skip', so a new release cannot be
+# published, or left out, by accident.
+
+# Repo status -> PyST status (PyST knows accepted, draft, rejected).
+status:
+  draft: draft
+  published: accepted
+  deprecated: rejected
+
+# A scheme's page on the server prints all its top concepts at once. The roots
+# of a scheme are marked as top concepts only if there are at most this many;
+# a larger flat list (EF 3.1 has 93,919 flows) gets none and is reached by search.
+top_concept_limit: 500
+
+schemes:
+  - iri: https://vocab.sentier.dev/schemes/ef-3.1/elementary-flows
+    label: EF 3.1 elementary flows
+    definition: >-
+      Elementary flows of the Environmental Footprint (EF) 3.1 reference package of the
+      European Commission's Joint Research Centre, one concept per flow and compartment.
+    version: "3.1"
+    created: "2026-11-20"
+    creator: https://joint-research-centre.ec.europa.eu/
+    select: [{release: ef-3.1, types: [elementary-flow]}]
+
+  - iri: https://vocab.sentier.dev/schemes/ef-3.1/impact-assessment
+    label: EF 3.1 impact categories and method
+    definition: >-
+      The Environmental Footprint (EF) 3.1 life cycle impact assessment method and its
+      impact categories.
+    version: "3.1"
+    created: "2026-11-20"
+    creator: https://joint-research-centre.ec.europa.eu/
+    select: [{release: ef-3.1, types: [impact-category, lcia-method]}]
+
+  - iri: https://vocab.sentier.dev/schemes/bafu-2026/elementary-flows
+    label: BAFU 2026 elementary flows
+    definition: >-
+      Elementary flows of the Life Cycle Inventory database of the Swiss Federal
+      Administration, BAFU:2026 (version 1). A flow's unit is part of its identity.
+    version: "2026 v1"
+    created: "2026-11-20"
+    creator: https://www.bafu.admin.ch/
+    select: [{release: bafu-2026, types: [elementary-flow]}]
+
+  - iri: https://vocab.sentier.dev/schemes/bafu-2026/processes
+    label: BAFU 2026 processes
+    definition: >-
+      Process datasets of the Life Cycle Inventory database of the Swiss Federal
+      Administration, BAFU:2026 (version 1). Names and identifiers only, no inventory data.
+    version: "2026 v1"
+    created: "2026-11-20"
+    creator: https://www.bafu.admin.ch/
+    select: [{release: bafu-2026, types: [process]}]
+
+  - iri: https://vocab.sentier.dev/schemes/agribalyse-3.2/processes
+    label: Agribalyse 3.2 processes
+    definition: >-
+      Processes of ADEME's AGRIBALYSE 3.2 food database. Names and identifiers only, no
+      inventory data.
+    version: "3.2"
+    created: "2026-11-20"
+    creator: https://www.ademe.fr/
+    select: [{release: agribalyse-3.2, types: [process]}]
+
+  - iri: https://vocab.sentier.dev/schemes/agribalyse-3.2/products
+    label: Agribalyse 3.2 products
+    definition: >-
+      Food products of ADEME's AGRIBALYSE 3.2 database, with their CIQUAL codes and food
+      groups.
+    version: "3.2"
+    created: "2026-11-20"
+    creator: https://www.ademe.fr/
+    select: [{release: agribalyse-3.2, types: [product]}]
+
+  - iri: https://vocab.sentier.dev/schemes/foodex2/organisms
+    label: FoodEx2 organisms
+    definition: >-
+      Source organisms of EFSA's food classification and description system FoodEx2
+      (revision 2, MTX catalogue 17.1).
+    version: "2 (MTX 17.1)"
+    created: "2026-11-20"
+    creator: https://www.efsa.europa.eu/
+    select: [{release: foodex2, types: [organism]}]
+
+  - iri: https://vocab.sentier.dev/schemes/foodex2/products
+    label: FoodEx2 products
+    definition: >-
+      Food products of EFSA's food classification and description system FoodEx2
+      (revision 2, MTX catalogue 17.1).
+    version: "2 (MTX 17.1)"
+    created: "2026-11-20"
+    creator: https://www.efsa.europa.eu/
+    select: [{release: foodex2, types: [product]}]
+
+  - iri: https://vocab.sentier.dev/schemes/foodex2/qualifiers
+    label: FoodEx2 qualifiers
+    definition: >-
+      Facet descriptors (qualifiers) of EFSA's food classification and description system
+      FoodEx2 (revision 2, MTX catalogue 17.1).
+    version: "2 (MTX 17.1)"
+    created: "2026-11-20"
+    creator: https://www.efsa.europa.eu/
+    select: [{release: foodex2, types: [qualifier]}]
+
+  - iri: https://vocab.sentier.dev/schemes/sources
+    label: Sentier vocabulary sources
+    definition: >-
+      The published sources the terms of the Sentier vocabulary were taken from. Every
+      term names its source with dcterms:source.
+    version: "1"
+    created: "2026-11-20"
+    creator: https://www.d-d-s.ch/
+    select:
+      - {release: ef-3.1, types: [source]}
+      - {release: bafu-2026, types: [source]}
+      - {release: agribalyse-3.2, types: [source]}
+      - {release: foodex2, types: [source]}
+      - {release: sentier-core, types: [source]}
+
+  # The QUDT units scheme is already on the server. The loader adds the units
+  # QUDT lacks to it and never creates, updates or deletes the scheme itself.
+  - iri: https://vocab.sentier.dev/units/
+    existing: true
+    select: [{release: sentier-core, types: [unit]}]
+
+# In the repo, not on the server: the hand-written pilot terms, one per type.
+skip:
+  - release: sentier-core
+    types:
+      - contact
+      - elementary-flow
+      - flow-property
+      - impact-category
+      - lcia-method
+      - model-term
+      - process
+      - product
+      - unit-group

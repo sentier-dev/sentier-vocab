@@ -5,7 +5,7 @@ flowchart LR
     imp[sentier-importers] -->|PR: terms + relations parquet| voc[sentier-vocab]
     voc -->|generate| ttl[output/*.ttl]
     voc -->|read parquet| bw[sentier-brightway]
-    voc -.->|loader, planned| pyst["vocab.sentier.dev (PyST)"]
+    voc -.->|pyst-push| pyst["vocab.sentier.dev (PyST)"]
 ```
 
 ## What it is
@@ -52,6 +52,24 @@ Fetch the external ontologies and run the transitional importers. They write `ap
 ```bash
 uv run bash scripts/generate.sh
 ```
+
+## Publish on the vocabulary server
+
+`https://vocab.sentier.dev` runs [PyST](https://github.com/cauldron/py-semantic-taxonomy). `schemas/pyst.yaml` lists the concept schemes the terms are shown in there (one per term type and source release) and how the repo's status values translate. A term keeps its IRI; a scheme is only the list it appears in. Every (release, type) in `terms/` has to be selected by one scheme or by `skip`.
+
+Show what would be published. `--check` runs every document through PyST's own request models (Python 3.12, `--extra pyst`):
+
+```bash
+uv run --extra pyst python -m sentier_vocab pyst-plan --check
+```
+
+Add it to a server. A push only adds: what is already there is left alone, so it can be stopped and run again. The write key is read from `PYST_API_KEY`; `--scheme IRI` (repeatable) limits the push to some schemes:
+
+```bash
+PYST_API_KEY=... uv run python -m sentier_vocab pyst-push --server http://localhost:8000 --workers 8
+```
+
+`pyst-remove` takes the same arguments and deletes from the server exactly what `pyst-push` adds. A scheme marked `existing: true` (the QUDT units) is never created or deleted, only its terms from this repo are.
 
 ## Read the data
 

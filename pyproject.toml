@@ -60,6 +60,10 @@ testing = [
     "pytest-cov",
     "python-coveralls"
 ]
+# The vocabulary server's own request models, for `pyst-plan --check` (Python 3.12).
+pyst = [
+    "py-semantic-taxonomy>=0.4.4; python_version >= '3.12'",
+]
 dev = [
     "black",
     "build",

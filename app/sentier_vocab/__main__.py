@@ -1,4 +1,7 @@
-"""Command-line entry point: ``python -m sentier_vocab <validate|generate|coverage>``."""
+"""Command-line entry point: ``python -m sentier_vocab <command>``.
+
+Commands: validate, generate, coverage, pyst-plan, pyst-push, pyst-remove.
+"""
 
 import argparse
 import sys
@@ -7,6 +10,7 @@ from pathlib import Path
 from sentier_vocab import paths
 from sentier_vocab.coverage import write as write_coverage
 from sentier_vocab.generate import generate
+from sentier_vocab.layers import load_relations, load_terms
 from sentier_vocab.validate import validate
 
 
@@ -43,6 +47,70 @@ def cmd_coverage(args: argparse.Namespace) -> int:
     return 0
 
 
+def _pyst_plan(args: argparse.Namespace):
+    from sentier_vocab.pyst.publication import build_plan, load_config
+
+    return build_plan(
+        load_terms(args.terms), load_relations(args.relations), load_config(args.config)
+    )
+
+
+def _print_plan(plan) -> None:
+    for scheme in plan.schemes:
+        note = "  (already on the server)" if scheme.existing else ""
+        print(f"{len(scheme.concepts):>7}  {scheme.iri}{note}")
+    print(f"{sum(len(s.concepts) for s in plan.schemes):>7}  concepts")
+    print(f"{len(plan.relationships):>7}  relationships")
+    print(f"{plan.skipped_terms:>7}  terms left out (skip)")
+
+
+def cmd_pyst_plan(args: argparse.Namespace) -> int:
+    from sentier_vocab.pyst.publication import PlanError, check_against_pyst
+
+    try:
+        plan = _pyst_plan(args)
+    except PlanError as err:
+        print(err)
+        return 1
+    _print_plan(plan)
+    if args.check:
+        errors = check_against_pyst(plan)
+        for line in errors[:50]:
+            print(line)
+        print(f"{len(errors)} document(s) refused by PyST's request models")
+        return 1 if errors else 0
+    return 0
+
+
+def cmd_pyst_send(args: argparse.Namespace) -> int:
+    from sentier_vocab.pyst.publication import PlanError
+    from sentier_vocab.pyst.push import PushError, connect, push, remove
+
+    action = remove if args.command == "pyst-remove" else push
+    try:
+        plan = _pyst_plan(args)
+        report = action(plan, connect(args.server), only=args.scheme, workers=args.workers)
+    except (PlanError, PushError) as err:
+        print(err, file=sys.stderr)
+        return 1
+    print(report)
+    return 0
+
+
+def _pyst_args(parser: argparse.ArgumentParser) -> None:
+    _layer_args(parser)
+    parser.add_argument("--config", default=str(paths.PYST_CONFIG), help="schemas/pyst.yaml")
+
+
+def _server_args(parser: argparse.ArgumentParser) -> None:
+    _pyst_args(parser)
+    parser.add_argument("--server", required=True, help="Server URL, e.g. http://localhost:8000")
+    parser.add_argument(
+        "--scheme", action="append", help="Only this scheme IRI (repeatable). Default: all."
+    )
+    parser.add_argument("--workers", type=int, default=1, help="Parallel requests.")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="sentier_vocab")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -59,6 +127,23 @@ def main(argv: list[str] | None = None) -> int:
     cov = sub.add_parser("coverage", help="Regenerate docs/COVERAGE.md.")
     cov.add_argument("--output", default=None, help="Output path for the coverage matrix.")
     cov.set_defaults(func=cmd_coverage)
+
+    plan = sub.add_parser("pyst-plan", help="Show what would be published on the server.")
+    _pyst_args(plan)
+    plan.add_argument(
+        "--check", action="store_true", help="Validate with PyST's request models (pyst extra)."
+    )
+    plan.set_defaults(func=cmd_pyst_plan)
+
+    send = sub.add_parser(
+        "pyst-push", help="Add the plan to a server. Only adds; the write key is PYST_API_KEY."
+    )
+    _server_args(send)
+    send.set_defaults(func=cmd_pyst_send)
+
+    rem = sub.add_parser("pyst-remove", help="Delete from a server what pyst-push adds.")
+    _server_args(rem)
+    rem.set_defaults(func=cmd_pyst_send)
 
     args = parser.parse_args(argv)
     return args.func(args)

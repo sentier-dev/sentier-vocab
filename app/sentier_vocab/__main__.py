@@ -1,13 +1,13 @@
 """Command-line entry point: ``python -m sentier_vocab <command>``.
 
-Commands: validate, generate, coverage, pyst-plan, pyst-push, pyst-remove.
+Commands: validate, generate, coverage, duplicate-flows, pyst-plan, pyst-push, pyst-remove.
 """
 
 import argparse
 import sys
 from pathlib import Path
 
-from sentier_vocab import paths
+from sentier_vocab import flow_identity, paths
 from sentier_vocab.coverage import write as write_coverage
 from sentier_vocab.generate import generate
 from sentier_vocab.layers import load_relations, load_terms
@@ -21,8 +21,17 @@ def _layer_args(parser: argparse.ArgumentParser) -> None:
     )
 
 
+def _known_arg(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--known-duplicates",
+        default=None,
+        help="Directory of the per-release lists of accepted duplicate flows "
+        "(default: schemas/known-duplicate-flows/ beside the terms/ directory).",
+    )
+
+
 def cmd_validate(args: argparse.Namespace) -> int:
-    errors = validate(args.terms, args.relations)
+    errors = validate(args.terms, args.relations, args.known_duplicates)
     for line in errors:
         print(line)
     if errors:
@@ -111,18 +120,39 @@ def _server_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--workers", type=int, default=1, help="Parallel requests.")
 
 
+def cmd_duplicate_flows(args: argparse.Namespace) -> int:
+    terms = load_terms(args.terms)
+    if args.release not in flow_identity.flows_by_release(terms):
+        print(f"no term file of release {args.release!r} in {args.terms}", file=sys.stderr)
+        return 1
+    groups = flow_identity.colliding_groups(terms, load_relations(args.relations))
+    sys.stdout.write(flow_identity.render(args.release, groups.get(args.release, {})))
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="sentier_vocab")
     sub = parser.add_subparsers(dest="command", required=True)
 
     val = sub.add_parser("validate", help="Check terms/ and relations/ against the two contracts.")
     _layer_args(val)
+    _known_arg(val)
     val.set_defaults(func=cmd_validate)
 
     gen = sub.add_parser("generate", help="Validate, then emit TTL.")
     _layer_args(gen)
+    _known_arg(gen)
     gen.add_argument("--output-dir", default=str(paths.OUTPUT_DIR), help="Directory for TTL.")
     gen.set_defaults(func=cmd_generate)
+
+    dup = sub.add_parser(
+        "duplicate-flows",
+        help="Print the flows of a release that share their identity (label, compartment, "
+        "sub_compartment, unit): the content of its known-duplicate-flows list.",
+    )
+    dup.add_argument("release", help="Source release, e.g. ef-3.1.")
+    _layer_args(dup)
+    dup.set_defaults(func=cmd_duplicate_flows)
 
     cov = sub.add_parser("coverage", help="Regenerate docs/COVERAGE.md.")
     cov.add_argument("--output", default=None, help="Output path for the coverage matrix.")

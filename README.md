@@ -29,7 +29,7 @@ uv sync
 
 ## Use
 
-Check both layers against the contracts (IRI unique, type listed, IRI in the type's namespace, attribute keys declared, every edge resolves, one source per file, one unit per flow):
+Check both layers against the contracts (IRI unique, type listed, IRI in the type's namespace, attribute keys declared, every edge resolves, one source per file, one unit per flow, one flow per identity in a release):
 
 ```bash
 uv run python -m sentier_vocab validate
@@ -39,6 +39,12 @@ Validate, then write `output/*.ttl` (`--output-dir DIR` writes elsewhere):
 
 ```bash
 uv run python -m sentier_vocab generate
+```
+
+Flow identity: within one source release, no two elementary flows that state a unit share (label, compartment, sub_compartment, unit). The check reads every file of a release together. Duplicates a source publishes itself are listed, one flow IRI per line, in `schemas/known-duplicate-flows/<release>.txt`; a shared identity is accepted only when every flow sharing it is listed, and a listed flow that is not a flow of the release or no longer shares its identity is an error. Print the current list of a release, review it, and commit it:
+
+```bash
+uv run python -m sentier_vocab duplicate-flows ef-3.1 > schemas/known-duplicate-flows/ef-3.1.txt
 ```
 
 Regenerate the coverage matrix `docs/COVERAGE.md`. `uv run sentier-vocab <command>` is the same CLI:
@@ -90,9 +96,9 @@ units = pd.read_parquet("relations", filters=[("predicate", "==", "qudt:hasUnit"
 | Path | Holds |
 |---|---|
 | `app/sentier_vocab/` | Package. `schema.py` loads the contracts, `layers.py` reads and writes parquet, `validate.py`, `generate.py`, `coverage.py`, `iris.py`, `__main__.py` CLI, `importers/` with its own `output/`. |
-| `schemas/` | `term.yaml` and `relation.yaml`, the two contracts. |
+| `schemas/` | `term.yaml` and `relation.yaml`, the two contracts, and `known-duplicate-flows/<release>.txt`, the accepted duplicate flows of a release. |
 | `terms/` | `<release>.parquet` or `<release>-NN.parquet`: every term of one source release, all types mixed. |
-| `relations/` | `<release>.parquet`: every edge of one source release, all predicates mixed. |
+| `relations/` | `<release>.parquet` or `<release>-NN.parquet`: every edge of one source release, all predicates mixed. |
 | `output/` | Generated TTL. `<category>.ttl` (sentier-core) is committed. `<category>.<stem>.ttl` is gitignored. |
 | `.github/workflows/` | `ci.yml` PR gate, `generation-test.yml` importer TTL deploy, `python-test.yml`, `python-package-deploy.yml`. |
 

@@ -3,9 +3,9 @@ import sys
 
 from rdflib import Graph, URIRef
 from rdflib.namespace import RDF, SKOS
-from tests.conftest import CORE
+from tests.conftest import CORE, EF, FLOWS, KG, ef_terms
 
-from sentier_vocab.layers import write_terms
+from sentier_vocab.layers import write_relations, write_terms
 
 
 def _run(*args):
@@ -54,3 +54,32 @@ def test_cli_on_repository_layout():
     """The committed layers validate (slow; the real data)."""
     result = _run("validate")
     assert result.returncode == 0, result.stdout
+
+
+def test_cli_duplicate_flows_prints_the_list_of_a_release(layout):
+    terms_dir, relations_dir = layout
+    twin = {
+        "iri": FLOWS + "twin",
+        "type": "elementary-flow",
+        "pref_label": "Isosorbide",
+        "source": EF,
+        "attributes": {"compartment": "air"},
+    }
+    write_terms(ef_terms() + [twin], terms_dir, "ef-3.1")
+    edges = [
+        {"subject": FLOWS + code, "predicate": "qudt:hasUnit", "object": KG, "source": EF}
+        for code in ("0000b186", "twin")
+    ]
+    write_relations(edges, relations_dir, "ef-3.1")
+    args = ("--terms", str(terms_dir), "--relations", str(relations_dir))
+    assert _run("validate", *args).returncode == 1
+    result = _run("duplicate-flows", "ef-3.1", *args)
+    assert result.returncode == 0, result.stderr
+    assert f"{FLOWS}0000b186\n{FLOWS}twin\n" in result.stdout
+    known = terms_dir.parent / "schemas" / "known-duplicate-flows"
+    known.mkdir(parents=True)
+    (known / "ef-3.1.txt").write_text(result.stdout, encoding="utf-8")
+    assert _run("validate", *args).returncode == 0
+    elsewhere = _run("validate", *args, "--known-duplicates", str(terms_dir.parent / "none"))
+    assert elsewhere.returncode == 1
+    assert _run("duplicate-flows", "nowhere-1", *args).returncode == 1
